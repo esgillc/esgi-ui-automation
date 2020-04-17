@@ -23,6 +23,7 @@
         "reports": "gulp reports",
         "test": "gulp test",
         "allure-report": "node_modules/.bin/allure generate ./allure-results -c",
+        "deploy-dev": "aws s3 sync ./build/ s3://esgiuitestresultsbucket --region us-east-1",
         "open-report": "allure open",
         "createdirs": "gulp createdirs",
         "dev-allure": "npm run allure-report && npm run open-report"

@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo Installing Test dependencies
+      - npm install --silent
+      - echo Finished installing Test dependencies
+  build:
+    commands:
+      - echo Running UI Tests
+      - npm run reports
+      - npm run allure-report
+      - echo Deploying report
+      - npm run deploy-report
+cache:
+  paths:
+    - "node_modules/**/*"
+
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "allure-report/*"
+  discard-paths: no

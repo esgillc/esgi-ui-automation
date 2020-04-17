@@ -1,0 +1,14 @@
+node_modules
+*.log
+.DS_Store
+coverage
+.idea
+errorShots/
+screenshots/diff
+screenshots/screen
+logs/
+allure-report
+package-lock.json
+reports/
+allure-results/
+

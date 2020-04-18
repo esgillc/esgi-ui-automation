@@ -6,6 +6,7 @@ phases:
       nodejs: 10
     commands:
       - echo Installing Test dependencies
+      - npm config set unsafe-perm true
       - npm install -g chromium
       - npm install --silent
       - echo Finished installing Test dependencies

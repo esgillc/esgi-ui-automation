@@ -34,6 +34,9 @@ exports.config = {
     ],
     // define specific suites
     suites: {
+        login: [
+            `${dir}/specs/Login.spec.js`
+        ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
@@ -45,6 +48,11 @@ exports.config = {
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
+        ],
+        prodsmoke: [
+            // `${dir}/specs/Login.spec.js`,
+            // `${dir}/specs/WebFront.spec.js`,
+            `${dir}/specs/legacy/*.spec.js`
         ]
     },
 
@@ -58,7 +66,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    '--headless',
+                    // '--headless',
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1680,1050'
@@ -104,7 +112,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: process.env.WDIO_BASE_URL || 'https://beta.esgisoftware.com',
+    baseUrl: process.env.BASEURL || 'https://beta.esgisoftware.com',
 
     waitforInterval: 2000,
     // Default timeout for all waitFor* commands.

@@ -114,6 +114,13 @@ function Helper () {
         browser.pause(500)
     }
 
+    this.getText = function (css) {
+        return browser.execute(function (css) {
+            // eslint-disable-next-line no-undef
+            return $(css).text()
+        }, css)
+    }
+
     this.waitForLoadingToComplete = function (css, timeout) {
         css = css || '.loadmask-msg .animated-loading'
         timeout = timeout || 5000
@@ -159,6 +166,49 @@ function Helper () {
                 }
             }
         }
+    }
+
+    this.makeRequest = function (email) {
+        const rp = require('request-promise')
+        // const crypto = require('crypto')
+        const emailHash = '7b8671d2df4a772d4645e75d6cb21af3' // crypto.createHash('md5').update(email).digest('hex')
+        const url = `https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/${emailHash}/`
+        const key = '7be698f73bmsh248d31c025a66f8p166934jsnfc3bf39d4417'
+        var options = {
+            method: 'GET',
+            url: url,
+            headers: {
+                'x-rapidapi-key': key
+            },
+            json: true
+        }
+        return rp(options)
+    }
+
+    this.generateEmail = function () {
+        return `tester${new Date().getTime()}@feroxo.com`
+    }
+
+    this.confirmEmail = async function (email) {
+        // let res = await this.makeRequest(email)
+        browser.url(await this.getVerificationUrl(email))
+    }
+
+    // this.getVerificationUrl = async function (email) {
+    //     let res = await this.makeRequest(email)
+    //     let pre = /verify-email/
+    //     let suf = '>'
+    //     let result = res[0].mail_text.match(new RegExp(`${pre}(.*)${suf}`))
+    //     return `${browser.options.baseUrl}${pre}${result[1]}`
+    // }
+
+    this.getMail = async function () {
+        let email = 'test001@mailkept.com'
+        return this.makeRequest(email)
+        // let pre = /verify-email/
+        // let suf = '>'
+        // let result = res[0].mail_text.match(new RegExp(`${pre}(.*)${suf}`))
+        // return `${browser.options.baseUrl}${pre}${result[1]}`
     }
 }
 module.exports = new Helper()

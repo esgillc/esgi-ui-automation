@@ -16,6 +16,14 @@ const Users = {
             username: 'keppeladmin',
             password: 'automation01!'
         }
+    },
+    legacy: {
+        teacheradmin: {
+            credentials: {
+                username: 'dan504',
+                password: 'Wentiirim'
+            }
+        }
     }
 }
 const Types = [

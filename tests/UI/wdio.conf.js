@@ -34,6 +34,9 @@ exports.config = {
     ],
     // define specific suites
     suites: {
+        login: [
+            `${dir}/specs/Login.spec.js`
+        ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
@@ -45,6 +48,11 @@ exports.config = {
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
+        ],
+        prodsmoke: [
+            `${dir}/specs/Login.spec.js`,
+            `${dir}/specs/WebFront.spec.js`,
+            `${dir}/specs/legacy/*.spec.js`
         ]
     },
 
@@ -82,7 +90,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same UI should run tests.
 
-    maxInstances: 2,
+    maxInstances: 1,
     // ===================
     // Test Configurations
     // ===================
@@ -104,7 +112,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: process.env.WDIO_BASE_URL || 'https://beta.esgisoftware.com',
+    baseUrl: process.env.BASEURL || 'https://beta.esgisoftware.com',
 
     waitforInterval: 2000,
     // Default timeout for all waitFor* commands.
@@ -140,7 +148,19 @@ exports.config = {
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
     services: [
-        ['selenium-standalone']
+        ['selenium-standalone', {
+            logPath: 'logs',
+            installArgs: {
+                drivers: {
+                    chrome: { version: '79.0.3945.88' }
+                }
+            },
+            args: {
+                drivers: {
+                    chrome: { version: '79.0.3945.88' }
+                }
+            }
+        }]
     ],
 
      // options

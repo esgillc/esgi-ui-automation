@@ -1,6 +1,7 @@
 'use strict'
 
 import Page from './Page'
+import Helper from '../support/Helper'
 
 class LoginPage extends Page {
     constructor () {
@@ -13,6 +14,11 @@ class LoginPage extends Page {
         this.passwordCss = '[name="LoginForm.UserPassword"]'
         this.submitCss = '.login-btn'
         this.lostPasswordLinkCss = '.lost-password-wrapper a'
+
+        // Remind Password Modal
+        this.remindPassEmailAddressCss = '#email-address'
+        this.remindPassusernameCss = '#user-name'
+        this.remindPassSuccessAlertCss = '.SuccessfulTextEmail.alert.alert-success'
     }
 
     get loginButton () { return $(this.loginButtonCss) }
@@ -29,17 +35,50 @@ class LoginPage extends Page {
         browser.pause(250)
         this.waitForPageToLoad()
         browser.pause(3000) // @TODO: Implement wait for new window
-        // After logging into the assessment switch to the assessment window
-        browser.switchWindow(`${browser.options.baseUrl}/esgi`)
 
-        browser.pause(2000)
+        let protocol
+        let suffix
+        const mid = 'www.esgisoftware.com'
+        if (browser.getUrl().toLowerCase().includes('beta')) {
+            suffix = 'esgi'
+            protocol = 'http://'
+        } else {
+            suffix = 'ESGI/Public/jsindex.aspx'
+            protocol = 'https://'
+        }
+
+        // After logging into the assessment switch to the assessment window
+        browser.switchWindow(`${protocol}${mid}/${suffix}`)
+
+        browser.pause(1000)
         // Handle modal @TODO: move this to a modals
         this.isModalVisible() && browser.click('.close')
         browser.pause(500)
         this.isModalVisible() && browser.click('.close-popup')
     }
+
     isModalVisible () {
         return browser.isVisible('.modal-dialog')
+    }
+
+    clickLostPasswordLink () {
+        this.lostPasswordLink.click()
+        browser.pause(2000) // @TODO: wait for modal to popup
+    }
+
+    passwordReminder (email) {
+        this.clickLostPasswordLink()
+        $(this.remindPassEmailAddressCss).setValue(email)
+        $('button=Submit').click()
+        browser.pause(3000)
+    }
+
+    isPasswordReminderSent () {
+        return browser.isVisible(this.remindPassSuccessAlertCss)
+    }
+
+    getMail () {
+        return Helper.getMail()
     }
 }
 

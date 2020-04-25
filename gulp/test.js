@@ -76,6 +76,14 @@ export default options => {
         return runTest(['reports'])
     }))
 
+    gulp.task('login', gulp.series(async function test () {
+        return runTest(['login'])
+    }))
+
+    gulp.task('prodsmoke', gulp.series(async function test () {
+        return runTest(['prodsmoke'], 'wdio.legacy.conf')
+    }))
+
     function runTest (suiteName, conf) {
         conf = conf || configFile
         return new Promise(async function (resolve, reject) {

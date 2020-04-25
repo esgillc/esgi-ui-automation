@@ -1,6 +1,7 @@
 'use strict'
 
 import Page from './Page'
+import Helper from '../support/Helper'
 
 class TestResultsPage extends Page {
     constructor () {
@@ -12,8 +13,8 @@ class TestResultsPage extends Page {
         // @TODO: extract into a graph component
         this.graphObjCss = {
             correctpiecss: `${this.modalCss} .highcharts-series-group path[fill="#00BF96"]`,
-            correctpercentagecss: `${this.modalCss} .highcharts-data-label-color-0 .highcharts-text-outline`,
-            incorrectpercentagecss: `${this.modalCss} .highcharts-data-label-color-1 .highcharts-text-outline`,
+            correctpercentagecss: '.highcharts-label.highcharts-data-label:nth-child(1) tspan:nth-child(2)',
+            incorrectpercentagecss: '.highcharts-label.highcharts-data-label:nth-child(2) tspan:nth-child(2)',
             resultlabelcss: '.result div.data'
         }
     }
@@ -35,8 +36,8 @@ class TestResultsPage extends Page {
     graphTextObj () {
         const obj = this.graphObj()
         return {
-            correctpercentage: obj.correctpercentage.getText(),
-            incorrectpercentage: obj.incorrectpercentage.getText(),
+            correctpercentage: Helper.getText(obj.correctpercentage),
+            incorrectpercentage: Helper.getText(obj.incorrectpercentage),
             resultlabel: obj.resultlabel.getText()
         }
     }

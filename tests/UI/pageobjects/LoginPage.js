@@ -1,6 +1,7 @@
 'use strict'
 
 import Page from './Page'
+import Helper from '../support/Helper'
 
 class LoginPage extends Page {
     constructor () {
@@ -49,7 +50,7 @@ class LoginPage extends Page {
         // After logging into the assessment switch to the assessment window
         browser.switchWindow(`${protocol}${mid}/${suffix}`)
 
-        browser.pause(2000)
+        browser.pause(1000)
         // Handle modal @TODO: move this to a modals
         this.isModalVisible() && browser.click('.close')
         browser.pause(500)
@@ -74,6 +75,10 @@ class LoginPage extends Page {
 
     isPasswordReminderSent () {
         return browser.isVisible(this.remindPassSuccessAlertCss)
+    }
+
+    getMail () {
+        return Helper.getMail()
     }
 }
 

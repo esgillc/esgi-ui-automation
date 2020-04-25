@@ -163,7 +163,7 @@ describe('HomePage', function () {
                 })
             })
         })
-        describe.only('AllGroups', function () {
+        describe('AllGroups', function () {
             // First select what class you want to work with to show the All Groups component
             before(function () {
                 // Pick a class

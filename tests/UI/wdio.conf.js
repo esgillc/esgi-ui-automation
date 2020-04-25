@@ -50,8 +50,8 @@ exports.config = {
             `${dir}/specs/**/Reports.spec.js`
         ],
         prodsmoke: [
-            // `${dir}/specs/Login.spec.js`,
-            // `${dir}/specs/WebFront.spec.js`,
+            `${dir}/specs/Login.spec.js`,
+            `${dir}/specs/WebFront.spec.js`,
             `${dir}/specs/legacy/*.spec.js`
         ]
     },
@@ -66,7 +66,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    // '--headless',
+                    '--headless',
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1680,1050'
@@ -90,7 +90,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same UI should run tests.
 
-    maxInstances: 2,
+    maxInstances: 1,
     // ===================
     // Test Configurations
     // ===================

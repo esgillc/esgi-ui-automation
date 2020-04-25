@@ -148,7 +148,19 @@ exports.config = {
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
     services: [
-        ['selenium-standalone']
+        ['selenium-standalone', {
+            logPath: 'logs',
+            installArgs: {
+                drivers: {
+                    chrome: { version: '79.0.3945.88' }
+                }
+            },
+            args: {
+                drivers: {
+                    chrome: { version: '79.0.3945.88' }
+                }
+            }
+        }]
     ],
 
      // options

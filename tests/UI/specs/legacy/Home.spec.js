@@ -57,9 +57,7 @@ describe('Legacy - HomePage', function () {
                         TestResultsPage.closeModal()
                     })
                     it('should be present', function () {
-                        let result = HomePage.graphTextObj(payload)
-                        console.log('HomePageResult: ', result)
-                        expect(result).to.deep.equal(resultsPageOutput)
+                        expect(HomePage.graphTextObj(payload)).to.deep.equal(resultsPageOutput)
                     })
                 })
             })

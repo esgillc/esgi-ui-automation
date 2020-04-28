@@ -1,5 +1,7 @@
+
 'use strict'
 import keys from 'lodash/keys'
+import map from 'lodash/map'
 
 function Helper () {
     this.scrollToTopLinkCss = 'a.scrollToTop'
@@ -168,11 +170,25 @@ function Helper () {
         }
     }
 
-    this.makeRequest = function (email) {
-        const rp = require('request-promise')
+    this.makeMailRequest = async function (emailAddr) {
         // const crypto = require('crypto')
-        const emailHash = '7b8671d2df4a772d4645e75d6cb21af3' // crypto.createHash('md5').update(email).digest('hex')
-        const url = `https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/${emailHash}/`
+        let payload = {}
+        payload.endpoint = 'mail'
+        payload.hash = '7b8671d2df4a772d4645e75d6cb21af3' // crypto.createHash('md5').update(payload.emailAddr).digest('hex')
+        return this.makeRequest(payload)
+    }
+
+    this.makeDeleteRequest = async function (mailHash) {
+        // const crypto = require('crypto')
+        let payload = {}
+        payload.endpoint = 'delete'
+        payload.hash = mailHash
+        return this.makeRequest(payload)
+    }
+
+    this.makeRequest = function (payload) {
+        const rp = require('request-promise')
+        const url = `https://privatix-temp-mail-v1.p.rapidapi.com/request/${payload.endpoint}/id/${payload.hash}/`
         const key = '7be698f73bmsh248d31c025a66f8p166934jsnfc3bf39d4417'
         var options = {
             method: 'GET',
@@ -202,13 +218,42 @@ function Helper () {
     //     return `${browser.options.baseUrl}${pre}${result[1]}`
     // }
 
-    this.getMail = async function () {
-        let email = 'test001@mailkept.com'
-        return this.makeRequest(email)
-        // let pre = /verify-email/
-        // let suf = '>'
-        // let result = res[0].mail_text.match(new RegExp(`${pre}(.*)${suf}`))
-        // return `${browser.options.baseUrl}${pre}${result[1]}`
+    this.getMails = async function (emailAddr) {
+        emailAddr = emailAddr || 'test001@mailkept.com'
+        return this.makeMailRequest(emailAddr)
+    }
+
+    this.getMailInfo = async function (emailAddr) {
+        let mails = await this.getMails(emailAddr)
+        let mail = mails[0]
+        return {
+            from: mail.mail_from,
+            subject: mail.mail_subject,
+            text: mail.mail_text
+        }
+    }
+
+    this.getMailIDs = async function (emailAddr) {
+        const emails = await this.getMails(emailAddr)
+        if (Array.isArray(emails)) {
+            return emails.map(function (mail) {
+                return mail.mail_id
+            })
+        }
+        console.log('EmailIDs: ', emails)
+    }
+
+    this.deleteAllMails = async function (emailAddr) {
+        let emailIDs
+        try {
+            emailIDs = await this.getMailIDs(emailAddr)
+            if (!emailIDs) { throw new Error('No Emails In Mailbox') }
+            emailIDs.forEach(async emailID => {
+                await this.makeDeleteRequest(emailID)
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 module.exports = new Helper()

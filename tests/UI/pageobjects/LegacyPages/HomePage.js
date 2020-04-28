@@ -77,8 +77,13 @@ class HomePage extends Page {
         return {
             correctpercentage: `${correct}%`,
             incorrectpercentage: `${incorrect}%`,
-            resultlabel: this.getTestByName(payload).$$('.test-result-stats')[1].getText().split('\n').join(' ')
+            resultlabel: this.fixGraphResultText(this.getTestByName(payload).$$('.test-result-stats')[1].getText())
         }
+    }
+
+    fixGraphResultText (text) {
+        const parts = text.split('\n')[1].split('/')
+        return `Correct answers: ${parts[0].trim()}/${parts[1].trim()}`
     }
 
     deleteAllPastTestDetails (payload) {

@@ -80,6 +80,18 @@ class LoginPage extends Page {
     getMail () {
         return Helper.getMail()
     }
+
+    getMailIDs () {
+        return Helper.getMailIDs()
+    }
+
+    deleteAllMails () {
+        return Helper.deleteAllMails()
+    }
+
+    getMailInfo () {
+        return Helper.getMailInfo()
+    }
 }
 
 export default new LoginPage()

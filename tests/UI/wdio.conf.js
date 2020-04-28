@@ -66,7 +66,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    '--headless',
+                    // '--headless',
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1680,1050'

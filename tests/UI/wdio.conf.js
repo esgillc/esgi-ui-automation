@@ -152,12 +152,12 @@ exports.config = {
             logPath: 'logs',
             installArgs: {
                 drivers: {
-                    chrome: { version: '79.0.3945.88' }
+                    chrome: { version: '81.0.4044.129' }
                 }
             },
             args: {
                 drivers: {
-                    chrome: { version: '79.0.3945.88' }
+                    chrome: { version: '81.0.4044.129' }
                 }
             }
         }]

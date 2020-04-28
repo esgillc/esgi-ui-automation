@@ -12,9 +12,6 @@ describe('Legacy - HomePage', function () {
     after(function () {
         Global.logout()
     })
-    it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
-    })
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.legacy.teacheradmin.credentials)

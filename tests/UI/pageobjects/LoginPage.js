@@ -36,21 +36,9 @@ class LoginPage extends Page {
         this.waitForPageToLoad()
         browser.pause(3000) // @TODO: Implement wait for new window
 
-        let protocol
-        let suffix
-        const mid = 'www.esgisoftware.com'
-        if (browser.getUrl().toLowerCase().includes('beta')) {
-            suffix = 'esgi'
-            protocol = 'http://'
-        } else {
-            suffix = 'ESGI/Public/jsindex.aspx'
-            protocol = 'https://'
-        }
-
-        // After logging into the assessment switch to the assessment window
-        browser.switchWindow(`${protocol}${mid}/${suffix}`)
-
-        browser.pause(1000)
+        const assessmentWindow = browser.getWindowHandles()[1]
+        browser.switchToWindow(assessmentWindow)
+        browser.pause(3000)
         // Handle modal @TODO: move this to a modals
         this.isModalVisible() && browser.click('.close')
         browser.pause(500)

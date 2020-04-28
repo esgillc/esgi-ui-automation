@@ -21,6 +21,7 @@ export default class Page {
     waitForPageToLoad (timeout) {
         timeout = timeout || 30000
         this.waitUntil(timeout, this.isPageLoaded())
+        browser.pause(3000)
     }
 
     waitForLoadingToComplete (timeout) {

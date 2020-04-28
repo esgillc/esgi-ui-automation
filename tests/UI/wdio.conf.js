@@ -147,21 +147,21 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
-    services: [
-        ['selenium-standalone', {
-            logPath: 'logs',
-            installArgs: {
-                drivers: {
-                    chrome: { version: '81.0.4044.129' }
-                }
-            },
-            args: {
-                drivers: {
-                    chrome: { version: '81.0.4044.129' }
-                }
-            }
-        }]
-    ],
+    // services: [
+    //     ['selenium-standalone', {
+    //         logPath: 'logs',
+    //         installArgs: {
+    //             drivers: {
+    //                 chrome: { version: '81.0.4044.129' }
+    //             }
+    //         },
+    //         args: {
+    //             drivers: {
+    //                 chrome: { version: '81.0.4044.129' }
+    //             }
+    //         }
+    //     }]
+    // ],
 
      // options
     // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver

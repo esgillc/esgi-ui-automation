@@ -85,7 +85,6 @@
         "@babel/plugin-transform-runtime": "^7.3.4",
         "@babel/preset-env": "^7.3.1",
         "@babel/register": "^7.0.0",
-        "wdio-chromedriver-service": "^6.0.0",
         "babel-eslint": "~7.2.3",
         "babel-polyfill": "^6.26.0",
         "chai-things": "^0.2.0",
@@ -99,6 +98,7 @@
         "eslint-plugin-standard": "~3.0.1",
         "gulp-babel": "^8.0.0",
         "gulp-eslint": "~5.0.0",
-        "gulp-webdriver": "^2.0.3"
+        "gulp-webdriver": "^2.0.3",
+        "wdio-chromedriver-service": "^6.0.0"
     }
 }

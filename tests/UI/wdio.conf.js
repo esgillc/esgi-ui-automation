@@ -30,7 +30,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
         // `${dir}/specs/**/*.spec.js`
-        `${dir}/specs/AddTest.spec.js`
+        `${dir}/specs/Signup_Rules.spec.js`
     ],
     // define specific suites
     suites: {
@@ -225,11 +225,6 @@ exports.config = {
     // onPrepare: function () {
     // },
     before: function () {
-        var chai = require('chai')
-        expect = chai.expect
-        chai.should()
-        chai.use(require('chai-things'))
-
         browser.addCommand('click', function (css) {
             $(css).click()
         })

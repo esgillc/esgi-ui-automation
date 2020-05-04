@@ -1,7 +1,6 @@
 
 'use strict'
 import keys from 'lodash/keys'
-import map from 'lodash/map'
 
 function Helper () {
     this.scrollToTopLinkCss = 'a.scrollToTop'
@@ -201,8 +200,10 @@ function Helper () {
         return rp(options)
     }
 
-    this.generateEmail = function () {
-        return `tester${new Date().getTime()}@feroxo.com`
+    this.generateEmail = function (username, domain) {
+        username = username || 'tester'
+        domain = domain || 'mailkept.com'
+        return `${username}${new Date().getTime()}@${domain}`
     }
 
     this.confirmEmail = async function (email) {

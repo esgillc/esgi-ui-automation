@@ -30,7 +30,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
         // `${dir}/specs/**/*.spec.js`
-        `${dir}/specs/Signup_Rules.spec.js`
+        `${dir}/specs/Signup_Registration.spec.js`
     ],
     // define specific suites
     suites: {

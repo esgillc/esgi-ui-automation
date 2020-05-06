@@ -18,40 +18,69 @@ class SignupPage extends Page {
         this.promoCodeToolTipCss = '.tooltip-inner span'
         this.haveAnActivationCodeLinkCss = '.promo-code-label a'
 
+        this.schoolDropdownCss = 'select#school'
+
+        this.activationCodeCss = '.ac-input'
+
         // Thank you dialog
         this.thankYouMessageCss = '.dialog-modal .title b'
+        this.finishLaterCss = 'a=FINISH LATER'
         this.continueCss = 'a=CONTINUE'
 
         // Finish Setting up text
         this.finishSettingUpTextCss = 'b=Finish setting up your account'
+
+        // Activation Code page
+        this.activationCodeHeaderCss = 'b=Account Sign Up'
     }
 
     get email () { return $(this.emailCss) }
     get createUsername () { return $(this.createUsernameCss) }
     get createPassword () { return $(this.createPasswordCss) }
     get promoCode () { return $(this.promoCodeCss) }
+    get activationCode () { return $(this.activationCodeCss) }
     get createTrialButton () { return $(this.createTrialButtonCss) }
+    get finishLater () { return $(this.finishLaterCss) }
     get continue () { return $(this.continueCss) }
     get finishSettingUpText () { return $(this.finishSettingUpTextCss) }
     get alreadyExistsMessage () { return $(this.alreadyExistsMessageCss) }
     get alreadyExistsMessageText () { return 'An account with this email already exists. Do you want to login to your existing account?' }
     get promoCodeToolTip () { return $(this.promoCodeToolTipCss) }
+    get schoolDropdown () { return $(this.schoolDropdownCss) }
     get haveAnActivationCodeLink () { return $(this.haveAnActivationCodeLinkCss) }
+    get activationCodeHeader () { return $(this.activationCodeHeaderCss) }
+
+    get activationCodeUrl () { return `${browser.options.baseUrl}/sign-up?ActivationCode=true` }
+    get isOnActivationCodeScreen () { return browser.getUrl() === this.activationCodeUrl }
 
     signUp (payload) {
+        this.waitForLoadingToComplete()
+        const activationCodeScreen = this.isOnActivationCodeScreen
         this.setFieldValues(payload)
         this.createTrialButton.click()
-        $('b=Thanks for creating your free trial!').waitForDisplayed({ timeout: 6000 })
-        this.clickContinue()
+        if (!activationCodeScreen) {
+            $('b=Thanks for creating your free trial!').waitForDisplayed({ timeout: 6000 })
+            this.clickContinue()
+        }
+        this.waitForLoadingToComplete()
     }
 
     setFieldValues (payload) {
-        this.email.setValue(payload.email)
+        this.setValue(this.email, payload.email)
+        // this.setValue(this.createUsername, payload.username)
+        this.setValue(this.createPassword, payload.password)
+        this.setValue(this.promoCode, payload.promocode)
+        this.setActivationCode(payload.activationcode)
+    }
+
+    setValue (el, value) {
+        !el.error && el.setValue(value)
         browser.pause(250)
-        // this.createUsername.setValue(payload.username)
-        this.createPassword.setValue(payload.password)
-        browser.pause(250)
-        this.promoCode.setValue(payload.promocode)
+    }
+
+    setActivationCode (code) {
+        this.setValue(this.activationCode, code)
+        this.loseFocus()
         browser.pause(250)
     }
 
@@ -61,6 +90,10 @@ class SignupPage extends Page {
 
     isThankYouMessagePresent () {
         return browser.getText(this.thankYouMessageCss) === 'Thanks for creating your free trial!'
+    }
+
+    clickFinishLater () {
+        this.finishLater.click()
     }
 
     clickContinue () {

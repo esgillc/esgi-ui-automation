@@ -146,6 +146,13 @@ const Signup = {
             username: 'signupuser',
             password: 'automation01!',
             promocode: ''
+        },
+        user2: {
+            activationcode: '29D1BC7B',
+            email: 'TDB',
+            username: 'user',
+            password: 'automation01!',
+            promocode: ''
         }
     },
     fields: {

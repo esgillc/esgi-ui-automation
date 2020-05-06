@@ -99,3 +99,44 @@ describe('Signup page - Signup_Rules_ActivationCode', function () {
         })
     })
 })
+
+describe('Signup page - Signup_Rules_ActivationCode', function () {
+    describe('Linked Actication Code', () => {
+        before(function () {
+            SignupPage.open(SignupPage.activationCodeUrl)
+        })
+        it('Given I am on the Signup Page', function () {
+            expect(SignupPage.title).toBe(SignupPage.getTitle())
+        })
+        describe('When I enter a linked Activation Code', function () {
+            let activationCode
+            before(function () {
+                activationCode = '3DHF8236'
+                SignupPage.setActivationCode(activationCode)
+                SignupPage.loseFocus()
+            })
+            it('Then school drowpdown should be displayed', function () {
+                expect(SignupPage.schoolDropdown).toBeDisplayed()
+            })
+        })
+    })
+    describe('UnLinked Actication Code', () => {
+        before(function () {
+            SignupPage.open(SignupPage.activationCodeUrl)
+        })
+        it('Given I am on the Signup Page', function () {
+            expect(SignupPage.title).toBe(SignupPage.getTitle())
+        })
+        describe('When I enter an unlinked Activation Code', function () {
+            let activationCode
+            before(function () {
+                activationCode = '29D1BC7B'
+                SignupPage.setActivationCode(activationCode)
+                SignupPage.loseFocus()
+            })
+            it('Then school drowpdown should not be displayed', function () {
+                expect(SignupPage.schoolDropdown).not.toBeDisplayed()
+            })
+        })
+    })
+})

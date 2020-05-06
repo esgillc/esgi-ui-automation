@@ -1,7 +1,9 @@
 'use strict'
+import Helper from '../support/Helper'
 
 export default class Page {
     open (path) {
+        path = path || this.url
         browser.url(path)
         this.waitForPageToLoad()
     }
@@ -24,14 +26,8 @@ export default class Page {
         browser.pause(3000)
     }
 
-    waitForLoadingToComplete (timeout) {
-        browser.pause(250)
-        let css = '.loadmask-msg .animated-loading'
-        timeout = timeout || 10000
-        browser.waitUntil(function () {
-            return !$(css).isDisplayed()
-        }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
-        browser.pause(500)
+    waitForLoadingToComplete (css, timeout) {
+        Helper.waitForLoadingToComplete(css, timeout)
     }
 
     jqueryLoaded () {

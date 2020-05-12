@@ -284,6 +284,7 @@ const Signup = {
     rules: {
         email: {
             valid: 'autopopulate@esgi.com',
+            toolongvalid: 'toolongtobeusernametoolongtobeusernametoolongtobeusernametoolongtobeusername@esgi.com',
             invalid: 'dontautopopulate@',
             existing: 'matt.wasko@esgisoftware.com'
         }

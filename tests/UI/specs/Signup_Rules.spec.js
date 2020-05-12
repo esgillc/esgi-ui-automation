@@ -62,6 +62,23 @@ describe('Signup page - Signup_Rules', function () {
             })
         })
     })
+    describe('Given I enter a valid Email Address that is too long to be a username in the email field', function () {
+        let email
+        before(function () {
+            SignupPage.email.setValue('')
+            browser.pause(1000)
+            email = Signup.rules.email.toolongvalid
+            SignupPage.email.setValue(email)
+        })
+        describe('When I lose Focus', function () {
+            before(function () {
+                SignupPage.loseFocus()
+            })
+            it('Then username field should not be autopopulated', function () {
+                expect(SignupPage.createUsername.getValue()).toBe('')
+            })
+        })
+    })
 })
 
 describe('Signup page - Signup_Rules_ActivationCode', function () {
@@ -103,7 +120,7 @@ describe('Signup page - Signup_Rules_ActivationCode', function () {
 describe('Signup page - Signup_Rules_ActivationCode', function () {
     describe('Linked Actication Code', () => {
         before(function () {
-            SignupPage.open(SignupPage.activationCodeUrl)
+            SignupPage.open(SignupPage.activateUrl)
         })
         it('Given I am on the Signup Page', function () {
             expect(SignupPage.title).toBe(SignupPage.getTitle())
@@ -113,7 +130,6 @@ describe('Signup page - Signup_Rules_ActivationCode', function () {
             before(function () {
                 activationCode = '3DHF8236'
                 SignupPage.setActivationCode(activationCode)
-                SignupPage.loseFocus()
             })
             it('Then school drowpdown should be displayed', function () {
                 expect(SignupPage.schoolDropdown).toBeDisplayed()

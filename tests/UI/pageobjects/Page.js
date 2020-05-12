@@ -2,10 +2,16 @@
 import Helper from '../support/Helper'
 
 export default class Page {
+    absoluteUrl (url) {
+        url = url || this.url
+        return `${browser.options.baseUrl}${url}`
+    }
+
     open (path) {
         path = path || this.url
         browser.url(path)
         this.waitForPageToLoad()
+        this.waitForLoadingToComplete()
     }
 
     isOnPage () {
@@ -14,6 +20,7 @@ export default class Page {
     navigate () {
         browser.url(this.url)
         this.waitForPageToLoad()
+        this.waitForLoadingToComplete()
     }
 
     getTitle () {

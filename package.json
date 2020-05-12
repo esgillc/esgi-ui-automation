@@ -24,6 +24,7 @@
         "test": "gulp test",
         "login": "gulp login",
         "prodsmoke": "gulp prodsmoke",
+        "signup": "gulp signup",
         "allure-report": "node_modules/.bin/allure generate ./allure-results -c",
         "deploy-report": "aws s3 sync ./build/ s3://esgiuitestresultsbucket --region us-east-1",
         "open-report": "allure open",

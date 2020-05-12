@@ -12,14 +12,14 @@ describe('SchoolAdminAccount - Reports', function () {
         Global.logout()
     })
     it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
+        expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.schooladmin.credentials)
         })
         it('should be logged in', function () {
-            expect(HomePage.title).to.equal(HomePage.getTitle())
+            expect(HomePage.title).toBe(HomePage.getTitle())
         })
         describe('Reports', function () {
             describe('Types', function () {
@@ -49,7 +49,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).to.equal(report.title)
+                                    expect(reportTitle).toBe(report.title)
                                 })
                             })
                         })
@@ -58,7 +58,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                 reportTitle = ReportsPage.getReportTitle('Class Grades')
                             })
                             it('should be correct', function () {
-                                expect(reportTitle).to.equal('Setup Grading Scales')
+                                expect(reportTitle).toBe('Setup Grading Scales')
                             })
                         })
                         describe('Bingo', function () {
@@ -69,7 +69,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                 browser.click('.close-popup')
                             })
                             it('should be opened', function () {
-                                expect(browser.isVisible('.bingo.preview')).to.equal(true)
+                                expect(browser.isVisible('.bingo.preview')).toBe(true)
                             })
                         })
                     })
@@ -89,7 +89,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).to.equal(report.title)
+                                    expect(reportTitle).toBe(report.title)
                                 })
                             })
                         })

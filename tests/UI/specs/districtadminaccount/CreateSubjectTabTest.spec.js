@@ -9,7 +9,7 @@ describe('CreateSubjectTab', function () {
         LoginPage.login(Users.districtadmin.credentials)
     })
     it('should be on Home page', function () {
-        expect(HomePage.title).to.equal(HomePage.getTitle())
+        expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('Subject Tab', function () {
         describe('Add', function () {
@@ -20,7 +20,7 @@ describe('CreateSubjectTab', function () {
                 // ManageSubjectsAndTestsPage.createSubjectTab(subjectName)
             })
             it('should be added', function () {
-                expect(HomePage.isSubjectTabDisplayed(subjectName)).to.equal(true)
+                expect(HomePage.isSubjectTabDisplayed(subjectName)).toBe(true)
             })
             describe('Color', function () {
                 it('should be purple', function () {

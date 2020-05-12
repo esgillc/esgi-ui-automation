@@ -8,6 +8,7 @@ class SignupPage extends Page {
         super()
         this.title = 'ESGI - One-on-one Assessments Made Easy'
         this.url = '/sign-up'
+        this.activateUrl = '/sign-up?ActivationCode=true'
 
         this.emailCss = '#email'
         this.createUsernameCss = '#new-username'
@@ -50,8 +51,8 @@ class SignupPage extends Page {
     get haveAnActivationCodeLink () { return $(this.haveAnActivationCodeLinkCss) }
     get activationCodeHeader () { return $(this.activationCodeHeaderCss) }
 
-    get activationCodeUrl () { return `${browser.options.baseUrl}/sign-up?ActivationCode=true` }
-    get isOnActivationCodeScreen () { return browser.getUrl() === this.activationCodeUrl }
+    get absoluteActivationCodeUrl () { return this.absoluteUrl(this.activateUrl) }
+    get isOnActivationCodeScreen () { return browser.getUrl() === this.absoluteActivationCodeUrl }
 
     signUp (payload) {
         this.waitForLoadingToComplete()
@@ -81,7 +82,7 @@ class SignupPage extends Page {
     setActivationCode (code) {
         this.setValue(this.activationCode, code)
         this.loseFocus()
-        browser.pause(250)
+        this.waitForLoadingToComplete()
     }
 
     generateEmail (username, domain) {

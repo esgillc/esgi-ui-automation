@@ -12,14 +12,14 @@ describe('TeacherAccount - Reports', function () {
         Global.logout()
     })
     it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
+        expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.teacher.credentials)
         })
         it('should be logged in', function () {
-            expect(HomePage.title).to.equal(HomePage.getTitle())
+            expect(HomePage.title).toBe(HomePage.getTitle())
         })
         describe('Reports', function () {
             describe('Types', function () {
@@ -42,7 +42,7 @@ describe('TeacherAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).to.equal(report.title)
+                                    expect(reportTitle).toBe(report.title)
                                 })
                             })
                         })
@@ -51,7 +51,7 @@ describe('TeacherAccount - Reports', function () {
                                 reportTitle = ReportsPage.getReportTitle('Class Grades')
                             })
                             it('should be correct', function () {
-                                expect(reportTitle).to.equal('Class Grade Report')
+                                expect(reportTitle).toBe('Class Grade Report')
                             })
                         })
                         describe('Bingo', function () {
@@ -62,7 +62,7 @@ describe('TeacherAccount - Reports', function () {
                                 browser.click('.close-popup')
                             })
                             it('should be opened', function () {
-                                expect(browser.isVisible('.bingo.preview')).to.equal(true)
+                                expect(browser.isVisible('.bingo.preview')).toBe(true)
                             })
                         })
                     })
@@ -77,7 +77,7 @@ describe('TeacherAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).to.equal(report.title)
+                                    expect(reportTitle).toBe(report.title)
                                 })
                             })
                         })
@@ -89,7 +89,7 @@ describe('TeacherAccount - Reports', function () {
                                 browser.click('.close-popup')
                             })
                             it('should be opened', function () {
-                                expect(browser.isVisible('.bingo.preview')).to.equal(true)
+                                expect(browser.isVisible('.bingo.preview')).toBe(true)
                             })
                         })
                     })

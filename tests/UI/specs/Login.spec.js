@@ -6,14 +6,14 @@ describe('Login page', function () {
         LoginPage.navigate()
     })
     it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
+        expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LostPasswordLink', function () {
         before(async function () {
             await LoginPage.deleteAllMails()
         })
         it('should be present', function () {
-            expect(LoginPage.lostPasswordLink.isDisplayed()).to.equal(true)
+            expect(LoginPage.lostPasswordLink.isDisplayed()).toBe(true)
         })
     })
     describe('PasswordReminder', function () {
@@ -24,7 +24,7 @@ describe('Login page', function () {
             LoginPage.passwordReminder(resetPasswordInfo.useremail)
         })
         it('should be sent', function () {
-            expect(LoginPage.isPasswordReminderSent()).to.equal(true)
+            expect(LoginPage.isPasswordReminderSent()).toBe(true)
         })
         describe('Reset Password Email', function () {
             let emailInfo
@@ -33,12 +33,12 @@ describe('Login page', function () {
             })
             describe('From', function () {
                 it('should be present', function () {
-                    expect(emailInfo.from).to.equal(resetPasswordInfo.from)
+                    expect(emailInfo.from).toBe(resetPasswordInfo.from)
                 })
             })
             describe('Subject', function () {
                 it('should be present', function () {
-                    expect(emailInfo.subject).to.equal(resetPasswordInfo.subject)
+                    expect(emailInfo.subject).toBe(resetPasswordInfo.subject)
                 })
             })
             describe('Body', function () {
@@ -48,42 +48,42 @@ describe('Login page', function () {
                 })
                 describe('UserEmail', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.useremail)
+                        expect(body).toContain(resetPasswordInfo.useremail)
                     })
                 })
                 describe('Last Login Date', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.lastlogindate)
+                        expect(body).toContain(resetPasswordInfo.lastlogindate)
                     })
                 })
                 describe('Username', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.username)
+                        expect(body).toContain(resetPasswordInfo.username)
                     })
                 })
                 describe('Verify Email Link', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.verifyemaillink)
+                        expect(body).toContain(resetPasswordInfo.verifyemaillink)
                     })
                 })
                 describe('Verify Email Link', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.verifyemaillink)
+                        expect(body).toContain(resetPasswordInfo.verifyemaillink)
                     })
                 })
                 describe('Expire Message', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.expiremessage)
+                        expect(body).toContain(resetPasswordInfo.expiremessage)
                     })
                 })
                 describe('Concerns', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.concerns)
+                        expect(body).toContain(resetPasswordInfo.concerns)
                     })
                 })
                 describe('Contact', function () {
                     it('should be present', function () {
-                        expect(body).includes(resetPasswordInfo.contact)
+                        expect(body).toContain(resetPasswordInfo.contact)
                     })
                 })
             })

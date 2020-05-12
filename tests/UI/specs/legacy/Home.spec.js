@@ -13,14 +13,14 @@ describe('Legacy - HomePage', function () {
         Global.logout()
     })
     it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
+        expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.legacy.teacheradmin.credentials)
         })
         it('should be logged in', function () {
-            expect(HomePage.title).to.equal(HomePage.getTitle())
+            expect(HomePage.title).toBe(HomePage.getTitle())
         })
         describe('HomePage - RunTest', function () {
             let responses
@@ -49,7 +49,7 @@ describe('Legacy - HomePage', function () {
                 })
                 describe('Results', function () {
                     it('should be correct', function () {
-                        expect(resultsPageOutput).to.deep.equal(expected)
+                        expect(resultsPageOutput).toStrictEqual(expected)
                     })
                 })
                 describe('Hompage', function () {
@@ -57,7 +57,7 @@ describe('Legacy - HomePage', function () {
                         TestResultsPage.closeModal()
                     })
                     it('should be present', function () {
-                        expect(HomePage.graphTextObj(payload)).to.deep.equal(resultsPageOutput)
+                        expect(HomePage.graphTextObj(payload)).toStrictEqual(resultsPageOutput)
                     })
                 })
             })

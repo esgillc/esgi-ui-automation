@@ -1,8 +1,6 @@
 
 'use strict'
 import keys from 'lodash/keys'
-import map from 'lodash/map'
-
 function Helper () {
     this.scrollToTopLinkCss = 'a.scrollToTop'
     this.checkboxCheckedCss = 'input:checked'
@@ -123,12 +121,29 @@ function Helper () {
         }, css)
     }
 
-    this.waitForLoadingToComplete = function (css, timeout) {
+    this.jqueryLoaded = function () {
+        let pending
+        return browser.execute(function () {
+            try {
+                // eslint-disable-next-line no-undef
+                pending = jQuery.active
+            } catch (e) {
+                pending = 0
+            }
+            return pending
+        })
+    }
+
+    this.waitForLoadingToComplete = function (css, timeout, sentinal) {
         css = css || '.loadmask-msg .animated-loading'
-        timeout = timeout || 5000
+        sentinal = sentinal || 0
+        timeout = timeout || 10000
+        browser.pause(250)
+        let _this = this
         browser.waitUntil(function () {
-            return !$(css).isDisplayed()
+            return (_this.jqueryLoaded() === sentinal && !$(css).isDisplayed())
         }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
+        browser.pause(500)
     }
 
     this.COLORS = {
@@ -201,8 +216,10 @@ function Helper () {
         return rp(options)
     }
 
-    this.generateEmail = function () {
-        return `tester${new Date().getTime()}@feroxo.com`
+    this.generateEmail = function (username, domain) {
+        username = username || 'tester'
+        domain = domain || 'mailkept.com'
+        return `${username}${new Date().getTime()}@${domain}`
     }
 
     this.confirmEmail = async function (email) {
@@ -254,6 +271,25 @@ function Helper () {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    this.triggerChange = function (css) {
+        browser.execute(function (css) {
+            // eslint-disable-next-line no-undef
+            return $(css).trigger('change')
+        }, css)
+        browser.pause(500)
+    }
+
+    this.handleInitialModals = () => {
+         // Handle modal @TODO: move this to a modals
+        this.isModalVisible() && browser.click('.close')
+        browser.pause(500)
+        this.isModalVisible() && browser.click('.close-popup, .close')
+    }
+
+    this.isModalVisible = () => {
+        return browser.isVisible('.modal-dialog')
     }
 }
 module.exports = new Helper()

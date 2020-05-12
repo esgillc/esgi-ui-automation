@@ -9,7 +9,7 @@ describe('CreateSubjectTab', function () {
         LoginPage.login(Users.teacher.credentials)
     })
     it('should be on Home page', function () {
-        expect(HomePage.title).to.equal(HomePage.getTitle())
+        expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('Subject Tab', function () {
         describe('Add', function () {
@@ -23,11 +23,11 @@ describe('CreateSubjectTab', function () {
                 ManageSubjectsAndTestsPage.createSubjectTab(payload)
             })
             it('should be added', function () {
-                expect(HomePage.isSubjectTabDisplayed(payload.subjectname)).to.equal(true)
+                expect(HomePage.isSubjectTabDisplayed(payload.subjectname)).toBe(true)
             })
             describe('Color', function () {
                 it('should be purple', function () {
-                    expect(HomePage.getSubjectTabColor(payload.subjectname)).to.eql(HomePage.COLORS.teacher.subjecttab)
+                    expect(HomePage.getSubjectTabColor(payload.subjectname)).toStrictEqual(HomePage.COLORS.teacher.subjecttab)
                 })
             })
         })

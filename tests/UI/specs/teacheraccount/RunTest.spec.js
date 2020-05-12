@@ -10,7 +10,7 @@ describe('Login page', function () {
         LoginPage.login(Users.teacher.credentials)
     })
     it('should be on Home page', function () {
-        expect(HomePage.title).to.equal(HomePage.getTitle())
+        expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('HomePage - RunTest', function () {
         let responses

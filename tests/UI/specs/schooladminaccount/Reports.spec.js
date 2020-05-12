@@ -12,14 +12,14 @@ describe('SchoolAdminAccount - Reports', function () {
         Global.logout()
     })
     it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
+        expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.schooladmin.credentials)
         })
         it('should be logged in', function () {
-            expect(HomePage.title).to.equal(HomePage.getTitle())
+            expect(HomePage.title).toBe(HomePage.getTitle())
         })
         describe('Reports', function () {
             describe('Types', function () {
@@ -29,7 +29,7 @@ describe('SchoolAdminAccount - Reports', function () {
                     reports = HomePage.getReports()
                 })
                 it('should show reports', function () {
-                    expect(reports).to.eql(schoolAdminReports.allteachers.types)
+                    expect(reports).toStrictEqual(schoolAdminReports.allteachers.types)
                 })
                 describe('OpenCloseReports', function () {
                     describe('Teacher', function () {
@@ -40,7 +40,7 @@ describe('SchoolAdminAccount - Reports', function () {
                         })
                         it('should show reports', function () {
                             console.log(reports)
-                            expect(reports).to.eql(schoolAdminReports.teacher.types)
+                            expect(reports).toStrictEqual(schoolAdminReports.teacher.types)
                         })
                         let reportTitle
                         schoolAdminReports.teacher.obj.forEach(report => {
@@ -49,7 +49,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).to.equal(report.title)
+                                    expect(reportTitle).toBe(report.title)
                                 })
                             })
                         })
@@ -58,7 +58,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                 reportTitle = ReportsPage.getReportTitle('Class Grades')
                             })
                             it('should be correct', function () {
-                                expect(reportTitle).to.equal('Setup Grading Scales')
+                                expect(reportTitle).toBe('Setup Grading Scales')
                             })
                         })
                         describe('Bingo', function () {
@@ -69,7 +69,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                 browser.click('.close-popup')
                             })
                             it('should be opened', function () {
-                                expect(browser.isVisible('.bingo.preview')).to.equal(true)
+                                expect(browser.isVisible('.bingo.preview')).toBe(true)
                             })
                         })
                     })
@@ -80,7 +80,7 @@ describe('SchoolAdminAccount - Reports', function () {
                             reports = HomePage.getReports()
                         })
                         it('should show reports', function () {
-                            expect(reports).to.eql(schoolAdminReports.allteachers.types)
+                            expect(reports).toStrictEqual(schoolAdminReports.allteachers.types)
                         })
                         let reportTitle
                         schoolAdminReports.allteachers.objs.forEach(report => {
@@ -89,7 +89,7 @@ describe('SchoolAdminAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).to.equal(report.title)
+                                    expect(reportTitle).toBe(report.title)
                                 })
                             })
                         })

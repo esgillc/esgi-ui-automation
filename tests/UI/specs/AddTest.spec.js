@@ -9,7 +9,7 @@ describe('Add Test', function () {
         LoginPage.login(Users.teacher.credentials)
     })
     it('should be on Home page', function () {
-        expect(HomePage.title).to.equal(HomePage.getTitle())
+        expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('HomePage - AddTest', function () {
         let testName
@@ -20,7 +20,7 @@ describe('Add Test', function () {
         })
         describe('Before Add', function () {
             it('should not be present', function () {
-                expect(HomePage.isTestCardPresent(testName)).to.equal(false)
+                expect(HomePage.isTestCardPresent(testName)).toBe(false)
             })
             describe('Add Test', function () {
                 before(function () {
@@ -28,14 +28,14 @@ describe('Add Test', function () {
                     AddTestPage.addTest(testName)
                 })
                 it('should be present', function () {
-                    expect(HomePage.isTestCardPresent(testName)).to.equal(true)
+                    expect(HomePage.isTestCardPresent(testName)).toBe(true)
                 })
                 describe('Delete Test', function () {
                     before(function () {
                         HomePage.deleteTest(testName)
                     })
                     it('should not be present', function () {
-                        expect(HomePage.isTestCardPresent(testName)).to.equal(false)
+                        expect(HomePage.isTestCardPresent(testName)).toBe(false)
                     })
                 })
             })

@@ -1,9 +1,17 @@
 'use strict'
+import Helper from '../support/Helper'
 
 export default class Page {
+    absoluteUrl (url) {
+        url = url || this.url
+        return `${browser.options.baseUrl}${url}`
+    }
+
     open (path) {
+        path = path || this.url
         browser.url(path)
         this.waitForPageToLoad()
+        this.waitForLoadingToComplete()
     }
 
     isOnPage () {
@@ -12,6 +20,7 @@ export default class Page {
     navigate () {
         browser.url(this.url)
         this.waitForPageToLoad()
+        this.waitForLoadingToComplete()
     }
 
     getTitle () {
@@ -24,14 +33,8 @@ export default class Page {
         browser.pause(3000)
     }
 
-    waitForLoadingToComplete (timeout) {
-        browser.pause(250)
-        let css = '.loadmask-msg .animated-loading'
-        timeout = timeout || 10000
-        browser.waitUntil(function () {
-            return !$(css).isDisplayed()
-        }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
-        browser.pause(500)
+    waitForLoadingToComplete (css, timeout, sentinal) {
+        Helper.waitForLoadingToComplete(css, timeout, sentinal)
     }
 
     jqueryLoaded () {

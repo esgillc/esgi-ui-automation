@@ -30,7 +30,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
         // `${dir}/specs/**/*.spec.js`
-        `${dir}/specs/AddTest.spec.js`
+        `${dir}/specs/WebFront.spec.js`
     ],
     // define specific suites
     suites: {
@@ -53,6 +53,10 @@ exports.config = {
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
             `${dir}/specs/legacy/*.spec.js`
+        ],
+        signup: [
+            `${dir}/specs/Signup*.spec.js`,
+            `${dir}/specs/WebFront.spec.js`
         ]
     },
 
@@ -66,7 +70,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    // '--headless',
+                    // '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1680,1050'
@@ -90,7 +94,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same UI should run tests.
 
-    maxInstances: 1,
+    maxInstances: 10,
     // ===================
     // Test Configurations
     // ===================
@@ -225,11 +229,6 @@ exports.config = {
     // onPrepare: function () {
     // },
     before: function () {
-        var chai = require('chai')
-        expect = chai.expect
-        chai.should()
-        chai.use(require('chai-things'))
-
         browser.addCommand('click', function (css) {
             $(css).click()
         })

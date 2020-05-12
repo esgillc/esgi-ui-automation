@@ -38,15 +38,13 @@ class LoginPage extends Page {
 
         const assessmentWindow = browser.getWindowHandles()[1]
         browser.switchToWindow(assessmentWindow)
-        browser.pause(3000)
-        // Handle modal @TODO: move this to a modals
-        this.isModalVisible() && browser.click('.close')
-        browser.pause(500)
-        this.isModalVisible() && browser.click('.close-popup')
+        // const sentinal = (browser.config.env === 'LEGACY') ? 1 : 0
+        browser.config.env === 'LEGACY' ? this.waitForLoadingToComplete(null, null, 1) : this.waitForLoadingToComplete()
+        Helper.handleInitialModals()
     }
 
     isModalVisible () {
-        return browser.isVisible('.modal-dialog')
+        return Helper.isModalVisible()
     }
 
     clickLostPasswordLink () {

@@ -13,11 +13,18 @@ class WebFrontPage extends Page {
         this.videoPlayerLinkCss = '#intro-video-link'
         this.introVideoCss = '#intro-video'
         this.timeRemainingCss = '.vjs-remaining-time-display'
+
+        this.freeTrialButtonCss = '#home-trial-btn'
+        this.mainMenuCss = '#mainMenu'
     }
 
     get loginButton () { return $(this.loginButtonCss) }
     get videoPlayerLink () { return $(this.videoPlayerLinkCss) }
     get introVideo () { return $(this.introVideoCss) }
+
+    get freeTrialButton () { return $(this.freeTrialButtonCss) }
+    get mainMenu () { return $(this.mainMenuCss) }
+    get activateLink () { return this.mainMenu.$('a=Activate') }
 
     clickVideoPlayerLink () {
         this.videoPlayerLink.click()
@@ -46,7 +53,7 @@ class WebFrontPage extends Page {
      * If the samples are all diffenent then the player is streaming
      */
     isVideoStreaming () {
-        let samples = this.sampleTimeRemaining(5, 5000)
+        let samples = this.sampleTimeRemaining(4, 3000)
         return samples.length === [...new Set(samples)].length
     }
 }

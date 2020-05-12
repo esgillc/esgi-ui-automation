@@ -11,14 +11,14 @@ describe('HomePage', function () {
         Global.logout()
     })
     it('should be on login page', function () {
-        expect(LoginPage.title).to.equal(LoginPage.getTitle())
+        expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.teacher.credentials)
         })
         it('should be logged in', function () {
-            expect(HomePage.title).to.equal(HomePage.getTitle())
+            expect(HomePage.title).toBe(HomePage.getTitle())
         })
         describe.skip('TopMenus', function () {
             describe('StudentExplorer', function () {
@@ -26,7 +26,7 @@ describe('HomePage', function () {
                     Global.navigateToStudentExplorer()
                 })
                 it('should be able to navigate', function () {
-                    expect('Student Exploer').to.equal(browser.getTitle())
+                    expect('Student Exploer').toBe(browser.getTitle())
                 })
             })
             describe('ParentConferencer', function () {
@@ -34,7 +34,7 @@ describe('HomePage', function () {
                     Global.navigateToParentConferencer()
                 })
                 it('should be able to navigate', function () {
-                    expect('Parent Conferencer').to.equal(browser.getTitle())
+                    expect('Parent Conferencer').toBe(browser.getTitle())
                 })
             })
             describe('Test Explorer', function () {
@@ -42,7 +42,7 @@ describe('HomePage', function () {
                     Global.navigateToTestExplorer()
                 })
                 it('should be able to navigate', function () {
-                    expect('Test Explorer').to.equal(browser.getTitle())
+                    expect('Test Explorer').toBe(browser.getTitle())
                 })
             })
             describe('Home', function () {
@@ -50,14 +50,14 @@ describe('HomePage', function () {
                     Global.navigateToHome()
                 })
                 it('should be able to navigate', function () {
-                    expect(HomePage.title).to.equal(HomePage.getTitle())
+                    expect(HomePage.title).toBe(HomePage.getTitle())
                 })
             })
         })
         describe.skip('LeftMenu', function () {
             describe('Default', function () {
                 it('should be expanded', function () {
-                    expect(HomePage.isLeftMenuExpanded()).to.equal(true)
+                    expect(HomePage.isLeftMenuExpanded()).toBe(true)
                 })
             })
             describe('Collaspe', function () {
@@ -65,7 +65,7 @@ describe('HomePage', function () {
                     HomePage.collapseLeftMenu()
                 })
                 it('should be collasped', function () {
-                    expect(HomePage.isLeftMenuExpanded()).to.equal(false)
+                    expect(HomePage.isLeftMenuExpanded()).toBe(false)
                 })
             })
             describe('Expand', function () {
@@ -73,7 +73,7 @@ describe('HomePage', function () {
                     HomePage.expandLeftMenu()
                 })
                 it('should be expanded', function () {
-                    expect(HomePage.isLeftMenuExpanded()).to.equal(true)
+                    expect(HomePage.isLeftMenuExpanded()).toBe(true)
                 })
             })
         })
@@ -83,7 +83,7 @@ describe('HomePage', function () {
                 allClassesObj = HomePage.getAllClassesObj()
             })
             it('should be present', function () {
-                expect(allClassesObj.component.isDisplayed()).to.equal(true)
+                expect(allClassesObj.component.isDisplayed()).toBe(true)
             })
             describe('Controls', function () {
                 describe('Title', function () {
@@ -92,13 +92,13 @@ describe('HomePage', function () {
                         title = allClassesObj.title
                     })
                     it('should show the correct text', function () {
-                        expect(title.getText()).to.equal('All Classes (4)')
+                        expect(title.getText()).toBe('All Classes (4)')
                     })
                     it('should be visible', function () {
-                        expect(title.isDisplayed()).to.equal(true)
+                        expect(title.isDisplayed()).toBe(true)
                     })
                     it('should be enabled', function () {
-                        expect(title.isEnabled()).to.equal(true)
+                        expect(title.isEnabled()).toBe(true)
                     })
                 })
                 describe('AddButton', function () {
@@ -107,10 +107,10 @@ describe('HomePage', function () {
                         add = allClassesObj.add
                     })
                     it('should be visible', function () {
-                        expect(add.isDisplayed()).to.equal(true)
+                        expect(add.isDisplayed()).toBe(true)
                     })
                     it('should be enabled', function () {
-                        expect(add.isEnabled()).to.equal(true)
+                        expect(add.isEnabled()).toBe(true)
                     })
                 })
                 describe('ExpandCollaspeButton', function () {
@@ -119,10 +119,10 @@ describe('HomePage', function () {
                         expandCollaspe = allClassesObj.expandcollapse
                     })
                     it('should be visible', function () {
-                        expect(expandCollaspe.isDisplayed()).to.equal(true)
+                        expect(expandCollaspe.isDisplayed()).toBe(true)
                     })
                     it('should be enabled', function () {
-                        expect(expandCollaspe.isEnabled()).to.equal(true)
+                        expect(expandCollaspe.isEnabled()).toBe(true)
                     })
                 })
             })
@@ -179,7 +179,7 @@ describe('HomePage', function () {
                     HomePage.addGroup(payload)
                 })
                 it('should add a group', function () {
-                    expect(HomePage.isGroupPresent(payload.name)).to.equal(true)
+                    expect(HomePage.isGroupPresent(payload.name)).toBe(true)
                 })
             })
             describe('EditGroup', function () {
@@ -194,7 +194,7 @@ describe('HomePage', function () {
                     HomePage.editGroup(payload)
                 })
                 it('should edit a group', function () {
-                    expect(HomePage.isGroupPresent(payload.newname)).to.equal(true)
+                    expect(HomePage.isGroupPresent(payload.newname)).toBe(true)
                 })
             })
             describe('DeleteGroup', function () {
@@ -206,7 +206,7 @@ describe('HomePage', function () {
                     HomePage.deleteGroup(payload)
                 })
                 it('should delete a group', function () {
-                    expect(HomePage.isGroupPresent(payload.groupname)).to.equal(false)
+                    expect(HomePage.isGroupPresent(payload.groupname)).toBe(false)
                 })
             })
         })

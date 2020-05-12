@@ -134,9 +134,8 @@ function Helper () {
         })
     }
 
-    this.waitForLoadingToComplete = function (css, timeout, sentinal) {
+    this.waitForLoadingToComplete = function (css, timeout) {
         css = css || '.loadmask-msg .animated-loading'
-        // sentinal = sentinal || 0
         timeout = timeout || 10000
         browser.pause(250)
         let _this = this

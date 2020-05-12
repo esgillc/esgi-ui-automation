@@ -38,8 +38,7 @@ class LoginPage extends Page {
 
         const assessmentWindow = browser.getWindowHandles()[1]
         browser.switchToWindow(assessmentWindow)
-        // const sentinal = (browser.config.env === 'LEGACY') ? 1 : 0
-        browser.config.env === 'LEGACY' ? this.waitForLoadingToComplete(null, null, 1) : this.waitForLoadingToComplete()
+        this.waitForLoadingToComplete()
         Helper.handleInitialModals()
     }
 

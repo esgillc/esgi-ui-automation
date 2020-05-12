@@ -136,12 +136,12 @@ function Helper () {
 
     this.waitForLoadingToComplete = function (css, timeout, sentinal) {
         css = css || '.loadmask-msg .animated-loading'
-        sentinal = sentinal || 0
+        // sentinal = sentinal || 0
         timeout = timeout || 10000
         browser.pause(250)
         let _this = this
         browser.waitUntil(function () {
-            return (_this.jqueryLoaded() === sentinal && !$(css).isDisplayed())
+            return (_this.jqueryLoaded() === 0 && !$(css).isDisplayed())
         }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
         browser.pause(500)
     }

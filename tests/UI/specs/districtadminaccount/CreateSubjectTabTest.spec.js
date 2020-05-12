@@ -24,7 +24,7 @@ describe('CreateSubjectTab', function () {
             })
             describe('Color', function () {
                 it('should be purple', function () {
-                    expect(HomePage.getSubjectTabColor(subjectName)).to.eql(HomePage.COLORS.districtadmin.subjecttab)
+                    expect(HomePage.getSubjectTabColor(subjectName)).toStrictEqual(HomePage.COLORS.districtadmin.subjecttab)
                 })
             })
         })

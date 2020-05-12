@@ -29,7 +29,7 @@ describe('SchoolAdminAccount - Reports', function () {
                     reports = HomePage.getReports()
                 })
                 it('should show reports', function () {
-                    expect(reports).to.eql(schoolAdminReports.allteachers.types)
+                    expect(reports).toStrictEqual(schoolAdminReports.allteachers.types)
                 })
                 describe('OpenCloseReports', function () {
                     describe('Teacher', function () {
@@ -40,7 +40,7 @@ describe('SchoolAdminAccount - Reports', function () {
                         })
                         it('should show reports', function () {
                             console.log(reports)
-                            expect(reports).to.eql(schoolAdminReports.teacher.types)
+                            expect(reports).toStrictEqual(schoolAdminReports.teacher.types)
                         })
                         let reportTitle
                         schoolAdminReports.teacher.obj.forEach(report => {
@@ -80,7 +80,7 @@ describe('SchoolAdminAccount - Reports', function () {
                             reports = HomePage.getReports()
                         })
                         it('should show reports', function () {
-                            expect(reports).to.eql(schoolAdminReports.allteachers.types)
+                            expect(reports).toStrictEqual(schoolAdminReports.allteachers.types)
                         })
                         let reportTitle
                         schoolAdminReports.allteachers.objs.forEach(report => {

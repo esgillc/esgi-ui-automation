@@ -1,7 +1,6 @@
 
 'use strict'
 import keys from 'lodash/keys'
-
 function Helper () {
     this.scrollToTopLinkCss = 'a.scrollToTop'
     this.checkboxCheckedCss = 'input:checked'
@@ -135,13 +134,14 @@ function Helper () {
         })
     }
 
-    this.waitForLoadingToComplete = function (css, timeout) {
+    this.waitForLoadingToComplete = function (css, timeout, sentinal) {
         css = css || '.loadmask-msg .animated-loading'
-        browser.pause(250)
+        sentinal = sentinal || 0
         timeout = timeout || 10000
+        browser.pause(250)
         let _this = this
         browser.waitUntil(function () {
-            return (_this.jqueryLoaded() === 0 && !$(css).isDisplayed())
+            return (_this.jqueryLoaded() === sentinal && !$(css).isDisplayed())
         }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
         browser.pause(500)
     }

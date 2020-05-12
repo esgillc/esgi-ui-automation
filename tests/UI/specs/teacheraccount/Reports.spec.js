@@ -28,7 +28,7 @@ describe('TeacherAccount - Reports', function () {
                     reports = HomePage.getReports()
                 })
                 it('should show reports', function () {
-                    expect(reports).to.eql(Reports.types)
+                    expect(reports).toStrictEqual(Reports.types)
                 })
                 describe('OpenCloseReports', function () {
                     describe('Class', function () {

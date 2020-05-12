@@ -33,8 +33,8 @@ export default class Page {
         browser.pause(3000)
     }
 
-    waitForLoadingToComplete (css, timeout) {
-        Helper.waitForLoadingToComplete(css, timeout)
+    waitForLoadingToComplete (css, timeout, sentinal) {
+        Helper.waitForLoadingToComplete(css, timeout, sentinal)
     }
 
     jqueryLoaded () {

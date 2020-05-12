@@ -70,7 +70,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    // '--headless',
+                    // '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1680,1050'
@@ -94,7 +94,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same UI should run tests.
 
-    maxInstances: 1,
+    maxInstances: 10,
     // ===================
     // Test Configurations
     // ===================

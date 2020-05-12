@@ -28,7 +28,7 @@ describe('SchoolAdmin - CreateSubjectTab', function () {
             describe('Color', function () {
                 it('should be purple', function () {
                     console.log(HomePage.getSubjectTabColor(payload.subjectname))
-                    expect(HomePage.getSubjectTabColor(payload.subjectname)).to.eql(HomePage.COLORS.schooladmin.subjecttab)
+                    expect(HomePage.getSubjectTabColor(payload.subjectname)).toStrictEqual(HomePage.COLORS.schooladmin.subjecttab)
                 })
             })
         })

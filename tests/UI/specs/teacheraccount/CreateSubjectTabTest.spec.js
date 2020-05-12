@@ -27,7 +27,7 @@ describe('CreateSubjectTab', function () {
             })
             describe('Color', function () {
                 it('should be purple', function () {
-                    expect(HomePage.getSubjectTabColor(payload.subjectname)).to.eql(HomePage.COLORS.teacher.subjecttab)
+                    expect(HomePage.getSubjectTabColor(payload.subjectname)).toStrictEqual(HomePage.COLORS.teacher.subjecttab)
                 })
             })
         })

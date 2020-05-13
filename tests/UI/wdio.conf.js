@@ -19,7 +19,8 @@ exports.config = {
         password: 'automation01!'
     },
 
-    // host: 'Testrunner01:test@localhost',
+    hostname: '172.28.1.1',
+    port: 4444,
     //
     // ==================
     // Specify Test Files
@@ -66,14 +67,15 @@ exports.config = {
     capabilities: [
         {
             browserName: 'chrome',
-            'selenoid:options': {'screenResolution': '1280x1024x24'},
+            'selenoid:options': {'screenResolution': '1920×1080x24'},
             'goog:chromeOptions': {
                 args: [
+                    '--no-sandbox',
                     '--test-type',
-                    // '--headless', // Windows server doesn't like headless mode
+                    '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',
-                    '--window-size=1680,1050'
+                    '--window-size=1920,1080'
                 ]
             }
         }
@@ -151,21 +153,21 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
-    services: [
-        ['selenium-standalone', {
-            logPath: 'logs',
-            installArgs: {
-                drivers: {
-                    chrome: { version: '81.0.4044.129' }
-                }
-            },
-            args: {
-                drivers: {
-                    chrome: { version: '81.0.4044.129' }
-                }
-            }
-        }]
-    ],
+    // services: [
+    //     ['selenium-standalone', {
+    //         logPath: 'logs',
+    //         installArgs: {
+    //             drivers: {
+    //                 chrome: { version: '81.0.4044.129' }
+    //             }
+    //         },
+    //         args: {
+    //             drivers: {
+    //                 chrome: { version: '81.0.4044.129' }
+    //             }
+    //         }
+    //     }]
+    // ],
 
      // options
     // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver

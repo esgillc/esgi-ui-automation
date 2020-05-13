@@ -1,0 +1,36 @@
+version: "2"
+services:
+  esgiuitest-container:
+    container_name: esgiuitest-container
+    build: .
+    ports:
+      - "3000:8080"  
+    networks:
+      testing_net:
+          ipv4_address: 172.28.1.2
+    depends_on:
+      - selenoid
+    volumes:
+      - ./tests:/tests
+      - ./package.json:/package.json
+      - ./package-lock.json:/package-lock.json
+      - ./.gitignore:/.gitignore
+   
+
+  selenoid:
+    container_name: selenoid
+    image: selenoid/chrome:81.0
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "4444:4444"
+    networks:
+          testing_net:
+              ipv4_address: 172.28.1.1
+
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.28.0.0/16

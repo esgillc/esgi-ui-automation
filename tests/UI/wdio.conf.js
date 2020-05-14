@@ -35,7 +35,7 @@ exports.config = {
     // define specific suites
     suites: {
         login: [
-            `${dir}/specs/Login.spec.js`
+            `${dir}/specs/login.spec.js`
         ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
@@ -44,7 +44,7 @@ exports.config = {
             `${dir}/specs/schooladminaccount/CreateSubjectTabTest.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/teacheraccount/RunTest.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -156,12 +156,12 @@ exports.config = {
             logPath: 'logs',
             installArgs: {
                 drivers: {
-                    chrome: { version: '81.0.4044.129' }
+                    chrome: { version: '81.0.4044.138' }
                 }
             },
             args: {
                 drivers: {
-                    chrome: { version: '81.0.4044.129' }
+                    chrome: { version: '81.0.4044.138' }
                 }
             }
         }]

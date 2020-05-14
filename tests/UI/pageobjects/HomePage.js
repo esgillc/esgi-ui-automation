@@ -101,7 +101,7 @@ class HomePage extends Page {
 
     get subjectsAndTestsPanel () { return $(this.subjectsAndTestsPanelCss) }
     get addTestLink () { return this.subjectsAndTestsPanel.$('span=Add Test') }
-    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('span=Organize, edit, and create new subjects and tests') }
+    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('span=Add, Edit, and Organize Subjects') }
 
     get leftMenu () { return $(this.leftMenuCss) }
     get leftMenuCollaspeButton () { return $(this.leftMenuCollaspeButtonCss) }

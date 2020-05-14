@@ -67,7 +67,7 @@ class HomePage extends Page {
         this.retakeCss = '.btn-retest'
 
         // Right Panel
-        this.rightPanelCss = '.main .center .right'
+        this.rightPanelCss = '.main .center'
 
         // Subjects & Tests
         this.subjectsAndTestsPanelCss = `${this.rightPanelCss} .right-panel-box.manage-controls`
@@ -203,6 +203,7 @@ class HomePage extends Page {
     }
 
     getReports () {
+        Helper.waitForLoadingToComplete()
         browser.pause(3000)
         return browser.getText(this.reportsCss)
     }

@@ -75,7 +75,13 @@ const TeacherReportsObj = [
 ]
 
 const Reports = {
-    types: Types,
+    types: [
+        'Flashcards',
+        'Bingo',
+        'Untested Students',
+        'Item Analysis',
+        'Pie Charts'
+    ],
     class: [
         {
             name: 'Flashcards',
@@ -98,8 +104,6 @@ const Reports = {
     schooladmin: {
         allteachers: {
             types: [
-                'School Students',
-                'School Totals',
                 'School Grades',
                 'Item Analysis',
                 'Pie Charts'
@@ -116,8 +120,31 @@ const Reports = {
             ]
         },
         teacher: {
-            types: Types,
-            obj: TeacherReportsObj
+            types: [
+                'Flashcards',
+                'Bingo',
+                'Untested Students',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            obj: [
+                {
+                    name: 'Flashcards',
+                    title: 'Flashcards Settings'
+                },
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
         }
     }
 }

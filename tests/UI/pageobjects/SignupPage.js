@@ -137,7 +137,7 @@ class SignupPage extends Page {
     }
 
     loseFocus () {
-        browser.keys('Tab')
+        browser.keys('Enter')
         browser.pause(1000)
     }
 

@@ -69,7 +69,7 @@ export default options => {
     }))
 
     gulp.task('district', gulp.series(async function test () {
-        return runTest(['districadminacct'])
+        return runTest(['districtadminacct'])
     }))
 
     gulp.task('reports', gulp.series(async function test () {

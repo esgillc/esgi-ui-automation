@@ -1,6 +1,6 @@
 import LoginPage from '../../pageobjects/LoginPage'
 import HomePage from '../../pageobjects/HomePage'
-// import ManageSubjectsAndTestsPage from '../../pageobjects/ManageSubjectsAndTestsPage'
+import ManageSubjectsAndTestsPage from '../../pageobjects/ManageSubjectsAndTestsPage'
 import {Users} from '../../fixtures/data'
 
 describe('CreateSubjectTab', function () {
@@ -13,18 +13,22 @@ describe('CreateSubjectTab', function () {
     })
     describe('Subject Tab', function () {
         describe('Add', function () {
-            let subjectName
+            let payload
             before(function () {
-                subjectName = 'Math Baseline'
-                // HomePage.modifySubject()
-                // ManageSubjectsAndTestsPage.createSubjectTab(subjectName)
+                payload = {
+                    subjectname: 'Math Baseline1',
+                    testname: 'Drag drop test'
+
+                }
+                HomePage.modifySubject()
+                ManageSubjectsAndTestsPage.createSubjectTab(payload)
             })
             it('should be added', function () {
-                expect(HomePage.isSubjectTabDisplayed(subjectName)).toBe(true)
+                expect(HomePage.isSubjectTabDisplayed(payload.subjectname)).toBe(true)
             })
             describe('Color', function () {
                 it('should be purple', function () {
-                    expect(HomePage.getSubjectTabColor(subjectName)).toStrictEqual(HomePage.COLORS.districtadmin.subjecttab)
+                    expect(HomePage.getSubjectTabColor(payload.subjectname)).toStrictEqual(HomePage.COLORS.districtadmin.subjecttab)
                 })
             })
         })

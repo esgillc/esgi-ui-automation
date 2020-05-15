@@ -32,6 +32,8 @@ class WebFrontPage extends Page {
     }
 
     getTimeRemaining () {
+        this.introVideo.keys('Tab')
+        browser.pause(250)
         return browser.getText(this.timeRemainingCss)
     }
 
@@ -53,7 +55,7 @@ class WebFrontPage extends Page {
      * If the samples are all diffenent then the player is streaming
      */
     isVideoStreaming () {
-        let samples = this.sampleTimeRemaining(4, 3000)
+        let samples = this.sampleTimeRemaining(3, 2000)
         return samples.length === [...new Set(samples)].length
     }
 }

@@ -23,7 +23,7 @@ class ManageSubjectsAndTestsPage extends Page {
             showhidecss: '.showhide',
             edit: '.action-link[title="Edit subject name"]',
             deletecss: '.action-link[title="Delete subject"]',
-            addtestcss: '.add-btn',
+            addtestcss: '.add-title',
             addedtestcss: '.test-row'
         }
     }
@@ -41,11 +41,9 @@ class ManageSubjectsAndTestsPage extends Page {
         browser.pause(1000)
         $('input.form-control').setValue(name)
         // Helper.setValue('input.form-control', name)
-        browser.pause(2000)
-        // Helper.setValue('input.form-control', name)
         browser.pause(500)
         $('button=Save').click()
-        browser.pause(5000)
+        this.waitForLoadingToComplete()
         // this.doneButton.click()
         // browser.pause(500)
     }
@@ -57,8 +55,8 @@ class ManageSubjectsAndTestsPage extends Page {
         this.addTestToSubject(payload.subjectname, payload.testname)
         // $('.add-test-footer button:not(.btn-add)').click() // Click the done button
         // $('.add-btn').click()
-        // this.waitForLoadingToComplete()
-        browser.pause(1000) // @TODO: wait to be on homepage
+        this.waitForLoadingToComplete()
+        // browser.pause(1000) // @TODO: wait to be on homepage
     }
 
     getSubjectRowByName (name) {
@@ -69,11 +67,9 @@ class ManageSubjectsAndTestsPage extends Page {
         this.isSubjectRowCollapsed(name) && this.clickSubjectRow(name)
     }
 
-    isSubjectRowCollapsed (name) {
+    isSubjectRowCollapsed (name) { // add-title
         return this.getSubjectRowByName(name)
-        .$(this.subjectObjCss.expandcollapsecss)
-        .getAttribute('class')
-        .includes('expand')
+        .$('.add-test-row').isDisplayed()
     }
 
     clickSubjectRow (name) {
@@ -81,12 +77,12 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     addTestToSubject (subjectName, testName) {
-        this.expandSubjectRow(subjectName)
+        //  this.expandSubjectRow(subjectName)
         this.clickAddTestToSubjectButton(subjectName)
         if (!this.isReportAProblemAlertDisplayed()) {
             AddTestPage.addTest(testName)
             $('button=Done').click()
-            browser.pause(5000)
+            this.waitForLoadingToComplete()
         }
     }
 
@@ -95,7 +91,9 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     clickAddTestToSubjectButton (name) {
-        this.addTestToSubjectButton(name).click()
+        $('.add-title').click() // @TODO: looking into making this dynamic
+        this.waitForLoadingToComplete()
+        // this.addTestToSubjectButton(name).click()
         browser.pause(1000)
     }
 

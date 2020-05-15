@@ -26,18 +26,18 @@ const Users = {
         }
     }
 }
-const Types = [
-    'Parent Letter',
-    'Flashcards',
-    'Bingo',
-    'Student Detail',
-    'Student Progress',
-    'Untested Students',
-    'Class Totals',
-    'Class Grades',
-    'Item Analysis',
-    'Pie Charts'
-]
+// const Types = [
+//     'Parent Letter',
+//     'Flashcards',
+//     'Bingo',
+//     'Student Detail',
+//     'Student Progress',
+//     'Untested Students',
+//     'Class Totals',
+//     'Class Grades',
+//     'Item Analysis',
+//     'Pie Charts'
+// ]
 
 const TeacherReportsObj = [
     {

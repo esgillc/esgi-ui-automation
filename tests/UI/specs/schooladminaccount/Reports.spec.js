@@ -38,8 +38,7 @@ describe('SchoolAdminAccount - Reports', function () {
                             HomePage.clickTeacher('Justine Baldwin') // Click to show teacher reports
                             reports = HomePage.getReports()
                         })
-                        it('should show reports', function () {
-                            console.log(reports)
+                        it('should show correct reports', function () {
                             expect(reports).toStrictEqual(schoolAdminReports.teacher.types)
                         })
                         let reportTitle
@@ -50,6 +49,9 @@ describe('SchoolAdminAccount - Reports', function () {
                                 })
                                 it('should be correct', function () {
                                     expect(reportTitle).toBe(report.title)
+                                })
+                                it('should still show correct reports', function () {
+                                    expect(HomePage.getReports()).toStrictEqual(schoolAdminReports.teacher.types)
                                 })
                             })
                         })

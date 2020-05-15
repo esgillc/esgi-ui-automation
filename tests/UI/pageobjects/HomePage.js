@@ -67,7 +67,7 @@ class HomePage extends Page {
         this.retakeCss = '.btn-retest'
 
         // Right Panel
-        this.rightPanelCss = '.main .center .right'
+        this.rightPanelCss = '.main .center'
 
         // Subjects & Tests
         this.subjectsAndTestsPanelCss = `${this.rightPanelCss} .right-panel-box.manage-controls`
@@ -101,7 +101,7 @@ class HomePage extends Page {
 
     get subjectsAndTestsPanel () { return $(this.subjectsAndTestsPanelCss) }
     get addTestLink () { return this.subjectsAndTestsPanel.$('span=Add Test') }
-    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('span=Organize, edit, and create new subjects and tests') }
+    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('span=Add, Edit, and Organize Subjects') }
 
     get leftMenu () { return $(this.leftMenuCss) }
     get leftMenuCollaspeButton () { return $(this.leftMenuCollaspeButtonCss) }
@@ -203,6 +203,7 @@ class HomePage extends Page {
     }
 
     getReports () {
+        Helper.waitForLoadingToComplete()
         browser.pause(3000)
         return browser.getText(this.reportsCss)
     }

@@ -29,22 +29,21 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        // `${dir}/specs/**/*.spec.js`
-        `${dir}/specs/WebFront.spec.js`
+        `${dir}/specs/**/*.spec.js`
     ],
     // define specific suites
     suites: {
         login: [
-            `${dir}/specs/Login.spec.js`
+            `${dir}/specs/login.spec.js`
         ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
         schooladminacct: [
-            `${dir}/specs/schooladminaccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -155,13 +154,19 @@ exports.config = {
         ['selenium-standalone', {
             logPath: 'logs',
             installArgs: {
+                version: '3.5',
+                baseURL: 'https://selenium-release.storage.googleapis.com',
                 drivers: {
-                    chrome: { version: '81.0.4044.129' }
+                    chrome: {
+                        version: '78.0.3904.70',
+                        arch: process.arch,
+                        baseURL: 'https://chromedriver.storage.googleapis.com'
+                    }
                 }
             },
             args: {
                 drivers: {
-                    chrome: { version: '81.0.4044.129' }
+                    chrome: { version: '78.0.3904.70' }
                 }
             }
         }]
@@ -211,6 +216,7 @@ exports.config = {
             }
         }],
         ['allure', {
+            outputDir: './reports/allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: true,
             useCucumberStepReporter: false

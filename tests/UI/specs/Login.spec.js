@@ -20,7 +20,6 @@ describe('Login page', function () {
         let resetPasswordInfo
         before(function () {
             resetPasswordInfo = Login.forgotpassword.resetpasswordemail
-            LoginPage.clickLostPasswordLink()
             LoginPage.passwordReminder(resetPasswordInfo.useremail)
         })
         it('should be sent', function () {
@@ -29,6 +28,7 @@ describe('Login page', function () {
         describe('Reset Password Email', function () {
             let emailInfo
             before(async function () {
+                browser.pause(10000)
                 emailInfo = await LoginPage.getMailInfo()
             })
             describe('From', function () {

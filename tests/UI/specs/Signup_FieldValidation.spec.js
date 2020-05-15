@@ -18,6 +18,7 @@ describe('Signup page - Signup_FieldValidation', function () {
                             SignupPage.email.setValue(invalid)
                             SignupPage.loseFocus()
                             fieldProperties = SignupPage.emailFieldStateProperties()
+                            console.log('fieldPRops: ', fieldProperties)
                         })
                         describe('Check Mark', function () {
                             it('should not be displayed', function () {
@@ -25,7 +26,7 @@ describe('Signup page - Signup_FieldValidation', function () {
                             })
                         })
                         describe('Error Message', function () {
-                            it('should be correct', function () {
+                            it.only('should be correct', function () {
                                 expect(fieldProperties.errormessage).toBe('Invalid email')
                             })
                         })

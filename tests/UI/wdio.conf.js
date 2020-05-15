@@ -29,7 +29,11 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        `${dir}/specs/**/*.spec.js`
+        // `${dir}/specs/**/*.spec.js`
+        `${dir}/specs/districtadminaccount/*.spec.js`,
+        `${dir}/specs/schooladminaccount/*.spec.js`,
+        `${dir}/specs/teacheraccount/*.spec.js`,
+        `${dir}/specs/*.spec.js`
     ],
     // define specific suites
     suites: {
@@ -150,27 +154,27 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
-    services: [
-        ['selenium-standalone', {
-            logPath: 'logs',
-            installArgs: {
-                version: '3.5',
-                baseURL: 'https://selenium-release.storage.googleapis.com',
-                drivers: {
-                    chrome: {
-                        version: '78.0.3904.70',
-                        arch: process.arch,
-                        baseURL: 'https://chromedriver.storage.googleapis.com'
-                    }
-                }
-            },
-            args: {
-                drivers: {
-                    chrome: { version: '78.0.3904.70' }
-                }
-            }
-        }]
-    ],
+    // services: [
+    //     ['selenium-standalone', {
+    //         logPath: 'logs',
+    //         installArgs: {
+    //             version: '3.5',
+    //             baseURL: 'https://selenium-release.storage.googleapis.com',
+    //             drivers: {
+    //                 chrome: {
+    //                     version: '78.0.3904.70',
+    //                     arch: process.arch,
+    //                     baseURL: 'https://chromedriver.storage.googleapis.com'
+    //                 }
+    //             }
+    //         },
+    //         args: {
+    //             drivers: {
+    //                 chrome: { version: '78.0.3904.70' }
+    //             }
+    //         }
+    //     }]
+    // ],
 
      // options
     // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver

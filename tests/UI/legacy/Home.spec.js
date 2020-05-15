@@ -1,9 +1,9 @@
-import LoginPage from '../../pageobjects/LoginPage'
-import TestRunnerPage from '../../pageobjects/TestRunnerPage'
-import TestResultsPage from '../../pageobjects/TestResultsPage'
-import HomePage from '../../pageobjects/LegacyPages/HomePage'
-import Global from '../../support/Global'
-import {Users} from '../../fixtures/data'
+import LoginPage from '../pageobjects/LoginPage'
+import TestRunnerPage from '../pageobjects/TestRunnerPage'
+import TestResultsPage from '../pageobjects/TestResultsPage'
+import HomePage from '../pageobjects/LegacyPages/HomePage'
+import Global from '../support/Global'
+import {Users} from '../fixtures/data'
 
 describe('Legacy - HomePage', function () {
     before(function () {

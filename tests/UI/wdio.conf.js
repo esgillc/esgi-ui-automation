@@ -29,11 +29,7 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        // `${dir}/specs/**/*.spec.js`
-        `${dir}/specs/districtadminaccount/*.spec.js`,
-        `${dir}/specs/schooladminaccount/*.spec.js`,
-        `${dir}/specs/teacheraccount/*.spec.js`,
-        `${dir}/specs/*.spec.js`
+        `${dir}/specs/**/*.spec.js`
     ],
     // define specific suites
     suites: {
@@ -55,7 +51,7 @@ exports.config = {
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
-            `${dir}/specs/legacy/*.spec.js`
+            `${dir}/legacy/*.spec.js`
         ],
         signup: [
             `${dir}/specs/Signup*.spec.js`,

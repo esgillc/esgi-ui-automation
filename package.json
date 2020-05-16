@@ -86,6 +86,7 @@
         "@babel/plugin-transform-runtime": "^7.3.4",
         "@babel/preset-env": "^7.3.1",
         "@babel/register": "^7.0.0",
+        "@wdio/browserstack-service": "^6.1.10",
         "babel-eslint": "~7.2.3",
         "babel-polyfill": "^6.26.0",
         "chai-things": "^0.2.0",

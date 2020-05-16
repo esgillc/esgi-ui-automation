@@ -156,7 +156,7 @@ exports.config = {
     key: 'DpMquLnzpKoTNQwrDysi', // process.env.BROWSERSTACK_ACCESS_KEY,
     services: [
         ['browserstack', {
-            browserstackLocal: true
+            // browserstackLocal: true
         }]
     ],
     // services: [

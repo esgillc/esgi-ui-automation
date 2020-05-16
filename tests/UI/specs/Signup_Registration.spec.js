@@ -5,7 +5,7 @@ import Global from '../support/Global'
 import {Signup} from '../fixtures/data'
 
 describe('Signup page - Signup_Registration', function () {
-    describe.only('Normal Path', () => {
+    describe('Normal Path', () => {
         after(function () {
             Global.logout()
         })

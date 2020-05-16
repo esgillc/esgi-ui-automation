@@ -114,7 +114,7 @@ class SignupPage extends Page {
     getFieldStateProperties (el) {
         const state = this.getFieldStateEles(el)
         return {
-            errormessage: state.errormessage.getText(),
+            errormessage: state.errormessage.getHTML(false), // getText() doesn't work here
             success: state.success.isExisting() && state.success.isDisplayed(),
             failure: state.failure.isExisting() && state.failure.isDisplayed()
         }

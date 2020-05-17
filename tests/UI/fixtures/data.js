@@ -101,6 +101,61 @@ const Reports = {
         }
     ],
     allclasses: TeacherReportsObj,
+    districtadmin: {
+        initial: [
+            'District Students',
+            'District Totals',
+            'District Grades',
+            'District Growth',
+            'Pie Charts',
+            'Item Analysis',
+            'Teacher Activity'
+        ],
+        school: [
+            'School Students',
+            'School Totals',
+            'School Grades',
+            'Item Analysis',
+            'Pie Charts'
+        ],
+        teacher: [
+            'Flashcards',
+            'Bingo',
+            'Untested Students',
+            'Item Analysis',
+            'Pie Charts'
+        ],
+        classs: [
+            'Parent Letter',
+            'Flashcards',
+            'Bingo',
+            'Student Detail',
+            'Student Progress',
+            'Untested Students',
+            'Class Totals',
+            'Class Grades',
+            'Item Analysis',
+            'Pie Charts'
+        ],
+        obj: [
+            {
+                name: 'Flashcards',
+                title: 'Flashcards Settings'
+            },
+            {
+                name: 'Untested Students',
+                title: 'Untested Students'
+            },
+            {
+                name: 'Item Analysis',
+                title: 'Item Analysis'
+            },
+            {
+                name: 'Pie Charts',
+                title: 'Pie Charts'
+            }
+        ]
+    },
     schooladmin: {
         allteachers: {
             types: [

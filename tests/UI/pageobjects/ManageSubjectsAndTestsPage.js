@@ -26,20 +26,20 @@ class ManageSubjectsAndTestsPage extends Page {
             addtestcss: '.add-title',
             addedtestcss: '.test-row'
         }
+
+        // SubjectTab publish
+        this.publishIndefinitelyCss = '#SubjectPublishType-indefinitely'
     }
 
-    get doneButton () {
-        return $(this.doneButtonCss)
-    }
+    get doneButton () { return $(this.doneButtonCss) }
+    get createNewSubjectButton () { return $(this.createNewSubjectButtonCss) }
+    get publishIndefinitely () { return $(this.publishIndefinitelyCss) }
 
-    get createNewSubjectButton () {
-        return $(this.createNewSubjectButtonCss)
-    }
-
-    createNewSubject (name) {
+    createNewSubject (payload) {
         this.createNewSubjectButton.click()
         browser.pause(1000)
-        $('input.form-control').setValue(name)
+        $('input.form-control').setValue(payload.subjectname)
+        payload.publishindefinitely && this.publishIndefinitely.click()
         // Helper.setValue('input.form-control', name)
         browser.pause(500)
         $('button=Save').click()
@@ -50,21 +50,36 @@ class ManageSubjectsAndTestsPage extends Page {
 
     createSubjectTab (payload) {
         browser.pause(2000)
-        // this.getSubjectRowByName('Math Baseline').$('.showhide').click()
-        this.createNewSubject(payload.subjectname)
+        this.createNewSubject(payload)
         this.addTestToSubject(payload.subjectname, payload.testname)
-        // $('.add-test-footer button:not(.btn-add)').click() // Click the done button
-        // $('.add-btn').click()
         this.waitForLoadingToComplete()
-        // browser.pause(1000) // @TODO: wait to be on homepage
     }
 
     getSubjectRowByName (name) {
-        return $(`.name=${name}`).$('..').$('..')
+        const ele = $(`.name=${name}`)
+        return ele.$('..').$('..')
+    }
+
+    deleteSubjectTab (name) {
+        this.waitForLoadingToComplete()
+        const row = this.getSubjectRowByName(name)
+        if (row) {
+            row.$(this.subjectObjCss.deletecss).click()
+            browser.pause(10000)
+            browser.pause(250)
+            $('span=Delete').click()
+            browser.pause(2000)
+        }
+        $('button=Done').click()
+        this.waitForLoadingToComplete()
     }
 
     expandSubjectRow (name) {
         this.isSubjectRowCollapsed(name) && this.clickSubjectRow(name)
+    }
+
+    isSubjectRowPresent (name) { // add-title
+        return this.getSubjectRowByName(name).isDisplayed()
     }
 
     isSubjectRowCollapsed (name) { // add-title

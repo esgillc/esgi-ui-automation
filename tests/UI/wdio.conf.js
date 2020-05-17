@@ -37,13 +37,15 @@ exports.config = {
             `${dir}/specs/login.spec.js`
         ],
         districtadminacct: [
-            `${dir}/specs/districtadminaccount/*.spec.js`
+            // `${dir}/specs/districtadminaccount/*.spec.js`
+            `${dir}/specs/districtadminaccount/Reports.spec.js`
         ],
         schooladminacct: [
             `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/*.spec.js`
+            // `${dir}/specs/teacheraccount/*.spec.js`
+            `${dir}/specs/teacheraccount/Create*.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -65,9 +67,9 @@ exports.config = {
     capabilities: [
         {
             browserName: 'chrome',
-            resolution: '1920x1080',
-            browserVersion: '81.0', // browser version
-            platformName: 'WIN8', // OS platform
+            // resolution: '1920x1080',
+            // browserVersion: '81.0', // browser version
+            // platformName: 'WIN8', // OS platform
             'goog:chromeOptions': {
                 args: [
                     '--test-type',

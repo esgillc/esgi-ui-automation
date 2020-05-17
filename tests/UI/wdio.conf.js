@@ -73,9 +73,10 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    // '--headless', // Windows server doesn't like headless mode
+                    '--headless',
                     '--disable-infobars',
                     '--disable-gpu',
+                    '--no-sandbox',
                     '--window-size=1920,1080'
                 ]
             }
@@ -162,7 +163,7 @@ exports.config = {
     //     }]
     // ],
 
-    //78.0.3904.70
+    // 78.0.3904.70
     services: [
         ['selenium-standalone', {
             logPath: 'logs',

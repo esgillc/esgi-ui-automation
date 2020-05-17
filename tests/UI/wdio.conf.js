@@ -56,8 +56,8 @@ exports.config = {
             `${dir}/legacy/*.spec.js`
         ],
         signup: [
-            `${dir}/specs/Signup*.spec.js`,
-            `${dir}/specs/WebFront.spec.js`
+            `${dir}/specs/Signup_FieldValidation.spec.js`
+            // `${dir}/specs/WebFront.spec.js`
         ]
     },
 
@@ -73,6 +73,9 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
+                    '--incognito',
+                    '--no-sandbox',
+                    '--allow-insecure-localhost',
                     // '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',

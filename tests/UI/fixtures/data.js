@@ -156,8 +156,8 @@ const Login = {
             subject: 'Reset password',
             useremail: 'test001@mailkept.com',
             lastlogindate: 'Last Login Date:',
-            username: 'dan504',
-            verifyemaillink: 'https://www.esgisoftware.com/reset-password?key=',
+            username: 'Username: ',
+            verifyemaillink: '/reset-password?key=',
             expiremessage: 'The link will expire in 1 hour. If you don\'t want to reset your password, please',
             concerns: 'If you have any concerns or you did not ask to reset your password, please',
             contact: 'contact ESGI Support [support@esgisoftware.com].'

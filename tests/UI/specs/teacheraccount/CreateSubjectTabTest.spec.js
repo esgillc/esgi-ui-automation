@@ -12,13 +12,17 @@ describe('CreateSubjectTab', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('Subject Tab', function () {
+        let payload
+        before(function () {
+            payload = {
+                subjectname: 'Subject1234',
+                testname: 'Drag drop test'
+            }
+            HomePage.modifySubject()
+            ManageSubjectsAndTestsPage.deleteSubjectTab(payload.subjectname)
+        })
         describe('Add', function () {
-            let payload
             before(function () {
-                payload = {
-                    subjectname: 'Subject1234',
-                    testname: 'Drag drop test'
-                }
                 HomePage.modifySubject()
                 ManageSubjectsAndTestsPage.createSubjectTab(payload)
             })
@@ -26,7 +30,7 @@ describe('CreateSubjectTab', function () {
                 expect(HomePage.isSubjectTabDisplayed(payload.subjectname)).toBe(true)
             })
             describe('Color', function () {
-                it('should be purple', function () {
+                it('should be gray', function () {
                     expect(HomePage.getSubjectTabColor(payload.subjectname)).toStrictEqual(HomePage.COLORS.teacher.subjecttab)
                 })
             })

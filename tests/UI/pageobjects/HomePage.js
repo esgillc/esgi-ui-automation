@@ -23,7 +23,8 @@ class HomePage extends Page {
             allclasses: 'Classes',
             allgroups: 'Groups',
             allstudents: 'Students',
-            allteachers: 'Teachers'
+            allteachers: 'Teachers',
+            allschools: 'Schools'
 
         }
         // All Components
@@ -83,6 +84,9 @@ class HomePage extends Page {
 
         // Tests
         this.testsCss = '.pie-charts .card'
+
+        // Subject Tab Scroll arrors
+        this.doubleRightarrowsCss = '.fa-angle-double-right'
     }
 
     getComponentCss (name) {
@@ -93,6 +97,7 @@ class HomePage extends Page {
     get allGroupsCss () { return this.getComponentCss(this.components.allgroups) }
     get allStudentsCss () { return this.getComponentCss(this.components.allstudents) }
     get allTeachersCss () { return this.getComponentCss(this.components.allteachers) }
+    get allSchoolsCss () { return this.getComponentCss(this.components.allschools) }
 
     // get COLORS () { return Helper.COLORS }
 
@@ -102,6 +107,7 @@ class HomePage extends Page {
     get subjectsAndTestsPanel () { return $(this.subjectsAndTestsPanelCss) }
     get addTestLink () { return this.subjectsAndTestsPanel.$('span=Add Test') }
     get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('span=Add, Edit, and Organize Subjects') }
+    get doubleRightarrows () { return $(this.doubleRightarrowsCss) }
 
     get leftMenu () { return $(this.leftMenuCss) }
     get leftMenuCollaspeButton () { return $(this.leftMenuCollaspeButtonCss) }
@@ -109,6 +115,7 @@ class HomePage extends Page {
     get allGroups () { return $(this.allGroupsCss) }
     get allStudents () { return $(this.allStudentsCss) }
     get allTeachers () { return $(this.allTeachersCss) }
+    get allSchools () { return $(this.allSchoolsCss) }
 
     subjectTabs () {
         return browser.getText(this.subjectTabCss)
@@ -130,7 +137,10 @@ class HomePage extends Page {
     }
 
     scrollSubjectTabToEnd () {
-        browser.click('.fa-angle-double-right')
+        browser.refresh() // @TODO: is refresh necessary?
+        this.waitForLoadingToComplete()
+        const ele = this.doubleRightarrows
+        ele.isDisplayed() && ele.click()
         browser.pause(2000)
     }
 
@@ -153,6 +163,10 @@ class HomePage extends Page {
         !this.isAllStudentsExpanded() && this.clickAllStudents()
     }
 
+    expandAllSchools () {
+        !this.isAllSchoolsExpanded() && this.clickAllSchools()
+    }
+
     clickAllClasses () {
         this.clickComponent(this.allClasses)
     }
@@ -169,6 +183,10 @@ class HomePage extends Page {
         this.clickComponent(this.allTeachers)
     }
 
+    clickAllSchools () {
+        this.clickComponent(this.allSchools)
+    }
+
     expandAllTeachers () {
         !this.isAllTeachersExpanded() && this.clickAllTeachers()
     }
@@ -181,13 +199,19 @@ class HomePage extends Page {
     clickClass (name) {
         this.expandAllClasses()
         this.getClassByName(name).click()
-        browser.pause(3000)
+        this.waitForLoadingToComplete()
     }
 
     clickTeacher (name) {
         this.expandAllTeachers()
         this.getTeacherByName(name).click()
-        browser.pause(3000)
+        this.waitForLoadingToComplete()
+    }
+
+    clickSchool (name) {
+        this.expandAllSchools()
+        this.getSchoolByName(name).click()
+        this.waitForLoadingToComplete()
     }
 
     closeModal () {
@@ -282,6 +306,10 @@ class HomePage extends Page {
 
     isAllTeachersExpanded () {
         return this.isComponentExpanded(this.allTeachers)
+    }
+
+    isAllSchoolsExpanded () {
+        return this.isComponentExpanded(this.allSchools)
     }
 
     getAllClassesObj () {
@@ -415,6 +443,10 @@ class HomePage extends Page {
         return this.getComponentByName(this.allTeachers, name)
     }
 
+    getSchoolByName (name) {
+        return this.getComponentByName(this.allSchools, name)
+    }
+
     isGroupPresent (name) {
         return this.getGroupByName(name).isDisplayed()
     }
@@ -425,6 +457,10 @@ class HomePage extends Page {
 
     isClassPresent (name) {
         return this.getClassByName(name).isDisplayed()
+    }
+
+    isSchoolPresent (name) {
+        return this.getSchoolByName(name).isDisplayed()
     }
 
     getStudentByName (name) {

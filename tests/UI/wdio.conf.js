@@ -73,9 +73,6 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    '--incognito',
-                    '--no-sandbox',
-                    '--allow-insecure-localhost',
                     // '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',

@@ -96,7 +96,8 @@ describe('Signup page - Signup_Registration', function () {
                             subjecttabs: [
                                 'K - ELA',
                                 'K - Math',
-                                'K - Sight Words'
+                                'K - Sight Words',
+                                'Add Subject Tab'
                             ]
                         }
                     }

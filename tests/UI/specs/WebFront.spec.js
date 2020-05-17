@@ -40,7 +40,7 @@ describe('WebFrontPage', function () {
             expect(activateLink).toBeDisplayed()
         })
         it('should be a link', function () {
-            expect(activateLink).toHaveLink(SignupPage.absoluteActivationCodeUrl)
+            expect(activateLink).toHaveLink(SignupPage.activateUrl)
         })
         describe('Click', function () {
             before(function () {

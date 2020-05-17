@@ -15,10 +15,10 @@ describe('Signup page - Signup_FieldValidation', function () {
                     describe(`${invalid}`, function () {
                         let fieldProperties
                         before(function () {
-                            console.log('browser.getWindowSize(): ', browser.getWindowSize())
+                           //  console.log('browser.getWindowSize(): ', browser.getWindowSize())
                             SignupPage.email.setValue(invalid)
                             SignupPage.loseFocus()
-                            browser.saveScreenshot(`./reports/screenshot${new Date().getTime()}.png`)
+                            // browser.saveScreenshot(`./reports/screenshot${new Date().getTime()}.png`)
                             fieldProperties = SignupPage.emailFieldStateProperties()
                         })
                         describe('Check Mark', function () {

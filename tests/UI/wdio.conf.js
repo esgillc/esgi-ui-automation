@@ -152,34 +152,34 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
-    user: 'danielannankra2', // process.env.BROWSERSTACK_USERNAME,
-    key: 'DpMquLnzpKoTNQwrDysi', // process.env.BROWSERSTACK_ACCESS_KEY,
-    services: [
-        ['browserstack', {
-            // browserstackLocal: true
-        }]
-    ],
+    // user: 'danielannankra2', // process.env.BROWSERSTACK_USERNAME,
+    // key: 'DpMquLnzpKoTNQwrDysi', // process.env.BROWSERSTACK_ACCESS_KEY,
     // services: [
-    //     ['selenium-standalone', {
-    //         logPath: 'logs',
-    //         installArgs: {
-    //             version: '3.5',
-    //             baseURL: 'https://selenium-release.storage.googleapis.com',
-    //             drivers: {
-    //                 chrome: {
-    //                     version: '78.0.3904.70',
-    //                     arch: process.arch,
-    //                     baseURL: 'https://chromedriver.storage.googleapis.com'
-    //                 }
-    //             }
-    //         },
-    //         args: {
-    //             drivers: {
-    //                 chrome: { version: '78.0.3904.70' }
-    //             }
-    //         }
+    //     ['browserstack', {
+    //         // browserstackLocal: true
     //     }]
     // ],
+    services: [
+        ['selenium-standalone', {
+            logPath: 'logs',
+            installArgs: {
+                version: '3.5',
+                baseURL: 'https://selenium-release.storage.googleapis.com',
+                drivers: {
+                    chrome: {
+                        version: '78.0.3904.70',
+                        arch: process.arch,
+                        baseURL: 'https://chromedriver.storage.googleapis.com'
+                    }
+                }
+            },
+            args: {
+                drivers: {
+                    chrome: { version: '78.0.3904.70' }
+                }
+            }
+        }]
+    ],
 
      // options
     // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver

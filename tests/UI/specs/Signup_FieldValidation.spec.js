@@ -15,6 +15,7 @@ describe('Signup page - Signup_FieldValidation', function () {
                     describe(`${invalid}`, function () {
                         let fieldProperties
                         before(function () {
+                            console.log('browser.getWindowSize(): ', browser.getWindowSize())
                             SignupPage.email.setValue(invalid)
                             SignupPage.loseFocus()
                             fieldProperties = SignupPage.emailFieldStateProperties()

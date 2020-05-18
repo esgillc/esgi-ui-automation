@@ -11,6 +11,11 @@ class HomePage extends Page {
         // Page Colors
         this.COLORS = Helper.COLORS
 
+        this.trackNameCss = '.school-year-selector .track'
+        this.trackLinkCss = `${this.trackNameCss} a`
+
+        this.schoolYearCss = '.school-year'
+
         // Subject Tabs
         this.subjectTabComponentCss = '.subject-tabs'
 
@@ -88,6 +93,10 @@ class HomePage extends Page {
     getComponentCss (name) {
         return `#all-box-item_${name}`
     }
+
+    get trackName () { return $(this.trackNameCss) }
+    get trackNameLink () { return this.trackName.$('a') }
+    get schoolYear () { return $(this.schoolYearCss) }
 
     get allClassesCss () { return this.getComponentCss(this.components.allclasses) }
     get allGroupsCss () { return this.getComponentCss(this.components.allgroups) }

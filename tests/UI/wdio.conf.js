@@ -43,7 +43,7 @@ exports.config = {
             `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/*.spec.js`
+            `${dir}/specs/teacheraccount/TeacherAccountPageTest.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`

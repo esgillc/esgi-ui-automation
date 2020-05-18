@@ -1,6 +1,8 @@
 'use strict'
+import Helper from '../support/Helper'
 class Global {
     constructor () {
+        this.headerCss = '.page-title, .header h1'
         this.navBarCss = '.navigation-inner'
         this.topMenuCss = `${this.navBarCss} .menu`
         this.topMenuItemsCss = `${this.topMenuCss}  .menu-item`
@@ -13,9 +15,13 @@ class Global {
             home: 'Home',
             testexplorer: 'Test Explorer',
             studentexplorer: 'Student Explorer',
+            studentmanager: 'Student Manager',
             parentconferencer: 'Parent Conferencer'
         }
     }
+
+    get header () { return $(this.headerCss) }
+
     logout () {
         // perform direct logout
         browser.url(`${browser.options.baseUrl}/ESGI/API/Login/Logout`)
@@ -51,18 +57,25 @@ class Global {
         return this.getTopMenu(this.menu.parentconferencer)
     }
 
+    headerTxt () {
+        return this.header.getText()
+    }
+
     // Navigation to the Menus
 
     navigateToHome () {
         this.homeMenu().click()
+        Helper.waitForLoadingToComplete()
     }
 
     navigateToStudentExplorer () {
         this.studentExplorerMenu().click()
+        Helper.waitForLoadingToComplete()
     }
 
     navigateToTestExplorer () {
         this.testExplorerMenu().click()
+        Helper.waitForLoadingToComplete()
     }
 
     navigateToParentConferencer () {

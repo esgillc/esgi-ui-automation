@@ -281,12 +281,35 @@ function Helper () {
     }
 
     this.handleInitialModals = () => {
-         // Handle modal @TODO: move this to a modals
+        this.waitForPreLoaderToDisappear()
         this.isModalVisible() && browser.click('.close')
         browser.pause(500)
         this.isModalVisible() && browser.click('.close-popup, .close')
     }
 
+    this.waitForPreLoaderToDisappear = () => {
+        let retries = 0
+        let preloaderWait = () => {
+                 // wait for preloader to disappear
+            const preloader = $('.preloader')
+            browser.pause(500)
+            preloader.waitForDisplayed({
+                timeout: 7000,
+                reverse: true,
+                timeoutMsg: 'Preloader did not disappear in 7 secs'
+            })
+        }
+        if (retries < 2) {
+            try {
+                preloaderWait()
+                return
+            } catch (error) {
+                browser.refresh()
+                preloaderWait()
+                retries++
+            }
+        }
+    }
     this.isModalVisible = () => {
         return browser.isVisible('.modal-dialog')
     }

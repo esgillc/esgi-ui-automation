@@ -20,21 +20,21 @@ describe('HomePage', function () {
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())
         })
-        describe.skip('TopMenus', function () {
-            describe('StudentExplorer', function () {
+        describe('TopMenus', function () {
+            describe('Student Manager', function () {
                 before(function () {
                     Global.navigateToStudentExplorer()
                 })
                 it('should be able to navigate', function () {
-                    expect('Student Exploer').toBe(browser.getTitle())
+                    expect(Global.headerTxt()).toBe(Global.menu.studentmanager)
                 })
             })
-            describe('ParentConferencer', function () {
+            describe.skip('ParentConferencer', function () {
                 before(function () {
                     Global.navigateToParentConferencer()
                 })
                 it('should be able to navigate', function () {
-                    expect('Parent Conferencer').toBe(browser.getTitle())
+                    expect(Global.headerTxt()).toBe(Global.menu.parentconferencer)
                 })
             })
             describe('Test Explorer', function () {
@@ -42,7 +42,7 @@ describe('HomePage', function () {
                     Global.navigateToTestExplorer()
                 })
                 it('should be able to navigate', function () {
-                    expect('Test Explorer').toBe(browser.getTitle())
+                    expect(Global.headerTxt()).toBe(Global.menu.testexplorer)
                 })
             })
             describe('Home', function () {
@@ -50,11 +50,11 @@ describe('HomePage', function () {
                     Global.navigateToHome()
                 })
                 it('should be able to navigate', function () {
-                    expect(HomePage.title).toBe(HomePage.getTitle())
+                    expect(HomePage.getTitle()).toBe(HomePage.title)
                 })
             })
         })
-        describe.skip('LeftMenu', function () {
+        describe('LeftMenu', function () {
             describe('Default', function () {
                 it('should be expanded', function () {
                     expect(HomePage.isLeftMenuExpanded()).toBe(true)
@@ -92,7 +92,7 @@ describe('HomePage', function () {
                         title = allClassesObj.title
                     })
                     it('should show the correct text', function () {
-                        expect(title.getText()).toBe('All Classes (4)')
+                        expect(title.getText()).toContain('All Classes (')
                     })
                     it('should be visible', function () {
                         expect(title.isDisplayed()).toBe(true)

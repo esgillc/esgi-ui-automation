@@ -30,8 +30,7 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        // `${dir}/specs/**/*.spec.js`
-        `${dir}/specs/WebFront.spec.js`
+        `${dir}/specs/**/*.spec.js`
     ],
     // define specific suites
     suites: {
@@ -42,10 +41,10 @@ exports.config = {
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
         schooladminacct: [
-            `${dir}/specs/schooladminaccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -53,7 +52,7 @@ exports.config = {
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
-            `${dir}/specs/legacy/*.spec.js`
+            `${dir}/legacy/*.spec.js`
         ],
         signup: [
             `${dir}/specs/Signup*.spec.js`,
@@ -68,6 +67,9 @@ exports.config = {
         {
             browserName: 'chrome',
             'selenoid:options': {'screenResolution': '1920×1080x24'},
+            // resolution: '1920x1080',
+            // browserVersion: '81.0', // browser version
+            // platformName: 'WIN8', // OS platform
             'goog:chromeOptions': {
                 args: [
                     '--no-sandbox',
@@ -213,6 +215,7 @@ exports.config = {
             }
         }],
         ['allure', {
+            outputDir: './reports/allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: true,
             useCucumberStepReporter: false

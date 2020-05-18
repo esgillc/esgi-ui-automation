@@ -5,7 +5,7 @@ import Global from '../support/Global'
 import {Signup} from '../fixtures/data'
 
 describe('Signup page - Signup_Registration', function () {
-    describe.only('Normal Path', () => {
+    describe('Normal Path', () => {
         after(function () {
             Global.logout()
         })
@@ -96,7 +96,8 @@ describe('Signup page - Signup_Registration', function () {
                             subjecttabs: [
                                 'K - ELA',
                                 'K - Math',
-                                'K - Sight Words'
+                                'K - Sight Words',
+                                'Add Subject Tab'
                             ]
                         }
                     }

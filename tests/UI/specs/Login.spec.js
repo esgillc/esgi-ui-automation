@@ -20,7 +20,6 @@ describe('Login page', function () {
         let resetPasswordInfo
         before(function () {
             resetPasswordInfo = Login.forgotpassword.resetpasswordemail
-            LoginPage.clickLostPasswordLink()
             LoginPage.passwordReminder(resetPasswordInfo.useremail)
         })
         it('should be sent', function () {
@@ -29,6 +28,7 @@ describe('Login page', function () {
         describe('Reset Password Email', function () {
             let emailInfo
             before(async function () {
+                browser.pause(5000) // Give it time for the mail to be sent
                 emailInfo = await LoginPage.getMailInfo()
             })
             describe('From', function () {
@@ -62,13 +62,12 @@ describe('Login page', function () {
                     })
                 })
                 describe('Verify Email Link', function () {
-                    it('should be present', function () {
-                        expect(body).toContain(resetPasswordInfo.verifyemaillink)
+                    let verifyemaillink
+                    before(function () {
+                        verifyemaillink = `${browser.options.baseUrl}${resetPasswordInfo.verifyemaillink}`
                     })
-                })
-                describe('Verify Email Link', function () {
                     it('should be present', function () {
-                        expect(body).toContain(resetPasswordInfo.verifyemaillink)
+                        expect(body).toContain(verifyemaillink)
                     })
                 })
                 describe('Expire Message', function () {

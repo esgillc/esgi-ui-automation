@@ -15,7 +15,7 @@ describe('WebFrontPage', function () {
             expect(freeTrialButton).toBeDisplayed()
         })
         it('should be a link', function () {
-            expect(freeTrialButton).toHaveLink(SignupPage.url)
+            expect(freeTrialButton).toHaveLink(SignupPage.absoluteUrl)
         })
         describe('Click', function () {
             before(function () {
@@ -23,7 +23,7 @@ describe('WebFrontPage', function () {
                 WebFrontPage.waitForLoadingToComplete()
             })
             it('should navigate to free trial page', function () {
-                // expect(browser.getUrl()).toHaveUrl(SignupPage.absoluteUrl)
+                expect(browser.getUrl()).toBe(SignupPage.absoluteUrl())
             })
         })
     })
@@ -48,7 +48,7 @@ describe('WebFrontPage', function () {
                 WebFrontPage.waitForLoadingToComplete()
             })
             it('should navigate to activation code screen', function () {
-                // expect(browser.getUrl()).toHaveUrl(SignupPage.absoluteActivationCodeUrl)
+                expect(browser.getUrl()).toBe(SignupPage.absoluteActivationCodeUrl)
             })
         })
     })

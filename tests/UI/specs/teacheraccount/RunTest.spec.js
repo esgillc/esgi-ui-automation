@@ -35,7 +35,7 @@ describe('Login page', function () {
                 console.log('resultsPageOutput: ', resultsPageOutput)
             })
             it('should be present', function () {
-                expect(resultsPageOutput).to.deep.equal(expected)
+                expect(resultsPageOutput).toStrictEqual(expected)
             })
             describe('Hompage', function () {
                 before(function () {
@@ -43,7 +43,7 @@ describe('Login page', function () {
                 })
                 it('should be present', function () {
                     console.log(HomePage.graphTextObj(payload))
-                    expect(HomePage.graphTextObj(payload)).to.deep.equal(resultsPageOutput)
+                    expect(HomePage.graphTextObj(payload)).toStrictEqual(resultsPageOutput)
                 })
             })
         })

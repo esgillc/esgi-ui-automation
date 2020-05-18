@@ -43,7 +43,7 @@ exports.config = {
             `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/TeacherAccountPageTest.spec.js`
+            `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -65,15 +65,16 @@ exports.config = {
     capabilities: [
         {
             browserName: 'chrome',
-            resolution: '1920x1080',
-            browserVersion: '81.0', // browser version
-            platformName: 'WIN8', // OS platform
+            // resolution: '1920x1080',
+            // browserVersion: '81.0', // browser version
+            // platformName: 'WIN8', // OS platform
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    // '--headless', // Windows server doesn't like headless mode
+                    '--headless',
                     '--disable-infobars',
                     '--disable-gpu',
+                    '--no-sandbox',
                     '--window-size=1920,1080'
                 ]
             }
@@ -152,34 +153,36 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
-    user: 'danielannankra2', // process.env.BROWSERSTACK_USERNAME,
-    key: 'DpMquLnzpKoTNQwrDysi', // process.env.BROWSERSTACK_ACCESS_KEY,
-    services: [
-        ['browserstack', {
-            // browserstackLocal: true
-        }]
-    ],
+    // user: 'danielannankra2', // process.env.BROWSERSTACK_USERNAME,
+    // key: 'DpMquLnzpKoTNQwrDysi', // process.env.BROWSERSTACK_ACCESS_KEY,
     // services: [
-    //     ['selenium-standalone', {
-    //         logPath: 'logs',
-    //         installArgs: {
-    //             version: '3.5',
-    //             baseURL: 'https://selenium-release.storage.googleapis.com',
-    //             drivers: {
-    //                 chrome: {
-    //                     version: '78.0.3904.70',
-    //                     arch: process.arch,
-    //                     baseURL: 'https://chromedriver.storage.googleapis.com'
-    //                 }
-    //             }
-    //         },
-    //         args: {
-    //             drivers: {
-    //                 chrome: { version: '78.0.3904.70' }
-    //             }
-    //         }
+    //     ['browserstack', {
+    //         // browserstackLocal: true
     //     }]
     // ],
+
+    // 78.0.3904.70
+    services: [
+        ['selenium-standalone', {
+            logPath: 'logs',
+            installArgs: {
+                version: '3.5',
+                baseURL: 'https://selenium-release.storage.googleapis.com',
+                drivers: {
+                    chrome: {
+                        version: '81.0.4044.138',
+                        arch: process.arch,
+                        baseURL: 'https://chromedriver.storage.googleapis.com'
+                    }
+                }
+            },
+            args: {
+                drivers: {
+                    chrome: { version: '81.0.4044.138' }
+                }
+            }
+        }]
+    ],
 
      // options
     // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver

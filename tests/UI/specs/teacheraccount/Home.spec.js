@@ -92,7 +92,7 @@ describe('HomePage', function () {
                         title = allClassesObj.title
                     })
                     it('should show the correct text', function () {
-                        expect(title.getText()).toBe('All Classes (3)')
+                        expect(title.getText()).toContain('All Classes (')
                     })
                     it('should be visible', function () {
                         expect(title.isDisplayed()).toBe(true)

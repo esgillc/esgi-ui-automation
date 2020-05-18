@@ -12,14 +12,18 @@ describe('CreateSubjectTab', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('Subject Tab', function () {
+        let payload
+        before(function () {
+            payload = {
+                subjectname: 'Mathaseline1',
+                testname: 'Drag drop test',
+                publishindefinitely: ''
+            }
+            HomePage.modifySubject()
+            ManageSubjectsAndTestsPage.deleteSubjectTab(payload.subjectname)
+        })
         describe('Add', function () {
-            let payload
             before(function () {
-                payload = {
-                    subjectname: 'Math Baseline1',
-                    testname: 'Drag drop test'
-
-                }
                 HomePage.modifySubject()
                 ManageSubjectsAndTestsPage.createSubjectTab(payload)
             })

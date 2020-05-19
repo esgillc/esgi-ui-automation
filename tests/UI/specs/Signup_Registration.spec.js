@@ -65,7 +65,7 @@ describe('Signup page - Signup_Registration', function () {
             Global.logout()
         })
         before(function () {
-            SignupPage.open(SignupPage.activationCodeUrl)
+            SignupPage.open(SignupPage.activateUrl)
         })
         it('should be on activation code screen', function () {
             expect(SignupPage.activationCodeHeader).toBeDisplayed()

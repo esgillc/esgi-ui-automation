@@ -563,6 +563,7 @@ class HomePage extends Page {
 
     // Start a test
     startTest (payload) {
+        this.clickSubjectTab(payload.tab)
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)
         this.clickTestButton(payload.testname)
@@ -647,9 +648,13 @@ class HomePage extends Page {
         this.organizeEditCreateNewSubjectLink.click()
         this.waitForLoadingToComplete()
     }
-
+    clickSubjectTab (name) {
+        $(`a.text=${name}`).click()
+        this.waitForLoadingToComplete()
+    }
     // Delete Test Details
     deleteAllPastTestDetails (payload) {
+        this.clickSubjectTab(payload.tab)
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)
         this.clickDetailsButton(payload.testname)

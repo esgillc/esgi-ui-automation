@@ -16,7 +16,7 @@ describe('Login page', function () {
         let responses
         let payload
         before(function () {
-            payload = {studentname: 'Samuel Dennick', testname: 'Number Recognition'}
+            payload = {studentname: 'Samuel Dennick', tab: 'GUSD TK - ELA', testname: 'TK Uppercase Letter Recognition (GUSD)'}
             HomePage.deleteAllPastTestDetails(payload) // Delete previous runs
             responses = ['yes', 'yes', 'no', 'yes', 'no', 'yes', 'yes', 'yes']
             HomePage.startTest(payload)
@@ -27,9 +27,9 @@ describe('Login page', function () {
             let resultsPageOutput
             before(function () {
                 expected = {
-                    correctpercentage: '19%',
-                    incorrectpercentage: '81%',
-                    resultlabel: 'Correct answers: 6/31'
+                    correctpercentage: '23%',
+                    incorrectpercentage: '77%',
+                    resultlabel: 'Correct answers: 6/26'
                 }
                 resultsPageOutput = TestResultsPage.graphTextObj()
                 console.log('resultsPageOutput: ', resultsPageOutput)

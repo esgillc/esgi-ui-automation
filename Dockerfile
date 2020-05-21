@@ -1,4 +1,4 @@
-FROM node:10
+FROM timbru31/java-node
 
 # RUN apt-get update \
 #  && apt-get install -y chromium ttf-freefont \

@@ -43,7 +43,7 @@ exports.config = {
             `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/RunTest.spec.js`
+            `${dir}/specs/teacheraccount/Home.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -72,6 +72,7 @@ exports.config = {
                 args: [
                     '--test-type',
                     '--headless',
+                    '--enable-automation',
                     '--disable-infobars',
                     '--disable-gpu',
                     '--no-sandbox',
@@ -170,7 +171,7 @@ exports.config = {
                 baseURL: 'https://selenium-release.storage.googleapis.com',
                 drivers: {
                     chrome: {
-                        version: '81.0.4044.138',
+                        version: '79.0.3945',
                         arch: process.arch,
                         baseURL: 'https://chromedriver.storage.googleapis.com'
                     }
@@ -178,7 +179,7 @@ exports.config = {
             },
             args: {
                 drivers: {
-                    chrome: { version: '81.0.4044.138' }
+                    chrome: { version: '79.0.3945' }
                 }
             }
         }]

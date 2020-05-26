@@ -65,12 +65,16 @@ class Global {
 
     navigateToHome () {
         this.homeMenu().click()
+        browser.pause(1000)
+        this.homeMenu().click() // Bug where you have to click the home button twice
         Helper.waitForLoadingToComplete()
+        browser.pause(1000)
     }
 
     navigateToStudentExplorer () {
         this.studentExplorerMenu().click()
         Helper.waitForLoadingToComplete()
+        browser.pause(1000)
     }
 
     navigateToTestExplorer () {

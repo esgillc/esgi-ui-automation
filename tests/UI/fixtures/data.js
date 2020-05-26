@@ -75,18 +75,125 @@ const TeacherReportsObj = [
 ]
 
 const Reports = {
+    teacher: {
+        initial: {
+            types: [
+                'Parent Letter',
+                'Flashcards',
+                'Bingo',
+                'Student Detail',
+                'Student Progress',
+                'Untested Students',
+                'Class Totals',
+                'Class Grades',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Parent Letter',
+                    title: 'Parent Letter Settings'
+                },
+                {
+                    name: 'Flashcards',
+                    title: 'Flashcards Settings'
+                },
+                {
+                    name: 'Student Detail',
+                    title: 'Student Detail Report'
+                },
+                {
+                    name: 'Student Progress',
+                    title: 'Student Progress Report'
+                },
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Class Totals',
+                    title: 'Class Totals Report'
+                },
+                {
+                    name: 'Class Grades',
+                    title: 'Class Grade Report'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        },
+        group: {
+            types: [
+                'Parent Letter',
+                'Flashcards',
+                'Bingo',
+                'Student Detail',
+                'Student Progress',
+                'Untested Students',
+                'Group Totals',
+                'Group Grades',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Parent Letter',
+                    title: 'Parent Letter Settings'
+                },
+                {
+                    name: 'Flashcards',
+                    title: 'Flashcards Settings'
+                },
+                {
+                    name: 'Student Detail',
+                    title: 'Student Detail Report'
+                },
+                {
+                    name: 'Student Progress',
+                    title: 'Student Progress Report'
+                },
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Group Totals',
+                    title: 'Group Totals Report'
+                },
+                {
+                    name: 'Group Grades',
+                    title: 'Group Grade Report'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        }
+    },
     types: [
+        'Parent Letter',
         'Flashcards',
         'Bingo',
+        'Student Detail',
+        'Student Progress',
         'Untested Students',
+        'Class Totals',
+        'Class Grades',
         'Item Analysis',
         'Pie Charts'
     ],
     class: [
-        {
-            name: 'Flashcards',
-            title: 'Flashcards Settings'
-        },
         {
             name: 'Untested Students',
             title: 'Untested Students'

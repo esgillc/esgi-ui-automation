@@ -107,11 +107,13 @@ function Helper () {
     }
 
     this.setValue = function (css, input) {
+        $(css).clearValue()
         browser.execute(function (css, input) {
             // eslint-disable-next-line no-undef
             return $(css).val(input)
         }, css, input)
         browser.pause(500)
+        browser.keys(' ') // Necessary else the value is lost after we lose focus
     }
 
     this.getText = function (css) {

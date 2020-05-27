@@ -40,10 +40,10 @@ exports.config = {
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
         schooladminacct: [
-            `${dir}/specs/schooladminaccount/*.spec.js`
+            `${dir}/specs/schooladminaccount/Reports.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/Home.spec.js`
+            `${dir}/specs/teacheraccount/CreateSubjectTabTest.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -71,7 +71,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    '--headless',
+                    // '--headless',
                     '--enable-automation',
                     '--disable-infobars',
                     '--disable-gpu',
@@ -325,23 +325,30 @@ exports.config = {
     // },
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
-    afterTest: function (test) {
-        if (test.error !== undefined) {
-            let failedTestInfo = {}
-            let credentials = browser.config.savedCredentials
-            failedTestInfo.currentTest = test.currentTest
-            failedTestInfo.parent = test.parent
-            failedTestInfo.file = test.file
-            failedTestInfo.username = (credentials) ? credentials.username : 'Login not attempted'
-            failedTestInfo.password = (credentials) ? credentials.password : 'Login not attempted'
-            failedTestInfo.passed = test.passed
-            // console.log(test)
-            failedTestInfo.message = test.error.message
-            console.log(failedTestInfo)
-            // let screenshotPath = `./reports/${failedTestInfo.parent.split(' ').join('_')}--${failedTestInfo.currentTest.split(' ').join('_')}.png`
-            // browser.saveScreenshot(screenshotPath)
-        }
+    afterTest: (test, context, { error, result, duration, passed, retries }) => {
+        console.log(`Finished test "${test.parent} - ${test.title}"`)
     }
+    // afterTest: function (test) {
+    //     console.log('testError: ', test)
+    //     browser.takeScreenshot()
+    //     if (test.error !== undefined) {
+    //         browser.takeScreenshot()
+    //         let failedTestInfo = {}
+    //         let credentials = browser.config.savedCredentials
+    //         failedTestInfo.currentTest = test.currentTest
+    //         failedTestInfo.parent = test.parent
+    //         failedTestInfo.file = test.file
+    //         failedTestInfo.username = (credentials) ? credentials.username : 'Login not attempted'
+    //         failedTestInfo.password = (credentials) ? credentials.password : 'Login not attempted'
+    //         failedTestInfo.passed = test.passed
+    //         // console.log(test)
+    //         failedTestInfo.message = test.error.message
+    //         console.log(failedTestInfo)
+    //         let screenshotPath = `./reports/${failedTestInfo.parent.split(' ')
+    //  .join('_')}--${failedTestInfo.currentTest.split(' ').join('_')}.png`
+    //         browser.saveScreenshot(screenshotPath)
+    //     }
+    // }
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {

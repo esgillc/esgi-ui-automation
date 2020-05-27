@@ -264,13 +264,27 @@ const Reports = {
         ]
     },
     schooladmin: {
-        allteachers: {
+        initial: {
             types: [
+                'School Students',
+                'School Totals',
                 'School Grades',
                 'Item Analysis',
                 'Pie Charts'
             ],
-            objs: [
+            props: [
+                {
+                    name: 'School Students',
+                    title: 'School Students Totals Report'
+                },
+                {
+                    name: 'School Totals',
+                    title: 'School Totals Report'
+                },
+                {
+                    name: 'School Grades',
+                    title: 'School Grades Report'
+                },
                 {
                     name: 'Item Analysis',
                     title: 'Item Analysis'
@@ -283,20 +297,45 @@ const Reports = {
         },
         teacher: {
             types: [
+                'Parent Letter',
                 'Flashcards',
                 'Bingo',
+                'Student Detail',
+                'Student Progress',
                 'Untested Students',
+                'Group Totals',
+                'Group Grades',
                 'Item Analysis',
                 'Pie Charts'
             ],
-            obj: [
+            props: [
+                {
+                    name: 'Parent Letter',
+                    title: 'Parent Letter Settings'
+                },
                 {
                     name: 'Flashcards',
                     title: 'Flashcards Settings'
                 },
                 {
+                    name: 'Student Detail',
+                    title: 'Student Detail Report'
+                },
+                {
+                    name: 'Student Progress',
+                    title: 'Student Progress Report'
+                },
+                {
                     name: 'Untested Students',
                     title: 'Untested Students'
+                },
+                {
+                    name: 'Group Totals',
+                    title: 'Group Totals Report'
+                },
+                {
+                    name: 'Group Grades',
+                    title: 'Group Grade Report'
                 },
                 {
                     name: 'Item Analysis',

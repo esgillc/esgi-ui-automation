@@ -220,7 +220,7 @@ describe('HomePage', function () {
             })
         })
         describe('TopMenus', function () {
-            describe.skip('Student Manager', function () {
+            describe('Student Manager', function () {
                 before(function () {
                     Global.navigateToStudentExplorer()
                 })

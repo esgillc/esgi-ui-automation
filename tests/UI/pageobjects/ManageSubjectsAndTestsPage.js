@@ -56,15 +56,21 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     getSubjectRowByName (name) {
-        const ele = $(`.name=${name}`)
-        return ele.$('..').$('..')
+        const ele = this.getSubjectByName(name)
+        return ele.isDisplayed() && ele.$('..').$('..')
+    }
+
+    getSubjectByName (name) {
+        return $(`.name=${name}`)
     }
 
     deleteSubjectTab (name) {
         this.waitForLoadingToComplete()
         const row = this.getSubjectRowByName(name)
         if (row) {
-            row.$(this.subjectObjCss.deletecss).click()
+            console.log('Row::::::: ', row.getHTML())
+            // row.$(this.subjectObjCss.deletecss).click() // not working as it should
+            $$(this.subjectObjCss.deletecss)[0].click() // Delete the second subject tab
             browser.pause(10000)
             browser.pause(250)
             $('span=Delete').click()
@@ -79,7 +85,7 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     isSubjectRowPresent (name) { // add-title
-        return this.getSubjectRowByName(name).isDisplayed()
+        return this.getSubjectByName(name).isDisplayed()
     }
 
     isSubjectRowCollapsed (name) { // add-title

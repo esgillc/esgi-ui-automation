@@ -215,6 +215,7 @@ class HomePage extends Page {
     }
 
     clickClass (name) {
+        this.expandAllClasses() // Bug on the page requiring the need for double expand
         this.expandAllClasses()
         this.getClassByName(name).click()
         this.waitForLoadingToComplete()
@@ -229,6 +230,14 @@ class HomePage extends Page {
     clickSchool (name) {
         this.expandAllSchools()
         this.getSchoolByName(name).click()
+        this.waitForLoadingToComplete()
+    }
+
+    // Group requires a class to be selected
+    clickGroup (classname, groupname) {
+        this.clickClass(classname)
+        this.expandAllGroups()
+        this.getGroupByName(groupname).click()
         this.waitForLoadingToComplete()
     }
 
@@ -408,7 +417,7 @@ class HomePage extends Page {
 
     clickModalSaveButton () {
         $(this.modalSaveButtonCss).click()
-        browser.pause(1000)
+        this.waitForLoadingToComplete()
     }
 
     addClass (payload) {
@@ -423,6 +432,7 @@ class HomePage extends Page {
     }
 
     addStudent (payload) {
+        this.clickClass(payload.classname)
         this.clickAddStudentButton()
         this.setStudentInfo(payload)
         this.clickModalSaveButton()
@@ -438,7 +448,8 @@ class HomePage extends Page {
     }
 
     setAndSaveComponent (payload) {
-        this.setName(payload.name)
+        // this.setName(payload.name)
+        Helper.setValue(this.modalNameInputCss, payload.name)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         browser.pause(500)
@@ -515,7 +526,8 @@ class HomePage extends Page {
         this.expandAllClasses()
         this.classObjs(payload.name).edit.click()
         browser.pause(1000)
-        this.setName(payload.newname)
+        Helper.setValue(this.modalNameInputCss, payload.newname)
+        // this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickModalSaveButton()
     }
@@ -524,7 +536,8 @@ class HomePage extends Page {
         this.clickClass(payload.classname)
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
-        this.setName(payload.newname)
+        Helper.setValue(this.modalNameInputCss, payload.newname)
+        // this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         this.clickModalSaveButton()
@@ -549,8 +562,9 @@ class HomePage extends Page {
         this.deleteItem()
     }
 
-    deleteStudent (name) {
-        this.studentObjs(name).edit.click()
+    deleteStudent (payload) {
+        this.clickClass(payload.classname)
+        this.studentObjs(payload.studentname).edit.click()
         this.deleteItem()
     }
 
@@ -559,6 +573,7 @@ class HomePage extends Page {
         browser.click(this.removeLinkCss)
         browser.pause(1000)
         $$('.modal-footer .btn-bonnie.btn-transparent')[1].click()
+        this.waitForLoadingToComplete()
     }
 
     // Start a test
@@ -658,13 +673,19 @@ class HomePage extends Page {
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)
         this.clickDetailsButton(payload.testname)
-        if ($('select.form-control option').getText() !== '') {
-            $$('select.form-control option').forEach(() => {
-                $('button.btn-delete').click()
-                browser.pause(3000)
-            })
+        if ($('select.form-control option').getText() !== 'None') {
+            $('button.btn-edit').click()
+            browser.pause(1000)
+            $('.edit-buttons a').click()
+            browser.pause(1000)
+            // $$('select.form-control option').forEach(() => {
+            //     $('.edit-buttons a').click()
+            //     browser.pause(1000)
+            // })
+           //  $('button.btn-edit').click() // Click Save button.
         }
-        this.closeModal()
+        $('button.btn-close').click()
+        this.waitForLoadingToComplete()
     }
 }
 

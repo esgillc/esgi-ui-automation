@@ -64,7 +64,7 @@ class TestRunnerPage extends Page {
     // @TODO: Move to a modal component
     closeModal () {
         browser.click(this.closeModalCss)
-        browser.pause(2000)
+        this.waitForLoadingToComplete()
     }
     addComment (comment) {
         this.footer.$(this.controlsObjCss.comment).setValue(comment)

@@ -16,7 +16,11 @@ describe('Login page', function () {
         let responses
         let payload
         before(function () {
-            payload = {studentname: 'Samuel Dennick', tab: 'GUSD TK - ELA', testname: 'TK Uppercase Letter Recognition (GUSD)'}
+            payload = {
+                studentname: 'Samuel Dennick',
+                tab: 'SubjectTabTest001',
+                testname: 'Write Uppercase Letters'
+            }
             HomePage.deleteAllPastTestDetails(payload) // Delete previous runs
             responses = ['yes', 'yes', 'no', 'yes', 'no', 'yes', 'yes', 'yes']
             HomePage.startTest(payload)

@@ -15,8 +15,8 @@ services:
       - ./package.json:/package.json
       - ./package-lock.json:/package-lock.json
       - ./.gitignore:/.gitignore
+      - ${PWD}/reports/allure-results:/usr/src/app/reports/allure-results
    
-
   selenoid:
     container_name: selenoid
     image: selenoid/chrome:81.0
@@ -27,6 +27,18 @@ services:
     networks:
           testing_net:
               ipv4_address: 172.28.1.1
+
+  allure:
+    container_name: allure
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: "TRUE"
+    ports:
+      - "4040:4040"
+      - "5050:5050"
+    volumes:
+       - ${PWD}/reports/allure-results:/app/allure-results
 
 networks:
     testing_net:

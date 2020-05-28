@@ -303,8 +303,8 @@ const Reports = {
                 'Student Detail',
                 'Student Progress',
                 'Untested Students',
-                'Group Totals',
-                'Group Grades',
+                'Class Totals',
+                'Class Grades',
                 'Item Analysis',
                 'Pie Charts'
             ],
@@ -330,12 +330,12 @@ const Reports = {
                     title: 'Untested Students'
                 },
                 {
-                    name: 'Group Totals',
-                    title: 'Group Totals Report'
+                    name: 'Class Totals',
+                    title: 'Class Totals Report'
                 },
                 {
-                    name: 'Group Grades',
-                    title: 'Group Grade Report'
+                    name: 'Class Grades',
+                    title: 'Class Grade Report'
                 },
                 {
                     name: 'Item Analysis',
@@ -345,6 +345,28 @@ const Reports = {
                     name: 'Pie Charts',
                     title: 'Pie Charts'
                 }
+            ]
+        },
+        classes: {
+            types: [
+                'Bingo',
+                'Untested Students',
+                'Item Analysis',
+                'Pie Charts'
+            ]
+        },
+        group: {
+            types: [
+                'Parent Letter',
+                'Flashcards',
+                'Bingo',
+                'Student Detail',
+                'Student Progress',
+                'Untested Students',
+                'Group Totals',
+                'Group Grades',
+                'Item Analysis',
+                'Pie Charts'
             ]
         }
     }

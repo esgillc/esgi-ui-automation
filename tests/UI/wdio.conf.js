@@ -43,7 +43,7 @@ exports.config = {
             `${dir}/specs/schooladminaccount/Reports.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/teacheraccount/Reports.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -71,7 +71,7 @@ exports.config = {
             'goog:chromeOptions': {
                 args: [
                     '--test-type',
-                    // '--headless',
+                    '--headless',
                     '--enable-automation',
                     '--disable-infobars',
                     '--disable-gpu',

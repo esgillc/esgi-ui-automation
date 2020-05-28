@@ -9,7 +9,10 @@ class ReportsPage extends Page {
         this.title = 'Reports'
         this.reportTitleCss = '.modal-header h3,.report-name,.total-report-name,.gs-header h3'
         this.closeModalCss = '.modal-header .close,.fa-close,.close-popup'
+        this.alertModalCss = '.modal-dialog .alert'
     }
+    get alertModal () { return $(this.alertModalCss) }
+    get isAlertModalPresent () { return this.alertModal.isDisplayed() }
 
     getReportTitle (name) {
         let title
@@ -20,9 +23,9 @@ class ReportsPage extends Page {
             this.closeModal()
             browser.pause(2000)
         } catch (error) {
-            // console.log('Report Error: ', error)
             browser.refresh()
             this.waitForLoadingToComplete()
+            browser.pause(2000)
         }
         return title
     }

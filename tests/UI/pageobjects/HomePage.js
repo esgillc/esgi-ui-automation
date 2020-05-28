@@ -673,13 +673,19 @@ class HomePage extends Page {
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)
         this.clickDetailsButton(payload.testname)
-        if ($('select.form-control option').getText() !== '') {
-            $$('select.form-control option').forEach(() => {
-                $('button.btn-delete').click()
-                browser.pause(3000)
-            })
+        if ($('select.form-control option').getText() !== 'None') {
+            $('button.btn-edit').click()
+            browser.pause(1000)
+            $('.edit-buttons a').click()
+            browser.pause(1000)
+            // $$('select.form-control option').forEach(() => {
+            //     $('.edit-buttons a').click()
+            //     browser.pause(1000)
+            // })
+           //  $('button.btn-edit').click() // Click Save button.
         }
-        this.closeModal()
+        $('button.btn-close').click()
+        this.waitForLoadingToComplete()
     }
 }
 

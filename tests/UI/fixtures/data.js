@@ -209,59 +209,141 @@ const Reports = {
     ],
     allclasses: TeacherReportsObj,
     districtadmin: {
-        initial: [
-            'District Students',
-            'District Totals',
-            'District Grades',
-            'District Growth',
-            'Pie Charts',
-            'Item Analysis',
-            'Teacher Activity'
-        ],
-        school: [
-            'School Students',
-            'School Totals',
-            'School Grades',
-            'Item Analysis',
-            'Pie Charts'
-        ],
-        teacher: [
-            'Flashcards',
-            'Bingo',
-            'Untested Students',
-            'Item Analysis',
-            'Pie Charts'
-        ],
-        classs: [
-            'Parent Letter',
-            'Flashcards',
-            'Bingo',
-            'Student Detail',
-            'Student Progress',
-            'Untested Students',
-            'Class Totals',
-            'Class Grades',
-            'Item Analysis',
-            'Pie Charts'
-        ],
-        obj: [
-            {
-                name: 'Flashcards',
-                title: 'Flashcards Settings'
-            },
-            {
-                name: 'Untested Students',
-                title: 'Untested Students'
-            },
-            {
-                name: 'Item Analysis',
-                title: 'Item Analysis'
-            },
-            {
-                name: 'Pie Charts',
-                title: 'Pie Charts'
-            }
-        ]
+        initial: {
+            types: [
+                'District Grades',
+                'Pie Charts',
+                'Item Analysis',
+                'Teacher Activity'
+            ],
+            props: [
+                {
+                    name: 'District Grades',
+                    title: 'Setup Grading Scales'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Teacher Activity',
+                    title: 'Teacher Activity Report'
+                }
+            ]
+        },
+        school: {
+            types: [
+                'School Grades',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'School Grades',
+                    title: 'Setup Grading Scales'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        },
+        teacher: {
+            types: [
+                'Parent Letter',
+                'Flashcards',
+                'Bingo',
+                'Student Detail',
+                'Student Progress',
+                'Untested Students',
+                'Class Totals',
+                'Class Grades',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Parent Letter',
+                    title: 'Parent Letter Settings'
+                },
+                {
+                    name: 'Flashcards',
+                    title: 'Flashcards Settings'
+                },
+                {
+                    name: 'Student Detail',
+                    title: 'Student Detail Report'
+                },
+                {
+                    name: 'Student Progress',
+                    title: 'Student Progress Report'
+                },
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Class Totals',
+                    title: 'Class Totals Report'
+                },
+                {
+                    name: 'Class Grades',
+                    title: 'Setup Grading Scales'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        },
+        classes: {
+            types: [
+                'Bingo',
+                'Untested Students',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        },
+        group: {
+            types: [
+                'Parent Letter',
+                'Flashcards',
+                'Bingo',
+                'Student Detail',
+                'Student Progress',
+                'Untested Students',
+                'Group Totals',
+                'Group Grades',
+                'Item Analysis',
+                'Pie Charts'
+            ]
+        }
     },
     schooladmin: {
         initial: {

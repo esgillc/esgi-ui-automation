@@ -97,7 +97,7 @@ describe('TeacherAccount - Reports', function () {
                                 Reports.class.forEach(report => {
                                     describe(report.name, function () {
                                         before(function () {
-                                            reportTitle = ReportsPage.getReportTitle(report.name)
+                                            reportTitle = ReportsPage.getReportTitle(Reports.allclasses)
                                         })
                                         it('should be correct', function () {
                                             expect(reportTitle).toBe(report.title)

@@ -1,3 +1,4 @@
+require('dotenv').config()
 let path = require('path')
 let dir = __dirname
 let VisualRegressionCompare = require('wdio-visual-regression-service/compare')

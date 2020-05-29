@@ -15,6 +15,7 @@ class SignupPage extends Page {
         this.createPasswordCss = '#password'
         this.promoCodeCss = '#promo-code'
         this.createTrialButtonCss = 'button.next-btn'
+        this.captchaCss = '.rc-anchor-logo-img'
         this.alreadyExistsMessageCss = '.exist-validation-message.show'
         this.promoCodeToolTipCss = '.tooltip-inner span'
         this.haveAnActivationCodeLinkCss = '.promo-code-label a'
@@ -50,6 +51,7 @@ class SignupPage extends Page {
     get schoolDropdown () { return $(this.schoolDropdownCss) }
     get haveAnActivationCodeLink () { return $(this.haveAnActivationCodeLinkCss) }
     get activationCodeHeader () { return $(this.activationCodeHeaderCss) }
+    get captcha () { return $(this.captchaCss) }
 
     get absoluteActivationCodeUrl () { return this.absoluteUrl(this.activateUrl) }
     get isOnActivationCodeScreen () { return browser.getUrl() === this.absoluteActivationCodeUrl }
@@ -58,6 +60,7 @@ class SignupPage extends Page {
         this.waitForLoadingToComplete()
         const activationCodeScreen = this.isOnActivationCodeScreen
         this.setFieldValues(payload)
+        this.clickCaptcha()
         this.createTrialButton.click()
         if (!activationCodeScreen) {
             $('b=Thanks for creating your free trial!').waitForDisplayed({ timeout: 6000 })
@@ -67,11 +70,11 @@ class SignupPage extends Page {
     }
 
     setFieldValues (payload) {
+        this.setActivationCode(payload.activationcode)
         this.setValue(this.email, payload.email)
         // this.setValue(this.createUsername, payload.username)
         this.setValue(this.createPassword, payload.password)
         this.setValue(this.promoCode, payload.promocode)
-        this.setActivationCode(payload.activationcode)
     }
 
     setValue (el, value) {
@@ -100,6 +103,14 @@ class SignupPage extends Page {
     clickContinue () {
         this.continue.click()
         this.finishSettingUpText.waitForDisplayed({ timeout: 6000 })
+    }
+
+    clickCaptcha () {
+        browser.pause(2000)
+        browser.keys('Tab')
+        browser.pause(1000)
+        browser.keys(' ')
+        this.waitForLoadingToComplete()
     }
 
     getFieldStateEles (el) {

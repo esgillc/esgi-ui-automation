@@ -60,6 +60,7 @@
         "@wdio/sync": "^6.0.15",
         "allure-commandline": "^2.9.0",
         "chai": "~4.1.2",
+        "dotenv": "^8.2.0",
         "gulp": "^4.0.2",
         "gulp-mocha": "^6.0.0",
         "gulp-util": "^3.0.8",

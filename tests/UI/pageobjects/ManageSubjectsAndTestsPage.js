@@ -68,7 +68,6 @@ class ManageSubjectsAndTestsPage extends Page {
         this.waitForLoadingToComplete()
         const row = this.getSubjectRowByName(name)
         if (row) {
-            console.log('Row::::::: ', row.getHTML())
             // row.$(this.subjectObjCss.deletecss).click() // not working as it should
             $$(this.subjectObjCss.deletecss)[0].click() // Delete the second subject tab
             browser.pause(10000)

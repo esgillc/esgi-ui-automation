@@ -41,10 +41,10 @@ exports.config = {
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
         schooladminacct: [
-            `${dir}/specs/schooladminaccount/Reports.spec.js`
+            `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
-            `${dir}/specs/teacheraccount/Reports.spec.js`
+            `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`
@@ -307,12 +307,20 @@ exports.config = {
     // },
     //
     // Runs after a WebdriverIO command gets executed
-    // afterCommand: function (commandName, args, result, error) {
-    // },
+    afterCommand: function (commandName, args, result, error) {
+        if (error) {
+            console.log(`${new Date()} An Error Occured on page: ${browser.getUrl()}`)
+            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
+        }
+    },
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
-    afterTest: (test, context, { error, result, duration, passed, retries }) => {
-        console.log(`Finished test "${test.parent} - ${test.title}"`)
+    //  payload: { error, result, duration, passed, retries }
+    afterTest: (test, context, payload) => {
+        if (payload.error !== undefined) {
+            const screenshotPath = `./screenshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
+            browser.saveScreenshot(screenshotPath)
+        }
     }
     // afterTest: function (test) {
     //     console.log('testError: ', test)

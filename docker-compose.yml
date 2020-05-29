@@ -16,6 +16,8 @@ services:
       - ./package-lock.json:/package-lock.json
       - ./.gitignore:/.gitignore
       - ${PWD}/reports/allure-results:/usr/src/app/reports/allure-results
+      - ${PWD}/screenshots:/usr/src/app/screenshots
+      - ${PWD}/errorshots:/usr/src/app/errorshots
    
   selenoid:
     container_name: selenoid

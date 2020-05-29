@@ -103,6 +103,7 @@ class SignupPage extends Page {
     }
 
     getFieldStateEles (el) {
+        Helper.waitForJQuery()
         const parent = el.$('..')
         return {
             errormessage: parent.$('.error-message span'),

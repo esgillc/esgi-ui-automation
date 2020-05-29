@@ -147,6 +147,16 @@ function Helper () {
         browser.pause(500)
     }
 
+    this.waitForJQuery = function (timeout) {
+        timeout = timeout || 10000
+        browser.pause(250)
+        let _this = this
+        browser.waitUntil(function () {
+            return _this.jqueryLoaded() === 0
+        }, timeout, `Loading (Jquery) did not complete in ${timeout / 1000} seconds`)
+        browser.pause(250)
+    }
+
     this.COLORS = {
         districtadmin: {
             subjecttab: {

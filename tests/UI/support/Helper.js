@@ -161,24 +161,24 @@ function Helper () {
         districtadmin: {
             subjecttab: {
                 property: 'color',
-                value: 'rgb(225,223,223)',
+                value: 'rgb(81,45,168)',
                 parsed: {
-                    hex: '#e1dfdf',
+                    hex: '#512da8',
                     alpha: 1,
                     type: 'color',
-                    rgb: 'rgb(225,223,223)'
+                    rgb: 'rgb(81,45,168)'
                 }
             }
         },
         schooladmin: {
             subjecttab: {
                 property: 'color',
-                value: 'rgb(66,66,66)',
+                value: 'rgb(4,118,189)',
                 parsed: {
-                    hex: '#424242',
+                    hex: '#0476bd',
                     alpha: 1,
                     type: 'color',
-                    rgb: 'rgb(66,66,66)'
+                    rgb: 'rgb(4,118,189)'
                 }
             }
         },

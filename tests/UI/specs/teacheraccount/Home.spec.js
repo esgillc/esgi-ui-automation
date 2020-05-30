@@ -131,9 +131,6 @@ describe('HomePage', function () {
         })
         describe('AllGroups', function () {
             // First select what class you want to work with to show the All Groups component
-            before(function () {
-                // Pick a class
-            })
             describe('AddGroup', function () {
                 let payload
                 before(function () {
@@ -177,14 +174,17 @@ describe('HomePage', function () {
             })
         })
         describe('AllStudents', function () {
+            let payload
+            before(function () {
+                payload = {
+                    classname: 'Buckhoff\'s Class',
+                    firstname: '00first123',
+                    lastname: '00last123'
+                }
+                HomePage.deleteStudent(payload)
+            })
             describe('AddStudent', function () {
-                let payload
                 before(function () {
-                    payload = {
-                        classname: 'Buckhoff\'s Class',
-                        firstname: '00first123',
-                        lastname: '00last123'
-                    }
                     HomePage.addStudent(payload)
                 })
                 it('should add a student', function () {
@@ -208,7 +208,8 @@ describe('HomePage', function () {
                         before(function () {
                             payload = {
                                 classname: 'Buckhoff\'s Class',
-                                studentname: '00NewFirst 00Newlast'
+                                firstname: '00NewFirst',
+                                lastname: '00Newlast'
                             }
                             HomePage.deleteStudent(payload)
                         })
@@ -219,21 +220,24 @@ describe('HomePage', function () {
                 })
             })
         })
-        describe('TopMenus', function () {
+        describe.only('TopMenus', function () {
             describe('Student Manager', function () {
                 before(function () {
-                    Global.navigateToStudentExplorer()
+                    Global.navigateToStudentManager()
                 })
                 it('should be able to navigate', function () {
                     expect(Global.headerTxt()).toBe(Global.menu.studentmanager)
                 })
+                it('url is correct', function () {
+                    expect(browser.getUrl()).toBe(Global.studentManagerUrl())
+                })
             })
-            describe.skip('ParentConferencer', function () {
+            describe('ParentConferencer', function () {
                 before(function () {
                     Global.navigateToParentConferencer()
                 })
                 it('should be able to navigate', function () {
-                    expect(Global.headerTxt()).toBe(Global.menu.parentconferencer)
+                    expect(browser.getUrl()).toBe(Global.parentConferencerUrl())
                 })
             })
             describe('Test Explorer', function () {
@@ -243,6 +247,9 @@ describe('HomePage', function () {
                 it('should be able to navigate', function () {
                     expect(Global.headerTxt()).toBe(Global.menu.testexplorer)
                 })
+                it('url is correct', function () {
+                    expect(browser.getUrl()).toBe(Global.testExplorerUrl())
+                })
             })
             describe('Home', function () {
                 before(function () {
@@ -250,6 +257,9 @@ describe('HomePage', function () {
                 })
                 it('should be able to navigate', function () {
                     expect(HomePage.getTitle()).toBe(HomePage.title)
+                })
+                it('url is correct', function () {
+                    expect(browser.getUrl()).toBe(HomePage.absoluteUrl())
                 })
             })
         })

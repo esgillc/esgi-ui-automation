@@ -15,9 +15,10 @@ describe('CreateSubjectTab', function () {
         let payload
         before(function () {
             payload = {
-                subjectname: 'Mathaseline1',
+                subjectname: 'DistrictAdmin001',
                 testname: 'Drag drop test',
-                publishindefinitely: ''
+                publishindefinitely: 'true',
+                grade: 'Kindergarten'
             }
             HomePage.modifySubject()
             ManageSubjectsAndTestsPage.deleteSubjectTab(payload.subjectname)

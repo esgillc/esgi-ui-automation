@@ -365,7 +365,7 @@ const Reports = {
                 },
                 {
                     name: 'School Grades',
-                    title: 'School Grades Report'
+                    title: 'Setup Grading Scales'
                 },
                 {
                     name: 'Item Analysis',
@@ -417,7 +417,7 @@ const Reports = {
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Class Grade Report'
+                    title: 'Setup Grading Scales'
                 },
                 {
                     name: 'Item Analysis',

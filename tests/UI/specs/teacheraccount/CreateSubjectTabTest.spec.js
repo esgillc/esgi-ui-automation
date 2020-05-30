@@ -3,7 +3,7 @@ import HomePage from '../../pageobjects/HomePage'
 import ManageSubjectsAndTestsPage from '../../pageobjects/ManageSubjectsAndTestsPage'
 import {Users} from '../../fixtures/data'
 
-describe('CreateSubjectTab', function () {
+describe('CreateSubjectTabTest', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.teacher.credentials)
@@ -15,7 +15,7 @@ describe('CreateSubjectTab', function () {
         let payload
         before(function () {
             payload = {
-                subjectname: 'Subject1234',
+                subjectname: 'Teacher001',
                 testname: 'Drag drop test'
             }
             HomePage.modifySubject()

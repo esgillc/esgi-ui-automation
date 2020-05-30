@@ -151,7 +151,7 @@ class HomePage extends Page {
     }
 
     getSubjectTabByName (name) {
-        return $(`a.text=${name}`)
+        return $(`a.text=${name}`).$('..')
     }
 
     scrollSubjectTabToEnd () {
@@ -563,8 +563,11 @@ class HomePage extends Page {
     }
 
     deleteStudent (payload) {
+        const studentname = `${payload.firstname} ${payload.lastname}`
+        if (!this.isStudentPresent(studentname)) return
+        console.log('Payload:::::', payload)
         this.clickClass(payload.classname)
-        this.studentObjs(payload.studentname).edit.click()
+        this.studentObjs(studentname).edit.click()
         this.deleteItem()
     }
 

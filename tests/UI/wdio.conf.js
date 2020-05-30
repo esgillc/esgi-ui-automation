@@ -20,8 +20,8 @@ exports.config = {
         password: 'automation01!'
     },
 
-    hostname: '172.28.1.1',
-    port: 4444,
+    // hostname: '172.28.1.1',
+    // port: 4444,
     //
     // ==================
     // Specify Test Files

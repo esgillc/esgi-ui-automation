@@ -2,7 +2,7 @@
 
 import Page from './Page'
 import AddTestPage from './AddTestPage'
-// import Helper from '../support/Helper'
+import Helper from '../support/Helper'
 
 class ManageSubjectsAndTestsPage extends Page {
     constructor () {
@@ -38,14 +38,19 @@ class ManageSubjectsAndTestsPage extends Page {
     createNewSubject (payload) {
         this.createNewSubjectButton.click()
         browser.pause(1000)
-        $('input.form-control').setValue(payload.subjectname)
+        Helper.setValue('input.form-control', payload.subjectname)
         payload.publishindefinitely && this.publishIndefinitely.click()
-        // Helper.setValue('input.form-control', name)
+        payload.grade && this.addGradeToSubject()
         browser.pause(500)
         $('button=Save').click()
         this.waitForLoadingToComplete()
-        // this.doneButton.click()
-        // browser.pause(500)
+    }
+
+    addGradeToSubject () {
+        $('.add-buble-item').click()
+        browser.pause(500)
+        $('label=Kindergarten').click()
+        browser.pause(500)
     }
 
     createSubjectTab (payload) {
@@ -56,8 +61,9 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     getSubjectRowByName (name) {
-        const ele = this.getSubjectByName(name)
-        return ele.isDisplayed() && ele.$('..').$('..')
+        return $$('.subject-row .subject-row-body').filter(function (subject) {
+            return subject.getText() === name
+        })[0]
     }
 
     getSubjectByName (name) {
@@ -68,9 +74,7 @@ class ManageSubjectsAndTestsPage extends Page {
         this.waitForLoadingToComplete()
         const row = this.getSubjectRowByName(name)
         if (row) {
-            // row.$(this.subjectObjCss.deletecss).click() // not working as it should
-            $$(this.subjectObjCss.deletecss)[0].click() // Delete the second subject tab
-            browser.pause(10000)
+            row.$(this.subjectObjCss.deletecss).click() // not working as it should
             browser.pause(250)
             $('span=Delete').click()
             browser.pause(2000)
@@ -97,7 +101,6 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     addTestToSubject (subjectName, testName) {
-        //  this.expandSubjectRow(subjectName)
         this.clickAddTestToSubjectButton(subjectName)
         if (!this.isReportAProblemAlertDisplayed()) {
             AddTestPage.addTest(testName)

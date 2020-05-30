@@ -2,7 +2,7 @@
 import Helper from '../support/Helper'
 class Global {
     constructor () {
-        this.headerCss = '.page-title, .header h1'
+        this.headerCss = '.page-title, .header h1, .title2'
         this.navBarCss = '.navigation-inner'
         this.topMenuCss = `${this.navBarCss} .menu`
         this.topMenuItemsCss = `${this.topMenuCss}  .menu-item`
@@ -14,7 +14,6 @@ class Global {
         this.menu = {
             home: 'Home',
             testexplorer: 'Test Explorer',
-            studentexplorer: 'Student Explorer',
             studentmanager: 'Student Manager',
             parentconferencer: 'Parent Conferencer'
         }
@@ -33,8 +32,23 @@ class Global {
         return browser.getText(this.topMenuItemsCss)
     }
 
+    topMenuUrl (name) {
+        return `${browser.options.baseUrl}/esgi/${name
+            .toLowerCase()
+            .split(' ')
+            .join('-')}`
+    }
+    parentConferencerUrl () {
+        return this.topMenuUrl(this.menu.parentconferencer)
+    }
+    testExplorerUrl () {
+        return this.topMenuUrl(this.menu.testexplorer)
+    }
+    studentManagerUrl () {
+        return this.topMenuUrl(this.menu.studentmanager)
+    }
     getTopMenu (name) {
-        let cssPre = '.menu-item a[href="/esgi'
+        let cssPre = '.navigation a[href="/esgi'
         if (name.toLowerCase() === 'home') { return $(`${cssPre}"]`) }
         return $(`${cssPre}/${name
             .toLowerCase()
@@ -49,12 +63,12 @@ class Global {
         return this.getTopMenu(this.menu.testexplorer)
     }
 
-    studentExplorerMenu () {
-        return this.getTopMenu(this.menu.studentexplorer)
-    }
-
     parentConferencerMenu () {
         return this.getTopMenu(this.menu.parentconferencer)
+    }
+
+    studentManagerMenu () {
+        return this.getTopMenu(this.menu.studentmanager)
     }
 
     headerTxt () {
@@ -71,19 +85,22 @@ class Global {
         browser.pause(1000)
     }
 
-    navigateToStudentExplorer () {
-        this.studentExplorerMenu().click()
+    navigateToStudentManager () {
+        this.studentManagerMenu().click()
         Helper.waitForLoadingToComplete()
         browser.pause(1000)
     }
 
     navigateToTestExplorer () {
         this.testExplorerMenu().click()
+        browser.pause(1000)
+        this.testExplorerMenu().click()
         Helper.waitForLoadingToComplete()
     }
 
     navigateToParentConferencer () {
         this.parentConferencerMenu().click()
+        Helper.waitForLoadingToComplete()
     }
 
     clickRightNavBar () {

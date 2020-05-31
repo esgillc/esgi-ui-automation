@@ -11,4 +11,5 @@ allure-report
 package-lock.json
 reports/
 allure-results/
+screenshots/
 

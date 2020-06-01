@@ -29,6 +29,7 @@
         "deploy-report": "aws s3 sync ./build/ s3://esgiuitestresultsbucket --region us-east-1",
         "open-report": "allure open",
         "createdirs": "gulp createdirs",
+        "deletedirs": "gulp deletedirs",
         "dev-allure": "npm run allure-report && npm run open-report"
     },
     "keywords": [
@@ -72,7 +73,6 @@
         "resolve": "~1.3.3",
         "run-sequence": "~1.2.2",
         "selenium-standalone": "^6.17.0",
-        "shelljs": "^0.8.3",
         "supertest": "^3.0.0",
         "supertest-as-promised": "^4.0.2",
         "through2": "^3.0.1",
@@ -101,6 +101,7 @@
         "gulp-babel": "^8.0.0",
         "gulp-eslint": "~5.0.0",
         "gulp-webdriver": "^2.0.3",
+        "shelljs": "^0.8.4",
         "wdio-chromedriver-service": "^6.0.0"
     }
 }

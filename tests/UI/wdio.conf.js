@@ -1,3 +1,4 @@
+const shell = require('shelljs')
 require('dotenv').config()
 let path = require('path')
 let dir = __dirname
@@ -12,7 +13,7 @@ function getScreenshotName (basePath) {
         return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}.png`)
     }
 }
-
+shell.mkdir('-p', 'screenshots', 'errorshots', 'reports')
 exports.config = {
     runner: 'local',
     credentials: {

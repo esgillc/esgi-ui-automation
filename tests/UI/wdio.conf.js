@@ -1,8 +1,11 @@
+// const TestRunReport = require('../lib/Reporters/TestRunReport')
+const fs = require('fs')
 const shell = require('shelljs')
 require('dotenv').config()
 let path = require('path')
 let dir = __dirname
 let VisualRegressionCompare = require('wdio-visual-regression-service/compare')
+
 function getScreenshotName (basePath) {
     return function (context) {
         let type = context.type
@@ -13,6 +16,13 @@ function getScreenshotName (basePath) {
         return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}.png`)
     }
 }
+function writeToFile (item) {
+    var stream = fs.createWriteStream('./reports/custom-report/TestRunReport.txt', {flags: 'a'})
+    stream.write(item + '\n')
+    stream.end()
+}
+writeToFile('ESGI UI AUTOMATION RESULTS')
+writeToFile(`DATE: ${new Date().toISOString()}`)
 shell.mkdir('-p', 'screenshots', 'errorshots', 'reports')
 exports.config = {
     runner: 'local',
@@ -111,7 +121,7 @@ exports.config = {
     //
     outputDir: './logs', // path.join(__dirname, 'logs'),
     // Level of logging verbosity: trace, debug, info, warn, error, silent
-    logLevel: 'silent',
+    logLevel: 'trace',
     deprecationWarnings: true,
     //
     // Enables colors for log output.
@@ -200,7 +210,7 @@ exports.config = {
     // The following are supported: dot (default), spec, and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
 
-    reporters: ['spec',
+    reporters: [
         // outputDir: './mochawesomeoutput',
         // mochawesome_filename: `mochawesomeresults${new Date().getTime()}${Math.floor((Math.random() * 1000) + 1)}_del.json`, // will default to wdiomochawesome.json if no name is provided
         // overwrite: false,
@@ -287,8 +297,10 @@ exports.config = {
     // },
     //
     // Hook that gets executed before the suite starts
-    // beforeSuite: function (suite) {
-    // },
+    beforeSuite: function (suite) {
+        writeToFile(`\n\n'Suite: ', ${suite.file}`)
+        writeToFile(`'Suite: ', ${suite.fullTitle}`)
+    },
     //
     // Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
     // beforeEach in Mocha)
@@ -311,7 +323,7 @@ exports.config = {
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
         if (error) {
-            console.log(`${new Date()} An Error Occured on page: ${browser.getUrl()}`)
+            // console.log(`${new Date()} An Error Occured on page: ${browser.getUrl()}`)
             browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
         }
     },
@@ -319,6 +331,13 @@ exports.config = {
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
     //  payload: { error, result, duration, passed, retries }
     afterTest: (test, context, payload) => {
+        let log
+        if (payload.passed) {
+            log = `\t"${test.parent}"-"${test.title}" passed 👏`
+        } else {
+            log = `\t"${test.parent}"-"${test.title}" failed ❌`
+        }
+        writeToFile(log)
         if (payload.error !== undefined) {
             const screenshotPath = `./screenshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
             browser.saveScreenshot(screenshotPath)

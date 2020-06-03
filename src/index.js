@@ -1,6 +1,14 @@
 import through from 'through2'
 import gutil from 'gulp-util'
 import Launcher from '@wdio/cli'
+const fs = require('fs')
+function writeToFile (item) {
+    var stream = fs.createWriteStream('./reports/custom-report/TestRunReport.txt', {flags: 'a'})
+    stream.write(item + '\n')
+    stream.end()
+}
+writeToFile('\nESGI UI AUTOMATION RESULTS')
+writeToFile(`DATE: ${new Date().toISOString()}`)
 
 module.exports = (options) => {
     return through.obj(async function (file, encoding, callback) {

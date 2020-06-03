@@ -21,8 +21,7 @@ function writeToFile (item) {
     stream.write(item + '\n')
     stream.end()
 }
-writeToFile('ESGI UI AUTOMATION RESULTS')
-writeToFile(`DATE: ${new Date().toISOString()}`)
+
 shell.mkdir('-p', 'screenshots', 'errorshots', 'reports')
 exports.config = {
     runner: 'local',
@@ -245,7 +244,7 @@ exports.config = {
     },
     // onPrepare: function () {
     // },
-    before: function () {
+    before: function (capabilities, specs) {
         browser.addCommand('click', function (css) {
             $(css).click()
         })
@@ -274,8 +273,8 @@ exports.config = {
         })
         console.log(`Test run baseUrl is: ${browser.options.baseUrl} \n`)
     },
-    after: function (failures, pid) {
-    },
+    // after: function (failures, pid) {
+    // },
     // onComplete: function () {
     // },
     //

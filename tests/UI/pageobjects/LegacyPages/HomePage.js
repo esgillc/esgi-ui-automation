@@ -28,7 +28,7 @@ class HomePage extends Page {
 
     clickClassByName (name) {
         this.getClassByName(name).click()
-        browser.pause(3000)
+        this.waitForLoadingToComplete()
     }
 
     getStudentByName (name) {
@@ -37,7 +37,7 @@ class HomePage extends Page {
 
     clickStudentByName (name) {
         this.allStudents.$('.hierarchyBoxLabel span').click()
-        browser.pause(3000)
+        this.waitForLoadingToComplete()
         // this.getStudentByName(name).click()
     }
 

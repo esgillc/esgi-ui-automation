@@ -110,7 +110,7 @@ export default options => {
     }))
 
     gulp.task('deletedirs', gulp.series(function (done) {
-        let errorCode = shell.rm('-rf', 'screenshots/*', 'errorshots/*', 'reports/allure-results/*')
+        let errorCode = shell.rm('-rf', 'screenshots/*', 'errorshots/*', 'reports/allure-results/*', 'reports/custom-report/*')
         done()
         return errorCode
     }))

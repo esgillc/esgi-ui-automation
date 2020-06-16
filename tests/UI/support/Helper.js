@@ -293,7 +293,7 @@ function Helper () {
     }
 
     this.handleInitialModals = () => {
-        this.waitForPreLoaderToDisappear()
+        // this.waitForPreLoaderToDisappear()
         this.isModalVisible() && browser.click('.close')
         browser.pause(500)
         this.isModalVisible() && browser.click('.close-popup, .close')

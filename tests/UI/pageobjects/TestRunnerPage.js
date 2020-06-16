@@ -101,7 +101,7 @@ class TestRunnerPage extends Page {
     runTest (responses) {
         this.clickTestIntroStartButton() // click the start button if test intro exists
         responses.forEach(res => {
-            browser.pause(3000)
+            browser.pause(2000)
             res.toLowerCase() === 'yes' ? this.clickYes() : this.clickNo()
         })
         this.closeModal()

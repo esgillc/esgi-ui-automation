@@ -26,6 +26,8 @@ describe('Legacy - HomePage', function () {
             let responses
             let payload
             before(function () {
+                $('a=1st - Math').click()
+                HomePage.waitForLoadingToComplete()
                 payload = {classname: 'Class001', studentname: 'TakeTest001 Student001', testname: 'Add Within 100'}
                 HomePage.deleteAllPastTestDetails(payload) // Delete previous runs
                 responses = ['yes', 'yes', 'no']

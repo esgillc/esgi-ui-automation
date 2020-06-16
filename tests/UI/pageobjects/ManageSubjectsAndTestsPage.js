@@ -77,7 +77,7 @@ class ManageSubjectsAndTestsPage extends Page {
             row.$(this.subjectObjCss.deletecss).click() // not working as it should
             browser.pause(250)
             $('span=Delete').click()
-            browser.pause(2000)
+            browser.pause(1000)
         }
         $('button=Done').click()
         this.waitForLoadingToComplete()

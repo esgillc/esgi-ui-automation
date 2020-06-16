@@ -34,7 +34,7 @@ class LoginPage extends Page {
         this.submitButton.click()
         browser.pause(250)
         this.waitForPageToLoad()
-        browser.pause(3000) // @TODO: Implement wait for new window
+        // browser.pause(3000) // @TODO: Implement wait for new window
 
         const assessmentWindow = browser.getWindowHandles()[1]
         browser.switchToWindow(assessmentWindow)

@@ -44,7 +44,8 @@ class HomePage extends Page {
             parentletter: 'Parent Letter',
             flashcards: 'Flashcards',
             bingo: 'Bingo',
-            studentdetail: 'Student Detail'
+            studentdetail: 'Student Detail',
+            classtotals: 'Class Totals'
         }
 
         this.testcardObjCss = {
@@ -159,7 +160,7 @@ class HomePage extends Page {
         this.waitForLoadingToComplete()
         const ele = this.doubleRightarrows
         ele.isDisplayed() && ele.click()
-        browser.pause(2000)
+        browser.pause(500)
     }
 
     // Reports
@@ -211,7 +212,7 @@ class HomePage extends Page {
 
     clickComponent (component) {
         component.click()
-        browser.pause(3000) // wait for page to load
+        this.waitForLoadingToComplete()
     }
 
     clickClass (name) {
@@ -255,7 +256,6 @@ class HomePage extends Page {
 
     getReports () {
         Helper.waitForLoadingToComplete()
-        browser.pause(3000)
         return browser.getText(this.reportsCss)
     }
     getReportByName (name) {
@@ -278,19 +278,28 @@ class HomePage extends Page {
         return this.getReportByName(this.reports.studentdetail)
     }
 
+    getClassTotalsReport () {
+        return this.getReportByName(this.reports.classtotals)
+    }
+
     clickParentLetterReport () {
         this.getParentLetterReport().click()
-        browser.pause(1000)
+        this.waitForLoadingToComplete()
     }
 
     clickFlashcardsReport () {
         this.getFlashcardsReport().click()
-        browser.pause(1000)
+        this.waitForLoadingToComplete()
     }
 
     clickStudentDetail () {
         this.getStudentDetailReport().click()
-        browser.pause(1000)
+        this.waitForLoadingToComplete()
+    }
+
+    clickClassTotalsReport () {
+        this.getClassTotalsReport().click()
+        this.waitForLoadingToComplete()
     }
 
     isLeftMenuExpanded () {
@@ -439,7 +448,7 @@ class HomePage extends Page {
     }
 
     setStudentInfo (payload) {
-        browser.pause(2000) // wait for modal to load
+        browser.pause(1000) // wait for modal to load
         const inputs = $$('input.form-control.large')
         inputs[0].setValue(payload.firstname)
         inputs[1].setValue(payload.lastname)
@@ -553,7 +562,7 @@ class HomePage extends Page {
         this.clickClass(payload.classname)
         this.groupObjs(payload.groupname).edit.click()
         this.deleteItem()
-        browser.pause(3000)
+        this.waitForLoadingToComplete()
     }
 
     deleteClass (name) {

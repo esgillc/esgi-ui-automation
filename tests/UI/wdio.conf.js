@@ -1,10 +1,11 @@
-// const TestRunReport = require('../lib/Reporters/TestRunReport')
-const fs = require('fs')
+
 const shell = require('shelljs')
 require('dotenv').config()
 let path = require('path')
 let dir = __dirname
 let VisualRegressionCompare = require('wdio-visual-regression-service/compare')
+const {EyesService} = require('../../Services/EyeService/index')
+const SpecToFileReporter = require('../../Reporters/SpecToFileReporter/index')
 
 function getScreenshotName (basePath) {
     return function (context) {
@@ -16,11 +17,6 @@ function getScreenshotName (basePath) {
         return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}.png`)
     }
 }
-function writeToFile (item) {
-    var stream = fs.createWriteStream('./reports/custom-report/TestRunReport.txt', {flags: 'a'})
-    stream.write(item + '\n')
-    stream.end()
-}
 
 shell.mkdir('-p', 'screenshots', 'errorshots', 'reports')
 exports.config = {
@@ -30,9 +26,6 @@ exports.config = {
         password: 'automation01!'
     },
 
-    // hostname: '172.28.1.1',
-    // port: 4444,
-    //
     // ==================
     // Specify Test Files
     // ==================
@@ -120,7 +113,7 @@ exports.config = {
     //
     outputDir: './logs', // path.join(__dirname, 'logs'),
     // Level of logging verbosity: trace, debug, info, warn, error, silent
-    logLevel: 'trace',
+    logLevel: 'silent',
     deprecationWarnings: true,
     //
     // Enables colors for log output.
@@ -166,26 +159,27 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
-    // services: [
-    //     ['selenium-standalone', {
-    //         logPath: 'logs',
-    //         installArgs: {
-    //             drivers: {
-    //                 chrome: { version: '81.0.4044.129' }
-    //             }
-    //         },
-    //         args: {
-    //             drivers: {
-    //                 chrome: { version: '81.0.4044.129' }
-    //             }
-    //         }
-    //     }]
-    // ],
+    services: [
+        [EyesService]
+    ],
 
      // options
     // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver
     // Options are set here as well
     // seleniumLogs: './logs',
+    // services: [
+    //     [EyesService]
+    // ],
+    eyes: {
+        batch: 'ESGI - Automation',
+        // '<APPLITOOLS_API_KEY>', // can be passed here or via environment variable `APPLITOOLS_API_KEY`
+        apiKey: 'SO8mkDlXVb5dE4xiJhlER0q6iyrFyhMLXnOA1vObsuM110',
+        viewportSize: {
+            width: 1920,
+            height: 1080
+        },
+        stitchMode: 'CSS'
+    },
     visualRegression: {
         compare: new VisualRegressionCompare.LocalCompare({
             referenceName: getScreenshotName(path.join(process.cwd(), 'screenshots/reference')),
@@ -208,16 +202,9 @@ exports.config = {
     // Test reporter for stdout.
     // The following are supported: dot (default), spec, and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-
     reporters: [
-        // outputDir: './mochawesomeoutput',
-        // mochawesome_filename: `mochawesomeresults${new Date().getTime()}${Math.floor((Math.random() * 1000) + 1)}_del.json`, // will default to wdiomochawesome.json if no name is provided
-        // overwrite: false,
-        // reportTitle: 'Time Summit Connect',
-        // showPassed: true,
-        // showSkipped: true,
-        // enableCode: false,
-        // saveJson: true,
+        SpecToFileReporter,
+        // [CustomReporter],
         ['junit', {
             outputDir: './reports/junit-results',
             outputFileFormat: function (opts) { // optional
@@ -296,10 +283,8 @@ exports.config = {
     // },
     //
     // Hook that gets executed before the suite starts
-    beforeSuite: function (suite) {
-        writeToFile(`\n\n'Suite: ', ${suite.file}`)
-        writeToFile(`'Suite: ', ${suite.fullTitle}`)
-    },
+    // beforeSuite: function (suite) {
+    // },
     //
     // Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
     // beforeEach in Mocha)
@@ -322,7 +307,6 @@ exports.config = {
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
         if (error) {
-            // console.log(`${new Date()} An Error Occured on page: ${browser.getUrl()}`)
             browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
         }
     },
@@ -330,39 +314,11 @@ exports.config = {
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
     //  payload: { error, result, duration, passed, retries }
     afterTest: (test, context, payload) => {
-        let log
-        if (payload.passed) {
-            log = `\t"${test.parent}"-"${test.title}" passed 👏`
-        } else {
-            log = `\t"${test.parent}"-"${test.title}" failed ❌`
-        }
-        writeToFile(log)
         if (payload.error !== undefined) {
             const screenshotPath = `./screenshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
             browser.saveScreenshot(screenshotPath)
         }
     }
-    // afterTest: function (test) {
-    //     console.log('testError: ', test)
-    //     browser.takeScreenshot()
-    //     if (test.error !== undefined) {
-    //         browser.takeScreenshot()
-    //         let failedTestInfo = {}
-    //         let credentials = browser.config.savedCredentials
-    //         failedTestInfo.currentTest = test.currentTest
-    //         failedTestInfo.parent = test.parent
-    //         failedTestInfo.file = test.file
-    //         failedTestInfo.username = (credentials) ? credentials.username : 'Login not attempted'
-    //         failedTestInfo.password = (credentials) ? credentials.password : 'Login not attempted'
-    //         failedTestInfo.passed = test.passed
-    //         // console.log(test)
-    //         failedTestInfo.message = test.error.message
-    //         console.log(failedTestInfo)
-    //         let screenshotPath = `./reports/${failedTestInfo.parent.split(' ')
-    //  .join('_')}--${failedTestInfo.currentTest.split(' ').join('_')}.png`
-    //         browser.saveScreenshot(screenshotPath)
-    //     }
-    // }
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {

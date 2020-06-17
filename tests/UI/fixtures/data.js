@@ -211,16 +211,31 @@ const Reports = {
     districtadmin: {
         initial: {
             types: [
+                'District Students',
+                'District Totals',
                 'District Grades',
+                'District Growth',
                 'Pie Charts',
                 'Item Analysis',
                 'Teacher Activity'
             ],
             props: [
+                // {
+                //     name: 'District Students',
+                //     title: 'Setup Grading Scales'
+                // },
+                {
+                    name: 'District Totals',
+                    title: 'Setup Grading Scales'
+                },
                 {
                     name: 'District Grades',
                     title: 'Setup Grading Scales'
                 },
+                // {
+                //     name: 'District Growth',
+                //     title: 'Setup Grading Scales'
+                // },
                 {
                     name: 'Pie Charts',
                     title: 'Pie Charts'
@@ -228,20 +243,30 @@ const Reports = {
                 {
                     name: 'Item Analysis',
                     title: 'Item Analysis'
-                },
-                {
-                    name: 'Teacher Activity',
-                    title: 'Teacher Activity Report'
                 }
+                // {
+                //     name: 'Teacher Activity',
+                //     title: 'Teacher Activity Report'
+                // }
             ]
         },
         school: {
             types: [
+                'School Students',
+                'School Totals',
                 'School Grades',
                 'Item Analysis',
                 'Pie Charts'
             ],
             props: [
+                // {
+                //     name: 'School Students',
+                //     title: 'Setup Grading Scales'
+                // },
+                // {
+                //     name: 'School Totals',
+                //     title: 'Setup Grading Scales'
+                // },
                 {
                     name: 'School Grades',
                     title: 'Setup Grading Scales'

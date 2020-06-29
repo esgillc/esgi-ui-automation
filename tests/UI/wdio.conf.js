@@ -1,24 +1,11 @@
 
-const shell = require('shelljs')
 require('dotenv').config()
-let path = require('path')
 let dir = __dirname
-let VisualRegressionCompare = require('wdio-visual-regression-service/compare')
+const { join } = require('path')
 const {EyesService} = require('../../Services/EyeService/index')
 const SpecToFileReporter = require('../../Reporters/SpecToFileReporter/index')
+const { TimelineService } = require('wdio-timeline-reporter/timeline-service')
 
-function getScreenshotName (basePath) {
-    return function (context) {
-        let type = context.type
-        let testName = context.test.title
-        let browserVersion = parseInt(context.browser.version, 10)
-        let browserName = context.browser.name
-        let browserWidth = context.meta.viewport.width // Viewport depends on the browser size.
-        return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}.png`)
-    }
-}
-
-shell.mkdir('-p', 'screenshots', 'errorshots', 'reports')
 exports.config = {
     runner: 'local',
     credentials: {
@@ -35,6 +22,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
         `${dir}/specs/**/*.spec.js`
+        // `${dir}/specs/reports/ParentLetter.spec.js`
     ],
     // define specific suites
     suites: {
@@ -66,26 +54,36 @@ exports.config = {
 
     // Patterns to exclude.
     exclude: [
+        `${dir}/specs/reports/*.spec.js`
     ],
     capabilities: [
         {
+            maxInstances: 1,
             browserName: 'chrome',
-            'selenoid:options': {'screenResolution': '1920×1080x24'},
-            // resolution: '1920x1080',
-            // browserVersion: '81.0', // browser version
-            // platformName: 'WIN8', // OS platform
-            'goog:chromeOptions': {
-                args: [
-                    '--no-sandbox',
-                    '--test-type',
-                    '--headless', // Windows server doesn't like headless mode
-                    '--disable-infobars',
-                    '--disable-gpu',
-                    '--window-size=1920,1080'
-                ]
-            }
+            'zal:recordVideo': true,
+            'zal:name': 'ESGI Automation',
+            'zal:build': 'UItest'
         }
     ],
+    // capabilities: [
+    //     {
+    //         browserName: 'chrome',
+    //         'selenoid:options': {'screenResolution': '1920×1080x24'},
+    //         // resolution: '1920x1080',
+    //         // browserVersion: '81.0', // browser version
+    //         // platformName: 'WIN8', // OS platform
+    //         'goog:chromeOptions': {
+    //             args: [
+    //                 '--no-sandbox',
+    //                 '--test-type',
+    //                 '--headless', // Windows server doesn't like headless mode
+    //                 '--disable-infobars',
+    //                 '--disable-gpu',
+    //                 '--window-size=1920,1080'
+    //             ]
+    //         }
+    //     }
+    // ],
     //
     // ============
     // Capabilities
@@ -160,7 +158,20 @@ exports.config = {
     // your UI setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the UI process.
     services: [
-        [EyesService]
+        [TimelineService],
+        [EyesService],
+        [
+            'image-comparison',
+            {
+                baselineFolder: join(process.cwd(), './screenshots/reference/'),
+                formatImageName: '{tag}-{logName}-{width}x{height}',
+                screenshotPath: join(process.cwd(), './screenshots/'),
+                savePerInstance: true,
+                autoSaveBaseline: true,
+                blockOutStatusBar: true,
+                blockOutToolBar: true
+            }
+        ]
     ],
 
      // options
@@ -180,16 +191,9 @@ exports.config = {
         },
         stitchMode: 'CSS'
     },
-    visualRegression: {
-        compare: new VisualRegressionCompare.LocalCompare({
-            referenceName: getScreenshotName(path.join(process.cwd(), 'screenshots/reference')),
-            screenshotName: getScreenshotName(path.join(process.cwd(), 'screenshots/screen')),
-            diffName: getScreenshotName(path.join(process.cwd(), 'screenshots/diff')),
-            misMatchTolerance: 0.01
-        }),
-        viewportChangePause: 100,
-        orientations: ['landscape']
-    },
+    hostname: 'localhost',
+    port: 4444,
+    path: '/wd/hub',
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -204,7 +208,11 @@ exports.config = {
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: [
         SpecToFileReporter,
-        // [CustomReporter],
+        ['timeline', {
+            outputDir: './reports/timeline-results',
+            embedImages: true,
+            screenshotStrategy: 'on:error'
+        }],
         ['junit', {
             outputDir: './reports/junit-results',
             outputFileFormat: function (opts) { // optional
@@ -232,6 +240,7 @@ exports.config = {
     // onPrepare: function () {
     // },
     before: function (capabilities, specs) {
+        browser.setWindowSize(1920, 1080)
         browser.addCommand('click', function (css) {
             $(css).click()
         })
@@ -306,9 +315,9 @@ exports.config = {
     //
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
-        if (error) {
-            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
-        }
+        // if (error) {
+        //     browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
+        // }
     },
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.

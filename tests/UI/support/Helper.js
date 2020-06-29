@@ -137,7 +137,7 @@ function Helper () {
     }
 
     this.waitForLoadingToComplete = function (css, timeout) {
-        css = css || '.loadmask-msg .animated-loading'
+        css = css || '.loadmask-msg .animated-loading,.preloader'
         timeout = timeout || 10000
         browser.pause(250)
         let _this = this
@@ -289,6 +289,14 @@ function Helper () {
             // eslint-disable-next-line no-undef
             return $(css).trigger('change')
         }, css)
+        browser.pause(500)
+    }
+
+    this.triggerChange1 = function (ele) {
+        browser.execute(function (ele) {
+            // eslint-disable-next-line no-undef
+            return ele.trigger('change')
+        }, ele)
         browser.pause(500)
     }
 

@@ -8,10 +8,13 @@ class ReportsPage extends Page {
         super()
         this.url = ''
         this.title = 'Reports'
+
+        this.parentLetterModalCss = '.parent-letters'
         this.reportTitleCss = '.modal-header h3,.report-name,.total-report-name,.gs-header h3'
         this.closeModalCss = '.modal-header .close,.fa-close,.close-popup'
         this.alertModalCss = '.modal-dialog .alert'
         this.modalDropDownsCss = '.modal-dialog select'
+        this.reportBackBtnCss = '.modal-dialog.animate .btn-back'
 
         // Parent Letter
 
@@ -45,10 +48,16 @@ class ReportsPage extends Page {
         this.allMarkingPeriodCss = '#allMarkingPeriodOption'
         this.carryScoresForwardCss = '#carryScoresForwardOption'
     }
+    get parentLetterModal () { return $(this.parentLetterModalCss) }
     get alertModal () { return $(this.alertModalCss) }
     get isAlertModalPresent () { return this.alertModal.isDisplayed() }
     get showForStudentBtn () { return $(this.showForStudentBtnCss) }
     get getDropdowns () { return $$(this.modalDropDownsCss) }
+    get reportBackBtn () { return $(this.reportBackBtnCss) }
+
+    goBack () {
+        this.reportBackBtn.click()
+    }
 
     getReportTitle (name) {
         let title
@@ -141,6 +150,7 @@ class ReportsPage extends Page {
         const drowpDown = this.getDropdowns[index]
         if (drowpDown.getText('option:checked').toLowerCase() !== item.toLowerCase()) {
             drowpDown.selectByVisibleText(item)
+            browser.pause(5000)
             this.waitForLoadingToComplete()
         }
     }
@@ -152,6 +162,7 @@ class ReportsPage extends Page {
 
     selectStudent (name) {
         this.selectItemFromDropDown(this.dropdowns.parentletter.student, name)
+        this.waitForLoadingToComplete()
     }
 
     selectSubject (index, name) {
@@ -161,12 +172,12 @@ class ReportsPage extends Page {
     setReportInfo (payload) {
         this.selectClass(payload.class)
         this.selectStudent(payload.student)
-        this.selectSubject(payload.subject)
+        this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }
     verifyReport (payload) {
-        this.selectClass(payload.class)
-        this.selectStudent(payload.student)
-        this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
+        // this.selectClass(payload.class)
+        // this.selectStudent(payload.student)
+        // this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
         this.checkUnCheckQuestionNotes(payload.questionnotes)
         this.checkUnCheckGrades(payload.grades)
         this.checkUnCheckSkippedQuestions(payload.skippedquestions)

@@ -1,7 +1,9 @@
 import through from 'through2'
 import gutil from 'gulp-util'
 import Launcher from '@wdio/cli'
+const shell = require('shelljs')
 const fs = require('fs')
+shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report')
 function writeToFile (item) {
     var stream = fs.createWriteStream('./reports/custom-report/TestRunReport.txt', {flags: 'a'})
     stream.write(item + '\n')

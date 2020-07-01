@@ -16,4 +16,4 @@ services:
             --maxTestSessions ${MAXTESTSESSIONS}
             --desiredContainers ${CONTAINERS}
             --videoRecordingEnabled ${VIDEORECORDINGENABLE}
-            --seleniumImageName elgalu/selenium:3.141.59-p34
+            --seleniumImageName elgalu/selenium:latest

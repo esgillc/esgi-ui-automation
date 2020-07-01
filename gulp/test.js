@@ -81,7 +81,7 @@ export default options => {
     }))
 
     gulp.task('prodsmoke', gulp.series(async function test () {
-        return runTest(['prodsmoke'], 'wdio.legacy.conf')
+        return runTest(['prodsmoke'], 'wdio.prod.conf')
     }))
 
     gulp.task('signup', gulp.series(async function test () {

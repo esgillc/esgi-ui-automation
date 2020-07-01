@@ -1,9 +1,9 @@
-import LoginPage from '../../pageobjects/LoginPage'
-import HomePage from '../../pageobjects/HomePage'
-import Global from '../../support/Global'
-import {Users} from '../../fixtures/data'
+import LoginPage from '../pageobjects/LoginPage'
+import HomePage from '../pageobjects/HomePage'
+import Global from '../support/Global'
+import {Users} from '../fixtures/data'
 
-describe('HomePage', function () {
+describe('Prod-HomePage', function () {
     before(function () {
         LoginPage.navigate()
     })
@@ -15,7 +15,7 @@ describe('HomePage', function () {
     })
     describe('LogIn', function () {
         before(function () {
-            LoginPage.login(Users.teacher.credentials)
+            LoginPage.login(Users.legacy.teacheradmin.credentials)
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())
@@ -96,8 +96,8 @@ describe('HomePage', function () {
                 let payload
                 before(function () {
                     payload = {
-                        name: 'Testing123',
-                        students: ['Ella Ayvazian', 'Emily Charkhchyan']
+                        name: 'TempClass123',
+                        students: ['Student001 Student', 'Student002 Student']
                     }
                     HomePage.addClass(payload)
                 })
@@ -108,9 +108,9 @@ describe('HomePage', function () {
                     let payload
                     before(function () {
                         payload = {
-                            name: 'Testing123',
-                            newname: 'NewClass123',
-                            students: ['Emily Charkhchyan']
+                            name: 'TempClass123',
+                            newname: 'NewTempClass123',
+                            students: ['Student001 Student']
                         }
                         HomePage.editClass(payload)
                     })
@@ -119,7 +119,7 @@ describe('HomePage', function () {
                     })
                     describe('DeleteClass', function () {
                         before(function () {
-                            let className = 'NewClass123'
+                            let className = 'NewTempClass123'
                             HomePage.deleteClass(className)
                         })
                         it('should delete a class', function () {
@@ -129,15 +129,15 @@ describe('HomePage', function () {
                 })
             })
         })
-        describe('AllGroups', function () {
+        describe.skip('AllGroups', function () {
             // First select what class you want to work with to show the All Groups component
             describe('AddGroup', function () {
                 let payload
                 before(function () {
                     payload = {
-                        classname: 'Buckhoff\'s Class',
-                        name: 'Group123',
-                        students: ['Sofia Boghozian', 'Janet Dermenjyan']
+                        classname: 'Class001',
+                        name: 'TempGroup123',
+                        students: ['Student003 Student', 'Student004 Student']
                     }
                     HomePage.addGroup(payload)
                 })
@@ -149,10 +149,10 @@ describe('HomePage', function () {
                 let payload
                 before(function () {
                     payload = {
-                        classname: 'Buckhoff\'s Class',
-                        name: 'Group123',
-                        newname: 'NewGroup123',
-                        students: ['Sofia Boghozian']
+                        classname: 'Class001',
+                        name: 'TempGroup123',
+                        newname: 'NewTempGroup123',
+                        students: ['Student003 Student']
                     }
                     HomePage.editGroup(payload)
                 })
@@ -162,8 +162,8 @@ describe('HomePage', function () {
             })
             describe('DeleteGroup', function () {
                 let payload = {
-                    classname: 'Buckhoff\'s Class',
-                    groupname: 'NewGroup123'
+                    classname: 'Class001',
+                    groupname: 'NewTempGroup123'
                 }
                 before(function () {
                     HomePage.deleteGroup(payload)
@@ -177,7 +177,7 @@ describe('HomePage', function () {
             let payload
             before(function () {
                 payload = {
-                    classname: 'Buckhoff\'s Class',
+                    classname: 'Class001',
                     firstname: '00first123',
                     lastname: '00last123'
                 }
@@ -207,14 +207,14 @@ describe('HomePage', function () {
                         let payload
                         before(function () {
                             payload = {
-                                classname: 'Buckhoff\'s Class',
+                                classname: 'Class001',
                                 firstname: '00NewFirst',
                                 lastname: '00Newlast'
                             }
                             HomePage.deleteStudent(payload)
                         })
                         it('should delete a student', function () {
-                            browser.pause(1000)
+                            expect(HomePage.isStudentPresent(`${payload.firstname} ${payload.lastname}`)).toBe(false)
                         })
                     })
                 })

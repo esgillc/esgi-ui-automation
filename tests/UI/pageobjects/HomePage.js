@@ -66,7 +66,7 @@ class HomePage extends Page {
         this.modalBodyCss = `${this.modal} .modal-body`
         this.removeLinkCss = `${this.modal} .remove-link`
         this.modalClassNameLabelCss = `${this.modalBodyCss} .top-label`
-        this.modalNameInputCss = `${this.modalBodyCss} input.form-control`
+        this.modalNameInputCss = '[id$="-edit-form"] .large'// `${this.modalBodyCss} input.form-control`
         this.modalMoveCss = `${this.modalBodyCss} .move-button`
         this.modalAvailableStudentsCss = '.checkbox-list-box.no-padding-right .checkbox-list'
         this.modalNewClassCss = '.checkbox-list-box.no-padding-left .checkbox-list'
@@ -457,8 +457,8 @@ class HomePage extends Page {
     }
 
     setAndSaveComponent (payload) {
-        // this.setName(payload.name)
-        Helper.setValue(this.modalNameInputCss, payload.name)
+        this.setName(payload.name)
+        // Helper.setValue(this.modalNameInputCss, payload.name)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         browser.pause(500)
@@ -535,8 +535,8 @@ class HomePage extends Page {
         this.expandAllClasses()
         this.classObjs(payload.name).edit.click()
         browser.pause(1000)
-        Helper.setValue(this.modalNameInputCss, payload.newname)
-        // this.setName(payload.newname)
+        // Helper.setValue(this.modalNameInputCss, payload.newname)
+        this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickModalSaveButton()
     }
@@ -545,8 +545,7 @@ class HomePage extends Page {
         this.clickClass(payload.classname)
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
-        Helper.setValue(this.modalNameInputCss, payload.newname)
-        // this.setName(payload.newname)
+        this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         this.clickModalSaveButton()
@@ -574,7 +573,6 @@ class HomePage extends Page {
     deleteStudent (payload) {
         const studentname = `${payload.firstname} ${payload.lastname}`
         if (!this.isStudentPresent(studentname)) return
-        console.log('Payload:::::', payload)
         this.clickClass(payload.classname)
         this.studentObjs(studentname).edit.click()
         this.deleteItem()
@@ -591,6 +589,7 @@ class HomePage extends Page {
     // Start a test
     startTest (payload) {
         this.clickSubjectTab(payload.tab)
+        payload.classname && this.clickClass(payload.classname)
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)
         this.clickTestButton(payload.testname)
@@ -666,7 +665,7 @@ class HomePage extends Page {
 
      // Subjects & Tests
     clickAddTestLink () {
-        browser.pause(5000)
+        browser.pause(2000)
         this.addTestLink.click()
         this.waitForLoadingToComplete()
     }
@@ -681,6 +680,7 @@ class HomePage extends Page {
     }
     // Delete Test Details
     deleteAllPastTestDetails (payload) {
+        payload.classname && this.clickClass(payload.classname)
         this.clickSubjectTab(payload.tab)
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)

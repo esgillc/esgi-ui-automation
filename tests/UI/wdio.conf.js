@@ -44,7 +44,9 @@ exports.config = {
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
-            `${dir}/legacy/*.spec.js`
+            `${dir}/prod/Home.spec.js`,
+            `${dir}/prod/RunTest.spec.js`
+
         ],
         signup: [
             `${dir}/specs/Signup*.spec.js`,
@@ -60,7 +62,7 @@ exports.config = {
         {
             maxInstances: 1,
             browserName: 'chrome',
-            'zal:recordVideo': true,
+            'zal:recordVideo': false,
             'zal:name': 'ESGI Automation',
             'zal:build': 'UItest'
         }
@@ -240,7 +242,8 @@ exports.config = {
     // onPrepare: function () {
     // },
     before: function (capabilities, specs) {
-        browser.setWindowSize(1920, 1080)
+        browser.maximizeWindow()
+        // browser.setWindowSize(1920, 1080)
         browser.addCommand('click', function (css) {
             $(css).click()
         })

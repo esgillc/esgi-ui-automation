@@ -226,7 +226,7 @@ const Reports = {
                 // },
                 {
                     name: 'District Totals',
-                    title: 'Setup Grading Scales'
+                    title: 'District Totals Report'
                 },
                 {
                     name: 'District Grades',
@@ -559,7 +559,7 @@ const Signup = {
                 },
                 {
                     test: 'Existing Username',
-                    username: 'danieladmin',
+                    username: 'danadmin',
                     msg: 'User name is used. Please choose another one'
                 }
             ],

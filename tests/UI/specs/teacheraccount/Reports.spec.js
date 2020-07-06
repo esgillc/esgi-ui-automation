@@ -119,7 +119,7 @@ describe('TeacherAccount - Reports', function () {
                             describe('Click a specific Group', function () {
                                 let groupReports
                                 before(function () {
-                                    HomePage.clickGroup('Buckhoff\'s Class', 'Group123')
+                                    HomePage.clickGroup('Buckhoff\'s Class', 'Group002')
                                     groupReports = HomePage.getReports()
                                 })
                                 it('Initial Reports: should be correct', function () {

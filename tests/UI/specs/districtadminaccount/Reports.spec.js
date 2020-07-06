@@ -17,6 +17,7 @@ describe('DistrictAdmin - Reports', function () {
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.districtadmin.credentials)
+            HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())

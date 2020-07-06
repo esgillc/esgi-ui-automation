@@ -16,6 +16,7 @@ describe('Prod-HomePage', function () {
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.legacy.teacheradmin.credentials)
+            HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())

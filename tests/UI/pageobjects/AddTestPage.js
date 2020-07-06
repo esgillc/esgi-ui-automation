@@ -17,8 +17,8 @@ class AddTestPage extends Page {
     get checkBox () { return $(this.checkBoxCss) }
     get doneButton () { return $(this.doneButtonCss) }
 
-    addTest (name) {
-        this.searchBox.setValue(name)
+    addTest (testname) {
+        this.searchBox.setValue(testname)
         this.waitForLoadingToComplete()
         browser.pause(1000)
         this.checkBox.click()

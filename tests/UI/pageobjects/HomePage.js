@@ -112,6 +112,15 @@ class HomePage extends Page {
         return $(this.createSubjectTabCss)
     }
 
+    selectSchoolYear (year) {
+        if ($('.school-year .dropdown-toggle').getText() !== year) {
+            this.schoolYear.click()
+            browser.pause(1000)
+            this.schoolYear.$(`a=${year}`).click()
+            this.waitForLoadingToComplete()
+        }
+    }
+
     get allClassesCss () { return this.getComponentCss(this.components.allclasses) }
     get allGroupsCss () { return this.getComponentCss(this.components.allgroups) }
     get allStudentsCss () { return this.getComponentCss(this.components.allstudents) }
@@ -610,11 +619,12 @@ class HomePage extends Page {
         return this.getTestCardTitleByName(name).isDisplayed()
     }
 
-    deleteTest (name) {
-        if (this.isTestCardPresent(name)) {
-            this.getTestCardObj(name).ellipsis.click()
+    deleteTest (payload) {
+        this.clickSubjectTab(payload.tab)
+        if (this.isTestCardPresent(payload.testname)) {
+            this.getTestCardObj(payload.testname).ellipsis.click()
             $('a=Remove test from Subject').click()
-            browser.pause(2000)
+            this.waitForLoadingToComplete()
         }
     }
 
@@ -664,15 +674,17 @@ class HomePage extends Page {
     }
 
      // Subjects & Tests
-    clickAddTestLink () {
+    clickAddTestLink (subjecttab) {
         browser.pause(2000)
+        this.clickSubjectTab(subjecttab)
         this.addTestLink.click()
+        this.handleSubjectTabSchoolYearPrompt()
         this.waitForLoadingToComplete()
     }
     // Organize, edit, and create new subjects and tests Reports
     modifySubject () {
         this.organizeEditCreateNewSubjectLink.click()
-        this.waitForLoadingToComplete()
+        this.handleSubjectTabSchoolYearPrompt()
     }
     clickSubjectTab (name) {
         $(`a.text=${name}`).click()
@@ -697,6 +709,13 @@ class HomePage extends Page {
            //  $('button.btn-edit').click() // Click Save button.
         }
         $('button.btn-close').click()
+        this.waitForLoadingToComplete()
+    }
+    handleSubjectTabSchoolYearPrompt () {
+        const css = 'span*=PLEASE NOTE: If you are making changes to your Subject Tabs'
+        if ($(css).isDisplayed()) {
+            $('button=OK').click()
+        }
         this.waitForLoadingToComplete()
     }
 }

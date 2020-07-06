@@ -7,35 +7,39 @@ describe('Add Test', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.teacher.credentials)
+        HomePage.selectSchoolYear('2019-2020')
     })
     it('should be on Home page', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())
     })
     describe('HomePage - AddTest', function () {
-        let testName
+        let payload
         before(function () {
-            testName = 'Identify Shapes as Flat or 3D (K.G.3)'
+            payload = {
+                tab: 'AddTestTab001',
+                testname: 'Identify Shapes as Flat or 3D (K.G.3)'
+            }
             // Clean up before test run. Delete the test if it already exists
-            HomePage.deleteTest(testName)
+            HomePage.deleteTest(payload)
         })
         describe('Before Add', function () {
             it('should not be present', function () {
-                expect(HomePage.isTestCardPresent(testName)).toBe(false)
+                expect(HomePage.isTestCardPresent(payload.testname)).toBe(false)
             })
             describe('Add Test', function () {
                 before(function () {
-                    HomePage.clickAddTestLink()
-                    AddTestPage.addTest(testName)
+                    HomePage.clickAddTestLink(payload.tab)
+                    AddTestPage.addTest(payload.testname)
                 })
                 it('should be present', function () {
-                    expect(HomePage.isTestCardPresent(testName)).toBe(true)
+                    expect(HomePage.isTestCardPresent(payload.testname)).toBe(true)
                 })
                 describe('Delete Test', function () {
                     before(function () {
-                        HomePage.deleteTest(testName)
+                        HomePage.deleteTest(payload)
                     })
                     it('should not be present', function () {
-                        expect(HomePage.isTestCardPresent(testName)).toBe(false)
+                        expect(HomePage.isTestCardPresent(payload.testname)).toBe(false)
                     })
                 })
             })

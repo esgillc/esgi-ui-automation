@@ -16,7 +16,7 @@ describe('CreateSubjectTabTest', function () {
         before(function () {
             payload = {
                 subjectname: 'Teacher001',
-                testname: 'Drag drop test'
+                testname: 'Breaking Syllables'
             }
             HomePage.modifySubject()
             ManageSubjectsAndTestsPage.deleteSubjectTab(payload.subjectname)

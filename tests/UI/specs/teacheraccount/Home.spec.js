@@ -8,7 +8,7 @@ describe('HomePage', function () {
         LoginPage.navigate()
     })
     after(function () {
-        Global.logout()
+       //  Global.logout()
     })
     it('should be on login page', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())
@@ -16,6 +16,7 @@ describe('HomePage', function () {
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.teacher.credentials)
+            HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())
@@ -220,7 +221,7 @@ describe('HomePage', function () {
                 })
             })
         })
-        describe('TopMenus', function () {
+        describe.skip('TopMenus', function () {
             describe('Student Manager', function () {
                 before(function () {
                     Global.navigateToStudentManager()

@@ -29,9 +29,9 @@ class ReportsPage extends Page {
         this.showForStudentBtnCss = '.btn-blue'
         this.dropdowns = {
             parentletter: {
-                class: 0,
-                student: 1,
-                subject: 2
+                // class: 0,
+                student: 0,
+                subject: 1
             },
             classtotals: {
                 class: 0,
@@ -90,7 +90,7 @@ class ReportsPage extends Page {
 
     openReport (name) {
         this.getReportByName(name).click()
-        this.waitForLoadingToComplete(null, 20000)
+        this.waitForLoadingToComplete(null, 30000)
         browser.pause(1000)
     }
 
@@ -170,7 +170,7 @@ class ReportsPage extends Page {
     }
 
     setReportInfo (payload) {
-        this.selectClass(payload.class)
+        // this.selectClass(payload.class)
         this.selectStudent(payload.student)
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }

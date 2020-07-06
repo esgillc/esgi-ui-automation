@@ -21,8 +21,8 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        `${dir}/specs/**/*.spec.js`
-        // `${dir}/specs/reports/ParentLetter.spec.js`
+        `${dir}/specs/**/*.spec.js`,
+        `${dir}/specs/reports/ParentLetter.spec.js`
     ],
     // define specific suites
     suites: {
@@ -30,7 +30,7 @@ exports.config = {
             `${dir}/specs/Login.spec.js`
         ],
         districtadminacct: [
-            `${dir}/specs/districtadminaccount/*.spec.js`
+            `${dir}/specs/districtadminaccount/.spec.js`
         ],
         schooladminacct: [
             `${dir}/specs/schooladminaccount/*.spec.js`
@@ -44,9 +44,7 @@ exports.config = {
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
-            `${dir}/prod/Home.spec.js`,
-            `${dir}/prod/RunTest.spec.js`
-
+            `${dir}/prod/*.spec.js`
         ],
         signup: [
             `${dir}/specs/Signup*.spec.js`,
@@ -56,36 +54,52 @@ exports.config = {
 
     // Patterns to exclude.
     exclude: [
-        `${dir}/specs/reports/*.spec.js`
-    ],
-    capabilities: [
-        {
-            maxInstances: 1,
-            browserName: 'chrome',
-            'zal:recordVideo': false,
-            'zal:name': 'ESGI Automation',
-            'zal:build': 'UItest'
-        }
+        `${dir}/specs/reports/ClassTotals.spec.js`
     ],
     // capabilities: [
     //     {
+    //         maxInstances: 1,
     //         browserName: 'chrome',
-    //         'selenoid:options': {'screenResolution': '1920×1080x24'},
-    //         // resolution: '1920x1080',
-    //         // browserVersion: '81.0', // browser version
-    //         // platformName: 'WIN8', // OS platform
-    //         'goog:chromeOptions': {
-    //             args: [
-    //                 '--no-sandbox',
-    //                 '--test-type',
-    //                 '--headless', // Windows server doesn't like headless mode
-    //                 '--disable-infobars',
-    //                 '--disable-gpu',
-    //                 '--window-size=1920,1080'
-    //             ]
-    //         }
+    //         'zal:recordVideo': true,
+    //         'zal:name': 'ESGI Automation',
+    //         'zal:build': 'UItest'
     //     }
     // ],
+    capabilities: [
+        {
+            browserName: 'chrome',
+            'selenoid:options': {
+                version: 'chrome_83.0',
+                // version: '83'
+                // enableVNC: false,
+                // enableVideo: false,
+                // enableLog: false, // save session logs
+                // videoScreenSize: '1920x1080',
+                // videoFrameRate: 24,
+                // videoCodec: 'mpeg4',
+                screenResolution: '1920x1080x24'
+            },
+            // screenResolution: '1920×1080x24',
+            // version: 'chrome_83.0',
+            // enableVNC: true,
+            // enableVideo: false,
+            // platform: 'ANY',
+            // sessionTimeout: '120s'
+            // resolution: '1920x1080',
+            // browserVersion: '81.0', // browser version
+            // platformName: 'WIN8', // OS platform
+            'goog:chromeOptions': {
+                args: [
+                    '--no-sandbox',
+                    '--test-type',
+                    '--headless', // Windows server doesn't like headless mode
+                    '--disable-infobars',
+                    '--disable-gpu',
+                    '--window-size=1920,1080'
+                ]
+            }
+        }
+    ],
     //
     // ============
     // Capabilities
@@ -195,7 +209,7 @@ exports.config = {
     },
     hostname: 'localhost',
     port: 4444,
-    path: '/wd/hub',
+    // path: '/wd/hub',
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -209,6 +223,7 @@ exports.config = {
     // The following are supported: dot (default), spec, and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: [
+        'spec',
         SpecToFileReporter,
         ['timeline', {
             outputDir: './reports/timeline-results',
@@ -242,8 +257,7 @@ exports.config = {
     // onPrepare: function () {
     // },
     before: function (capabilities, specs) {
-        browser.maximizeWindow()
-        // browser.setWindowSize(1920, 1080)
+       //  browser.setWindowSize(1920, 1080)
         browser.addCommand('click', function (css) {
             $(css).click()
         })

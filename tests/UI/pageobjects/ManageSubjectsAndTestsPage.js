@@ -2,7 +2,7 @@
 
 import Page from './Page'
 import AddTestPage from './AddTestPage'
-import Helper from '../support/Helper'
+// import Helper from '../support/Helper'
 
 class ManageSubjectsAndTestsPage extends Page {
     constructor () {
@@ -10,6 +10,7 @@ class ManageSubjectsAndTestsPage extends Page {
         this.title = 'ESGI'
         this.url = '/esgi#'
 
+        this.modalNameInputCss = 'input.subject-name'
         this.subjectListCss = '.modal-body .subject-list'
         this.subjectsCss = `${this.subjectListCss} .subject-row`
         this.createNewSubjectButtonCss = '.modal-footer .btn-transparent'
@@ -22,7 +23,7 @@ class ManageSubjectsAndTestsPage extends Page {
             expandcollapsecss: '.fa',
             showhidecss: '.showhide',
             edit: '.action-link[title="Edit subject name"]',
-            deletecss: '.action-link[title="Delete subject"]',
+            deletecss: '.action-link[title="Delete subject name"]',
             addtestcss: '.add-title',
             addedtestcss: '.test-row'
         }
@@ -38,18 +39,25 @@ class ManageSubjectsAndTestsPage extends Page {
     createNewSubject (payload) {
         this.createNewSubjectButton.click()
         browser.pause(1000)
-        Helper.setValue('input.form-control', payload.subjectname)
+        this.setName(payload.subjectname)
+        // Helper.setValue('input.form-control', payload.subjectname)
         payload.publishindefinitely && this.publishIndefinitely.click()
         payload.grade && this.addGradeToSubject()
-        browser.pause(500)
         $('button=Save').click()
         this.waitForLoadingToComplete()
+    }
+
+    setName (name) {
+        $(this.modalNameInputCss).setValue(name)
+        browser.pause(1000)
     }
 
     addGradeToSubject () {
         $('.add-buble-item').click()
         browser.pause(500)
         $('label=Kindergarten').click()
+        browser.pause(500)
+        browser.keys('Enter')
         browser.pause(500)
     }
 

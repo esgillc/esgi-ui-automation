@@ -55,7 +55,7 @@ class CompleteRegistrationPage extends Page {
     selectState (name) {
         this.stateDropdown.selectByVisibleText(name)
         browser.pause(500)
-        Helper.triggerChange(this.stateDropdownCss)
+        // Helper.triggerChange(this.stateDropdownCss)
     }
 
     setSchool (name) {

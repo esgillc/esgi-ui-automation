@@ -161,36 +161,36 @@ function Helper () {
         districtadmin: {
             subjecttab: {
                 property: 'color',
-                value: 'rgb(81,45,168)',
+                value: 'rgba(81,45,168,1)',
                 parsed: {
                     hex: '#512da8',
                     alpha: 1,
                     type: 'color',
-                    rgb: 'rgb(81,45,168)'
+                    rgba: 'rgba(81,45,168,1)'
                 }
             }
         },
         schooladmin: {
             subjecttab: {
                 property: 'color',
-                value: 'rgb(4,118,189)',
+                value: 'rgba(4,118,189,1)',
                 parsed: {
                     hex: '#0476bd',
                     alpha: 1,
                     type: 'color',
-                    rgb: 'rgb(4,118,189)'
+                    rgba: 'rgba(4,118,189,1)'
                 }
             }
         },
         teacher: {
             subjecttab: {
                 property: 'color',
-                value: 'rgb(66,66,66)',
+                value: 'rgba(66,66,66,1)',
                 parsed: {
                     hex: '#424242',
                     alpha: 1,
                     type: 'color',
-                    rgb: 'rgb(66,66,66)'
+                    rgba: 'rgba(66,66,66,1)'
                 }
             }
         }
@@ -331,7 +331,8 @@ function Helper () {
         }
     }
     this.isModalVisible = () => {
-        return browser.isVisible('.modal-dialog')
+        return $('.modal-dialog').isDisplayed()
+        // return browser.isVisible('.modal-dialog')
     }
 }
 module.exports = new Helper()

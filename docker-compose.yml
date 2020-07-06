@@ -1,19 +1,18 @@
-version: "3"
+version: '3'
 services:
-  zalenium:
-    image: dosel/zalenium
-    container_name: zalenium
+  chrome83:
+    image: selenoid/vnc:chrome_83.0
+    container_name: chrome
     privileged: true
+    shm_size: '1g'
     tty: true
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./videos:/home/seluser/videos"
+    command: ["-limit", "1", "-mem", "1g", "-cpu", "1g", "-session-delete-timeout", "3m", "-timeout", "2m"]
     ports:
       - "4444:4444"
-    command: >
-      start --timeZone ${TIMEZONE}
-            --screenWidth ${SCREENWIDTH} --screenHeight ${SCREENHEIGHT}
-            --maxTestSessions ${MAXTESTSESSIONS}
-            --desiredContainers ${CONTAINERS}
-            --videoRecordingEnabled ${VIDEORECORDINGENABLE}
-            --seleniumImageName elgalu/selenium:latest
+      
+  # chrome68:
+  #   image: selenoid/chrome:68.0
+  videorecorder:
+    image: selenoid/video-recorder
+    logging:
+      driver: none

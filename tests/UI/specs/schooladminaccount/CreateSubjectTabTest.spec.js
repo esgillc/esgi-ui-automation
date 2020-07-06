@@ -7,6 +7,7 @@ describe('SchoolAdmin - CreateSubjectTab', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.schooladmin.credentials)
+        HomePage.selectSchoolYear('2019-2020')
     })
     it('should be on Home page', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())
@@ -16,7 +17,7 @@ describe('SchoolAdmin - CreateSubjectTab', function () {
         before(function () {
             payload = {
                 subjectname: 'SchoolAdmin001',
-                testname: 'Drag drop test',
+                testname: 'Breaking Syllables',
                 publishindefinitely: 'true',
                 grade: 'Kindergarten'
             }
@@ -32,7 +33,7 @@ describe('SchoolAdmin - CreateSubjectTab', function () {
                 expect(HomePage.isSubjectTabDisplayed(payload.subjectname)).toBe(true)
             })
             describe('Color', function () {
-                it('should be purple', function () {
+                it('should be blue', function () {
                     expect(HomePage.getSubjectTabColor(payload.subjectname)).toStrictEqual(HomePage.COLORS.schooladmin.subjecttab)
                 })
             })

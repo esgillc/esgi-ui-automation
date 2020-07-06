@@ -7,6 +7,7 @@ describe('CreateSubjectTab', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.districtadmin.credentials)
+        HomePage.selectSchoolYear('2019-2020')
     })
     it('should be on Home page', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())
@@ -16,7 +17,7 @@ describe('CreateSubjectTab', function () {
         before(function () {
             payload = {
                 subjectname: 'DistrictAdmin001',
-                testname: 'Drag drop test',
+                testname: 'Breaking Syllables',
                 publishindefinitely: 'true',
                 grade: 'Kindergarten'
             }

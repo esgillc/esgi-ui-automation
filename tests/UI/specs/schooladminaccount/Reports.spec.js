@@ -17,6 +17,7 @@ describe('SchoolAccount - Reports', function () {
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.schooladmin.credentials)
+            HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())
@@ -80,7 +81,7 @@ describe('SchoolAccount - Reports', function () {
                                 let specificGroupReports = reports.group
                                 let groupReports
                                 before(function () {
-                                    HomePage.clickGroup('Buckhoff\'s Class', 'Group123')
+                                    HomePage.clickGroup('Buckhoff\'s Class', 'Group002')
                                     groupReports = HomePage.getReports()
                                 })
                                 it('Initial Reports: should be correct', function () {

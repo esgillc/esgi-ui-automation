@@ -104,13 +104,13 @@ export default options => {
     }
 
     gulp.task('createdirs', gulp.series(function (done) {
-        let errorCode = shell.mkdir('-p', 'screenshots', 'errorshots')
+        let errorCode = shell.mkdir('-p', 'errorshots')
         done()
         return errorCode
     }))
 
     gulp.task('deletedirs', gulp.series(function (done) {
-        let errorCode = shell.rm('-rf', 'screenshots/*', 'errorshots/*', 'reports/allure-results/*', 'reports/custom-report/*')
+        let errorCode = shell.rm('-rf', 'errorshots/*', 'reports/allure-results/*', 'reports/custom-report/*')
         done()
         return errorCode
     }))

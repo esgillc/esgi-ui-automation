@@ -4,13 +4,10 @@ node_modules
 coverage
 .idea
 errorShots/
-screenshots/diff
-screenshots/screen
 logs/
 allure-report
 package-lock.json
 reports/
 allure-results/
-screenshots/
 videos/
 

@@ -21,8 +21,8 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        `${dir}/specs/**/*.spec.js`,
-        `${dir}/specs/reports/ParentLetter.spec.js`
+        `${dir}/specs/**/*.spec.js`
+        // `${dir}/specs/reportsspecs/*.spec.js`
     ],
     // define specific suites
     suites: {
@@ -39,7 +39,8 @@ exports.config = {
             `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
-            `${dir}/specs/**/Reports.spec.js`
+            `${dir}/specs/**/Reports.spec.js`,
+            `${dir}/specs/reportsspecs/*.spec.js`
         ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
@@ -47,14 +48,14 @@ exports.config = {
             `${dir}/prod/*.spec.js`
         ],
         signup: [
-            `${dir}/specs/Signup*.spec.js`,
+            `${dir}/specs/Signup_Rules.spec.js`,
             `${dir}/specs/WebFront.spec.js`
         ]
     },
 
     // Patterns to exclude.
     exclude: [
-        `${dir}/specs/reports/ClassTotals.spec.js`
+        `${dir}/specs/reportsspecs/*.spec.js`
     ],
     // capabilities: [
     //     {
@@ -341,7 +342,7 @@ exports.config = {
     //  payload: { error, result, duration, passed, retries }
     afterTest: (test, context, payload) => {
         if (payload.error !== undefined) {
-            const screenshotPath = `./screenshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
+            const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
             browser.saveScreenshot(screenshotPath)
         }
     }

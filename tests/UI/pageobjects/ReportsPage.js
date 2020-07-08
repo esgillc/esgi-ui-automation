@@ -106,13 +106,15 @@ class ReportsPage extends Page {
 
     checkIncludeInParentLetterCheckbox (checkboxCss) {
         if (!this.isIncludeInParentLetterCheckboxChecked(checkboxCss)) {
-            Helper.clickElement(checkboxCss)
+            $(checkboxCss).$('..').click()
+            // Helper.clickElement(checkboxCss)
         }
     }
 
     unCheckIncludeInParentLetterCheckbox (checkboxCss) {
         if (this.isIncludeInParentLetterCheckboxChecked(checkboxCss)) {
-            Helper.clickElement(checkboxCss)
+            $(checkboxCss).$('..').click()
+            // Helper.clickElement(checkboxCss)
         }
     }
 
@@ -150,7 +152,6 @@ class ReportsPage extends Page {
         const drowpDown = this.getDropdowns[index]
         if (drowpDown.getText('option:checked').toLowerCase() !== item.toLowerCase()) {
             drowpDown.selectByVisibleText(item)
-            browser.pause(5000)
             this.waitForLoadingToComplete()
         }
     }

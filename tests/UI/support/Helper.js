@@ -108,9 +108,15 @@ function Helper () {
 
     this.setValue = function (css, input) {
         $(css).clearValue()
+        let pending
         browser.execute(function (css, input) {
-            // eslint-disable-next-line no-undef
-            return $(css).val(input)
+            try {
+                // eslint-disable-next-line no-undef
+                pending = document.querySelector(css).value = input
+            } catch (e) {
+                pending = 0
+            }
+            return pending
         }, css, input)
         browser.pause(500)
         browser.keys(' ') // Necessary else the value is lost after we lose focus

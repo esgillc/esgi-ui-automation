@@ -18,7 +18,7 @@ class AddTestPage extends Page {
     get doneButton () { return $(this.doneButtonCss) }
 
     addTest (testname) {
-        this.searchBox.setValue(testname)
+        this.searchBox.setValue(testname.split()[0]) // searches the first word in the test name
         this.waitForLoadingToComplete()
         browser.pause(1000)
         this.checkBox.click()

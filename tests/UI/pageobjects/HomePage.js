@@ -466,8 +466,8 @@ class HomePage extends Page {
     }
 
     setAndSaveComponent (payload) {
-        this.setName(payload.name)
-        // Helper.setValue(this.modalNameInputCss, payload.name)
+        // this.setName(payload.name)
+        Helper.setValue(this.modalNameInputCss, payload.name)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         browser.pause(500)
@@ -544,8 +544,8 @@ class HomePage extends Page {
         this.expandAllClasses()
         this.classObjs(payload.name).edit.click()
         browser.pause(1000)
-        // Helper.setValue(this.modalNameInputCss, payload.newname)
-        this.setName(payload.newname)
+        Helper.setValue(this.modalNameInputCss, payload.newname)
+        // this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickModalSaveButton()
     }
@@ -554,7 +554,8 @@ class HomePage extends Page {
         this.clickClass(payload.classname)
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
-        this.setName(payload.newname)
+        Helper.setValue(this.modalNameInputCss, payload.newname)
+        // this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         this.clickModalSaveButton()
@@ -591,7 +592,7 @@ class HomePage extends Page {
         browser.pause(1000)
         browser.click(this.removeLinkCss)
         browser.pause(1000)
-        $$('.modal-footer .btn-bonnie.btn-transparent')[1].click()
+        $$('.modal-content')[1].$('span=OK').click()
         this.waitForLoadingToComplete()
     }
 
@@ -678,6 +679,7 @@ class HomePage extends Page {
         browser.pause(2000)
         this.clickSubjectTab(subjecttab)
         this.addTestLink.click()
+        browser.pause(1000)
         this.handleSubjectTabSchoolYearPrompt()
         this.waitForLoadingToComplete()
     }

@@ -102,7 +102,7 @@ describe('HomePage', function () {
                     }
                     HomePage.addClass(payload)
                 })
-                it('should add a class', function () {
+                it.only('should add a class', function () {
                     expect(HomePage.isClassPresent(payload.name)).toBe(true)
                 })
                 describe('EditClass', function () {
@@ -221,7 +221,7 @@ describe('HomePage', function () {
                 })
             })
         })
-        describe.skip('TopMenus', function () {
+        describe('TopMenus', function () {
             describe('Student Manager', function () {
                 before(function () {
                     Global.navigateToStudentManager()

@@ -29,9 +29,9 @@ class ReportsPage extends Page {
         this.showForStudentBtnCss = '.btn-blue'
         this.dropdowns = {
             parentletter: {
-                // class: 0,
-                student: 0,
-                subject: 1
+                class: 0,
+                student: 1,
+                subject: 2
             },
             classtotals: {
                 class: 0,
@@ -106,16 +106,17 @@ class ReportsPage extends Page {
 
     checkIncludeInParentLetterCheckbox (checkboxCss) {
         if (!this.isIncludeInParentLetterCheckboxChecked(checkboxCss)) {
-            $(checkboxCss).$('..').click()
-            // Helper.clickElement(checkboxCss)
+            this.clickParentLetterCheckbox(checkboxCss)
         }
     }
 
     unCheckIncludeInParentLetterCheckbox (checkboxCss) {
         if (this.isIncludeInParentLetterCheckboxChecked(checkboxCss)) {
-            $(checkboxCss).$('..').click()
-            // Helper.clickElement(checkboxCss)
+            this.clickParentLetterCheckbox(checkboxCss)
         }
+    }
+    clickParentLetterCheckbox (checkboxCss) {
+        (checkboxCss.includes('_letterMessage')) ? $(checkboxCss).$('..').click({ x: -10, y: -10 }) : $(checkboxCss).$('..').click()
     }
 
     checkUncheckIncludeParentLetter (css, bool) {
@@ -176,9 +177,9 @@ class ReportsPage extends Page {
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }
     verifyReport (payload) {
-        // this.selectClass(payload.class)
-        // this.selectStudent(payload.student)
-        // this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
+        this.selectClass(payload.class)
+        this.selectStudent(payload.student)
+        this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
         this.checkUnCheckQuestionNotes(payload.questionnotes)
         this.checkUnCheckGrades(payload.grades)
         this.checkUnCheckSkippedQuestions(payload.skippedquestions)

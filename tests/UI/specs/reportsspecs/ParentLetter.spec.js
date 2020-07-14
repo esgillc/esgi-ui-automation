@@ -14,7 +14,6 @@ describe('ParentLetterReport', function () {
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
         HomePage.selectSchoolYear('2019-2020')
-        browser.pause(3000)
         HomePage.clickParentLetterReport()
         ReportsPage.setReportInfo(info)
     })
@@ -83,7 +82,6 @@ describe('ParentLetterReport', function () {
                 skippedquestions: true,
                 date: true,
                 message: true
-
             }
             ReportsPage.verifyReport(payload)
         })
@@ -132,7 +130,6 @@ describe('ParentLetterReport', function () {
                 skippedquestions: true,
                 date: true,
                 message: true
-
             }
             ReportsPage.verifyReport(payload)
         })
@@ -181,7 +178,6 @@ describe('ParentLetterReport', function () {
                 skippedquestions: false,
                 date: true,
                 message: true
-
             }
             ReportsPage.verifyReport(payload)
         })
@@ -313,7 +309,7 @@ describe('ParentLetterReport', function () {
             expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBe(0)
         })
     })
-    describe.only('Include In Parent Teacher', () => {
+    describe('Include In Parent Teacher', () => {
         let payload
         let action = 'ParentLetterReport_UncheckAll'
         before(function () {

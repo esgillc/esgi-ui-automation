@@ -4,6 +4,8 @@ node_modules
 coverage
 .idea
 errorShots/
+screenshots/actual/
+screenshots/diff/
 logs/
 allure-report
 package-lock.json

@@ -466,8 +466,8 @@ class HomePage extends Page {
     }
 
     setAndSaveComponent (payload) {
-        this.setName(payload.name)
-        // Helper.setValue(this.modalNameInputCss, payload.name)
+        // this.setName(payload.name)
+        Helper.setValue(this.modalNameInputCss, payload.name)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         browser.pause(500)
@@ -544,8 +544,8 @@ class HomePage extends Page {
         this.expandAllClasses()
         this.classObjs(payload.name).edit.click()
         browser.pause(1000)
-        // Helper.setValue(this.modalNameInputCss, payload.newname)
-        this.setName(payload.newname)
+        Helper.setValue(this.modalNameInputCss, payload.newname)
+        // this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickModalSaveButton()
     }
@@ -554,8 +554,8 @@ class HomePage extends Page {
         this.clickClass(payload.classname)
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
-        // Helper.setValue(this.modalNameInputCss, payload.newname)
-        this.setName(payload.newname)
+        Helper.setValue(this.modalNameInputCss, payload.newname)
+        // this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         this.clickModalSaveButton()

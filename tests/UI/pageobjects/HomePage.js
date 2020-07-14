@@ -554,6 +554,7 @@ class HomePage extends Page {
         this.clickClass(payload.classname)
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
+        // Helper.setValue(this.modalNameInputCss, payload.newname)
         this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickMoveButton()
@@ -591,7 +592,7 @@ class HomePage extends Page {
         browser.pause(1000)
         browser.click(this.removeLinkCss)
         browser.pause(1000)
-        $$('.modal-footer .btn-bonnie.btn-transparent')[1].click()
+        $$('.modal-content')[1].$('span=OK').click()
         this.waitForLoadingToComplete()
     }
 
@@ -678,6 +679,7 @@ class HomePage extends Page {
         browser.pause(2000)
         this.clickSubjectTab(subjecttab)
         this.addTestLink.click()
+        browser.pause(1000)
         this.handleSubjectTabSchoolYearPrompt()
         this.waitForLoadingToComplete()
     }

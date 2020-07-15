@@ -108,18 +108,26 @@ function Helper () {
 
     this.setValue = function (css, input) {
         $(css).clearValue()
-        let pending
+        let script
         browser.execute(function (css, input) {
             try {
                 // eslint-disable-next-line no-undef
-                pending = document.querySelector(css).value = input
+                script = document.querySelector(css).value = input
             } catch (e) {
-                pending = 0
+                script = 0
             }
-            return pending
+            return script
         }, css, input)
         browser.pause(500)
         browser.keys(' ') // Necessary else the value is lost after we lose focus
+    }
+
+    this.hideElements = function () {
+        browser.execute(() => {
+            // eslint-disable-next-line no-undef
+            return document.querySelectorAll('.card-header span[data-bind*="report"]').forEach(function (ele) { ele.style.display = 'none' })
+        })
+        this.waitForLoadingToComplete()
     }
 
     this.getText = function (css) {
@@ -340,5 +348,10 @@ function Helper () {
         return $('.modal-dialog').isDisplayed()
         // return browser.isVisible('.modal-dialog')
     }
+
+    // this.hideElements = (css) => {
+    //     css = css || '.card-header span[data-bind*="report"]'
+    //     this.executeScript(document.querySelectorAll(css).forEach(function (ele) { ele.style.display = 'none' }), css)
+    // }
 }
 module.exports = new Helper()

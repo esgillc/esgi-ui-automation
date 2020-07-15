@@ -38,7 +38,6 @@ class ReportsPage extends Page {
                 subject: 1
             }
         }
-
         // Class Totals Report
         this.displayResultsAsScoreCss = '#displayResultsAsScore'
         this.displayResultsAsPercentCss = '#displayResultsAsPercent'
@@ -47,6 +46,26 @@ class ReportsPage extends Page {
         this.currentMarkingCss = '#currentMarkingPeriodOption'
         this.allMarkingPeriodCss = '#allMarkingPeriodOption'
         this.carryScoresForwardCss = '#carryScoresForwardOption'
+
+        // Flashcards
+        this.flashCardSettings = {
+            printout: {
+                incorrectonly: 'Incorrect Only',
+                incorrectandskipped: 'Incorrect & Skipped',
+                fullset: 'Full Set'
+            },
+            cardsperpage: {
+                six: 'Six',
+                nine: 'Nine',
+                twelve: 'Twelve'
+            }
+        }
+
+        this.questionIDs = {
+            a: '9491190',
+            i: '9491182',
+            z: '9491172'
+        }
     }
     get parentLetterModal () { return $(this.parentLetterModalCss) }
     get alertModal () { return $(this.alertModalCss) }
@@ -54,6 +73,7 @@ class ReportsPage extends Page {
     get showForStudentBtn () { return $(this.showForStudentBtnCss) }
     get getDropdowns () { return $$(this.modalDropDownsCss) }
     get reportBackBtn () { return $(this.reportBackBtnCss) }
+    get reportModal () { return $$('.modal-dialog')[1] }
 
     goBack () {
         this.reportBackBtn.click()
@@ -172,7 +192,7 @@ class ReportsPage extends Page {
     }
 
     setReportInfo (payload) {
-        // this.selectClass(payload.class)
+        this.selectClass(payload.class)
         this.selectStudent(payload.student)
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }
@@ -186,6 +206,11 @@ class ReportsPage extends Page {
         this.checkUnCheckDate(payload.date)
         this.checkUnCheckMessage(payload.message)
         this.clickShowForStudentBtn()
+    }
+
+    generateReport () {
+        this.clickShowForStudentBtn()
+        browser.pause(5000) // @TODO wait for questions to fully display
     }
     // Class Totals Report
 
@@ -230,7 +255,7 @@ class ReportsPage extends Page {
     }
 
     parentLetterReportTemplate () {
-        const reportModal = $$('.modal-dialog')[1]
+        const reportModal = this.reportModal
         const results = reportModal.$('.test-results')
         return {
             title: reportModal.$('.report-name').getText(),
@@ -248,6 +273,63 @@ class ReportsPage extends Page {
                 body: results.$('tbody').getText()
             }
         }
+    }
+
+    // Flash cards
+    setRadioButtons (name) {
+        $(`label=${name}`).click()
+        browser.pause(1000)
+    }
+
+    clickInCorrectOnly () {
+        this.setRadioButtons(this.flashCardSettings.printout.incorrectonly)
+    }
+
+    clickIncorrectAndSkipped () {
+        this.setRadioButtons(this.flashCardSettings.printout.incorrectandskipped)
+    }
+
+    clickFullSet () {
+        this.setRadioButtons(this.flashCardSettings.printout.fullset)
+    }
+
+    clickCardsPerPageSix () {
+        this.setRadioButtons(this.flashCardSettings.cardsperpage.six)
+    }
+
+    clickCardsPerPageNine () {
+        this.setRadioButtons(this.flashCardSettings.cardsperpage.nine)
+    }
+
+    clickCardsPerPageTwelve () {
+        this.setRadioButtons(this.flashCardSettings.cardsperpage.twelve)
+    }
+
+    hideDates () {
+        Helper.hideElements()
+    }
+
+    getQuestion (id) {
+        return $(`.card-image [alt="${id}"]`)
+    }
+
+    scrollToQuestion (id) {
+        // this.getQuestion(id).scrollIntoView()
+        this.getQuestion(id).click()
+        this.waitForLoadingToComplete()
+        browser.pause(5000)
+    }
+
+    scrollToQuestionZ () {
+        this.scrollToQuestion(this.questionIDs.z)
+    }
+
+    scrollToQuestionA () {
+        this.scrollToQuestion(this.questionIDs.a)
+    }
+
+    scrollToQuestionI () {
+        this.scrollToQuestion(this.questionIDs.i)
     }
 }
 

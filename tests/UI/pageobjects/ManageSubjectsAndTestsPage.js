@@ -22,8 +22,8 @@ class ManageSubjectsAndTestsPage extends Page {
             draghandlecss: '.handle',
             expandcollapsecss: '.fa',
             showhidecss: '.showhide',
-            edit: '.action-link[title="Edit subject name"]',
-            deletecss: '.action-link[title="Delete subject name"]',
+            edit: '.action-link.edit-subject-link',
+            deletecss: '.action-link.delete-subject-link',
             addtestcss: '.add-title',
             addedtestcss: '.test-row'
         }
@@ -64,7 +64,7 @@ class ManageSubjectsAndTestsPage extends Page {
     createSubjectTab (payload) {
         browser.pause(2000)
         this.createNewSubject(payload)
-        this.addTestToSubject(payload.subjectname, payload.testname)
+        this.addTestToSubject(payload.subjectname, payload.searchterm)
         this.waitForLoadingToComplete()
     }
 
@@ -108,10 +108,10 @@ class ManageSubjectsAndTestsPage extends Page {
         this.getSubjectRowByName(name).click()
     }
 
-    addTestToSubject (subjectName, testName) {
+    addTestToSubject (subjectName, searchTerm) {
         this.clickAddTestToSubjectButton(subjectName)
         if (!this.isReportAProblemAlertDisplayed()) {
-            AddTestPage.addTest(testName)
+            AddTestPage.addTest(searchTerm)
             $('button=Done').click()
             this.waitForLoadingToComplete()
         }

@@ -26,13 +26,13 @@ exports.config = {
     // define specific suites
     suites: {
         login: [
-            `${dir}/specs/Login.spec.js`
+            `${dir}/specs/AddTest.spec.js`
         ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
         schooladminacct: [
-            `${dir}/specs/schooladminaccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
             `${dir}/specs/teacheraccount/*.spec.js`
@@ -48,7 +48,8 @@ exports.config = {
         ],
         signup: [
             `${dir}/specs/Signup_Rules.spec.js`,
-            `${dir}/specs/WebFront.spec.js`
+            `${dir}/specs/WebFront.spec.js`,
+            `${dir}/specs/Signup_FieldValidation.spec.js`
         ]
     },
 

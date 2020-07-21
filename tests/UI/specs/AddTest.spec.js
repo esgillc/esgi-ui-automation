@@ -17,7 +17,8 @@ describe('Add Test', function () {
         before(function () {
             payload = {
                 tab: 'AddTestTab001',
-                testname: 'Identify Shapes as Flat or 3D (K.G.3)'
+                searchterm: 'Identify',
+                testname: '1.V.1.2: Morphology: Base Words & Inflections'
             }
             // Clean up before test run. Delete the test if it already exists
             HomePage.deleteTest(payload)
@@ -29,7 +30,7 @@ describe('Add Test', function () {
             describe('Add Test', function () {
                 before(function () {
                     HomePage.clickAddTestLink(payload.tab)
-                    AddTestPage.addTest(payload.testname)
+                    AddTestPage.addTest(payload.searchterm)
                 })
                 it('should be present', function () {
                     expect(HomePage.isTestCardPresent(payload.testname)).toBe(true)

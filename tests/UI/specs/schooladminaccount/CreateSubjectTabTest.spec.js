@@ -17,7 +17,8 @@ describe('SchoolAdmin - CreateSubjectTab', function () {
         before(function () {
             payload = {
                 subjectname: 'SchoolAdmin001',
-                testname: 'Breaking Syllables',
+                searchterm: 'Identify',
+                testname: '1.V.1.2: Morphology: Base Words & Inflections',
                 publishindefinitely: 'true',
                 grade: 'Kindergarten'
             }

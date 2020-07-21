@@ -138,15 +138,16 @@ function Helper () {
     }
 
     this.jqueryLoaded = function () {
-        let pending
-        return browser.execute(function () {
-            try {
-                // eslint-disable-next-line no-undef
-                pending = jQuery.active
-            } catch (e) {
-                pending = 0
-            }
-            return pending
+        return browser.execute(() => {
+            // eslint-disable-next-line no-undef
+            return jQuery.active
+        })
+    }
+
+    this.domReady = function () {
+        return browser.execute(() => {
+            // eslint-disable-next-line no-undef
+            return document.readyState
         })
     }
 
@@ -154,9 +155,8 @@ function Helper () {
         css = css || '.loadmask-msg .animated-loading,.preloader'
         timeout = timeout || 10000
         browser.pause(250)
-        let _this = this
-        browser.waitUntil(function () {
-            return (_this.jqueryLoaded() === 0 && !$(css).isDisplayed())
+        browser.waitUntil(() => {
+            return this.jqueryLoaded() === 0 && this.domReady() === 'complete' && !$(css).isDisplayed()
         }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
         browser.pause(500)
     }

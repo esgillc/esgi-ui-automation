@@ -225,9 +225,15 @@ class HomePage extends Page {
     }
 
     clickClass (name) {
-        this.expandAllClasses() // Bug on the page requiring the need for double expand
+        // this.expandAllClasses() // Bug on the page requiring the need for double expand
         this.expandAllClasses()
         this.getClassByName(name).click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickStudentByName (name) {
+        this.expandAllStudents()
+        this.getStudentByName(name).click()
         this.waitForLoadingToComplete()
     }
 
@@ -692,12 +698,12 @@ class HomePage extends Page {
         $(`a.text=${name}`).click()
         this.waitForLoadingToComplete()
     }
+
     // Delete Test Details
     deleteAllPastTestDetails (payload) {
         payload.classname && this.clickClass(payload.classname)
         this.clickSubjectTab(payload.tab)
-        this.getStudentByName(payload.studentname).click()
-        browser.pause(1000)
+        this.clickStudentByName(payload.studentname)
         this.clickDetailsButton(payload.testname)
         if ($('select.form-control option').getText() !== 'None') {
             $('button.btn-edit').click()

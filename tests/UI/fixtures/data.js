@@ -220,22 +220,14 @@ const Reports = {
                 'Teacher Activity'
             ],
             props: [
-                // {
-                //     name: 'District Students',
-                //     title: 'Setup Grading Scales'
-                // },
                 {
                     name: 'District Totals',
                     title: 'District Totals Report'
                 },
                 {
                     name: 'District Grades',
-                    title: 'Setup Grading Scales'
+                    title: 'Setup Grade Scales'
                 },
-                // {
-                //     name: 'District Growth',
-                //     title: 'Setup Grading Scales'
-                // },
                 {
                     name: 'Pie Charts',
                     title: 'Pie Charts'
@@ -259,17 +251,9 @@ const Reports = {
                 'Pie Charts'
             ],
             props: [
-                // {
-                //     name: 'School Students',
-                //     title: 'Setup Grading Scales'
-                // },
-                // {
-                //     name: 'School Totals',
-                //     title: 'Setup Grading Scales'
-                // },
                 {
                     name: 'School Grades',
-                    title: 'Setup Grading Scales'
+                    title: 'Setup Grade Scales'
                 },
                 {
                     name: 'Item Analysis',
@@ -321,7 +305,7 @@ const Reports = {
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Setup Grading Scales'
+                    title: 'Setup Grade Scales'
                 },
                 {
                     name: 'Item Analysis',
@@ -390,7 +374,7 @@ const Reports = {
                 },
                 {
                     name: 'School Grades',
-                    title: 'Setup Grading Scales'
+                    title: 'Setup Grade Scales'
                 },
                 {
                     name: 'Item Analysis',
@@ -442,7 +426,7 @@ const Reports = {
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Setup Grading Scales'
+                    title: 'Setup Grade Scales'
                 },
                 {
                     name: 'Item Analysis',

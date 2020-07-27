@@ -21,7 +21,7 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        `${dir}/specs/**/*.spec.js`
+        `${dir}/specs/**/!(*Report*).spec.js`
     ],
     // define specific suites
     suites: {
@@ -32,7 +32,7 @@ exports.config = {
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],
         schooladminacct: [
-            `${dir}/specs/schooladminaccount/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/schooladminaccount/*.spec.js`
         ],
         teacheracct: [
             `${dir}/specs/teacheraccount/*.spec.js`
@@ -224,7 +224,6 @@ exports.config = {
     // The following are supported: dot (default), spec, and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: [
-        'spec',
         SpecToFileReporter,
         ['timeline', {
             outputDir: './reports/timeline-results',
@@ -301,8 +300,9 @@ exports.config = {
     // resolved to continue.
     //
     // Gets executed once before all workers get launched.
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        // eslint-disable-next-line no-unused-vars
+    },
     //
     // Gets executed before UI execution begins. At this point you can access all global
     // variables, such as `browser`. It is the perfect place to define custom commands.
@@ -345,7 +345,7 @@ exports.config = {
             const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
             browser.saveScreenshot(screenshotPath)
         }
-    }
+    },
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {
@@ -358,6 +358,46 @@ exports.config = {
     //
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
-    // onComplete: function(exitCode) {
-    // }
+    onComplete: function (exitCode) {
+        let path = './reports/custom-report/TestRunReport.txt'
+        const fs = require('fs')
+        let totals = {
+            passed: 0,
+            failed: 0,
+            skipped: 0
+        }
+        try {
+            // read contents of the file
+            const data = fs.readFileSync('./reports/custom-report/subtotals.txt', 'UTF-8')
+
+            // split the contents by new line
+            const lines = data.split(/\r?\n/)
+
+            // print all lines
+            lines.forEach((line) => {
+                if (line.trim() !== '') {
+                    line = JSON.parse(line)
+                    totals.passed = totals.passed + line.passed
+                    totals.failed = totals.failed + line.failed
+                    totals.skipped = totals.skipped + line.skipped
+                }
+            })
+        } catch (err) {
+            // console.error(err);
+        }
+        const title = 'ESGI UI AUTOMATION RESULTS'
+        const date = `DATE: ${new Date().toISOString()}`
+        const header = '------------------------------SUMMARY-----------------------------'
+        const totalFmt = `PASSED: ${totals.passed} | FAILED: ${totals.failed} | SKIPPED: ${totals.skipped}`
+        const summary = `\n${title}\n${date}\n\n${header}\n${totalFmt}\n`
+        const data = fs.readFileSync(path)
+        const fd = fs.openSync(path, 'w+')
+        console.log(summary)
+        const insert = Buffer.from(summary)
+        fs.writeSync(fd, insert, 0, insert.length, 0)
+        fs.writeSync(fd, data, 0, data.length, insert.length)
+        fs.close(fd, (err) => {
+            if (err) throw err
+        })
+    }
 }

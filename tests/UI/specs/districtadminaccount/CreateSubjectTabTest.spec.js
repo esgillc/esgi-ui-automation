@@ -17,8 +17,7 @@ describe('CreateSubjectTab', function () {
         before(function () {
             payload = {
                 subjectname: 'DistrictAdmin001',
-                searchterm: 'Identify',
-                testname: '1.V.1.2: Morphology: Base Words & Inflections',
+                testname: 'Nouns - Identify',
                 publishindefinitely: 'true',
                 grade: 'Kindergarten'
             }

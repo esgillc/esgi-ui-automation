@@ -17,8 +17,7 @@ describe('Add Test', function () {
         before(function () {
             payload = {
                 tab: 'AddTestTab001',
-                searchterm: 'Identify',
-                testname: '1.V.1.2: Morphology: Base Words & Inflections'
+                testname: 'Nouns - Identify'
             }
             // Clean up before test run. Delete the test if it already exists
             HomePage.deleteTest(payload)
@@ -30,7 +29,7 @@ describe('Add Test', function () {
             describe('Add Test', function () {
                 before(function () {
                     HomePage.clickAddTestLink(payload.tab)
-                    AddTestPage.addTest(payload.searchterm)
+                    AddTestPage.addTest(payload.testname)
                 })
                 it('should be present', function () {
                     expect(HomePage.isTestCardPresent(payload.testname)).toBe(true)

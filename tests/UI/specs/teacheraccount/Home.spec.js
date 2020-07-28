@@ -10,7 +10,7 @@ describe('HomePage', function () {
     after(function () {
        //  Global.logout()
     })
-    it('should be on login page', function () {
+    it.only('should be on login page', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
@@ -102,7 +102,7 @@ describe('HomePage', function () {
                     }
                     HomePage.addClass(payload)
                 })
-                it.only('should add a class', function () {
+                it('should add a class', function () {
                     expect(HomePage.isClassPresent(payload.name)).toBe(true)
                 })
                 describe('EditClass', function () {

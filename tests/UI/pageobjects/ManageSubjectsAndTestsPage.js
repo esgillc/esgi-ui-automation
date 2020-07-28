@@ -64,7 +64,7 @@ class ManageSubjectsAndTestsPage extends Page {
     createSubjectTab (payload) {
         browser.pause(2000)
         this.createNewSubject(payload)
-        this.addTestToSubject(payload.subjectname, payload.searchterm)
+        this.addTestToSubject(payload.subjectname, payload.testname)
         this.waitForLoadingToComplete()
     }
 
@@ -108,10 +108,10 @@ class ManageSubjectsAndTestsPage extends Page {
         this.getSubjectRowByName(name).click()
     }
 
-    addTestToSubject (subjectName, searchTerm) {
+    addTestToSubject (subjectName, testName) {
         this.clickAddTestToSubjectButton(subjectName)
         if (!this.isReportAProblemAlertDisplayed()) {
-            AddTestPage.addTest(searchTerm)
+            AddTestPage.addTest(testName)
             $('button=Done').click()
             this.waitForLoadingToComplete()
         }

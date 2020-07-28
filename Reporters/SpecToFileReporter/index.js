@@ -6,7 +6,9 @@ const prettyMs = require('pretty-ms')
 const Reporter = require('@wdio/reporter').default
 const util = require('./utils')
 const fs = require('fs')
+// const { subtract } = require('lodash')
 const stream = fs.createWriteStream('./reports/custom-report/TestRunReport.txt', {flags: 'a'})
+const stateCountsStream = fs.createWriteStream('./reports/custom-report/subtotals.txt', {flags: 'a'})
 
 class SpecToFileReporter extends Reporter {
     constructor (options) {
@@ -69,7 +71,7 @@ class SpecToFileReporter extends Reporter {
     printReport (runner) {
         const duration = `(${prettyMs(runner._duration)})`
         // const preface = `[${this.getEnviromentCombo(runner.capabilities, false, runner.isMultiremote).trim()} #${runner.cid}]`
-        const divider = '------------------------------------------------------------------'
+        const divider = '------------------------------------------------------------------\n'
         // Get the results
         const results = this.getResultDisplay()
         // If there are no test results then return nothing
@@ -107,6 +109,8 @@ class SpecToFileReporter extends Reporter {
 
         // Output the results
         // this.write(`${divider}\n${prefacedOutput.join('\n')}\n`)
+        stateCountsStream.write(`${JSON.stringify(this.stateCounts)}\n`)
+        stateCountsStream.end()
 
         stream.write(`${divider}\n${prefacedOutput.join('\n')}\n`)
         stream.end()

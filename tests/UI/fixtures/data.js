@@ -220,6 +220,10 @@ const Reports = {
                 'Teacher Activity'
             ],
             props: [
+                // {
+                //     name: 'District Students',
+                //     title: 'Setup Grade Scales'
+                // },
                 {
                     name: 'District Totals',
                     title: 'District Totals Report'
@@ -228,6 +232,10 @@ const Reports = {
                     name: 'District Grades',
                     title: 'Setup Grade Scales'
                 },
+                // {
+                //     name: 'District Growth',
+                //     title: 'Setup Grade Scales'
+                // },
                 {
                     name: 'Pie Charts',
                     title: 'Pie Charts'
@@ -251,6 +259,14 @@ const Reports = {
                 'Pie Charts'
             ],
             props: [
+                // {
+                //     name: 'School Students',
+                //     title: 'Setup Grade Scales'
+                // },
+                // {
+                //     name: 'School Totals',
+                //     title: 'Setup Grade Scales'
+                // },
                 {
                     name: 'School Grades',
                     title: 'Setup Grade Scales'

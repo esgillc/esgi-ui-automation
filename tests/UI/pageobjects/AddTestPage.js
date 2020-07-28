@@ -17,8 +17,9 @@ class AddTestPage extends Page {
     get checkBox () { return $(this.checkBoxCss) }
     get doneButton () { return $(this.doneButtonCss) }
 
-    addTest (testname) {
-        this.searchBox.setValue(testname.split(' ')[0].concat(' ')) // searches the first word in the test name
+    addTest (searchTerm) {
+        // this.searchBox.setValue(testname.split(' ')[0].concat(' ')) // searches the first word in the test name
+        this.searchBox.setValue(searchTerm)
         this.waitForLoadingToComplete()
         browser.pause(1000)
         this.checkBox.click()

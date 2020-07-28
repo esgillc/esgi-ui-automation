@@ -39,7 +39,7 @@ exports.config = {
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`,
-            `${dir}/specs/reportsspecs/*.spec.js`
+            `${dir}/specs/reportsspecs/!(*ClassTotalsReport*).spec.js`
         ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,

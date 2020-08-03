@@ -2,14 +2,27 @@
 import Helper from '../support/Helper'
 class Global {
     constructor () {
+        this.hamburgerMenuCss = '.hamburger'
+        this.leftMenucCss = '.left-menu'
+        this.myAccountMenuCss = 'span.text=My Account' // `${this.leftMenucCss} .item-test-explorer`
+        this.renewAccountBtnCss = '.renew-button'
+        this.accoutRenewalHeaderCss = 'h1.title'
+        this.settingsMenuCss = `${this.leftMenucCss} .item-settings`
+        this.contactUsMenuCss = `${this.leftMenucCss} .item-contact-us`
+        this.menuModalHeaderCss = '.modal-header h3'
+        this.modalCloseCss = '.modal-header .close'
+
         this.headerCss = '.page-title, .header h1, .title2'
         this.navBarCss = '.navigation-inner'
         this.topMenuCss = `${this.navBarCss} .menu`
         this.topMenuItemsCss = `${this.topMenuCss}  .menu-item`
+        this.contactUsModalInputCss = '#dropbox_content input'
+        this.renewalPageExistBtnCss = '.exit'
 
         this.rightNavbarCss = '.navbar-right'
         this.rightNavImgCss = `${this.rightNavbarCss} #btnProfileDropDown .material-icons`
         this.logoutCss = `${this.rightNavbarCss} #btnLogout_Sign_out_0`
+        this.accountRenewalUrl = `${browser.options.baseUrl}/Renewal`
 
         this.menu = {
             home: 'Home',
@@ -17,6 +30,81 @@ class Global {
             studentmanager: 'Student Manager',
             parentconferencer: 'Parent Conferencer'
         }
+
+        // Student Manager
+        this.studentManagerSearchboxCss = '#text_input_student_filter'
+    }
+
+    get hamburgerMenu () { return $(this.hamburgerMenuCss) }
+    get myAccountMenu () { return $(this.myAccountMenuCss) }
+    get settingsMenu () { return $(this.settingsMenuCss) }
+    get contactUsMenu () { return $(this.contactUsMenuCss) }
+    get menuModalHeader () { return $(this.menuModalHeaderCss) }
+    get modalClose () { return $(this.modalCloseCss) }
+    get contactUsModalInput () { return $$(this.contactUsModalInputCss) }
+    get renewAccountBtn () { return $(this.renewAccountBtnCss) }
+    get accoutRenewalHeader () { return $(this.accoutRenewalHeaderCss) }
+    get renewalPageExistBtn () { return $(this.renewalPageExistBtnCss) }
+
+    // Student Manager
+    get studentManagerSearchbox () { return $(this.studentManagerSearchboxCss) }
+
+    getContactUsModalInputs () {
+        // Helper.switchToFrame()
+        return browser.getValue(this.contactUsModalInputCss)
+    }
+
+    isLeftMenuOpened () {
+        return browser.isExisting(`${this.leftMenucCss}.open`)
+    }
+
+    closeModal () {
+        this.modalClose.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickRenewalPageExistBtn () {
+        this.renewalPageExistBtn.click()
+        browser.pause(250)
+        $('span=OK').click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickHamburgerMenu () {
+        this.hamburgerMenu.click()
+        browser.pause(500)
+    }
+
+    openLeftMenu () {
+        !this.isLeftMenuOpened() && this.clickHamburgerMenu()
+        browser.pause(1000)
+    }
+
+    clickMyAccountMenu () {
+        this.openLeftMenu()
+        this.myAccountMenu.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clcikRenewAccountBtn () {
+        this.renewAccountBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickSettingsMenu () {
+        this.openLeftMenu()
+        this.settingsMenu.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickContactUsMenu () {
+        this.openLeftMenu()
+        this.contactUsMenu.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    closedLeftMenu () {
+        this.isLeftMenuOpened() && this.clickHamburger()
     }
 
     get header () { return $(this.headerCss) }
@@ -106,6 +194,51 @@ class Global {
     clickRightNavBar () {
         browser.isVisible(this.rightNavImgCss) && browser.click(this.rightNavImgCss)
         browser.pause(1000) // Wait for the menu to fully load
+    }
+
+    // Student Manager
+    searchStudent (name) {
+        this.studentManagerSearchbox.setValue(name)
+        Helper.waitForLoadingToComplete()
+    }
+
+    searchResults () {
+        return $$('tbody [data-name]')
+    }
+
+    searchResultsCount () {
+        return this.searchResults().length
+    }
+
+    isSearchResultPresent (searchterm) {
+        return $(`tbody [data-name="${searchterm}"]`).isDisplayed()
+    }
+
+    // Test Explorer
+    testSearchBox () {
+        return $('.form-control.search-input')
+    }
+
+    clearSearchBox () {
+        $('.input-group-addon.clear-icon').click()
+        Helper.waitForLoadingToComplete()
+    }
+    searchTest (name) {
+        this.testSearchBox().setValue(name)
+        browser.keys('Tab')
+        Helper.waitForLoadingToComplete()
+    }
+
+    getPagingInfo () {
+        return $('.paging-info')
+    }
+
+    testResults () {
+        return this.getPagingInfo().getText()
+    }
+
+    isSearchResultEqual (x, y) {
+        return x === y
     }
 }
 

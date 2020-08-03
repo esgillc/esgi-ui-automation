@@ -10,7 +10,7 @@ describe('HomePage', function () {
     after(function () {
        //  Global.logout()
     })
-    it.only('should be on login page', function () {
+    it('should be on login page', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {

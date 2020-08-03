@@ -15,7 +15,7 @@ describe('CreateSubjectTabTest', function () {
         let payload
         before(function () {
             payload = {
-                subjectname: 'Teacher001',
+                subjectname: 'Teacher0001',
                 testname: 'Nouns - Identify'
             }
             HomePage.modifySubject()

@@ -4,7 +4,7 @@ services:
     image: selenoid/vnc:chrome_83.0
     container_name: chrome
     privileged: true
-    shm_size: '1g'
+    shm_size: '2g'
     tty: true
     command: ["-limit", "1", "-mem", "1g", "-cpu", "1g", "-session-delete-timeout", "3m", "-timeout", "2m"]
     ports:

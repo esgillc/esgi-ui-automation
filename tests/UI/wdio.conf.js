@@ -38,7 +38,7 @@ exports.config = {
             `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
-            // `${dir}/specs/**/Reports.spec.js`,
+            `${dir}/specs/**/Reports.spec.js`,
             `${dir}/specs/reportsspecs/*.spec.js`
         ],
         prodsmoke: [
@@ -352,7 +352,7 @@ exports.config = {
             const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
             browser.saveScreenshot(screenshotPath)
         }
-    }
+    },
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {
@@ -362,9 +362,49 @@ exports.config = {
     // the UI.
     // after: function (capabilities, specs) {
     // },
-    //
+   //
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
-    // onComplete: function(exitCode) {
-    // }
+    onComplete: function (exitCode) {
+        let path = './reports/custom-report/TestRunReport.txt'
+        const fs = require('fs')
+        let totals = {
+            passed: 0,
+            failed: 0,
+            skipped: 0
+        }
+        try {
+            // read contents of the file
+            const data = fs.readFileSync('./reports/custom-report/subtotals.txt', 'UTF-8')
+
+            // split the contents by new line
+            const lines = data.split(/\r?\n/)
+
+            // print all lines
+            lines.forEach((line) => {
+                if (line.trim() !== '') {
+                    line = JSON.parse(line)
+                    totals.passed = totals.passed + line.passed
+                    totals.failed = totals.failed + line.failed
+                    totals.skipped = totals.skipped + line.skipped
+                }
+            })
+        } catch (err) {
+            // console.error(err);
+        }
+        const title = 'ESGI UI AUTOMATION RESULTS'
+        const date = `DATE: ${new Date().toISOString()}`
+        const header = '------------------------------SUMMARY-----------------------------'
+        const totalFmt = `PASSED: ${totals.passed} | FAILED: ${totals.failed} | SKIPPED: ${totals.skipped}`
+        const summary = `\n${title}\n${date}\n\n${header}\n${totalFmt}\n`
+        const data = fs.readFileSync(path)
+        const fd = fs.openSync(path, 'w+')
+        console.log(summary)
+        const insert = Buffer.from(summary)
+        fs.writeSync(fd, insert, 0, insert.length, 0)
+        fs.writeSync(fd, data, 0, data.length, insert.length)
+        fs.close(fd, (err) => {
+            if (err) throw err
+        })
+    }
 }

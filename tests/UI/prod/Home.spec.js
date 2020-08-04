@@ -130,7 +130,7 @@ describe('Prod-HomePage', function () {
                 })
             })
         })
-        describe.skip('AllGroups', function () {
+        describe('AllGroups', function () {
             // First select what class you want to work with to show the All Groups component
             describe('AddGroup', function () {
                 let payload

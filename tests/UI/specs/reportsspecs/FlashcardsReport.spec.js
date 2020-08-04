@@ -14,8 +14,9 @@ describe('FlashReport', function () {
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
         HomePage.selectSchoolYear('2019-2020')
+        HomePage.setReportInfo(info)
         HomePage.clickFlashcardsReport()
-        ReportsPage.setReportInfo(info)
+        // ReportsPage.setReportInfo(info)
     })
     after(function () {
         HomePage.closeModal()

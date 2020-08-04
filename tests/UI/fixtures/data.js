@@ -3,6 +3,12 @@ const Users = {
         credentials: {
             username: 'sbuckhoff',
             password: 'automation01!'
+        },
+        user1: {
+            credentials: {
+                username: 'automation001',
+                password: 'automation01!'
+            }
         }
     },
     districtadmin: {

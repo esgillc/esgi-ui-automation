@@ -24,7 +24,7 @@ class ManageSubjectsAndTestsPage extends Page {
             showhidecss: '.showhide',
             edit: '.action-link.edit-subject-link',
             deletecss: '.action-link.delete-subject-link',
-            addtestcss: '.add-title',
+            addtestcss: '.add-test-button',
             addedtestcss: '.test-row'
         }
 
@@ -62,7 +62,8 @@ class ManageSubjectsAndTestsPage extends Page {
     }
 
     createSubjectTab (payload) {
-        browser.pause(2000)
+        this.waitForLoadingToComplete()
+        browser.pause(1000)
         this.createNewSubject(payload)
         this.addTestToSubject(payload.subjectname, payload.testname)
         this.waitForLoadingToComplete()

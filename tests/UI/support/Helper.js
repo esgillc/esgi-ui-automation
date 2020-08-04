@@ -18,6 +18,14 @@ function Helper () {
         return Math.random().toString().slice(2, 11)
     }
 
+    this.switchToFrame = () => {
+        // browser.switchToFrame(null)
+        const iframeCss = '.contact-us'
+        const frame = browser.$(iframeCss)
+        browser.switchToFrame(frame)
+        browser.pause(3000)
+    }
+
     this.timeFormats = {
         HHcolonMM: 'hh:mm',
         HdotMM: 'h.mm',
@@ -107,19 +115,26 @@ function Helper () {
     }
 
     this.setValue = function (css, input) {
-        $(css).clearValue()
-        let script
         browser.execute(function (css, input) {
-            try {
-                // eslint-disable-next-line no-undef
-                script = document.querySelector(css).value = input
-            } catch (e) {
-                script = 0
-            }
-            return script
+            // eslint-disable-next-line no-undef
+            document.querySelector(css).value = input
         }, css, input)
         browser.pause(500)
         browser.keys(' ') // Necessary else the value is lost after we lose focus
+    }
+
+    // this.getValues = function (css) {
+    //     return browser.execute(function (css) {
+    //             // eslint-disable-next-line no-undef
+    //         return document.querySelectorAll('.form-control')[7].value
+    //     }, css)
+    // }
+    this.getValues = function () {
+        return browser.execute(() => {
+            // eslint-disable-next-line no-unused-expressions
+            return document.querySelector('input')
+        })
+        // this.waitForLoadingToComplete()
     }
 
     this.hideElements = function () {

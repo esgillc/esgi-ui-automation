@@ -133,8 +133,8 @@ class HomePage extends Page {
     get subjectTab () { return $(this.subjectTabCss) }
 
     get subjectsAndTestsPanel () { return $(this.subjectsAndTestsPanelCss) }
-    get addTestLink () { return this.subjectsAndTestsPanel.$('span=Add Test') }
-    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('span=Add, Edit, and Organize Subjects') }
+    get addTestLink () { return this.subjectsAndTestsPanel.$('.home-add-test-link') }
+    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('.home-manage-subjects-link') }
     get doubleRightarrows () { return $(this.doubleRightarrowsCss) }
 
     get leftMenu () { return $(this.leftMenuCss) }
@@ -165,7 +165,6 @@ class HomePage extends Page {
     }
 
     scrollSubjectTabToEnd () {
-        browser.refresh() // @TODO: is refresh necessary?
         this.waitForLoadingToComplete()
         const ele = this.doubleRightarrows
         ele.isDisplayed() && ele.click()
@@ -273,8 +272,15 @@ class HomePage extends Page {
         Helper.waitForLoadingToComplete()
         return browser.getText(this.reportsCss)
     }
+
     getReportByName (name) {
         return $(`span=${name}`)
+    }
+
+    setReportInfo (payload) {
+        this.clickSubjectTab(payload.subject)
+        this.clickClass(payload.class)
+        this.clickStudentByName(payload.student)
     }
 
     getParentLetterReport () {
@@ -615,7 +621,8 @@ class HomePage extends Page {
     }
 
     getTestCardByName (name) {
-        return this.getTestCardTitleByName(name).$('..').$('..')
+        return $(`.card[data-name="${name}"]`)
+        // return this.getTestCardTitleByName(name).$('..').$('..')
     }
 
     getTestCardTitleByName (name) {
@@ -630,7 +637,7 @@ class HomePage extends Page {
         this.clickSubjectTab(payload.tab)
         if (this.isTestCardPresent(payload.testname)) {
             this.getTestCardObj(payload.testname).ellipsis.click()
-            $('a=Remove test from Subject').click()
+            $('.remove-test-from-subject-link').click()
             this.waitForLoadingToComplete()
         }
     }

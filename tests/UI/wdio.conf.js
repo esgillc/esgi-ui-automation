@@ -21,12 +21,12 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     specs: [
-        `${dir}/specs/**/!(*Report*).spec.js`
+        `${dir}/specs/**/*.spec.js`
     ],
     // define specific suites
     suites: {
         login: [
-            `${dir}/specs/Login.spec.js`
+            `${dir}/specs/login.spec.js`
         ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
@@ -39,7 +39,7 @@ exports.config = {
         ],
         reports: [
             `${dir}/specs/**/Reports.spec.js`,
-            `${dir}/specs/reportsspecs/!(*ClassTotalsReport*).spec.js`
+            `${dir}/specs/reportsspecs/*.spec.js`
         ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
@@ -54,8 +54,7 @@ exports.config = {
 
     // Patterns to exclude.
     exclude: [
-        // `${dir}/specs/teacheraccount/*.spec.js`,
-        `${dir}/specs/reportsspecs/ClassTotals.spec.js`
+        `${dir}/specs/reportsspecs/ClassTotalsReport.spec.js`
     ],
     // capabilities: [
     //     {
@@ -224,6 +223,7 @@ exports.config = {
     // The following are supported: dot (default), spec, and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: [
+        'spec',
         SpecToFileReporter,
         ['timeline', {
             outputDir: './reports/timeline-results',
@@ -269,6 +269,14 @@ exports.config = {
             })
             return (arr.length === 1) ? arr[0] : arr
         })
+        browser.addCommand('getValue', function (css) {
+            const eles = $$(css)
+            let arr = []
+            eles.forEach(function (ele) {
+                arr.push(ele.getValue())
+            })
+            return (arr.length === 1) ? arr[0] : arr
+        })
         browser.addCommand('setValue', function (css, value) {
             return $(css).setValue(value)
         })
@@ -300,9 +308,8 @@ exports.config = {
     // resolved to continue.
     //
     // Gets executed once before all workers get launched.
-    onPrepare: function (config, capabilities) {
-        // eslint-disable-next-line no-unused-vars
-    },
+    // onPrepare: function (config, capabilities) {
+    // },
     //
     // Gets executed before UI execution begins. At this point you can access all global
     // variables, such as `browser`. It is the perfect place to define custom commands.
@@ -355,7 +362,7 @@ exports.config = {
     // the UI.
     // after: function (capabilities, specs) {
     // },
-    //
+   //
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
     onComplete: function (exitCode) {

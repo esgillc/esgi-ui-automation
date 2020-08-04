@@ -84,7 +84,7 @@ describe('TeacherAccountPageTest', function () {
                     addEditSubjects = HomePage.organizeEditCreateNewSubjectLink
                 })
                 it('should show the correct text', function () {
-                    expect(addEditSubjects.getText()).toContain('Add, Edit, and Organize Subjects')
+                    expect(addEditSubjects.getText()).toContain('Add, Edit, and Organize Subject Tabs')
                 })
                 it('should be visible', function () {
                     expect(addEditSubjects.isDisplayed()).toBe(true)

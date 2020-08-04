@@ -15,7 +15,7 @@ class TestResultsPage extends Page {
             correctpiecss: `${this.modalCss} .highcharts-series-group path[fill="#00BF96"]`,
             correctpercentagecss: '.highcharts-label.highcharts-data-label:nth-child(1) tspan:nth-child(2)',
             incorrectpercentagecss: '.highcharts-label.highcharts-data-label:nth-child(2) tspan:nth-child(2)',
-            resultlabelcss: '.result div.data'
+            resultlabelcss: '.main .data'
         }
     }
 

@@ -49,6 +49,15 @@ exports.config = {
         signup: [
             `${dir}/specs/Signup_Rules.spec.js`,
             `${dir}/specs/WebFront.spec.js`
+        ],
+        criticalpath: [
+            `${dir}/specs/LoadPieCharts.spec.js`,
+            `${dir}/specs/teacheraccount/RunTest.spec.js`,
+            `${dir}/specs/teacheraccount/Reports.spec.js`,
+            `${dir}/specs/AddTest.spec.js`,
+            `${dir}/specs/Navigations.spec.js`,
+            `${dir}/specs/TestExplorer.spec.js`,
+            `${dir}/specs/StudentManager.spec.js`
         ]
     },
 

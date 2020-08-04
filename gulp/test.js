@@ -80,6 +80,10 @@ export default options => {
         return runTest(['login'])
     }))
 
+    gulp.task('criticalpath', gulp.series(async function test () {
+        return runTest(['criticalpath'])
+    }))
+
     gulp.task('prodsmoke', gulp.series(async function test () {
         return runTest(['prodsmoke'], 'wdio.prod.conf')
     }))

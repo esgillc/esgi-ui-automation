@@ -6,7 +6,7 @@ import AddTestPage from '../pageobjects/AddTestPage'
 describe('Add Test', function () {
     before(function () {
         LoginPage.navigate()
-        LoginPage.login(Users.teacher.credentials)
+        LoginPage.login(Users.teacher.user6.credentials)
         HomePage.selectSchoolYear('2019-2020')
     })
     it('should be on Home page', function () {

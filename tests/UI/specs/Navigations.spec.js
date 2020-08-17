@@ -15,7 +15,7 @@ describe('Navigation', function () {
     })
     describe('LogIn', function () {
         before(function () {
-            LoginPage.login(Users.teacher.credentials)
+            LoginPage.login(Users.teacher.user4.credentials)
             HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {

@@ -66,7 +66,7 @@ class Global {
     clickRenewalPageExistBtn () {
         this.renewalPageExistBtn.click()
         browser.pause(250)
-        $('span=OK').click()
+        // $('span=OK').click()
         Helper.waitForLoadingToComplete()
     }
 

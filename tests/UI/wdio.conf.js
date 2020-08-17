@@ -38,8 +38,8 @@ exports.config = {
             `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
-            `${dir}/specs/**/Reports.spec.js`,
-            `${dir}/specs/reportsspecs/*.spec.js`
+            `${dir}/specs/**/Report*.spec.js`
+            // `${dir}/specs/reportsspecs/*.spec.js`
         ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
@@ -53,7 +53,7 @@ exports.config = {
         criticalpath: [
             `${dir}/specs/LoadPieCharts.spec.js`,
             `${dir}/specs/teacheraccount/RunTest.spec.js`,
-            `${dir}/specs/teacheraccount/Reports.spec.js`,
+            `${dir}/specs/teacheraccount/Report*.spec.js`,
             `${dir}/specs/AddTest.spec.js`,
             `${dir}/specs/Navigations.spec.js`,
             `${dir}/specs/TestExplorer.spec.js`,
@@ -125,7 +125,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same UI should run tests.
 
-    maxInstances: 1,
+    maxInstances: parseInt(process.env.MAXINSTANCES),
     // ===================
     // Test Configurations
     // ===================

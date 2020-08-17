@@ -15,7 +15,7 @@ describe('StudentManager', function () {
     })
     describe('LogIn', function () {
         before(function () {
-            LoginPage.login(Users.teacher.credentials)
+            LoginPage.login(Users.teacher.user3.credentials)
             HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {
@@ -34,7 +34,7 @@ describe('StudentManager', function () {
             describe('Search', function () {
                 let searchTerm
                 before(function () {
-                    searchTerm = 'Mariam Abgaryan'
+                    searchTerm = 'Kayden Bell'
                     Global.searchStudent(searchTerm)
                 })
                 describe('Results', function () {

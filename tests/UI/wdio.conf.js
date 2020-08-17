@@ -349,9 +349,9 @@ exports.config = {
     //
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
-        // if (error) {
-        //     browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
-        // }
+        if (error) {
+            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
+        }
     },
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.

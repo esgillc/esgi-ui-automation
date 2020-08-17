@@ -16,7 +16,8 @@ describe('TeacherAccount - Reports', function () {
     })
     describe('LogIn', function () {
         before(function () {
-            LoginPage.login(Users.teacher.credentials)
+            LoginPage.login(Users.teacher.user2.credentials)
+            HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())
@@ -57,7 +58,7 @@ describe('TeacherAccount - Reports', function () {
                         })
                         describe('Click Specific Class', function () {
                             before(function () {
-                                HomePage.clickClass('Buckhoff\'s Class')
+                                HomePage.clickClass('Class001')
                             })
                             let reportTitle
                             Reports.allclasses.forEach(report => {
@@ -75,7 +76,7 @@ describe('TeacherAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle('Class Grades')
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).toBe('Class Grade Report')
+                                    expect(reportTitle).toBe('Setup Grade Scales')
                                 })
                             })
                             describe('Bingo', function () {
@@ -87,54 +88,6 @@ describe('TeacherAccount - Reports', function () {
                                 })
                                 it('should be opened', function () {
                                     expect(browser.isVisible('.bingo.preview')).toBe(true)
-                                })
-                            })
-                            describe('ClickAllClasses', function () {
-                                before(function () {
-                                    HomePage.clickAllClasses()
-                                })
-                                let reportTitle
-                                Reports.class.forEach(report => {
-                                    describe(report.name, function () {
-                                        before(function () {
-                                            reportTitle = ReportsPage.getReportTitle(report.name)
-                                        })
-                                        it('should be correct', function () {
-                                            expect(reportTitle).toBe(report.title)
-                                        })
-                                    })
-                                })
-                                describe('Bingo', function () {
-                                    before(function () {
-                                        ReportsPage.openReport('Bingo')
-                                    })
-                                    after(function () {
-                                        ReportsPage.closeModal()
-                                    })
-                                    it('should be opened', function () {
-                                        expect(browser.isVisible('.bingo.preview')).toBe(true)
-                                    })
-                                })
-                            })
-                            describe('Click a specific Group', function () {
-                                let groupReports
-                                before(function () {
-                                    HomePage.clickGroup('Buckhoff\'s Class', 'Group002')
-                                    groupReports = HomePage.getReports()
-                                })
-                                it('Initial Reports: should be correct', function () {
-                                    expect(groupReports).toStrictEqual(reports.group.types)
-                                })
-                                let reportTitle
-                                reports.group.props.forEach(report => {
-                                    describe(report.name, function () {
-                                        before(function () {
-                                            reportTitle = ReportsPage.getReportTitle(report.name)
-                                        })
-                                        it('should be correct', function () {
-                                            expect(reportTitle).toBe(report.title)
-                                        })
-                                    })
                                 })
                             })
                         })

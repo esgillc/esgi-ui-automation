@@ -9,6 +9,48 @@ const Users = {
                 username: 'automation001',
                 password: 'automation01!'
             }
+        },
+        user2: {
+            credentials: {
+                username: 'automation0002',
+                password: 'automation01!'
+            }
+        },
+        user3: {
+            credentials: {
+                username: 'automation0003',
+                password: 'automation01!'
+            }
+        },
+        user4: {
+            credentials: {
+                username: 'automation0004',
+                password: 'automation01!'
+            }
+        },
+        user5: {
+            credentials: {
+                username: 'automation0005',
+                password: 'automation01!'
+            }
+        },
+        user6: {
+            credentials: {
+                username: 'automation0006',
+                password: 'automation01!'
+            }
+        },
+        user7: {
+            credentials: {
+                username: 'automation0007',
+                password: 'automation01!'
+            }
+        },
+        user8: {
+            credentials: {
+                username: 'automation0008',
+                password: 'automation01!'
+            }
         }
     },
     districtadmin: {
@@ -122,7 +164,7 @@ const Reports = {
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Class Grade Report'
+                    title: 'Setup Grade Scales'
                 },
                 {
                     name: 'Item Analysis',
@@ -174,7 +216,7 @@ const Reports = {
                 },
                 {
                     name: 'Group Grades',
-                    title: 'Group Grade Report'
+                    title: 'Setup Grade Scales'
                 },
                 {
                     name: 'Item Analysis',

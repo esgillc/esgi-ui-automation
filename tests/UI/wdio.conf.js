@@ -97,11 +97,8 @@ exports.config = {
             // resolution: '1920x1080',
             // browserVersion: '81.0', // browser version
             // platformName: 'WIN8', // OS platform
-            // --enable-logging=stderr --v=1
             'goog:chromeOptions': {
                 args: [
-                    '--enable-logging=stderr',
-                    '--v=1',
                     '--no-sandbox',
                     '--test-type',
                     '--headless', // Windows server doesn't like headless mode
@@ -353,7 +350,7 @@ exports.config = {
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
         if (error) {
-            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
+            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}${new Date().getTime()}.png`)
         }
     },
     //

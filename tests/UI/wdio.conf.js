@@ -97,8 +97,11 @@ exports.config = {
             // resolution: '1920x1080',
             // browserVersion: '81.0', // browser version
             // platformName: 'WIN8', // OS platform
+            // --enable-logging=stderr --v=1
             'goog:chromeOptions': {
                 args: [
+                    '--enable-logging=stderr',
+                    '--v=1',
                     '--no-sandbox',
                     '--test-type',
                     '--headless', // Windows server doesn't like headless mode

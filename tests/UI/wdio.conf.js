@@ -353,7 +353,7 @@ exports.config = {
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
         if (error) {
-            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}.png`)
+            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}${new Date().getTime()}.png`)
         }
     },
     //

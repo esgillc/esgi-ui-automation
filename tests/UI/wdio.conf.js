@@ -374,7 +374,8 @@ exports.config = {
    //
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
-    onComplete: function (exitCode) {
+    onComplete: function (exitCode, config, capabilities, results) {
+        console.log('Config: ', config.suites)
         let path = './reports/custom-report/TestRunReport.txt'
         const fs = require('fs')
         let totals = {
@@ -403,8 +404,9 @@ exports.config = {
         }
         const title = 'ESGI UI AUTOMATION RESULTS'
         const date = `DATE: ${new Date().toISOString()}`
-        const header = '------------------------------SUMMARY-----------------------------'
-        const totalFmt = `PASSED: ${totals.passed} | FAILED: ${totals.failed} | SKIPPED: ${totals.skipped}`
+        const header = `------------------------------SUMMARY-----------------------------`
+        const suite = config.suite[0]
+        const totalFmt = `TEST SUITE: ${suite.toUpperCase()}\nPASSED: ${totals.passed} | FAILED: ${totals.failed} | SKIPPED: ${totals.skipped}`
         const summary = `\n${title}\n${date}\n\n${header}\n${totalFmt}\n`
         const data = fs.readFileSync(path)
         const fd = fs.openSync(path, 'w+')
@@ -415,5 +417,16 @@ exports.config = {
         fs.close(fd, (err) => {
             if (err) throw err
         })
+        const slackEnv = process.env.SENDSLACK && parseInt(process.env.SENDSLACK)
+        if (slackEnv) {
+            const axios = require('axios')
+            const options = {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                data: {'text': summary},
+                url: `https://hooks.slack.com/services/${process.env.SLACKTOKEN}`
+            }
+            axios(options)
+        }
     }
 }

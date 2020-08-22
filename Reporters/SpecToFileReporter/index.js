@@ -9,6 +9,7 @@ const fs = require('fs')
 // const { subtract } = require('lodash')
 const stream = fs.createWriteStream('./reports/custom-report/TestRunReport.txt', {flags: 'a'})
 const stateCountsStream = fs.createWriteStream('./reports/custom-report/subtotals.txt', {flags: 'a'})
+const errorsStream = fs.createWriteStream('./reports/custom-report/errors.txt', {flags: 'a'})
 
 class SpecToFileReporter extends Reporter {
     constructor (options) {
@@ -276,30 +277,29 @@ class SpecToFileReporter extends Reporter {
         const suites = this.getOrderedSuites()
 
         for (const suite of suites) {
-            const suiteTitle = suite.title
             const eventsToReport = this.getEventsToReport(suite)
             for (const test of eventsToReport) {
                 if (test.state !== 'failed') {
                     continue
                 }
-
                 const testTitle = test.title
                 const errors = test.errors || [test.error]
                 // If we get here then there is a failed test
-                output.push(
-                    '',
-                    `${++failureLength}) ${suiteTitle} ${testTitle}`
-
-                )
                 for (let error of errors) {
-                    // output.push(this.chalk.red(error.message))
+                    output.push(
+                        `Error: ${suite.fullTitle} ${testTitle}\n\n`
+                    )
+                    output.push(
+                        `Reason: ${error.message}\n\n`
+                    )
+                    errorsStream.write(`${output.join('')}\n`)
+                    errorsStream.end()
                     if (error.stack) {
                         // output.push(...error.stack.split(/\n/g).map(value => this.chalk.gray(value)))
                     }
                 }
             }
         }
-
         return output
     }
 

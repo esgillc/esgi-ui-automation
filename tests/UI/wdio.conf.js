@@ -6,8 +6,6 @@ const {EyesService} = require('../../Services/EyeService/index')
 const SpecToFileReporter = require('../../Reporters/SpecToFileReporter/index')
 const { TimelineService } = require('wdio-timeline-reporter/timeline-service')
 
-var slack = require('wdio-slack-service')
-
 exports.config = {
     runner: 'local',
     credentials: {

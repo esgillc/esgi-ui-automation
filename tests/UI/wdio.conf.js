@@ -375,7 +375,15 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
     onComplete: function (exitCode, config, capabilities, results) {
+        console.log('kdkakdfka: ', results)
+        this.attachments = [
+            {
+                pretext: `*Test Report *`,
+                title: ''
+            }
+        ]
         console.log('Config: ', config.suites)
+        let errorLines, errorLines2
         let path = './reports/custom-report/TestRunReport.txt'
         const fs = require('fs')
         let totals = {
@@ -386,9 +394,19 @@ exports.config = {
         try {
             // read contents of the file
             const data = fs.readFileSync('./reports/custom-report/subtotals.txt', 'UTF-8')
+            const errors = fs.readFileSync('./reports/custom-report/errors.txt', 'UTF-8')
 
             // split the contents by new line
             const lines = data.split(/\r?\n/)
+            errorLines = errors.split(/\r?\n/)
+            errorLines2 = []
+            errorLines.forEach(function (line) {
+                if (line === '') {
+                    errorLines2.push('\n')
+                } else {
+                    errorLines2.push(line)
+                }
+            })
 
             // print all lines
             lines.forEach((line) => {
@@ -406,7 +424,7 @@ exports.config = {
         const date = `DATE: ${new Date().toISOString()}`
         const header = `------------------------------SUMMARY-----------------------------`
         const suite = config.suite[0]
-        const totalFmt = `TEST SUITE: ${suite.toUpperCase()}\nPASSED: ${totals.passed} | FAILED: ${totals.failed} | SKIPPED: ${totals.skipped}`
+        const totalFmt = `TEST SUITE: ${suite.toUpperCase()}\nPASSED: ${totals.passed}\nFAILED: ${totals.failed}\nSKIPPED: ${totals.skipped}`
         const summary = `\n${title}\n${date}\n\n${header}\n${totalFmt}\n`
         const data = fs.readFileSync(path)
         const fd = fs.openSync(path, 'w+')
@@ -417,13 +435,27 @@ exports.config = {
         fs.close(fd, (err) => {
             if (err) throw err
         })
+        this.attachments[0].title += totalFmt
+        if (results.failed) {
+            const failedColor = '#dc3545'
+            let attach = {
+                color: failedColor,
+                author_name: suite.toUpperCase(),
+                footer: errorLines2.join(''),
+                footer_icon: 'https://img.icons8.com/color/48/000000/info--v1.png',
+                ts: Date.now()
+            }
+            this.attachments.push(attach)
+        }
+        console.log('Attachments: ', this.attachments)
+
         const slackEnv = process.env.SENDSLACK && parseInt(process.env.SENDSLACK)
         if (slackEnv) {
             const axios = require('axios')
             const options = {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
-                data: {'text': summary},
+                data: {'attachments': this.attachments},
                 url: `https://hooks.slack.com/services/${process.env.SLACKTOKEN}`
             }
             axios(options)

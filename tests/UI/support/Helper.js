@@ -170,9 +170,13 @@ function Helper () {
         css = css || '.loadmask-msg .animated-loading,.preloader'
         timeout = timeout || 10000
         browser.pause(250)
-        browser.waitUntil(() => {
-            return this.jqueryLoaded() === 0 && this.domReady() === 'complete' && !$(css).isDisplayed()
-        }, timeout, `Loading did not complete in ${timeout / 1000} seconds`)
+        browser.waitUntil(
+            () => this.jqueryLoaded() === 0 && this.domReady() === 'complete' && !$(css).isDisplayed(),
+            {
+                timeout: timeout,
+                timeoutMsg: `Loading did not complete in ${timeout / 1000} seconds`
+            }
+        )
         browser.pause(500)
     }
 

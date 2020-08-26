@@ -350,7 +350,7 @@ exports.config = {
     // Runs after a WebdriverIO command gets executed
     afterCommand: function (commandName, args, result, error) {
         if (error) {
-            browser.saveScreenshot(`./errorshots/${args[2].split(' ').join('_')}${new Date().getTime()}.png`)
+            browser.saveScreenshot(`./errorshots/${args[1].timeoutMsg.split(' ').join('_')}${new Date().getTime()}.png`)
         }
     },
     //
@@ -375,14 +375,12 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
     onComplete: function (exitCode, config, capabilities, results) {
-        console.log('kdkakdfka: ', results)
         this.attachments = [
             {
                 pretext: `*Test Report *`,
                 title: ''
             }
         ]
-        console.log('Config: ', config.suites)
         let errorLines, errorLines2
         let path = './reports/custom-report/TestRunReport.txt'
         const fs = require('fs')
@@ -447,7 +445,6 @@ exports.config = {
             }
             this.attachments.push(attach)
         }
-        console.log('Attachments: ', this.attachments)
 
         const slackEnv = process.env.SENDSLACK && parseInt(process.env.SENDSLACK)
         if (slackEnv) {

@@ -179,8 +179,8 @@ describe('Prod-HomePage', function () {
             before(function () {
                 payload = {
                     classname: 'Class001',
-                    firstname: '00first123',
-                    lastname: '00last123'
+                    firstname: '01first123',
+                    lastname: '01last123'
                 }
                 HomePage.deleteStudent(payload)
             })
@@ -195,7 +195,7 @@ describe('Prod-HomePage', function () {
                     let payload
                     before(function () {
                         payload = {
-                            name: '00first123 00last123',
+                            name: '01first123 01last123',
                             firstname: '00NewFirst',
                             lastname: '00Newlast'
                         }
@@ -209,8 +209,8 @@ describe('Prod-HomePage', function () {
                         before(function () {
                             payload = {
                                 classname: 'Class001',
-                                firstname: '00NewFirst',
-                                lastname: '00Newlast'
+                                firstname: '01NewFirst',
+                                lastname: '01Newlast'
                             }
                             HomePage.deleteStudent(payload)
                         })

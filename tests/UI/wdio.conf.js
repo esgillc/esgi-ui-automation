@@ -439,8 +439,8 @@ exports.config = {
             let attach = {
                 color: failedColor,
                 author_name: suite.toUpperCase(),
-                text: errorLines2.join(''),
-                // footer_icon: 'https://img.icons8.com/color/48/000000/info--v1.png',
+                footer: errorLines2.join(''),
+                footer_icon: 'https://img.icons8.com/color/48/000000/info--v1.png',
                 ts: Date.now()
             }
             this.attachments.push(attach)

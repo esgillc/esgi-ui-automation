@@ -89,7 +89,7 @@ class ReportsPage extends Page {
             browser.pause(2000)
         } catch (error) {
             browser.refresh()
-            this.waitForLoadingToComplete()
+            this.waitForLoadingToComplete(null, 20000)
             browser.pause(2000)
         }
         return title

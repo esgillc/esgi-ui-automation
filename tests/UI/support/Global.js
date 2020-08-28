@@ -169,13 +169,13 @@ class Global {
         this.homeMenu().click()
         browser.pause(1000)
         this.homeMenu().click() // Bug where you have to click the home button twice
-        Helper.waitForLoadingToComplete()
+        Helper.waitForLoadingToComplete(null, 20000)
         browser.pause(1000)
     }
 
     navigateToStudentManager () {
         this.studentManagerMenu().click()
-        Helper.waitForLoadingToComplete()
+        Helper.waitForLoadingToComplete(null, 20000)
         browser.pause(1000)
     }
 
@@ -183,12 +183,12 @@ class Global {
         this.testExplorerMenu().click()
         browser.pause(1000)
         this.testExplorerMenu().click()
-        Helper.waitForLoadingToComplete()
+        Helper.waitForLoadingToComplete(null, 20000)
     }
 
     navigateToParentConferencer () {
         this.parentConferencerMenu().click()
-        Helper.waitForLoadingToComplete()
+        Helper.waitForLoadingToComplete(null, 20000)
     }
 
     clickRightNavBar () {

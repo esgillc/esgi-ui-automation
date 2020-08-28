@@ -36,7 +36,7 @@ class LoginPage extends Page {
         this.waitForPageToLoad()
         const assessmentWindow = browser.getWindowHandles()[1]
         browser.switchToWindow(assessmentWindow)
-        this.waitForLoadingToComplete()
+        this.waitForLoadingToComplete(null, 20000)
         Helper.handleInitialModals()
     }
 

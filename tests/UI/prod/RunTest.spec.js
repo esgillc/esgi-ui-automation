@@ -45,7 +45,7 @@ describe('Login page', function () {
             })
             describe('Hompage', function () {
                 before(function () {
-                    TestResultsPage.closeModal()
+                    $('.btn-close').click()
                 })
                 it('should be present', function () {
                     console.log(HomePage.graphTextObj(payload))

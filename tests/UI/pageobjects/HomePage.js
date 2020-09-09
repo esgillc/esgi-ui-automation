@@ -564,6 +564,7 @@ class HomePage extends Page {
 
     editGroup (payload) {
         this.clickClass(payload.classname)
+        this.expandAllGroups()
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
         Helper.setValue(this.modalNameInputCss, payload.newname)
@@ -637,7 +638,8 @@ class HomePage extends Page {
         this.clickSubjectTab(payload.tab)
         if (this.isTestCardPresent(payload.testname)) {
             this.getTestCardObj(payload.testname).ellipsis.click()
-            $('.remove-test-from-subject-link').click()
+            browser.pause(250)
+            $('a=Remove test from Subject').click()
             this.waitForLoadingToComplete()
         }
     }

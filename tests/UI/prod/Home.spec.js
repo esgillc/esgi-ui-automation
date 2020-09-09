@@ -209,8 +209,8 @@ describe('Prod-HomePage', function () {
                         before(function () {
                             payload = {
                                 classname: 'Class001',
-                                firstname: '01NewFirst',
-                                lastname: '01Newlast'
+                                firstname: '00NewFirst',
+                                lastname: '00Newlast'
                             }
                             HomePage.deleteStudent(payload)
                         })

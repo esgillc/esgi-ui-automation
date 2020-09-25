@@ -225,7 +225,7 @@ class Global {
     }
     searchTest (name) {
         this.testSearchBox().setValue(name)
-        browser.keys('Tab')
+        browser.keys('Enter')
         Helper.waitForLoadingToComplete()
     }
 

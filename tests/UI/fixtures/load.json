@@ -1,0 +1,44 @@
+{
+    "users": [
+        { 
+            "username": "LoadTest0001",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0002",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0003",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0004",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0005",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0006",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0007",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0008",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0009",
+            "password": "automation01!"
+        },
+        { 
+            "username": "LoadTest0010",
+            "password": "automation01!"
+        }
+    ]
+}

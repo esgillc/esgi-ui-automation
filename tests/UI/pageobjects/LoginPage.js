@@ -73,6 +73,7 @@ class LoginPage extends Page {
     }
 
     getMailInfo () {
+        browser.pause(10000) // Wait 10 seconds for the mail to reach the inbox
         return Helper.getMailInfo()
     }
 }

@@ -79,6 +79,9 @@ export default options => {
     gulp.task('login', gulp.series(async function test () {
         return runTest(['login'])
     }))
+    gulp.task('loginload', gulp.series(async function test () {
+        return runTest(['loginload'])
+    }))
 
     gulp.task('criticalpath', gulp.series(async function test () {
         return runTest(['criticalpath'])

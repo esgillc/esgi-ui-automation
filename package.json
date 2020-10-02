@@ -23,6 +23,7 @@
         "reports": "gulp reports",
         "test": "gulp test",
         "login": "gulp login",
+        "loginload": "gulp loginload",
         "prodsmoke": "gulp prodsmoke",
         "signup": "gulp signup",
         "criticalpath": "gulp criticalpath",

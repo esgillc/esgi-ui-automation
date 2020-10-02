@@ -26,7 +26,7 @@ exports.config = {
     // define specific suites
     suites: {
         elastic: [
-            `/Users/dan/development/esgi-ui-automation/tests/ELK/createtest.spec.js`
+            `/Users/dan/development/esgi-ui-automation/tests/ELK/verifyelasticsearchdata.spec.js`
         ],
         login: [
             `${dir}/specs/login.spec.js`

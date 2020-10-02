@@ -7,7 +7,6 @@ describe('Login page', function () {
         // 1142751,
         // 1138018,
         // 1138019,
-        // 1146935
     ]
     const sqlConfig = {
         user: 'daniel',

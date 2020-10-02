@@ -31,6 +31,9 @@ exports.config = {
         login: [
             `${dir}/specs/login.spec.js`
         ],
+        loginload: [
+            `${dir}/loginload/*.spec.js`
+        ],
         districtadminacct: [
             `${dir}/specs/districtadminaccount/*.spec.js`
         ],

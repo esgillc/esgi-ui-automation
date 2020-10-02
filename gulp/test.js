@@ -55,7 +55,9 @@ export default options => {
     }
 
     gulp.task('seleniumStart', gulp.series(seleniumStart))
-
+    gulp.task('elastic', gulp.series(async function test () {
+        return runTest(['elastic'])
+    }))
     gulp.task('test', gulp.series(async function test () {
         return runTest('test')
     }))

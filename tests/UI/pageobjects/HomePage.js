@@ -26,11 +26,11 @@ class HomePage extends Page {
         this.leftMenuCollaspeButtonCss = `${this.leftMenuCss} .collapse-button`
 
         this.components = {
-            allclasses: 'Classes',
-            allgroups: 'Groups',
-            allstudents: 'Students',
-            allteachers: 'Teachers',
-            allschools: 'Schools'
+            allclasses: 'All Classes',
+            allgroups: 'Class Groups',
+            allstudents: 'All Students',
+            allteachers: 'All Teachers',
+            allschools: 'All Schools'
 
         }
         // All Components
@@ -99,7 +99,7 @@ class HomePage extends Page {
     }
 
     getComponentCss (name) {
-        return `#all-box-item_${name}`
+        return `#all-box-item_${name.split(' ').join('-')}`
     }
 
     get trackName () { return $(this.trackNameCss) }

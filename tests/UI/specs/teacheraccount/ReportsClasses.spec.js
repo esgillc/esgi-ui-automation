@@ -17,7 +17,7 @@ describe('TeacherAccount - Reports', function () {
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(Users.teacher.user2.credentials)
-            HomePage.selectSchoolYear('2019-2020')
+            HomePage.selectSchoolYear('2020-2021')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())

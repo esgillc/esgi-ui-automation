@@ -57,7 +57,7 @@ class ManageSubjectsAndTestsPage extends Page {
         browser.pause(500)
         $('label=Kindergarten').click()
         browser.pause(500)
-        browser.keys('Enter')
+        $('label=Publish').click() // click out of the grades dropdown
         browser.pause(500)
     }
 

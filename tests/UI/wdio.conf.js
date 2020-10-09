@@ -5,7 +5,7 @@ const { join } = require('path')
 const {EyesService} = require('../../Services/EyeService/index')
 const SpecToFileReporter = require('../../Reporters/SpecToFileReporter/index')
 const { TimelineService } = require('wdio-timeline-reporter/timeline-service')
-console.log('DIR: ', dir)
+
 exports.config = {
     runner: 'local',
     credentials: {
@@ -26,10 +26,10 @@ exports.config = {
     // define specific suites
     suites: {
         elastic: [
-            `/Users/dan/development/esgi-ui-automation/tests/ELK/verifyelasticsearchdata.spec.js`
+            `./tests/ELK/verifyelasticsearchdata.spec.js`
         ],
         login: [
-            `${dir}/specs/login.spec.js`
+            `${dir}/specs/**/CreateSubjectTabTest.spec.js`
         ],
         loginload: [
             `${dir}/loginload/*.spec.js`

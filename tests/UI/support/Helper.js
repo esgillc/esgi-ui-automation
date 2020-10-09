@@ -120,7 +120,7 @@ function Helper () {
             document.querySelector(css).value = input
         }, css, input)
         browser.pause(500)
-        browser.keys(' ') // Necessary else the value is lost after we lose focus
+        browser.keys('') // Necessary else the value is lost after we lose focus
     }
 
     // this.getValues = function (css) {
@@ -193,37 +193,37 @@ function Helper () {
     this.COLORS = {
         districtadmin: {
             subjecttab: {
-                property: 'color',
-                value: 'rgba(81,45,168,1)',
+                property: 'background-color',
+                value: 'rgba(170,125,255,0.15)',
                 parsed: {
-                    hex: '#512da8',
-                    alpha: 1,
+                    hex: '#aa7dff',
+                    alpha: 0.15,
                     type: 'color',
-                    rgba: 'rgba(81,45,168,1)'
+                    rgba: 'rgba(170,125,255,0.15)'
                 }
             }
         },
         schooladmin: {
             subjecttab: {
-                property: 'color',
-                value: 'rgba(4,118,189,1)',
+                property: 'background-color',
+                value: 'rgba(3,169,244,0.1)',
                 parsed: {
-                    hex: '#0476bd',
-                    alpha: 1,
+                    hex: '#03a9f4',
+                    alpha: 0.1,
                     type: 'color',
-                    rgba: 'rgba(4,118,189,1)'
+                    rgba: 'rgba(3,169,244,0.1)'
                 }
             }
         },
         teacher: {
             subjecttab: {
-                property: 'color',
-                value: 'rgba(66,66,66,1)',
+                property: 'background-color',
+                value: 'rgba(242,242,242,1)',
                 parsed: {
-                    hex: '#424242',
+                    hex: '#f2f2f2',
                     alpha: 1,
                     type: 'color',
-                    rgba: 'rgba(66,66,66,1)'
+                    rgba: 'rgba(242,242,242,1)'
                 }
             }
         }

@@ -157,11 +157,11 @@ class HomePage extends Page {
     }
 
     getSubjectTabColor (name) {
-        return this.getSubjectTabByName(name).getCSSProperty('color')
+        return this.getSubjectTabByName(name).getCSSProperty('background-color')
     }
 
     getSubjectTabByName (name) {
-        return $(`a.text=${name}`).$('..')
+        return $(`[data-name="${name}"]`)
     }
 
     scrollSubjectTabToEnd () {

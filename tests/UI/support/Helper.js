@@ -120,7 +120,7 @@ function Helper () {
             document.querySelector(css).value = input
         }, css, input)
         browser.pause(500)
-        browser.keys('') // Necessary else the value is lost after we lose focus
+        browser.keys(' ') // Necessary else the value is lost after we lose focus
     }
 
     // this.getValues = function (css) {

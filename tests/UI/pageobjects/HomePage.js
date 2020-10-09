@@ -99,7 +99,15 @@ class HomePage extends Page {
     }
 
     getComponentCss (name) {
-        return `#all-box-item_${name.split(' ').join('-')}`
+        let css
+        try {
+            css = `#all-box-item_${name.split(' ').join('-')}`
+            if (browser.config.env === 'PROD') {
+                css = `#all-box-item_${name.split(' ')[1]}`
+            }
+        } catch (error) {
+        }
+        return css
     }
 
     get trackName () { return $(this.trackNameCss) }

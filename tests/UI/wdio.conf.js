@@ -29,7 +29,7 @@ exports.config = {
             `./tests/ELK/verifyelasticsearchdata.spec.js`
         ],
         login: [
-            `${dir}/specs/**/CreateSubjectTabTest.spec.js`
+            `${dir}/specs/Login.spec.js`
         ],
         loginload: [
             `${dir}/loginload/*.spec.js`

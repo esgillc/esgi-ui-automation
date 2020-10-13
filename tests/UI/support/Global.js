@@ -165,30 +165,26 @@ class Global {
 
     // Navigation to the Menus
 
-    navigateToHome () {
-        this.homeMenu().click()
-        browser.pause(1000)
+    navigateToHome (timeout = 20000) {
         this.homeMenu().click() // Bug where you have to click the home button twice
-        Helper.waitForLoadingToComplete(null, 20000)
+        Helper.waitForLoadingToComplete(null, timeout)
         browser.pause(1000)
     }
 
-    navigateToStudentManager () {
+    navigateToStudentManager (timeout = 20000) {
         this.studentManagerMenu().click()
-        Helper.waitForLoadingToComplete(null, 20000)
+        Helper.waitForLoadingToComplete(null, timeout)
         browser.pause(1000)
     }
 
-    navigateToTestExplorer () {
+    navigateToTestExplorer (timeout = 20000) {
         this.testExplorerMenu().click()
-        browser.pause(1000)
-        this.testExplorerMenu().click()
-        Helper.waitForLoadingToComplete(null, 20000)
+        Helper.waitForLoadingToComplete(null, timeout)
     }
 
-    navigateToParentConferencer () {
+    navigateToParentConferencer (timeout = 20000) {
         this.parentConferencerMenu().click()
-        Helper.waitForLoadingToComplete(null, 20000)
+        Helper.waitForLoadingToComplete(null, timeout)
     }
 
     clickRightNavBar () {

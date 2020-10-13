@@ -31,6 +31,9 @@ exports.config = {
         login: [
             `${dir}/specs/Login.spec.js`
         ],
+        classtotals: [
+            `${dir}/specs/reportsspecs/ClassTotals*.spec.js`
+        ],
         loginload: [
             `${dir}/loginload/*.spec.js`
         ],
@@ -44,8 +47,7 @@ exports.config = {
             `${dir}/specs/teacheraccount/*.spec.js`
         ],
         reports: [
-            `${dir}/specs/**/Report*.spec.js`
-            // `${dir}/specs/reportsspecs/*.spec.js`
+            `${dir}/specs/**/*Report*.spec.js`
         ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
@@ -72,8 +74,7 @@ exports.config = {
 
     // Patterns to exclude.
     exclude: [
-        `${dir}/specs/reportsspecs/ClassTotalsReport.spec.js`
-        // `${dir}/specs/**/CreateSubjectTabTest.spec.js`
+        `${dir}/specs/**/CreateSubjectTabTest.spec.js`
     ],
     capabilities: [
         {

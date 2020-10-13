@@ -36,7 +36,8 @@
         "dev-allure": "npm run allure-report && npm run open-report",
         "startchrome": "docker-compose up -d",
         "stopchrome": "docker stop chrome || true && docker rm chrome || true",
-        "warmup": "gulp warmup"
+        "warmup": "gulp warmup",
+        "classtotals": "gulp classtotals"
     },
     "keywords": [
         "webdriverio",

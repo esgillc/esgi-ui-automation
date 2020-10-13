@@ -81,6 +81,11 @@ export default options => {
     gulp.task('login', gulp.series(async function test () {
         return runTest(['login'])
     }))
+
+    gulp.task('classtotals', gulp.series(async function test () {
+        return runTest(['classtotals'])
+    }))
+
     gulp.task('loginload', gulp.series(async function test () {
         return runTest(['loginload'])
     }))

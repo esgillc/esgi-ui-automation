@@ -1,6 +1,6 @@
 import LoginPage from '../../pageobjects/LoginPage'
 import HomePage from '../../pageobjects/HomePage'
-import Global from '../../support/Global'
+// import Global from '../../support/Global'
 import {Users} from '../../fixtures/data'
 
 describe('TeacherAccountPageTest', function () {
@@ -8,7 +8,7 @@ describe('TeacherAccountPageTest', function () {
         LoginPage.navigate()
     })
     after(function () {
-        Global.logout()
+        // Global.logout()
     })
     it('should be on login page', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())

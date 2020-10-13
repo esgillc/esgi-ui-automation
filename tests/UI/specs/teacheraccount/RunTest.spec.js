@@ -7,7 +7,7 @@ import TestResultsPage from '../../pageobjects/TestResultsPage'
 describe('Login page', function () {
     before(function () {
         LoginPage.navigate()
-        LoginPage.login(Users.teacher.credentials)
+        LoginPage.login(Users.teacher.user0.credentials)
         HomePage.selectSchoolYear('2020-2021')
     })
     it('should be on Home page', function () {

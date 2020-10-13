@@ -69,40 +69,16 @@ exports.config = {
 
     // Patterns to exclude.
     exclude: [
-        `${dir}/specs/reportsspecs/ClassTotalsReport.spec.js`
+        `${dir}/specs/reportsspecs/ClassTotalsReport.spec.js`,
+        `${dir}/specs/**/CreateSubjectTabTest.spec.js`
     ],
-    // capabilities: [
-    //     {
-    //         maxInstances: 1,
-    //         browserName: 'chrome',
-    //         'zal:recordVideo': true,
-    //         'zal:name': 'ESGI Automation',
-    //         'zal:build': 'UItest'
-    //     }
-    // ],
     capabilities: [
         {
             browserName: 'chrome',
             'selenoid:options': {
                 version: 'chrome_83.0',
-                // version: '83'
-                // enableVNC: false,
-                // enableVideo: false,
-                // enableLog: false, // save session logs
-                // videoScreenSize: '1920x1080',
-                // videoFrameRate: 24,
-                // videoCodec: 'mpeg4',
                 screenResolution: '1920x1080x24'
             },
-            // screenResolution: '1920×1080x24',
-            // version: 'chrome_83.0',
-            // enableVNC: true,
-            // enableVideo: false,
-            // platform: 'ANY',
-            // sessionTimeout: '120s'
-            // resolution: '1920x1080',
-            // browserVersion: '81.0', // browser version
-            // platformName: 'WIN8', // OS platform
             'goog:chromeOptions': {
                 args: [
                     '--no-sandbox',
@@ -204,14 +180,6 @@ exports.config = {
             }
         ]
     ],
-
-     // options
-    // chromeDriverArgs: ['--port=4444', '--url-base=\'/\''], // default for ChromeDriver
-    // Options are set here as well
-    // seleniumLogs: './logs',
-    // services: [
-    //     [EyesService]
-    // ],
     eyes: {
         batch: 'ESGI - Automation',
         // '<APPLITOOLS_API_KEY>', // can be passed here or via environment variable `APPLITOOLS_API_KEY`
@@ -269,8 +237,7 @@ exports.config = {
         // retries: 3,
         timeout: 250000
     },
-    // onPrepare: function () {
-    // },
+
     before: function (capabilities, specs) {
        //  browser.setWindowSize(1920, 1080)
         browser.addCommand('click', function (css) {

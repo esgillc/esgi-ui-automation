@@ -4,6 +4,12 @@ const Users = {
             username: 'sbuckhoff',
             password: 'automation01!'
         },
+        user0: {
+            credentials: {
+                username: 'automation000',
+                password: 'automation01!'
+            }
+        },
         user1: {
             credentials: {
                 username: 'automation001',

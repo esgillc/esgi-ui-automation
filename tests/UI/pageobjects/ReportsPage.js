@@ -79,7 +79,7 @@ class ReportsPage extends Page {
         this.reportBackBtn.click()
     }
 
-    getReportTitle (name) {
+    getReportTitle (name, timeout = 20000) {
         let title
         try {
             this.openReport(name)
@@ -89,7 +89,7 @@ class ReportsPage extends Page {
             browser.pause(2000)
         } catch (error) {
             browser.refresh()
-            this.waitForLoadingToComplete(null, 20000)
+            this.waitForLoadingToComplete(null, timeout)
             browser.pause(2000)
         }
         return title

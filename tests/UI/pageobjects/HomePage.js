@@ -276,8 +276,8 @@ class HomePage extends Page {
         return browser.isVisible(this.modal)
     }
 
-    getReports () {
-        Helper.waitForLoadingToComplete()
+    getReports (timeout = 20000) {
+        Helper.waitForLoadingToComplete(null, timeout)
         return browser.getText(this.reportsCss)
     }
 

@@ -64,13 +64,16 @@ exports.config = {
             `${dir}/specs/Navigations.spec.js`,
             `${dir}/specs/TestExplorer.spec.js`,
             `${dir}/specs/StudentManager.spec.js`
+        ],
+        warmup: [
+            `${dir}/warmup/warmupReports.spec.js`
         ]
     },
 
     // Patterns to exclude.
     exclude: [
-        `${dir}/specs/reportsspecs/ClassTotalsReport.spec.js`,
-        `${dir}/specs/**/CreateSubjectTabTest.spec.js`
+        `${dir}/specs/reportsspecs/ClassTotalsReport.spec.js`
+        // `${dir}/specs/**/CreateSubjectTabTest.spec.js`
     ],
     capabilities: [
         {

@@ -11,7 +11,7 @@ class ReportsPage extends Page {
 
         this.parentLetterModalCss = '.parent-letters'
         this.reportTitleCss = '.modal-header h3,.report-name,.total-report-name,.gs-header h3'
-        this.closeModalCss = '.modal-header .close,.fa-close,.close-popup'
+        this.closeModalCss = '.modal-header .close,.fa-close,.close-popup,.close:first-child'
         this.alertModalCss = '.modal-dialog .alert'
         this.modalDropDownsCss = '.modal-dialog select'
         this.reportBackBtnCss = '.modal-dialog.animate .btn-back'
@@ -74,6 +74,7 @@ class ReportsPage extends Page {
     get getDropdowns () { return $$(this.modalDropDownsCss) }
     get reportBackBtn () { return $(this.reportBackBtnCss) }
     get reportModal () { return $$('.modal-dialog')[1] }
+    get reportFirstModal () { return $('.modal-dialog') }
 
     goBack () {
         this.reportBackBtn.click()
@@ -196,6 +197,11 @@ class ReportsPage extends Page {
         this.selectStudent(payload.student)
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }
+
+    setClassTotalsReportInfo (payload) {
+        this.selectClass(payload.class)
+        this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
+    }
     verifyReport (payload) {
         this.selectClass(payload.class)
         this.selectStudent(payload.student)
@@ -242,9 +248,6 @@ class ReportsPage extends Page {
         this.checkUncheckIncludeParentLetter(this.carryScoresForwardCss, bool)
     }
     verifyClassTotalsReport (payload) {
-        this.selectClass(payload.class)
-        this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
-
         this.setDisplayResultsAsScore(payload.score)
         this.setDisplayResultsAsPercent(payload.percent)
         this.setDisplayNotTestedAsZero(payload.zero)

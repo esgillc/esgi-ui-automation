@@ -109,7 +109,7 @@ function Helper () {
     this.clickElement = function (css) {
         browser.execute(function (css) {
             // eslint-disable-next-line no-undef
-            return $(css).click()
+            return document.querySelector(css).click()
         }, css)
         browser.pause(500)
     }

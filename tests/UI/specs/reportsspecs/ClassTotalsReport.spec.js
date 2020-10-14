@@ -24,8 +24,6 @@ describe('ClassTotalsReport', function () {
         let payload
         before(function () {
             payload = {
-                subject: 'SubjectTabTest001',
-                class: 'Buckhoff\'s Class',
                 score: true,
                 percent: false,
                 zero: true,
@@ -33,7 +31,6 @@ describe('ClassTotalsReport', function () {
                 carryforward: false,
                 currentmarking: true,
                 allmarking: false
-
             }
             ReportsPage.verifyClassTotalsReport(payload)
         })
@@ -46,8 +43,6 @@ describe('ClassTotalsReport', function () {
         let payload
         before(function () {
             payload = {
-                subject: 'SubjectTabTest001',
-                class: 'Buckhoff\'s Class',
                 score: true,
                 percent: false,
                 zero: true,
@@ -55,7 +50,6 @@ describe('ClassTotalsReport', function () {
                 carryforward: true,
                 currentmarking: true,
                 allmarking: false
-
             }
             ReportsPage.verifyClassTotalsReport(payload)
         })
@@ -63,21 +57,18 @@ describe('ClassTotalsReport', function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
-    describe('ClassTotalsReport-Score_Zero_CarryForward_CurrentMarking', () => {
-        let action = 'ClassTotalsReport-Score_Zero_CarryForward_CurrentMarking'
+    describe('ClassTotalsReport-Score_Zero_All', () => {
+        let action = 'ClassTotalsReport-Score_Zero_All'
         let payload
         before(function () {
             payload = {
-                subject: 'SubjectTabTest001',
-                class: 'Buckhoff\'s Class',
                 score: true,
                 percent: false,
                 zero: true,
                 nt: false,
-                carryforward: true,
-                currentmarking: true,
-                allmarking: false
-
+                carryforward: false,
+                currentmarking: false,
+                allmarking: true
             }
             ReportsPage.verifyClassTotalsReport(payload)
         })
@@ -90,12 +81,238 @@ describe('ClassTotalsReport', function () {
         let payload
         before(function () {
             payload = {
-                subject: 'SubjectTabTest001',
-                class: 'Buckhoff\'s Class',
                 score: true,
                 percent: false,
                 zero: true,
                 nt: false,
+                carryforward: true,
+                currentmarking: false,
+                allmarking: true
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Score_NT_CurrentMarking', () => {
+        let action = 'ClassTotalsReport-Score_NT_CurrentMarking'
+        let payload
+        before(function () {
+            payload = {
+                score: true,
+                percent: false,
+                zero: false,
+                nt: true,
+                carryforward: false,
+                currentmarking: true,
+                allmarking: false
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Score_NT_CarryForward_CurrentMarking', () => {
+        let action = 'ClassTotalsReport-Score_NT_CarryForward_CurrentMarking'
+        let payload
+        before(function () {
+            payload = {
+                score: true,
+                percent: false,
+                zero: false,
+                nt: true,
+                carryforward: true,
+                currentmarking: true,
+                allmarking: false
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Score_NT_All', () => {
+        let action = 'ClassTotalsReport-Score_NT_All'
+        let payload
+        before(function () {
+            payload = {
+                score: true,
+                percent: false,
+                zero: false,
+                nt: true,
+                carryforward: false,
+                currentmarking: false,
+                allmarking: true
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Score_NT_CarryForward_All', () => {
+        let action = 'ClassTotalsReport-Score_NT_CarryForward_All'
+        let payload
+        before(function () {
+            payload = {
+                score: true,
+                percent: false,
+                zero: false,
+                nt: true,
+                carryforward: true,
+                currentmarking: false,
+                allmarking: true
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_Zero_CurrentMarking', () => {
+        let action = 'ClassTotalsReport-Percent_Zero_CurrentMarking'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: true,
+                nt: false,
+                carryforward: false,
+                currentmarking: true,
+                allmarking: false
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_Zero_CarryForward_CurrentMarking', () => {
+        let action = 'ClassTotalsReport-Percent_Zero_CarryForward_CurrentMarking'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: true,
+                nt: false,
+                carryforward: true,
+                currentmarking: true,
+                allmarking: false
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_Zero_All', () => {
+        let action = 'ClassTotalsReport-Percent_Zero_All'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: true,
+                nt: false,
+                carryforward: false,
+                currentmarking: false,
+                allmarking: true
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_Zero_CarryForward_All', () => {
+        let action = 'ClassTotalsReport-Percent_Zero_CarryForward_All'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: true,
+                nt: false,
+                carryforward: true,
+                currentmarking: false,
+                allmarking: true
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_NT_CurrentMarking', () => {
+        let action = 'ClassTotalsReport-Percent_NT_CurrentMarking'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: false,
+                nt: true,
+                carryforward: false,
+                currentmarking: true,
+                allmarking: false
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_NT_CarryForward_CurrentMarking', () => {
+        let action = 'ClassTotalsReport-Percent_NT_CarryForward_CurrentMarking'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: false,
+                nt: true,
+                carryforward: true,
+                currentmarking: true,
+                allmarking: false
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_NT_All', () => {
+        let action = 'ClassTotalsReport-Percent_NT_All'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: false,
+                nt: true,
+                carryforward: false,
+                currentmarking: false,
+                allmarking: true
+            }
+            ReportsPage.verifyClassTotalsReport(payload)
+        })
+        it(`${action} - should be correct`, function () {
+            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+    })
+    describe('ClassTotalsReport-Percent_NT_CarryForward_All', () => {
+        let action = 'ClassTotalsReport-Percent_NT_CarryForward_All'
+        let payload
+        before(function () {
+            payload = {
+                score: false,
+                percent: true,
+                zero: false,
+                nt: true,
                 carryforward: true,
                 currentmarking: false,
                 allmarking: true

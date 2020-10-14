@@ -112,6 +112,7 @@ function Helper () {
             return document.querySelector(css).click()
         }, css)
         browser.pause(500)
+        this.waitForLoadingToComplete()
     }
 
     this.setValue = function (css, input) {

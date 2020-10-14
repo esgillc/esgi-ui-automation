@@ -86,6 +86,10 @@ export default options => {
         return runTest(['classtotals'])
     }))
 
+    gulp.task('flashcards', gulp.series(async function test () {
+        return runTest(['flashcards'])
+    }))
+
     gulp.task('loginload', gulp.series(async function test () {
         return runTest(['loginload'])
     }))

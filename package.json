@@ -37,7 +37,8 @@
         "startchrome": "docker-compose up -d",
         "stopchrome": "docker stop chrome || true && docker rm chrome || true",
         "warmup": "gulp warmup",
-        "classtotals": "gulp classtotals"
+        "classtotals": "gulp classtotals",
+        "flashcards": "gulp flashcards"
     },
     "keywords": [
         "webdriverio",

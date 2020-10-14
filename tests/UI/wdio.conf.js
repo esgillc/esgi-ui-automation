@@ -34,6 +34,9 @@ exports.config = {
         classtotals: [
             `${dir}/specs/reportsspecs/ClassTotals*.spec.js`
         ],
+        flashcards: [
+            `${dir}/specs/reportsspecs/Flashcards*.spec.js`
+        ],
         loginload: [
             `${dir}/loginload/*.spec.js`
         ],

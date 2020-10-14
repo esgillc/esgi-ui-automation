@@ -32,7 +32,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -48,7 +47,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -64,7 +62,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -81,7 +78,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -97,7 +93,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -113,7 +108,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -145,7 +139,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -177,7 +170,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
@@ -209,7 +201,6 @@ describe('FlashReport', function () {
         })
         after(function () {
             ReportsPage.goBack()
-            HomePage.waitForLoadingToComplete()
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)

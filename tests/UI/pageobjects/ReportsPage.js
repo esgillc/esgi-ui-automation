@@ -78,6 +78,7 @@ class ReportsPage extends Page {
 
     goBack () {
         this.reportBackBtn.click()
+        Helper.waitForLoadingToComplete()
     }
 
     getReportTitle (name, timeout = 20000) {

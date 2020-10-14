@@ -37,6 +37,9 @@ exports.config = {
         flashcards: [
             `${dir}/specs/reportsspecs/Flashcards*.spec.js`
         ],
+        parentletter: [
+            `${dir}/specs/reportsspecs/ParentLetter*.spec.js`
+        ],
         loginload: [
             `${dir}/loginload/*.spec.js`
         ],

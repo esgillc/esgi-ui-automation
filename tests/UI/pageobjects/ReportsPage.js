@@ -212,6 +212,7 @@ class ReportsPage extends Page {
         this.checkUnCheckDate(payload.date)
         this.checkUnCheckMessage(payload.message)
         this.clickShowForStudentBtn()
+        this.waitForLoadingToComplete()
     }
 
     generateReport () {
@@ -255,6 +256,7 @@ class ReportsPage extends Page {
         this.checkUnCarryScoresForward(payload.carryforward)
         this.setCurrentMarking(payload.currentmarking)
         this.setAllMarkingPeriod(payload.allmarking)
+        Helper.waitForLoadingToComplete()
     }
 
     parentLetterReportTemplate () {

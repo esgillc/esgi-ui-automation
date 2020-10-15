@@ -73,8 +73,8 @@ class ReportsPage extends Page {
     get showForStudentBtn () { return $(this.showForStudentBtnCss) }
     get getDropdowns () { return $$(this.modalDropDownsCss) }
     get reportBackBtn () { return $(this.reportBackBtnCss) }
-    get reportModal () { return $$('.modal-dialog')[1] }
-    get reportFirstModal () { return $('.modal-dialog') }
+    get reportModal () { return $$('.modal-content')[1] }
+    get reportFirstModal () { return $('.modal-content') }
 
     goBack () {
         this.reportBackBtn.click()

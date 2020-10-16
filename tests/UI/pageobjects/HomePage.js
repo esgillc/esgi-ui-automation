@@ -45,7 +45,8 @@ class HomePage extends Page {
             flashcards: 'Flashcards',
             bingo: 'Bingo',
             studentdetail: 'Student Detail',
-            classtotals: 'Class Totals'
+            classtotals: 'Class Totals',
+            classgrades: 'Class Grades'
         }
 
         this.testcardObjCss = {
@@ -291,6 +292,10 @@ class HomePage extends Page {
         this.clickStudentByName(payload.student)
     }
 
+    getClassGradesReport () {
+        return this.getReportByName(this.reports.classgrades)
+    }
+
     getParentLetterReport () {
         return this.getReportByName(this.reports.parentletter)
     }
@@ -313,6 +318,11 @@ class HomePage extends Page {
 
     clickParentLetterReport () {
         this.getParentLetterReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickClassGradesReport () {
+        this.getClassGradesReport().click()
         this.waitForLoadingToComplete()
     }
 

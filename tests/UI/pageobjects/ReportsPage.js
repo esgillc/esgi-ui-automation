@@ -36,6 +36,10 @@ class ReportsPage extends Page {
             classtotals: {
                 class: 0,
                 subject: 1
+            },
+            classgrades: {
+                class: 0,
+                subject: 1
             }
         }
         // Class Totals Report
@@ -46,6 +50,9 @@ class ReportsPage extends Page {
         this.currentMarkingCss = '#currentMarkingPeriodOption'
         this.allMarkingPeriodCss = '#allMarkingPeriodOption'
         this.carryScoresForwardCss = '#carryScoresForwardOption'
+
+         // Class Grades Report
+        this.runReportBtnCss = '.run-report-button'
 
         // Flashcards
         this.flashCardSettings = {
@@ -75,6 +82,7 @@ class ReportsPage extends Page {
     get reportBackBtn () { return $(this.reportBackBtnCss) }
     get reportModal () { return $$('.modal-content')[1] }
     get reportFirstModal () { return $('.modal-content') }
+    get runReportBtn () { return $(this.runReportBtnCss) }
 
     goBack () {
         this.reportBackBtn.click()
@@ -171,6 +179,11 @@ class ReportsPage extends Page {
         Helper.waitForLoadingToComplete()
     }
 
+    clickRunReport () {
+        this.runReportBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
     selectItemFromDropDown (index, item) {
         const drowpDown = this.getDropdowns[index]
         if (drowpDown.getText('option:checked').toLowerCase() !== item.toLowerCase()) {
@@ -203,6 +216,12 @@ class ReportsPage extends Page {
         this.selectClass(payload.class)
         this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
     }
+
+    setClassGradesReportInfo (payload) {
+        this.selectClass(payload.class)
+        this.selectSubject(this.dropdowns.classgrades.subject, payload.subject)
+    }
+
     verifyReport (payload) {
         this.selectClass(payload.class)
         this.selectStudent(payload.student)
@@ -249,6 +268,7 @@ class ReportsPage extends Page {
     checkUnCarryScoresForward (bool) {
         this.checkUncheckIncludeParentLetter(this.carryScoresForwardCss, bool)
     }
+
     verifyClassTotalsReport (payload) {
         this.setDisplayResultsAsScore(payload.score)
         this.setDisplayResultsAsPercent(payload.percent)
@@ -258,6 +278,14 @@ class ReportsPage extends Page {
         this.setCurrentMarking(payload.currentmarking)
         this.setAllMarkingPeriod(payload.allmarking)
         Helper.waitForLoadingToComplete()
+    }
+
+    verifyClassGradesReport (payload) {
+        this.setDisplayNotTestedAsZero(payload.zero)
+        this.setDisplayNotTestedAsNT(payload.nt)
+        this.checkUnCarryScoresForward(payload.carryforward)
+        this.setCurrentMarking(payload.currentmarking)
+        this.setAllMarkingPeriod(payload.allmarking)
     }
 
     parentLetterReportTemplate () {

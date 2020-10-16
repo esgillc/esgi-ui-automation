@@ -37,6 +37,9 @@ exports.config = {
         flashcards: [
             `${dir}/specs/reportsspecs/Flashcards*.spec.js`
         ],
+        classgrades: [
+            `${dir}/specs/reportsspecs/ClassGrades*.spec.js`
+        ],
         parentletter: [
             `${dir}/specs/reportsspecs/ParentLetter*.spec.js`
         ],

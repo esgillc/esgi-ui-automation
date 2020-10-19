@@ -26,12 +26,11 @@ class HomePage extends Page {
         this.leftMenuCollaspeButtonCss = `${this.leftMenuCss} .collapse-button`
 
         this.components = {
-            allclasses: 'All Classes',
-            allgroups: 'Class Groups',
-            allstudents: 'All Students',
-            allteachers: 'All Teachers',
-            allschools: 'All Schools'
-
+            allclasses: 'class',
+            allgroups: 'group',
+            allstudents: 'student',
+            allteachers: 'teacher',
+            allschools: 'school'
         }
         // All Components
         this.componentsObjCss = {
@@ -99,15 +98,7 @@ class HomePage extends Page {
     }
 
     getComponentCss (name) {
-        let css
-        try {
-            css = `#all-box-item_${name.split(' ').join('-')}`
-            if (browser.config.env === 'PROD') {
-                css = `#all-box-item_${name.split(' ')[1]}`
-            }
-        } catch (error) {
-        }
-        return css
+        return `.box.${name} .all`
     }
 
     get trackName () { return $(this.trackNameCss) }
@@ -552,7 +543,7 @@ class HomePage extends Page {
     // returns the name and edit buttons of the Component item
     getComponentItemObjs (el) {
         el.click()
-        browser.pause(1000)
+        Helper.waitForLoadingToComplete()
         const parent = el.$('..')
         return {
             name: parent.$('.title'),
@@ -563,7 +554,7 @@ class HomePage extends Page {
     editClass (payload) {
         this.expandAllClasses()
         this.classObjs(payload.name).edit.click()
-        browser.pause(1000)
+        Helper.waitForLoadingToComplete()
         Helper.setValue(this.modalNameInputCss, payload.newname)
         // this.setName(payload.newname)
         this.checkStudents(payload.students)

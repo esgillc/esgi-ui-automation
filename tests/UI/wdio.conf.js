@@ -74,7 +74,7 @@ exports.config = {
             `${dir}/specs/StudentManager.spec.js`
         ],
         warmup: [
-            `${dir}/warmup/warmupReports.spec.js`
+            `${dir}/warmup/warmupMenus.spec.js`
         ]
     },
     /**
@@ -370,6 +370,8 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
     onComplete: function (exitCode, config, capabilities, results) {
+        const suite = config.suite[0]
+        if (suite.toLowerCase().includes('warmup')) { return }
         this.attachments = [
             {
                 pretext: `*Test Report *`,
@@ -416,7 +418,6 @@ exports.config = {
         const title = 'ESGI UI AUTOMATION RESULTS'
         const date = `DATE: ${new Date().toISOString()}`
         const header = `------------------------------SUMMARY-----------------------------`
-        const suite = config.suite[0]
         const totalFmt = `TEST SUITE: ${suite.toUpperCase()}\nPASSED: ${totals.passed}\nFAILED: ${totals.failed}\nSKIPPED: ${totals.skipped}`
         const summary = `\n${title}\n${date}\n\n${header}\n${totalFmt}\n`
         const data = fs.readFileSync(path)

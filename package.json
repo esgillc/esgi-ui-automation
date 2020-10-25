@@ -39,7 +39,8 @@
         "warmup": "gulp warmup",
         "classtotals": "gulp classtotals",
         "flashcards": "gulp flashcards",
-        "parentletter": "gulp parentletter"
+        "parentletter": "gulp parentletter",
+        "studentdetail": "gulp studentdetail"
     },
     "keywords": [
         "webdriverio",

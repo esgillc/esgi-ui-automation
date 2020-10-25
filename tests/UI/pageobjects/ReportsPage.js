@@ -15,6 +15,7 @@ class ReportsPage extends Page {
         this.alertModalCss = '.modal-dialog .alert'
         this.modalDropDownsCss = '.modal-dialog select'
         this.reportBackBtnCss = '.modal-dialog.animate .btn-back'
+        this.runReportBtnCss = 'span=Run Report'
 
         // Parent Letter
 
@@ -36,8 +37,19 @@ class ReportsPage extends Page {
             classtotals: {
                 class: 0,
                 subject: 1
+            },
+            studentdetail: {
+                class: 0,
+                student: 1,
+                subject: 2
             }
         }
+          // Student Detail Report
+        this.gradesShowCss = 'input#_includeGradeScore'
+        this.displayNotTestedAsZeroSDCss = '#_displayZeroIfNotTested_on'
+        this.displayNotTestedAsNTSDCss = '#_displayZeroIfNotTested_off'
+        this.carryScoresForwardSDCss = '#_carryScoresForward'
+
         // Class Totals Report
         this.displayResultsAsScoreCss = '#displayResultsAsScore'
         this.displayResultsAsPercentCss = '#displayResultsAsPercent'
@@ -75,9 +87,15 @@ class ReportsPage extends Page {
     get reportBackBtn () { return $(this.reportBackBtnCss) }
     get reportModal () { return $$('.modal-content')[1] }
     get reportFirstModal () { return $('.modal-content') }
+    get runReportBtn () { return $(this.runReportBtnCss) }
 
     goBack () {
         this.reportBackBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickRunReport () {
+        this.runReportBtn.click()
         Helper.waitForLoadingToComplete()
     }
 
@@ -154,6 +172,14 @@ class ReportsPage extends Page {
         this.checkUncheckIncludeParentLetter(this.gradeCss, bool)
     }
 
+    checkUnCheckGradesShow (bool) {
+        this.checkUncheckIncludeParentLetter(this.gradesShowCss, bool)
+    }
+
+    checkUnCheckShowColors (bool) {
+        this.checkUncheckIncludeParentLetter(this.printInColorCss, bool)
+    }
+
     checkUnCheckSkippedQuestions (bool) {
         this.checkUncheckIncludeParentLetter(this.skippedQuesstionsCss, bool)
     }
@@ -173,6 +199,14 @@ class ReportsPage extends Page {
 
     selectItemFromDropDown (index, item) {
         const drowpDown = this.getDropdowns[index]
+        if (drowpDown.getText('option:checked').toLowerCase() !== item.toLowerCase()) {
+            drowpDown.selectByVisibleText(item)
+            this.waitForLoadingToComplete()
+        }
+    }
+
+    selectItemFromDropDownRunReport (item) {
+        const drowpDown = $(this.modalDropDownsCss)
         if (drowpDown.getText('option:checked').toLowerCase() !== item.toLowerCase()) {
             drowpDown.selectByVisibleText(item)
             this.waitForLoadingToComplete()
@@ -213,6 +247,16 @@ class ReportsPage extends Page {
         this.checkUnCheckDate(payload.date)
         this.checkUnCheckMessage(payload.message)
         this.clickShowForStudentBtn()
+        this.waitForLoadingToComplete()
+    }
+    setStudentDetailReportInfo (payload) {
+        this.selectClass(payload.class)
+        this.selectStudent(payload.student)
+        this.selectSubject(this.dropdowns.studentdetail.subject, payload.subject)
+    }
+
+    selectSubjectRunReport (payload) {
+        this.selectItemFromDropDownRunReport(payload.subject)
         this.waitForLoadingToComplete()
     }
 
@@ -258,6 +302,28 @@ class ReportsPage extends Page {
         this.setCurrentMarking(payload.currentmarking)
         this.setAllMarkingPeriod(payload.allmarking)
         Helper.waitForLoadingToComplete()
+    }
+      // Student Details Report
+    verifyStudentDetailReport (payload) {
+        this.checkUnCheckGradesShow(payload.gradesshow)
+        this.setDisplayNotTestedAsZeroSD(payload.zero)
+        this.setDisplayNotTestedAsNTSD(payload.nt)
+        this.checkUnCarryScoresForwardSD(payload.carryforward)
+        this.setCurrentMarking(payload.currentmarking)
+        this.setAllMarkingPeriod(payload.allmarking)
+        this.checkUnCheckQuestionNotes(payload.questionnotes)
+        this.checkUnCheckShowColors(payload.showcolors)
+    }
+    checkUnCarryScoresForwardSD (bool) {
+        this.checkUncheckIncludeParentLetter(this.carryScoresForwardSDCss, bool)
+    }
+
+    setDisplayNotTestedAsZeroSD (bool) {
+        bool && Helper.clickElement(this.displayNotTestedAsZeroSDCss)
+    }
+
+    setDisplayNotTestedAsNTSD (bool) {
+        bool && Helper.clickElement(this.displayNotTestedAsNTSDCss)
     }
 
     parentLetterReportTemplate () {

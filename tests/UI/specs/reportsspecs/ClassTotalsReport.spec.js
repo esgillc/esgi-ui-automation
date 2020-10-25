@@ -7,7 +7,7 @@ describe('ClassTotalsReport', function () {
     before(function () {
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
-
+        HomePage.selectSchoolYear('2019-2020')
         // Set the teacher dropdowns
         const teacherInfo = {
             subject: 'SubjectTabTest001',

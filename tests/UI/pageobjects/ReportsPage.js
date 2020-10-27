@@ -147,12 +147,14 @@ class ReportsPage extends Page {
     checkIncludeInParentLetterCheckbox (checkboxCss) {
         if (!this.isIncludeInParentLetterCheckboxChecked(checkboxCss)) {
             this.clickParentLetterCheckbox(checkboxCss)
+            Helper.waitForLoadingToComplete()
         }
     }
 
     unCheckIncludeInParentLetterCheckbox (checkboxCss) {
         if (this.isIncludeInParentLetterCheckboxChecked(checkboxCss)) {
             this.clickParentLetterCheckbox(checkboxCss)
+            Helper.waitForLoadingToComplete()
         }
     }
     clickParentLetterCheckbox (checkboxCss) {

@@ -144,4 +144,54 @@ export default options => {
         done()
         return errorCode
     }))
+
+    gulp.task('slacksummaryreport', gulp.series(async function () {
+        const axios = require('axios')
+        const summary = require('../allure-report/widgets/summary.json').statistic
+        const executors = require('../allure-report/widgets/executors.json')
+        let executor, reportName, reportURL
+        if (executors.length > 0) {
+            executor = executors[0]
+            reportName = executor.buildName.split(' ')[0]
+            reportURL = executor.reportUrl
+        } else {
+            reportName = 'Runned Locally'
+            reportURL = 'Local Link'
+        }
+
+        let attachments = [
+            {
+                pretext: `*Test Report *`,
+                title: ''
+            }
+        ]
+
+        const totalFmt = `TEST SUITE: ${reportName}\nTOTAL: ${summary.total}\nPASSED: ${summary.passed}\nFAILED: ${summary.failed}\nBROKEN: ${summary.broken}\nSKIPPED: ${summary.skipped}
+        \nSee test run at ${reportURL}`
+
+        attachments[0].title += totalFmt
+        if (summary.failed > 0 || summary.broken > 0) {
+            const failedColor = '#dc3545'
+            let attach = {
+                color: failedColor,
+                author_name: reportName,
+                text: `Some tests failed. See more at ${reportURL}`,
+                ts: Date.now()
+            }
+            attachments.push(attach)
+        }
+
+        console.log(attachments)
+        const slackEnv = process.env.SENDSLACK && parseInt(process.env.SENDSLACK)
+        if (slackEnv) {
+            const options = {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                data: {'attachments': attachments},
+                url: `https://hooks.slack.com/services/${process.env.SLACKTOKEN}`
+            }
+            let errorCode = await axios(options)
+            return errorCode
+        }
+    }))
 }

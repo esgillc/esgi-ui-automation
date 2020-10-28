@@ -3,7 +3,6 @@ require('dotenv').config()
 let dir = __dirname
 const { join } = require('path')
 const {EyesService} = require('../../Services/EyeService/index')
-const SpecToFileReporter = require('../../Reporters/SpecToFileReporter/index')
 const { TimelineService } = require('wdio-timeline-reporter/timeline-service')
 
 exports.config = {
@@ -232,7 +231,6 @@ exports.config = {
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: [
         'spec',
-        SpecToFileReporter,
         ['timeline', {
             outputDir: './reports/timeline-results',
             embedImages: true,
@@ -359,7 +357,7 @@ exports.config = {
             const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
             browser.saveScreenshot(screenshotPath)
         }
-    },
+    }
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {
@@ -372,88 +370,6 @@ exports.config = {
    //
     // Gets executed after all workers got shut down and the process is about to exit. It is not
     // possible to defer the end of the process using a promise.
-    onComplete: function (exitCode, config, capabilities, results) {
-        const suite = config.suite[0]
-        if (suite.toLowerCase().includes('warmup')) { return }
-        this.attachments = [
-            {
-                pretext: `*Test Report *`,
-                title: ''
-            }
-        ]
-        let errorLines, errorLines2
-        let path = './reports/custom-report/TestRunReport.txt'
-        const fs = require('fs')
-        let totals = {
-            passed: 0,
-            failed: 0,
-            skipped: 0
-        }
-        try {
-            // read contents of the file
-            const data = fs.readFileSync('./reports/custom-report/subtotals.txt', 'UTF-8')
-            const errors = fs.readFileSync('./reports/custom-report/errors.txt', 'UTF-8')
-
-            // split the contents by new line
-            const lines = data.split(/\r?\n/)
-            errorLines = errors.split(/\r?\n/)
-            errorLines2 = []
-            errorLines.forEach(function (line) {
-                if (line === '') {
-                    errorLines2.push('\n')
-                } else {
-                    errorLines2.push(line)
-                }
-            })
-
-            // print all lines
-            lines.forEach((line) => {
-                if (line.trim() !== '') {
-                    line = JSON.parse(line)
-                    totals.passed = totals.passed + line.passed
-                    totals.failed = totals.failed + line.failed
-                    totals.skipped = totals.skipped + line.skipped
-                }
-            })
-        } catch (err) {
-            // console.error(err);
-        }
-        const title = 'ESGI UI AUTOMATION RESULTS'
-        const date = `DATE: ${new Date().toISOString()}`
-        const header = `------------------------------SUMMARY-----------------------------`
-        const totalFmt = `TEST SUITE: ${suite.toUpperCase()}\nPASSED: ${totals.passed}\nFAILED: ${totals.failed}\nSKIPPED: ${totals.skipped}`
-        const summary = `\n${title}\n${date}\n\n${header}\n${totalFmt}\n`
-        const data = fs.readFileSync(path)
-        const fd = fs.openSync(path, 'w+')
-        console.log(summary)
-        const insert = Buffer.from(summary)
-        fs.writeSync(fd, insert, 0, insert.length, 0)
-        fs.writeSync(fd, data, 0, data.length, insert.length)
-        fs.close(fd, (err) => {
-            if (err) throw err
-        })
-        this.attachments[0].title += totalFmt
-        if (results.failed) {
-            const failedColor = '#dc3545'
-            let attach = {
-                color: failedColor,
-                author_name: suite.toUpperCase(),
-                text: errorLines2.join(''),
-                ts: Date.now()
-            }
-            this.attachments.push(attach)
-        }
-
-        const slackEnv = process.env.SENDSLACK && parseInt(process.env.SENDSLACK)
-        if (slackEnv) {
-            const axios = require('axios')
-            const options = {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                data: {'attachments': this.attachments},
-                url: `https://hooks.slack.com/services/${process.env.SLACKTOKEN}`
-            }
-            axios(options)
-        }
-    }
+    // onComplete: function (exitCode, config, capabilities, results) {
+    // }
 }

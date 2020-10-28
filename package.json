@@ -40,7 +40,8 @@
         "classtotals": "gulp classtotals",
         "flashcards": "gulp flashcards",
         "parentletter": "gulp parentletter",
-        "studentdetail": "gulp studentdetail"
+        "studentdetail": "gulp studentdetail",
+        "slacksummaryreport": "gulp slacksummaryreport"
     },
     "keywords": [
         "webdriverio",

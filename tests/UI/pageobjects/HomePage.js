@@ -44,6 +44,7 @@ class HomePage extends Page {
             flashcards: 'Flashcards',
             bingo: 'Bingo',
             studentdetail: 'Student Detail',
+            studentprogress: 'Student Progress',
             classtotals: 'Class Totals'
         }
 
@@ -298,6 +299,10 @@ class HomePage extends Page {
         return this.getReportByName(this.reports.studentdetail)
     }
 
+    getStudentProgressReport () {
+        return this.getReportByName(this.reports.studentprogress)
+    }
+
     getClassTotalsReport () {
         return this.getReportByName(this.reports.classtotals)
     }
@@ -314,6 +319,11 @@ class HomePage extends Page {
 
     clickStudentDetail () {
         this.getStudentDetailReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickStudentProgress () {
+        this.getStudentProgressReport().click()
         this.waitForLoadingToComplete()
     }
 

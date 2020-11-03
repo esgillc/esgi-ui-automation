@@ -42,13 +42,25 @@ class ReportsPage extends Page {
                 class: 0,
                 student: 1,
                 subject: 2
+            },
+            studentprogress: {
+                class: 0,
+                student: 1,
+                subject: 2
             }
         }
-          // Student Detail Report
+        // Student Detail Report
         this.gradesShowCss = 'input#_includeGradeScore'
         this.displayNotTestedAsZeroSDCss = '#_displayZeroIfNotTested_on'
         this.displayNotTestedAsNTSDCss = '#_displayZeroIfNotTested_off'
         this.carryScoresForwardSDCss = '#_carryScoresForward'
+
+        // Student Progress Report
+        this.showGradeColorsCss = '#showGradeColors'
+        this.displayResultsAsModeGradeCss = '#displayResultsModeGrade'
+        this.displayResultsAsModeScoreCss = '#displayResultsModeScore'
+        this.displayResultsAsModePercentCss = '#displayResultsModePercent'
+        this.carryScoresForwardSPCss = '#carryScoresForward'
 
         // Class Totals Report
         this.displayResultsAsScoreCss = '#displayResultsAsScore'
@@ -251,10 +263,17 @@ class ReportsPage extends Page {
         this.clickShowForStudentBtn()
         this.waitForLoadingToComplete()
     }
+
     setStudentDetailReportInfo (payload) {
         this.selectClass(payload.class)
         this.selectStudent(payload.student)
         this.selectSubject(this.dropdowns.studentdetail.subject, payload.subject)
+    }
+
+    setStudentProgressReportInfo (payload) {
+        this.selectClass(payload.class)
+        this.selectStudent(payload.student)
+        this.selectSubject(this.dropdowns.studentprogress.subject, payload.subject)
     }
 
     selectSubjectRunReport (payload) {
@@ -305,7 +324,8 @@ class ReportsPage extends Page {
         this.setAllMarkingPeriod(payload.allmarking)
         Helper.waitForLoadingToComplete()
     }
-      // Student Details Report
+
+    // Student Details Report
     verifyStudentDetailReport (payload) {
         this.checkUnCheckGradesShow(payload.gradesshow)
         this.setDisplayNotTestedAsZeroSD(payload.zero)
@@ -316,6 +336,38 @@ class ReportsPage extends Page {
         this.checkUnCheckQuestionNotes(payload.questionnotes)
         this.checkUnCheckShowColors(payload.showcolors)
     }
+
+    // Student Progress Report
+    verifyStudentProgressReport (payload) {
+        this.setDisplayResultsAsModeScore(payload.score)
+        this.setDisplayResultsAsModePercent(payload.percent)
+        this.setDisplayResultsAsModeGrade(payload.grade)
+        this.setDisplayNotTestedAsZero(payload.zero)
+        this.setDisplayNotTestedAsNT(payload.nt)
+        this.checkUnCarryScoresForwardSP(payload.carryforward)
+        if (payload.grade) this.checkUnCheckShowGradeColors(payload.showgradecolors)
+    }
+
+    checkUnCheckShowGradeColors (bool) {
+        this.checkUncheckIncludeParentLetter(this.showGradeColorsCss, bool)
+    }
+
+    setDisplayResultsAsModeScore (bool) {
+        bool && Helper.clickElement(this.displayResultsAsModeScoreCss)
+    }
+
+    setDisplayResultsAsModePercent (bool) {
+        bool && Helper.clickElement(this.displayResultsAsModePercentCss)
+    }
+
+    setDisplayResultsAsModeGrade (bool) {
+        bool && Helper.clickElement(this.displayResultsAsModeGradeCss)
+    }
+
+    checkUnCarryScoresForwardSP (bool) {
+        this.checkUncheckIncludeParentLetter(this.carryScoresForwardSPCss, bool)
+    }
+
     checkUnCarryScoresForwardSD (bool) {
         this.checkUncheckIncludeParentLetter(this.carryScoresForwardSDCss, bool)
     }

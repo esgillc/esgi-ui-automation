@@ -41,6 +41,7 @@
         "flashcards": "gulp flashcards",
         "parentletter": "gulp parentletter",
         "studentdetail": "gulp studentdetail",
+        "studentprogress": "gulp studentprogress",
         "slacksummaryreport": "gulp slacksummaryreport"
     },
     "keywords": [

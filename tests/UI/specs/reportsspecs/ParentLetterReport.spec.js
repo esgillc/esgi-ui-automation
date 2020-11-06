@@ -42,31 +42,31 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
-            expect(browser.checkElement($('.letter'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.letter'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_legend-should be correct`, function () {
-            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -90,31 +90,31 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
-            expect(browser.checkElement($('.letter'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.letter'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_legend-should be correct`, function () {
-            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -138,28 +138,28 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
-            expect(browser.checkElement($('.letter'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.letter'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_legend-should be correct`, function () {
             expect($('.grade-scale-legend').isExisting()).toBe(false)
@@ -186,31 +186,31 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
-            expect(browser.checkElement($('.letter'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.letter'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_legend-should be correct`, function () {
-            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -234,31 +234,31 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
-            expect(browser.checkElement($('.letter'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.letter'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_legend-should be correct`, function () {
-            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -282,31 +282,31 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
             expect($('.letter').isExisting()).toBe(false)
         })
         it(`${action}_legend-should be correct`, function () {
-            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -330,25 +330,25 @@ describe('ParentLetterReport', function () {
             HomePage.waitForLoadingToComplete()
         })
         it(`${action}_ModalHeader - should be correct`, function () {
-            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.pl-report-header'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_BackButton - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBe(0)
+            expect(browser.checkElement(ReportsPage.reportBackBtn, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Subject-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(2)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Teacher-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(3)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_header_Class-should be correct`, function () {
-            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.parent-letter-header li:nth-child(4)'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_studentName-should be correct`, function () {
-            expect(browser.checkElement($('.student-name'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.student-name'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_ResultsTable-should be correct`, function () {
-            expect(browser.checkElement($('.test-results'), this.test.title)).toBe(0)
+            expect(browser.checkElement($('.test-results'), this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action}_letter-should be correct`, function () {
             expect($('.letter').isExisting()).toBe(false)

@@ -149,11 +149,6 @@ export default options => {
 
     gulp.task('clean', gulp.series(deletedirs, createdirs))
 
-    function runAllure (cb) {
-        shell.exec('npm run allure-report')
-        cb()
-    }
-
     gulp.task('slacksummaryreport', gulp.series(async function () {
         const buildServer = process.env.BUILDSERVER && process.env.BUILDSERVER.toUpperCase()
         if (buildServer === 'TEAMCITY') {

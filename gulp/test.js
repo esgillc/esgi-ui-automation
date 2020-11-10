@@ -154,7 +154,11 @@ export default options => {
         cb()
     }
 
-    gulp.task('slacksummaryreport', gulp.series(runAllure, async function () {
+    gulp.task('slacksummaryreport', gulp.series(async function () {
+        const buildServer = process.env.BUILDSERVER && process.env.BUILDSERVER.toUpperCase()
+        if (buildServer === 'TEAMCITY') {
+            shell.exec('npm run allure-report')
+        }
         const axios = require('axios')
         const summary = require('../allure-report/widgets/summary.json').statistic
         const executors = require('../allure-report/widgets/executors.json')
@@ -164,8 +168,13 @@ export default options => {
             reportName = executor.buildName.split(' ')[0]
             reportURL = executor.reportUrl
         } else {
-            reportName = 'Runned Locally'
-            reportURL = 'Local Link'
+            if (buildServer === 'TEAMCITY') {
+                reportName = 'CRITICALPATH'
+                reportURL = 'NOT AVAILABLE'
+            } else {
+                reportName = 'Runned Locally'
+                reportURL = 'Local Link'
+            }
         }
 
         let attachments = [

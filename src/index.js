@@ -1,10 +1,6 @@
 import through from 'through2'
 import gutil from 'gulp-util'
 import Launcher from '@wdio/cli'
-const shell = require('shelljs')
-
-shell.rm('-rf', 'screenshots/diff', 'screenshots/actual', 'errorshots', 'reports')
-shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report')
 
 module.exports = (options) => {
     return through.obj(async function (file, encoding, callback) {

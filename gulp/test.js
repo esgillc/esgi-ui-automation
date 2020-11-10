@@ -137,19 +137,24 @@ export default options => {
         })
     }
 
-    gulp.task('createdirs', gulp.series(function (done) {
-        let errorCode = shell.mkdir('-p', 'errorshots')
-        done()
-        return errorCode
-    }))
+    function deletedirs (cb) {
+        shell.rm('-rf', 'screenshots/diff', 'screenshots/actual', 'errorshots', 'reports', 'allure-report')
+        cb()
+    }
 
-    gulp.task('deletedirs', gulp.series(function (done) {
-        let errorCode = shell.rm('-rf', 'errorshots/*', 'reports/allure-results/*', 'reports/custom-report/*')
-        done()
-        return errorCode
-    }))
+    function createdirs (cb) {
+        shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report')
+        cb()
+    }
 
-    gulp.task('slacksummaryreport', gulp.series(async function () {
+    gulp.task('clean', gulp.series(deletedirs, createdirs))
+
+    function runAllure (cb) {
+        shell.exec('npm run allure-report')
+        cb()
+    }
+
+    gulp.task('slacksummaryreport', gulp.series(runAllure, async function () {
         const axios = require('axios')
         const summary = require('../allure-report/widgets/summary.json').statistic
         const executors = require('../allure-report/widgets/executors.json')

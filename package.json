@@ -16,6 +16,7 @@
         "pretest": "npm run eslint && npm run compile",
         "default": "gulp default",
         "seleniumStart": "gulp seleniumStart",
+        "clean": "gulp clean",
         "dashboard": "gulp dashboard",
         "teacher": "gulp teacher",
         "school": "gulp school",

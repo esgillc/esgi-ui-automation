@@ -47,6 +47,11 @@ class ReportsPage extends Page {
                 class: 0,
                 student: 1,
                 subject: 2
+            },
+            itemanalysis: {
+                class: 0,
+                subject: 1,
+                test: 2
             }
         }
         // Student Detail Report
@@ -70,6 +75,13 @@ class ReportsPage extends Page {
         this.currentMarkingCss = '#currentMarkingPeriodOption'
         this.allMarkingPeriodCss = '#allMarkingPeriodOption'
         this.carryScoresForwardCss = '#carryScoresForwardOption'
+
+        // Item Analysis Report
+        this.sortOptionLeastKnownCss = '#sortOptionLeastKnown'
+        this.sortOptionMostKnownCss = '#sortOptionMostKnown'
+        this.sortOptionQuestionOrderCss = '#sortOptionQuestionOrder'
+        this.sortOptionAlphabeticalCss = '#sortOptionAlphabetical'
+        this.displayNotTestedAsIncorrect = '#displayNotTestedAsIncorrect'
 
         // Flashcards
         this.flashCardSettings = {
@@ -241,16 +253,27 @@ class ReportsPage extends Page {
         this.selectItemFromDropDown(index, name)
     }
 
+    selectTest (index, name) {
+        this.selectItemFromDropDown(index, name)
+    }
+
     setReportInfo (payload) {
         this.selectClass(payload.class)
         this.selectStudent(payload.student)
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }
 
+    setItemAnalysisInfo (payload) {
+        this.selectClass(payload.class)
+        this.selectSubject(this.dropdowns.itemanalysis.subject, payload.subject)
+        this.selectTest(this.dropdowns.itemanalysis.test, payload.test)
+    }
+
     setClassTotalsReportInfo (payload) {
         this.selectClass(payload.class)
         this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
     }
+
     verifyReport (payload) {
         this.selectClass(payload.class)
         this.selectStudent(payload.student)
@@ -262,6 +285,35 @@ class ReportsPage extends Page {
         this.checkUnCheckMessage(payload.message)
         this.clickShowForStudentBtn()
         this.waitForLoadingToComplete()
+    }
+
+        // Item Analysis Report
+    verifyItemAnalysisReport (payload) {
+        this.setSortOptionAsLeastKnown(payload.leastknown)
+        this.setSortOptionAsMostKnown(payload.mostknown)
+        this.setSortOptionAsQuestionOrder(payload.questionorder)
+        this.setSortOptionAsAlphabetical(payload.alphabetical)
+        this.checkUncheckDisplayNotTestedAsIncorrect(payload.nottestedasincorrect)
+    }
+
+    setSortOptionAsLeastKnown (bool) {
+        bool && Helper.clickElement(this.sortOptionLeastKnownCss)
+    }
+
+    setSortOptionAsMostKnown (bool) {
+        bool && Helper.clickElement(this.sortOptionMostKnownCss)
+    }
+
+    setSortOptionAsQuestionOrder (bool) {
+        bool && Helper.clickElement(this.sortOptionQuestionOrderCss)
+    }
+
+    setSortOptionAsAlphabetical (bool) {
+        bool && Helper.clickElement(this.sortOptionAlphabeticalCss)
+    }
+
+    checkUncheckDisplayNotTestedAsIncorrect (bool) {
+        this.checkUncheckIncludeParentLetter(this.displayNotTestedAsIncorrect, bool)
     }
 
     setStudentDetailReportInfo (payload) {

@@ -102,6 +102,10 @@ export default options => {
         return runTest(['studentprogress'])
     }))
 
+    gulp.task('itemanalysis', gulp.series(async function test () {
+        return runTest(['itemanalysis'])
+    }))
+
     gulp.task('loginload', gulp.series(async function test () {
         return runTest(['loginload'])
     }))

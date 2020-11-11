@@ -43,6 +43,7 @@
         "parentletter": "gulp parentletter",
         "studentdetail": "gulp studentdetail",
         "studentprogress": "gulp studentprogress",
+        "itemanalysis": "gulp itemanalysis",
         "slacksummaryreport": "gulp slacksummaryreport"
     },
     "keywords": [

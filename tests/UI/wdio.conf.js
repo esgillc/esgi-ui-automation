@@ -45,6 +45,9 @@ exports.config = {
         parentletter: [
             `${dir}/specs/reportsspecs/ParentLetter*.spec.js`
         ],
+        itemanalysis: [
+            `${dir}/specs/reportsspecs/ItemAnalysis*.spec.js`
+        ],
         loginload: [
             `${dir}/loginload/*.spec.js`
         ],

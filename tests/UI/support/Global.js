@@ -194,7 +194,11 @@ class Global {
 
     // Student Manager
     searchStudent (name) {
-        this.studentManagerSearchbox.setValue(name)
+        Helper.setValue(this.studentManagerSearchboxCss, name)
+        this.studentManagerSearchbox.click()
+        // Workaround for triggering the search
+        browser.keys(' ')
+        browser.keys('Backspace')
         Helper.waitForLoadingToComplete()
     }
 

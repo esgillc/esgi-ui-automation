@@ -39,9 +39,9 @@ class ReportsPage extends Page {
                 subject: 1
             },
             studentdetail: {
-                class: 0,
-                student: 1,
-                subject: 2
+                class: 1,
+                student: 2,
+                subject: 3
             },
             studentprogress: {
                 class: 0,
@@ -239,6 +239,14 @@ class ReportsPage extends Page {
         }
     }
 
+    selectStudentDetailsClass (name) {
+        this.selectItemFromDropDown(this.dropdowns.studentdetail.class, name)
+    }
+
+    selectStudentDetailsStudent (name) {
+        this.selectItemFromDropDown(this.dropdowns.studentdetail.student, name)
+    }
+
     // Parent Letter Settings
     selectClass (name) {
         this.selectItemFromDropDown(this.dropdowns.parentletter.class, name)
@@ -317,8 +325,8 @@ class ReportsPage extends Page {
     }
 
     setStudentDetailReportInfo (payload) {
-        this.selectClass(payload.class)
-        this.selectStudent(payload.student)
+        this.selectStudentDetailsClass(payload.class) // refactor
+        this.selectStudentDetailsStudent(payload.student) // refactor
         this.selectSubject(this.dropdowns.studentdetail.subject, payload.subject)
     }
 

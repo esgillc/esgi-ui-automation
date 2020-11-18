@@ -106,6 +106,9 @@ export default options => {
         return runTest(['itemanalysis'])
     }))
 
+    gulp.task('piecharts', gulp.series(async function test () {
+        return runTest(['piecharts'])
+    }))
     gulp.task('loginload', gulp.series(async function test () {
         return runTest(['loginload'])
     }))

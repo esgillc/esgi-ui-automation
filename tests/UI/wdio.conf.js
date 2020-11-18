@@ -48,6 +48,9 @@ exports.config = {
         itemanalysis: [
             `${dir}/specs/reportsspecs/ItemAnalysis*.spec.js`
         ],
+        piecharts: [
+            `${dir}/specs/reportsspecs/PieCharts*.spec.js`
+        ],
         loginload: [
             `${dir}/loginload/*.spec.js`
         ],

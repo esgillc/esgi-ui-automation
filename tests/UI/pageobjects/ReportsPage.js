@@ -44,14 +44,19 @@ class ReportsPage extends Page {
                 subject: 3
             },
             studentprogress: {
-                class: 0,
-                student: 1,
-                subject: 2
+                class: 1,
+                student: 2,
+                subject: 3
             },
             itemanalysis: {
                 class: 0,
                 subject: 1,
                 test: 2
+            },
+            piecharts: {
+                class: 0,
+                student: 1,
+                subject: 2
             }
         }
         // Student Detail Report
@@ -82,6 +87,10 @@ class ReportsPage extends Page {
         this.sortOptionQuestionOrderCss = '#sortOptionQuestionOrder'
         this.sortOptionAlphabeticalCss = '#sortOptionAlphabetical'
         this.displayNotTestedAsIncorrect = '#displayNotTestedAsIncorrect'
+
+        // Pie Charts Report
+        this.showEachStudentCss = '#showEachStudent'
+        this.printInColorPieChartCss = '#printInColor'
 
         // Flashcards
         this.flashCardSettings = {
@@ -248,12 +257,14 @@ class ReportsPage extends Page {
     }
 
     // Parent Letter Settings
-    selectClass (name) {
-        this.selectItemFromDropDown(this.dropdowns.parentletter.class, name)
+    selectClass (idx, name) {
+        idx = idx || this.dropdowns.parentletter.class
+        this.selectItemFromDropDown(idx, name)
     }
 
-    selectStudent (name) {
-        this.selectItemFromDropDown(this.dropdowns.parentletter.student, name)
+    selectStudent (idx, name) {
+        idx = idx || this.dropdowns.parentletter.student
+        this.selectItemFromDropDown(idx, name)
         this.waitForLoadingToComplete()
     }
 
@@ -266,25 +277,25 @@ class ReportsPage extends Page {
     }
 
     setReportInfo (payload) {
-        this.selectClass(payload.class)
-        this.selectStudent(payload.student)
+        this.selectClass(null, payload.class)
+        this.selectStudent(null, payload.student)
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
     }
 
     setItemAnalysisInfo (payload) {
-        this.selectClass(payload.class)
+        this.selectClass(null, payload.class)
         this.selectSubject(this.dropdowns.itemanalysis.subject, payload.subject)
         this.selectTest(this.dropdowns.itemanalysis.test, payload.test)
     }
 
     setClassTotalsReportInfo (payload) {
-        this.selectClass(payload.class)
+        this.selectClass(null, payload.class)
         this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
     }
 
     verifyReport (payload) {
-        this.selectClass(payload.class)
-        this.selectStudent(payload.student)
+        this.selectClass(null, payload.class)
+        this.selectStudent(null, payload.student)
         this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
         this.checkUnCheckQuestionNotes(payload.questionnotes)
         this.checkUnCheckGrades(payload.grades)
@@ -324,6 +335,12 @@ class ReportsPage extends Page {
         this.checkUncheckIncludeParentLetter(this.displayNotTestedAsIncorrect, bool)
     }
 
+    setPieChartsReportInfo (payload) {
+        this.selectClass(null, payload.class)
+        this.selectStudent(null, payload.student)
+        this.selectSubject(this.dropdowns.piecharts.subject, payload.subject)
+    }
+
     setStudentDetailReportInfo (payload) {
         this.selectStudentDetailsClass(payload.class) // refactor
         this.selectStudentDetailsStudent(payload.student) // refactor
@@ -331,8 +348,8 @@ class ReportsPage extends Page {
     }
 
     setStudentProgressReportInfo (payload) {
-        this.selectClass(payload.class)
-        this.selectStudent(payload.student)
+        this.selectClass(this.dropdowns.studentprogress.class, payload.class)
+        this.selectStudent(this.dropdowns.studentprogress.student, payload.student)
         this.selectSubject(this.dropdowns.studentprogress.subject, payload.subject)
     }
 
@@ -459,6 +476,20 @@ class ReportsPage extends Page {
                 body: results.$('tbody').getText()
             }
         }
+    }
+
+       // Pie Charts Report
+    verifyPieChartsReport (payload) {
+        this.checkUncheckShowEachStudent(payload.showeachstudent)
+        this.checkUnCheckPrintInColor(payload.printcolor)
+    }
+
+    checkUncheckShowEachStudent (bool) {
+        this.checkUncheckIncludeParentLetter(this.showEachStudentCss, bool)
+    }
+
+    checkUnCheckPrintInColor (bool) {
+        this.checkUncheckIncludeParentLetter(this.printInColorPieChartCss, bool)
     }
 
     // Flash cards

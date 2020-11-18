@@ -46,7 +46,8 @@ class HomePage extends Page {
             studentdetail: 'Student Detail',
             studentprogress: 'Student Progress',
             classtotals: 'Class Totals',
-            itemanaysis: 'Item Analysis'
+            itemanaysis: 'Item Analysis',
+            piecharts: 'Pie Charts'
         }
 
         this.testcardObjCss = {
@@ -312,6 +313,10 @@ class HomePage extends Page {
         return this.getReportByName(this.reports.itemanaysis)
     }
 
+    getPieChartsReport () {
+        return this.getReportByName(this.reports.piecharts)
+    }
+
     clickParentLetterReport () {
         this.getParentLetterReport().click()
         this.waitForLoadingToComplete()
@@ -339,6 +344,11 @@ class HomePage extends Page {
 
     clickItemAnalysis () {
         this.getItemAnalysisReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickPieCharts () {
+        this.getPieChartsReport().click()
         this.waitForLoadingToComplete()
     }
 

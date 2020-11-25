@@ -162,7 +162,7 @@ class ReportsPage extends Page {
 
     clickRunReport () {
         this.runReportBtn.click()
-        Helper.waitForLoadingToComplete()
+        this.waitForLoadingToComplete(null, 20000)
     }
 
     getReportTitle (name, timeout = 20000) {

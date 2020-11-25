@@ -260,7 +260,11 @@ class HomePage extends Page {
     }
 
     closeModal () {
-        browser.click(this.closeModalCss)
+        try {
+            browser.click(this.closeModalCss)
+        } catch (error) {
+            $$(this.closeModalCss)[1].click()
+        }
     }
 
     getModalHeader () {

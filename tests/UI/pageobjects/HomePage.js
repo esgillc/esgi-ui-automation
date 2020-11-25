@@ -327,6 +327,11 @@ class HomePage extends Page {
         this.waitForLoadingToComplete()
     }
 
+    clickBingo () {
+        this.getBingoReport().click()
+        this.waitForLoadingToComplete()
+    }
+
     clickStudentDetail () {
         this.getStudentDetailReport().click()
         this.waitForLoadingToComplete()

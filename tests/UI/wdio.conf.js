@@ -30,6 +30,9 @@ exports.config = {
         login: [
             `${dir}/specs/Login.spec.js`
         ],
+        bingo: [
+            `${dir}/specs/reportsspecs/Bingo*.spec.js`
+        ],
         classtotals: [
             `${dir}/specs/reportsspecs/ClassTotals*.spec.js`
         ],

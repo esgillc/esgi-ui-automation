@@ -46,6 +46,7 @@
         "studentprogress": "gulp studentprogress",
         "itemanalysis": "gulp itemanalysis",
         "piecharts": "gulp piecharts",
+        "gradescale": "gulp gradescale",
         "slacksummaryreport": "gulp slacksummaryreport"
     },
     "keywords": [

@@ -57,6 +57,18 @@ const Users = {
                 username: 'automation0008',
                 password: 'automation01!'
             }
+        },
+        gsteach1: {
+            credentials: {
+                username: 'gsteach1',
+                password: 'automation01!'
+            }
+        },
+        gsteach2: {
+            credentials: {
+                username: 'gsteach2',
+                password: 'automation01!'
+            }
         }
     },
     districtadmin: {

@@ -123,6 +123,10 @@ class ReportsPage extends Page {
         this.playerSelectorAtHomeCss = '#player-selector-at-student'
         this.controlEndBtnCss = '.subjects-container .end'
 
+        // Grade Scale
+        this.closeGSModalCss = '.modal-dialog .gs-close'
+        this.cancelGSModalCss = '.modal-footer .pull-left span'
+
         this.questionIDs = {
             a: '9491190',
             i: '9491182',
@@ -188,6 +192,16 @@ class ReportsPage extends Page {
 
     closeReport () {
         this.closeModal()
+    }
+
+    closeGSModal () {
+        browser.click(this.closeGSModalCss)
+        this.waitForLoadingToComplete()
+    }
+
+    cancelGSModal () {
+        browser.click(this.cancelGSModalCss)
+        this.waitForLoadingToComplete()
     }
 
     openReport (name) {

@@ -38,6 +38,7 @@
         "startchrome": "docker-compose up -d",
         "stopchrome": "docker stop chrome || true && docker rm chrome || true",
         "warmup": "gulp warmup",
+        "bingo": "gulp bingo",
         "classtotals": "gulp classtotals",
         "flashcards": "gulp flashcards",
         "parentletter": "gulp parentletter",

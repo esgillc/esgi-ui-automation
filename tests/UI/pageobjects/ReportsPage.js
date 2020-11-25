@@ -106,12 +106,30 @@ class ReportsPage extends Page {
             }
         }
 
+        // Bingo
+        this.letsBeginBtnCss = '.bingo-footer .btn'
+        this.nextPageBtnCss = '.step-slider .next'
+        this.downloadGameBtnCss = 'button=DOWNLOAD GAME'
+        this.previewQuestionsBtnCss = 'button=PREVIEW QUESTIONS'
+        this.finishBtnCss = '.bingo-footer .finish'
+        this.x3cardSizeCss = '#x3cardSize'
+        this.x5cardSizeCss = '#x5cardSize'
+        this.cardPrint1Css = '#card-print-1'
+        this.cardPrintPerPageCss = '#card-print-per-page'
+        this.difficultyEasyCss = '#difficulty-easy'
+        this.difficultyMediumCss = '#difficulty-medium'
+        this.difficultyHardCss = '#difficulty-hard'
+        this.playerSelectorInClassroomCss = '#player-selector-in-classroom'
+        this.playerSelectorAtHomeCss = '#player-selector-at-student'
+        this.controlEndBtnCss = '.subjects-container .end'
+
         this.questionIDs = {
             a: '9491190',
             i: '9491182',
             z: '9491172'
         }
     }
+
     get parentLetterModal () { return $(this.parentLetterModalCss) }
     get alertModal () { return $(this.alertModalCss) }
     get isAlertModalPresent () { return this.alertModal.isDisplayed() }
@@ -121,9 +139,20 @@ class ReportsPage extends Page {
     get reportModal () { return $$('.modal-content')[1] }
     get reportFirstModal () { return $('.modal-content') }
     get runReportBtn () { return $(this.runReportBtnCss) }
+    get letsBeginBtn () { return $(this.letsBeginBtnCss) }
+    get nextPageBtn () { return $(this.nextPageBtnCss) }
+    get downloadGameBtn () { return $(this.downloadGameBtnCss) }
+    get previewQuestionsBtn () { return $(this.previewQuestionsBtnCss) }
+    get finishBtn () { return $(this.finishBtnCss) }
+    get controlEndBtn () { return $(this.controlEndBtnCss) }
 
     goBack () {
         this.reportBackBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickLetsBegin () {
+        this.letsBeginBtn.click()
         Helper.waitForLoadingToComplete()
     }
 
@@ -246,6 +275,14 @@ class ReportsPage extends Page {
             drowpDown.selectByVisibleText(item)
             this.waitForLoadingToComplete()
         }
+    }
+
+    selectItemFromSubjectPanel (name) {
+        $('.tiles-container').$(`.inner=${name}`).click()
+    }
+
+    selectItemFromTestPanel (name) {
+        $('.bingo-tests-panel .bingo-tile').$(`.inner=${name}`).click()
     }
 
     selectStudentDetailsClass (name) {
@@ -547,6 +584,133 @@ class ReportsPage extends Page {
 
     scrollToQuestionI () {
         this.scrollToQuestion(this.questionIDs.i)
+    }
+
+    // Bingo Report
+    setBingoPlayers (payload) {
+        this.setClass(payload.class)
+        this.setGroup(payload.group)
+        // uncomment when there's more than one student in the class
+        // this.unselectAllStudents()
+        // this.setStudent(payload.student)
+        this.unselectAllStudents()
+        this.setStudent(payload.student)
+    }
+
+    setBingoInfo (payload) {
+        this.selectSubjectBingo(payload.subject)
+        this.selectTestBingo(payload.test)
+    }
+
+    verifyBingoCardSizeAndDifficulty (payload) {
+        this.setCardSizeAs3x3(payload.cardsize3x3)
+        this.setCardSizeAs5x5(payload.cardsize5x5)
+        this.setDifficultyAsEasy(payload.easy)
+        this.setDifficultyAsMedium(payload.medium)
+        this.setDifficultyAsHard(payload.hard)
+        if (payload.cardsize3x3) {
+            this.setPrint1(payload.print1)
+            this.setPrintPerPage(payload.printperpage)
+        }
+    }
+
+    verifyBingoPlay (payload) {
+        this.setPlayAsInClassroom(payload.inclassroom)
+        this.setPlayAsAtStudentHome(payload.atstudenthome)
+    }
+
+    verifyBingoPreviewQuestions () {
+        this.clickPreviewQuestions()
+        this.clickDownloadGame()
+    }
+
+    verifyBingoDownloadTitle () {
+        this.clickPreviewQuestions()
+        this.clickDownloadGame()
+        browser.pause(7000)
+        browser.navigateTo('chrome://downloads/')
+        const bingoFileDownload = $('body > downloads-manager').shadow$('#mainContainer').shadow$('.no-outline').shadow$('#file-link')
+        return bingoFileDownload.getText()
+    }
+
+    selectSubjectBingo (subject) {
+        // click button to make subject visible
+        this.controlEndBtn.click()
+        this.selectItemFromSubjectPanel(subject)
+        this.waitForLoadingToComplete()
+    }
+
+    selectTestBingo (test) {
+        this.selectItemFromTestPanel(test)
+        this.waitForLoadingToComplete()
+    }
+    setClass (classSelected) {
+        this.setRadioButtons(classSelected)
+    }
+
+    setGroup (group) {
+        this.setRadioButtons(group)
+    }
+
+    unselectAllStudents () {
+        this.setRadioButtons('Select All')
+    }
+
+    setStudent (student) {
+        this.setRadioButtons(student)
+    }
+
+    setCardSizeAs3x3 (bool) {
+        bool && Helper.clickElement(this.x3cardSizeCss)
+    }
+
+    setPrint1 (bool) {
+        bool && Helper.clickElement(this.cardPrint1Css)
+    }
+
+    setPrintPerPage (bool) {
+        bool && Helper.clickElement(this.cardPrintPerPageCss)
+    }
+
+    setCardSizeAs5x5 (bool) {
+        bool && Helper.clickElement(this.x5cardSizeCss)
+    }
+
+    setDifficultyAsEasy (bool) {
+        bool && Helper.clickElement(this.difficultyEasyCss)
+    }
+
+    setDifficultyAsMedium (bool) {
+        bool && Helper.clickElement(this.difficultyMediumCss)
+    }
+
+    setDifficultyAsHard (bool) {
+        bool && Helper.clickElement(this.difficultyHardCss)
+    }
+
+    setPlayAsInClassroom (bool) {
+        bool && Helper.clickElement(this.playerSelectorInClassroomCss)
+    }
+
+    setPlayAsAtStudentHome (bool) {
+        bool && Helper.clickElement(this.playerSelectorAtHomeCss)
+    }
+
+    clickNextPageBtn () {
+        this.nextPageBtn.click()
+    }
+
+    clickDownloadGame () {
+        this.downloadGameBtn.click()
+    }
+
+    clickPreviewQuestions () {
+        this.previewQuestionsBtn.click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickFinish () {
+        this.finishBtn.click()
     }
 }
 

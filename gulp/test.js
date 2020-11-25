@@ -82,6 +82,10 @@ export default options => {
         return runTest(['login'])
     }))
 
+    gulp.task('bingo', gulp.series(async function test () {
+        return runTest(['bingo'])
+    }))
+
     gulp.task('classtotals', gulp.series(async function test () {
         return runTest(['classtotals'])
     }))

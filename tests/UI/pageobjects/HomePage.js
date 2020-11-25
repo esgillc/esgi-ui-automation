@@ -46,6 +46,7 @@ class HomePage extends Page {
             studentdetail: 'Student Detail',
             studentprogress: 'Student Progress',
             classtotals: 'Class Totals',
+            classgrades: 'Class Grades',
             itemanaysis: 'Item Analysis',
             piecharts: 'Pie Charts'
         }
@@ -293,6 +294,10 @@ class HomePage extends Page {
         return this.getReportByName(this.reports.flashcards)
     }
 
+    getClassGradesReport () {
+        return this.getReportByName(this.reports.classgrades)
+    }
+
     getBingoReport () {
         return this.getReportByName(this.reports.bingo)
     }
@@ -324,6 +329,11 @@ class HomePage extends Page {
 
     clickFlashcardsReport () {
         this.getFlashcardsReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickClassGradesReport () {
+        this.getClassGradesReport().click()
         this.waitForLoadingToComplete()
     }
 

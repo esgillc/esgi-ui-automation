@@ -39,6 +39,9 @@ exports.config = {
         studentdetail: [
             `${dir}/specs/reportsspecs/StudentDetail*.spec.js`
         ],
+        gradescale: [
+            `${dir}/specs/reportsspecs/GradeScale*.spec.js`
+        ],
         studentprogress: [
             `${dir}/specs/reportsspecs/StudentProgress*.spec.js`
         ],

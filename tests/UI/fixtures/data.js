@@ -69,6 +69,12 @@ const Users = {
                 username: 'gsteach2',
                 password: 'automation01!'
             }
+        },
+        user9: {
+            credentials: {
+                username: 'beacon',
+                password: 'automation01!'
+            }
         }
     },
     districtadmin: {

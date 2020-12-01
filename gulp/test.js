@@ -165,35 +165,24 @@ export default options => {
     gulp.task('clean', gulp.series(deletedirs, createdirs))
 
     gulp.task('slacksummaryreport', gulp.series(async function () {
-        const buildServer = process.env.BUILDSERVER && process.env.BUILDSERVER.toUpperCase()
-        if (buildServer === 'TEAMCITY') {
-            shell.exec('npm run allure-report')
-        }
         const axios = require('axios')
         const summary = require('../allure-report/widgets/summary.json').statistic
         const executors = require('../allure-report/widgets/executors.json')
         let executor, reportName, reportURL
         if (executors.length > 0) {
             executor = executors[0]
-            reportName = executor.buildName.split(' ')[0]
+            reportName = executor.buildName.split(' ')[0].trim()
             reportURL = executor.reportUrl
         } else {
-            if (buildServer === 'TEAMCITY') {
-                reportName = 'CRITICALPATH'
-                reportURL = 'NOT AVAILABLE'
-            } else {
-                reportName = 'Runned Locally'
-                reportURL = 'Local Link'
-            }
+            reportName = 'Maybe a local run'
+            reportURL = 'Local Link'
         }
-
         let attachments = [
             {
                 pretext: `*Test Report *`,
                 title: ''
             }
         ]
-
         const totalFmt = `TEST SUITE: ${reportName}\nTOTAL: ${summary.total}\nPASSED: ${summary.passed}\nFAILED: ${summary.failed}\nBROKEN: ${summary.broken}\nSKIPPED: ${summary.skipped}
         \nSee test run at ${reportURL}`
 

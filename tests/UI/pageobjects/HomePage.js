@@ -47,6 +47,7 @@ class HomePage extends Page {
             studentprogress: 'Student Progress',
             classtotals: 'Class Totals',
             classgrades: 'Class Grades',
+            districtgrades: 'District Grades',
             itemanaysis: 'Item Analysis',
             piecharts: 'Pie Charts'
         }
@@ -314,6 +315,10 @@ class HomePage extends Page {
         return this.getReportByName(this.reports.studentprogress)
     }
 
+    getDistrictGradesReport () {
+        return this.getReportByName(this.reports.districtgrades)
+    }
+
     getClassTotalsReport () {
         return this.getReportByName(this.reports.classtotals)
     }
@@ -353,6 +358,16 @@ class HomePage extends Page {
 
     clickStudentProgress () {
         this.getStudentProgressReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickDistrictGradesReport () {
+        this.getDistrictGradesReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    resetGradeScale () {
+        $('.grade-scales-report-link').keys(['Control', 'z', 'Shift']).click()
         this.waitForLoadingToComplete()
     }
 

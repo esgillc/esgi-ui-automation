@@ -70,6 +70,114 @@ const Users = {
                 password: 'automation01!'
             }
         },
+        gsteach3: {
+            credentials: {
+                username: 'gsteach3',
+                password: 'automation01!'
+            }
+        },
+        gsteach4: {
+            credentials: {
+                username: 'gsteach4',
+                password: 'automation01!'
+            }
+        },
+        gsadmin5: {
+            credentials: {
+                username: 'gsadmin5',
+                password: 'automation01!'
+            }
+        },
+        gsadmin6: {
+            credentials: {
+                username: 'gsadmin6',
+                password: 'automation01!'
+            }
+        },
+        gsadmin7: {
+            credentials: {
+                username: 'gsadmin7',
+                password: 'automation01!'
+            }
+        },
+        gsadmin8: {
+            credentials: {
+                username: 'gsadmin8',
+                password: 'automation01!'
+            }
+        },
+        gsadmin9: {
+            credentials: {
+                username: 'gsadmin9',
+                password: 'automation01!'
+            }
+        },
+        gsadmin10: {
+            credentials: {
+                username: 'gsadmin10',
+                password: 'automation01!'
+            }
+        },
+        gssadmin11: {
+            credentials: {
+                username: 'gssadmin11',
+                password: 'automation01!'
+            }
+        },
+        gssadmin12: {
+            credentials: {
+                username: 'gssadmin12',
+                password: 'automation01!'
+            }
+        },
+        gssadmin13: {
+            credentials: {
+                username: 'gssadmin13',
+                password: 'automation01!'
+            }
+        },
+        gsteach13: {
+            credentials: {
+                username: 'gsteach13',
+                password: 'automation01!'
+            }
+        },
+        gssadmin14: {
+            credentials: {
+                username: 'gssadmin14',
+                password: 'automation01!'
+            }
+        },
+        gsteach14: {
+            credentials: {
+                username: 'gsteach14',
+                password: 'automation01!'
+            }
+        },
+        gssadmin15: {
+            credentials: {
+                username: 'gssadmin15',
+                password: 'automation01!'
+            }
+        },
+        gsteach15: {
+            credentials: {
+                username: 'gsteach15',
+                password: 'automation01!'
+            }
+        },
+        gssadmin16: {
+            credentials: {
+                username: 'gssadmin16',
+                password: 'automation01!'
+            }
+        },
+        gsteach16: {
+            credentials: {
+                username: 'gsteach16',
+                password: 'automation01!'
+            }
+        },
         user9: {
             credentials: {
                 username: 'beacon',

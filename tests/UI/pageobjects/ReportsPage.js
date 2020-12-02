@@ -72,6 +72,9 @@ class ReportsPage extends Page {
         this.displayResultsAsModePercentCss = '#displayResultsModePercent'
         this.carryScoresForwardSPCss = '#carryScoresForward'
 
+        // Class Grades Report
+        this.continueSetupBtnCss = 'span=Continue Setup'
+
         // Class Totals Report
         this.displayResultsAsScoreCss = '#displayResultsAsScore'
         this.displayResultsAsPercentCss = '#displayResultsAsPercent'
@@ -123,9 +126,36 @@ class ReportsPage extends Page {
         this.playerSelectorAtHomeCss = '#player-selector-at-student'
         this.controlEndBtnCss = '.subjects-container .end'
 
+        this.playerSelectorAtHomeCss = '#player-selector-at-student'
+        this.controlEndBtnCss = '.subjects-container .end'
+
         // Grade Scale
         this.closeGSModalCss = '.modal-dialog .gs-close'
+        this.closeGSReportModalCss = '.print-download-buttons .close'
         this.cancelGSModalCss = '.modal-footer .pull-left span'
+        this.nextPageGSBtnCss = '.modal-footer .pull-right span'
+        this.nextPageConfigBtnCss = '.configure-subject-footer .pull-right'
+        this.OSNUReportBtnCss = `h4=O - S - N - U`
+        this.EMPNReportBtnCss = `h4=E - M - P - N`
+        this.existingEMPNReportBtnCss = '.scroll-content .gs-name'
+        this.createYourOwnBtnCss = `h4=Create Your Own`
+        this.gradeScaleLevelCss = '.btn=2'
+        this.highestGradeRowCss = '.gs-details-row-0'
+        this.lowestGradeRowCss = '.gs-details-row-1'
+        this.highestGradeNameInputCss = `${this.highestGradeRowCss} .grade-name`
+        this.highestGradeDescInputCss = `${this.highestGradeRowCss} [placeholder='e.g. Excellent, Very Good']`
+        this.lowestGradeNameInputCss = `${this.lowestGradeRowCss} .grade-name`
+        this.lowestGradeDescInputCss = `${this.lowestGradeRowCss} [placeholder='e.g. Excellent, Very Good']`
+        this.firstGradeLevelColorCss = '.gs-details-row-0 .btn-colorpicker'
+        this.gradeScaleGradeRowCss = '.data-row-right .result-info-cell'
+        this.selectTestDropDownCss = '.gs-wizard-configure-tests .select-subjects'
+        this.empnErangeFromCss = '//*[@id="modal-inner-control"]/div/div[5]/div/div/div[2]/div/div[2]/div/div/div[2]/div/form/fieldset/div/div/div[2]/div[2]/table/tbody/tr[1]/td/div/div[2]/input'
+        this.empnMrangeFromCss = '//*[@id="modal-inner-control"]/div/div[5]/div/div/div[2]/div/div[2]/div/div/div[2]/div/form/fieldset/div/div/div[2]/div[2]/table/tbody/tr[2]/td/div/div[2]/input'
+        this.empnPrangeFromCss = '//*[@id="modal-inner-control"]/div/div[5]/div/div/div[2]/div/div[2]/div/div/div[2]/div/form/fieldset/div/div/div[2]/div[2]/table/tbody/tr[3]/td/div/div[2]/input'
+        this.empnNrangeToCss = '//*[@id="modal-inner-control"]/div/div[5]/div/div/div[2]/div/div[2]/div/div/div[2]/div/form/fieldset/div/div/div[2]/div[2]/table/tbody/tr[4]/td/div/div[4]/input'
+        this.empn1rangeFromCss = '//*[@id="modal-inner-control"]/div/div[5]/div/div/div[2]/div/div[2]/div/div/div[2]/div/form/fieldset/div/div/div[2]/div[2]/table/tbody/tr[1]/td/div/div[2]/input'
+        this.empn2rangeToCss = '//*[@id="modal-inner-control"]/div/div[5]/div/div/div[2]/div/div[2]/div/div/div[2]/div/form/fieldset/div/div/div[2]/div[2]/table/tbody/tr[2]/td/div/div[4]/input'
+        this.wizardOkBtnCss = 'span=OK'
 
         this.questionIDs = {
             a: '9491190',
@@ -143,16 +173,55 @@ class ReportsPage extends Page {
     get reportModal () { return $$('.modal-content')[1] }
     get reportFirstModal () { return $('.modal-content') }
     get runReportBtn () { return $(this.runReportBtnCss) }
+    get continueSetupBtn () { return $(this.continueSetupBtnCss) }
+    get wizardOkBtn () { return $(this.wizardOkBtnCss) }
     get letsBeginBtn () { return $(this.letsBeginBtnCss) }
     get nextPageBtn () { return $(this.nextPageBtnCss) }
+    get nextPageGSBtn () { return $(this.nextPageGSBtnCss) }
+    get nextPageConfigBtn () { return $(this.nextPageConfigBtnCss) }
     get downloadGameBtn () { return $(this.downloadGameBtnCss) }
     get previewQuestionsBtn () { return $(this.previewQuestionsBtnCss) }
     get finishBtn () { return $(this.finishBtnCss) }
     get controlEndBtn () { return $(this.controlEndBtnCss) }
+    get OSNUReportBtn () { return $(this.OSNUReportBtnCss) }
+    get EMPNReportBtn () { return $(this.EMPNReportBtnCss) }
+    get existingEMPNReportBtn () { return $(this.existingEMPNReportBtnCss) }
+    get createYourOwnBtn () { return $(this.createYourOwnBtnCss) }
+    get highestGradeNameInput () { return $(this.highestGradeNameInputCss) }
+    get highestGradeDescInput () { return $(this.highestGradeDescInputCss) }
+    get lowestGradeNameInput () { return $(this.lowestGradeNameInputCss) }
+    get lowestGradeDescInput () { return $(this.lowestGradeDescInputCss) }
+    get uppercaseLettersB () { return $$(this.gradeScaleGradeRowCss)[0] }
+    get uppercaseLetters1 () { return $$(this.gradeScaleGradeRowCss)[1] }
 
     goBack () {
         this.reportBackBtn.click()
         Helper.waitForLoadingToComplete()
+    }
+
+    closeGSModal () {
+        browser.click(this.closeGSModalCss)
+        this.waitForLoadingToComplete()
+    }
+
+    closeGSReportModal () {
+        browser.click(this.closeGSReportModalCss)
+        this.waitForLoadingToComplete()
+    }
+
+    clickContinueSetup () {
+        this.continueSetupBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickWizardOk () {
+        this.wizardOkBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    cancelGSModal () {
+        browser.click(this.cancelGSModalCss)
+        this.waitForLoadingToComplete()
     }
 
     clickLetsBegin () {
@@ -192,16 +261,6 @@ class ReportsPage extends Page {
 
     closeReport () {
         this.closeModal()
-    }
-
-    closeGSModal () {
-        browser.click(this.closeGSModalCss)
-        this.waitForLoadingToComplete()
-    }
-
-    cancelGSModal () {
-        browser.click(this.cancelGSModalCss)
-        this.waitForLoadingToComplete()
     }
 
     openReport (name) {
@@ -305,6 +364,14 @@ class ReportsPage extends Page {
 
     selectStudentDetailsStudent (name) {
         this.selectItemFromDropDown(this.dropdowns.studentdetail.student, name)
+    }
+
+    selectTestFromDropDown (item) {
+        const dropDown = $(this.selectTestDropDownCss)
+        if (dropDown.getText('option:checked').toLowerCase() !== item.toLowerCase()) {
+            dropDown.selectByVisibleText(item)
+            this.waitForLoadingToComplete()
+        }
     }
 
     // Parent Letter Settings
@@ -710,6 +777,16 @@ class ReportsPage extends Page {
         bool && Helper.clickElement(this.playerSelectorAtHomeCss)
     }
 
+    clickNextPageGSBtn () {
+        this.nextPageGSBtn.click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickNextPageConfigBtn () {
+        this.nextPageConfigBtn.click()
+        this.waitForLoadingToComplete()
+    }
+
     clickNextPageBtn () {
         this.nextPageBtn.click()
     }
@@ -725,6 +802,101 @@ class ReportsPage extends Page {
 
     clickFinish () {
         this.finishBtn.click()
+    }
+
+    // Grade Scale
+    clickOSNUReportGS () {
+        this.OSNUReportBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickEMPNReportGS () {
+        this.EMPNReportBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickExistingEMPNReportGS () {
+        this.existingEMPNReportBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickCreateYourOwnReportGS () {
+        this.createYourOwnBtn.click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    setGradesScaleInfo (payload) {
+        this.inputHighestGradeName(payload.highestgrade)
+        this.inputHighestGradeDesc(payload.highestgradedesc)
+        this.inputLowestGradeName(payload.lowestgrade)
+        this.inputLowestGradeDesc(payload.lowestgradedesc)
+    }
+
+    inputHighestGradeName (highestgrade) {
+        this.highestGradeNameInput.setValue(highestgrade)
+    }
+
+    inputHighestGradeDesc (highestgradedesc) {
+        this.highestGradeDescInput.setValue(highestgradedesc)
+    }
+
+    inputLowestGradeName (lowestgrade) {
+        this.lowestGradeNameInput.setValue(lowestgrade)
+    }
+
+    inputLowestGradeDesc (lowestgradedesc) {
+        this.lowestGradeDescInput.setValue(lowestgradedesc)
+    }
+
+    getLevelByNumber (number) {
+        return $(`.btn=${number}`)
+    }
+
+    selectGradeScaleLevels (number) {
+        this.getLevelByNumber(number).click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    clickFirstGradeLevelColor () {
+        $(this.firstGradeLevelColorCss).click()
+    }
+
+    selectOrangeColorLevel () {
+        $(`[data-color="#ffcc80"]`).click()
+    }
+
+    changeGradeLevelColorToOrange () {
+        this.clickFirstGradeLevelColor()
+        browser.pause(1000)
+        this.selectOrangeColorLevel(this.firstGradeLevelColorCss)
+    }
+
+    getUppercaseLettersRowColor () {
+        const uppercaseLettersBColor = this.uppercaseLettersB.getCSSProperty('background-color')
+        const uppercaseLetters1Color = this.uppercaseLetters1.getCSSProperty('background-color')
+
+        return {
+            uppercaseLettersBColor: uppercaseLettersBColor.parsed.hex,
+            uppercaseLetters1Color: uppercaseLetters1Color.parsed.hex
+        }
+    }
+
+    inputEMPNrangeValues (eValue, mValue, pValue) {
+        $(this.empnErangeFromCss).setValue(eValue)
+        browser.pause(1000)
+        $(this.empnMrangeFromCss).setValue(mValue)
+        browser.pause(1000)
+        $(this.empnPrangeFromCss).setValue(pValue)
+        browser.pause(1000)
+        $(this.empnNrangeToCss).click()
+        browser.pause(1000)
+    }
+
+    inputEMPNrangeValue (eValue) {
+        $(this.empn1rangeFromCss).setValue(eValue)
+        browser.pause(1000)
+        $(this.empn2rangeToCss).click()
+        browser.pause(1000)
     }
 }
 

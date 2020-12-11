@@ -28,7 +28,7 @@ exports.config = {
             `./tests/ELK/verifyelasticsearchdata.spec.js`
         ],
         login: [
-            `${dir}/specs/Login.spec.js`
+            `${dir}/specs/LoginDemo.spec.js`
         ],
         bingo: [
             `${dir}/specs/reportsspecs/Bingo*.spec.js`
@@ -114,15 +114,15 @@ exports.config = {
     capabilities: [
         {
             browserName: 'chrome',
-            'selenoid:options': {
-                version: 'chrome_83.0',
-                screenResolution: '1920x1080x24'
-            },
+            // 'selenoid:options': {
+            //     version: 'chrome_83.0',
+            //     screenResolution: '1920x1080x24'
+            // },
             'goog:chromeOptions': {
                 args: [
                     '--no-sandbox',
                     '--test-type',
-                    '--headless', // Windows server doesn't like headless mode
+                    // '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1920,1080'
@@ -231,7 +231,7 @@ exports.config = {
     },
     hostname: 'localhost',
     port: 4444,
-    // path: '/wd/hub',
+    path: '/wd/hub',
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

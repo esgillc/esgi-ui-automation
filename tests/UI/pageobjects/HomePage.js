@@ -26,11 +26,11 @@ class HomePage extends Page {
         this.leftMenuCollaspeButtonCss = `${this.leftMenuCss} .collapse-button`
 
         this.components = {
-            allclasses: 'class',
-            allgroups: 'group',
-            allstudents: 'student',
-            allteachers: 'teacher',
-            allschools: 'school'
+            allclasses: 'Classes',
+            allgroups: 'Groups',
+            allstudents: 'Students',
+            allteachers: 'Teachers',
+            allschools: 'Schools'
         }
         // All Components
         this.componentsObjCss = {
@@ -104,7 +104,7 @@ class HomePage extends Page {
     }
 
     getComponentCss (name) {
-        return `.box.${name} .all`
+        return `#all-box-item_All-${name}` // '.box.${name} .all'
     }
 
     get trackName () { return $(this.trackNameCss) }
@@ -555,7 +555,7 @@ class HomePage extends Page {
     }
 
     getComponentByName (component, name) {
-        return component.$('..').$(`.title=${name}`)
+        return component.$('..').$(`[data-name="${name}"]`)     // .$(`.title=${name}`)
     }
 
     getClassByName (name) {
@@ -707,7 +707,7 @@ class HomePage extends Page {
         if (this.isTestCardPresent(payload.testname)) {
             this.getTestCardObj(payload.testname).ellipsis.click()
             browser.pause(250)
-            $('a=Remove test from Subject').click()
+            $('a=Remove Test from Subject').click()
             this.waitForLoadingToComplete()
         }
     }

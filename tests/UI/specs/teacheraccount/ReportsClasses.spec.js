@@ -58,7 +58,10 @@ describe('TeacherAccount - Reports', function () {
                         })
                         describe('Click Specific Class', function () {
                             before(function () {
+                                browser.pause(5000)
                                 HomePage.clickClass('Class001')
+                            })
+                            it.only('testing', function () {
                             })
                             let reportTitle
                             Reports.allclasses.forEach(report => {

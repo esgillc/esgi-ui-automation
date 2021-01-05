@@ -17,7 +17,7 @@ describe('SchoolAdmin - CreateSubjectTab', function () {
         before(function () {
             payload = {
                 subjectname: 'SchoolAdmin001',
-                testname: 'Nouns - Identify',
+                testname: 'Numbers',
                 publishindefinitely: 'true',
                 grade: 'Kindergarten'
             }

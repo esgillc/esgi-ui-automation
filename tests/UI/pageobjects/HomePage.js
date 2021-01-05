@@ -47,8 +47,10 @@ class HomePage extends Page {
             studentprogress: 'Student Progress',
             classtotals: 'Class Totals',
             classgrades: 'Class Grades',
+            schoolgrades: 'School Grades',
             itemanaysis: 'Item Analysis',
-            piecharts: 'Pie Charts'
+            piecharts: 'Pie Charts',
+            districtgrades: 'District Grades'
         }
 
         this.testcardObjCss = {
@@ -322,6 +324,14 @@ class HomePage extends Page {
         return this.getReportByName(this.reports.itemanaysis)
     }
 
+    getSchoolGradesReport () {
+        return this.getReportByName(this.reports.schoolgrades)
+    }
+
+    getDistrictGradesReport () {
+        return this.getReportByName(this.reports.districtgrades)
+    }
+
     getPieChartsReport () {
         return this.getReportByName(this.reports.piecharts)
     }
@@ -363,6 +373,16 @@ class HomePage extends Page {
 
     clickItemAnalysis () {
         this.getItemAnalysisReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickSchoolGradesReport () {
+        this.getSchoolGradesReport().click()
+        this.waitForLoadingToComplete()
+    }
+
+    clickDistrictGradesReport () {
+        this.getDistrictGradesReport().click()
         this.waitForLoadingToComplete()
     }
 
@@ -782,6 +802,33 @@ class HomePage extends Page {
             $('button=OK').click()
         }
         this.waitForLoadingToComplete()
+    }
+
+    resetGradeScale (adminType) {
+        const actions = {
+            'type': 'key',
+            'id': 'keyboard',
+            'actions': [
+              {'type': 'keyDown', 'value': '\ue008'}, // Press Shift key
+              {'type': 'keyDown', 'value': 'z'}
+            ]
+        }
+        browser.performActions([actions])
+        this.clickAdminTypeGradesReport(adminType)
+        browser.releaseActions()
+    }
+
+    clickAdminTypeGradesReport (adminType) {
+        switch (adminType) {
+        case 'CLASS':
+            this.clickClassGradesReport()
+            break
+        case 'SCHOOL':
+            this.clickSchoolGradesReport()
+            break
+        case 'DISTRICT':
+            this.clickDistrictGradesReport()
+        }
     }
 }
 

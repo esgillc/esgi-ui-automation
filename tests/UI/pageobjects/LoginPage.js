@@ -38,6 +38,7 @@ class LoginPage extends Page {
         browser.switchToWindow(assessmentWindow)
         this.waitForLoadingToComplete(null, 20000)
         Helper.handleInitialModals()
+        Helper.acceptCookie()
     }
 
     isModalVisible () {

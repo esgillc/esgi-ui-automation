@@ -17,7 +17,7 @@ describe('CreateSubjectTab', function () {
         before(function () {
             payload = {
                 subjectname: 'DistrictAdmin001',
-                testname: 'Nouns - Identify',
+                testname: 'Numbers',
                 publishindefinitely: 'true',
                 grade: 'Kindergarten'
             }

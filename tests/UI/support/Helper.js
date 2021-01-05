@@ -341,6 +341,13 @@ function Helper () {
         this.isModalVisible() && browser.click('.close-popup, .close')
     }
 
+    this.acceptCookie = () => {
+        const css = '.btn-primary=ACCEPT'
+        if ($(css).isDisplayed()) {
+            $(css).click()
+        }
+    }
+
     this.waitForPreLoaderToDisappear = () => {
         let retries = 0
         let preloaderWait = () => {

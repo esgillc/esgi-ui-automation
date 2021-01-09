@@ -145,32 +145,32 @@ describe('Prod-HomePage', function () {
                 it('should add a group', function () {
                     expect(HomePage.isGroupPresent(payload.name)).toBe(true)
                 })
-            })
-            describe('EditGroup', function () {
-                let payload
-                before(function () {
-                    payload = {
-                        classname: 'Class001',
-                        name: 'TempGroup123',
-                        newname: 'NewTempGroup123',
-                        students: ['Student003 Student']
-                    }
-                    HomePage.editGroup(payload)
-                })
-                it('should edit a group', function () {
-                    expect(HomePage.isGroupPresent(payload.newname)).toBe(true)
-                })
-            })
-            describe('DeleteGroup', function () {
-                let payload = {
-                    classname: 'Class001',
-                    groupname: 'NewTempGroup123'
-                }
-                before(function () {
-                    HomePage.deleteGroup(payload)
-                })
-                it('should delete a group', function () {
-                    expect(HomePage.isGroupPresent(payload.groupname)).toBe(false)
+                describe('EditGroup', function () {
+                    let payload
+                    before(function () {
+                        payload = {
+                            classname: 'Class001',
+                            name: 'TempGroup123',
+                            newname: 'NewTempGroup123',
+                            students: ['Student003 Student']
+                        }
+                        HomePage.editGroup(payload)
+                    })
+                    it('should edit a group', function () {
+                        expect(HomePage.isGroupPresent(payload.newname)).toBe(true)
+                    })
+                    describe('DeleteGroup', function () {
+                        let payload = {
+                            classname: 'Class001',
+                            groupname: 'NewTempGroup123'
+                        }
+                        before(function () {
+                            HomePage.deleteGroup(payload)
+                        })
+                        it('should delete a group', function () {
+                            expect(HomePage.isGroupPresent(payload.groupname)).toBe(false)
+                        })
+                    })
                 })
             })
         })

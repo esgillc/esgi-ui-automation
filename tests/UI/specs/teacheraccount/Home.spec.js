@@ -153,24 +153,24 @@ describe('HomePage', function () {
                         classname: 'Buckhoff\'s Class',
                         name: 'Group123',
                         newname: 'NewGroup123',
-                        students: ['Sofia Boghozian']
+                        students: ['Sofia Boghozian', 'Janet Dermenjyan']
                     }
                     HomePage.editGroup(payload)
                 })
                 it('should edit a group', function () {
                     expect(HomePage.isGroupPresent(payload.newname)).toBe(true)
                 })
-            })
-            describe('DeleteGroup', function () {
-                let payload = {
-                    classname: 'Buckhoff\'s Class',
-                    groupname: 'NewGroup123'
-                }
-                before(function () {
-                    HomePage.deleteGroup(payload)
-                })
-                it('should delete a group', function () {
-                    expect(HomePage.isGroupPresent(payload.groupname)).toBe(false)
+                describe('DeleteGroup', function () {
+                    let payload = {
+                        classname: 'Buckhoff\'s Class',
+                        groupname: 'NewGroup123'
+                    }
+                    before(function () {
+                        HomePage.deleteGroup(payload)
+                    })
+                    it('should delete a group', function () {
+                        expect(HomePage.isGroupPresent(payload.groupname)).toBe(false)
+                    })
                 })
             })
         })

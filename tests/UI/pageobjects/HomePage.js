@@ -72,7 +72,7 @@ class HomePage extends Page {
         this.removeLinkCss = `${this.modal} .remove-link`
         this.modalClassNameLabelCss = `${this.modalBodyCss} .top-label`
         this.modalNameInputCss = '[id$="-edit-form"] .large'// `${this.modalBodyCss} input.form-control`
-        this.modalMoveCss = `${this.modalBodyCss} .move-button`
+        this.modalMoveCss = `button.move-button`
         this.modalAvailableStudentsCss = '.checkbox-list-box.no-padding-right .checkbox-list'
         this.modalNewClassCss = '.checkbox-list-box.no-padding-left .checkbox-list'
         this.modalCancelButtonCss = '.modal-footer .btn-bonnie.btn-close'
@@ -104,9 +104,10 @@ class HomePage extends Page {
     }
 
     getComponentCss (name) {
-        return `#all-box-item_All-${name}` // '.box.${name} .all'
+        const suffix = this.isProd() ? 'all-box-item_' : 'all-box-item_All-'
+        return `#${suffix}${name}` // '.box.${name} .all'
     }
-
+    isProd () { return (browser.config.env === 'PROD') }
     get trackName () { return $(this.trackNameCss) }
     get trackNameLink () { return this.trackName.$('a') }
     get schoolYear () { return $(this.schoolYearCss) }
@@ -485,7 +486,7 @@ class HomePage extends Page {
     }
 
     getStudent (student) {
-        return $(`label=${student}`)
+        return $(`[data-name="${student}"]`)
     }
 
     checkAvailableStudent (student) {
@@ -494,7 +495,7 @@ class HomePage extends Page {
     }
 
     checkStudent (student) {
-        this.getStudent(student).click()
+        $(this.modal).$(`[data-name="${student}"]`).click()
         browser.pause(1000)
     }
 
@@ -521,6 +522,10 @@ class HomePage extends Page {
     addClass (payload) {
         this.clickAddClassButton()
         this.setAndSaveComponent(payload)
+        if (this.isProd()) {
+            // browser.refresh()
+            Helper.waitForLoadingToComplete()
+        }
     }
 
     addGroup (payload) {
@@ -538,9 +543,8 @@ class HomePage extends Page {
 
     setStudentInfo (payload) {
         browser.pause(1000) // wait for modal to load
-        const inputs = $$('input.form-control.large')
-        inputs[0].setValue(payload.firstname)
-        inputs[1].setValue(payload.lastname)
+        $('.first-name-input').setValue(payload.firstname)
+        $('.last-name-input').setValue(payload.lastname)
         // inputs[3].setValue(payload.studentid)
         browser.pause(500)
     }
@@ -555,7 +559,7 @@ class HomePage extends Page {
     }
 
     getComponentByName (component, name) {
-        return component.$('..').$(`[data-name="${name}"]`)     // .$(`.title=${name}`)
+        return component.$('..').$(`.title=${name}`)
     }
 
     getClassByName (name) {
@@ -638,6 +642,7 @@ class HomePage extends Page {
         Helper.setValue(this.modalNameInputCss, payload.newname)
         // this.setName(payload.newname)
         this.checkStudents(payload.students)
+        console.log('Payload: XXX', payload.students)
         this.clickMoveButton()
         this.clickModalSaveButton()
     }
@@ -666,12 +671,20 @@ class HomePage extends Page {
         if (!this.isStudentPresent(studentname)) return
         this.clickClass(payload.classname)
         this.studentObjs(studentname).edit.click()
-        this.deleteItem()
+        this.deleteItemStudent()
     }
 
     deleteItem () {
         browser.pause(1000)
         browser.click(this.removeLinkCss)
+        browser.pause(1000)
+        $$('.modal-content')[1].$('span=OK').click()
+        this.waitForLoadingToComplete()
+    }
+
+    deleteItemStudent () {
+        browser.pause(1000)
+        $('.remove-link=Remove student from class list').click()
         browser.pause(1000)
         $$('.modal-content')[1].$('span=OK').click()
         this.waitForLoadingToComplete()

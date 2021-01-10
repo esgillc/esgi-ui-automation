@@ -97,7 +97,7 @@ exports.config = {
     /**
      * The number of times to retry the entire specfile when it fails as a whole
      */
-    specFileRetries: 1,
+    specFileRetries: 0,
     /**
      * Delay in seconds between the spec file retry attempts
      */
@@ -261,7 +261,7 @@ exports.config = {
         ['allure', {
             outputDir: './reports/allure-results',
             disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
             useCucumberStepReporter: false
         }]
     ],
@@ -359,20 +359,20 @@ exports.config = {
     // },
     //
     // Runs after a WebdriverIO command gets executed
-    afterCommand: function (commandName, args, result, error) {
-        if (error) {
-            browser.saveScreenshot(`./errorshots/${commandName}${new Date().getTime()}.png`)
-        }
-    },
+    // afterCommand: function (commandName, args, result, error) {
+    //     if (error) {
+    //         browser.saveScreenshot(`./errorshots/${commandName}${new Date().getTime()}.png`)
+    //     }
+    // },
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
     //  payload: { error, result, duration, passed, retries }
-    afterTest: (test, context, payload) => {
-        if (payload.error !== undefined) {
-            const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
-            browser.saveScreenshot(screenshotPath)
-        }
-    }
+    // afterTest: (test, context, payload) => {
+    //     if (payload.error !== undefined) {
+    //         const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
+    //         browser.saveScreenshot(screenshotPath)
+    //     }
+    // }
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {

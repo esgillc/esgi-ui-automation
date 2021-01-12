@@ -313,7 +313,7 @@ exports.config = {
             return $(css).selectByVisibleText(value)
         })
         console.log(`Test run baseUrl is: ${browser.options.baseUrl} \n`)
-    },
+    }
     // after: function (failures, pid) {
     // },
     // onComplete: function () {

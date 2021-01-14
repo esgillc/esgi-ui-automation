@@ -47,7 +47,7 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            // ReportsPage.clickFinish()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)

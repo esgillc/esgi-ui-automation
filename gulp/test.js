@@ -137,6 +137,10 @@ export default options => {
         return runTest(['warmup'])
     }))
 
+    gulp.task('pdf', gulp.series(async function test () {
+        return runTest(['pdf'])
+    }))
+
     function runTest (suiteName, conf) {
         conf = conf || configFile
         return new Promise(async function (resolve, reject) {

@@ -34,7 +34,6 @@ describe('GradeScale12Report', function () {
             ReportsPage.clickRunReport()
         })
         it(`${action} - should be correct`, function () {
-            ReportsPage.closeModal()
             expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
         })
         after(function () {

@@ -379,12 +379,14 @@ class HomePage extends Page {
 
     clickSchoolGradesReport () {
         this.getSchoolGradesReport().click()
-        this.waitForLoadingToComplete()
+        browser.pause(2000)
+        // this.waitForLoadingToComplete()
     }
 
     clickDistrictGradesReport () {
         this.getDistrictGradesReport().click()
-        this.waitForLoadingToComplete()
+        browser.pause(2000)
+        // this.waitForLoadingToComplete()
     }
 
     clickPieCharts () {

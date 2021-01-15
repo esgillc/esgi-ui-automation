@@ -47,14 +47,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            // ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -91,14 +91,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -135,14 +135,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -179,14 +179,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -223,14 +223,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -267,14 +267,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -311,18 +311,19 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
+            // ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPreviewQuestions()
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -355,14 +356,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -399,14 +400,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -443,14 +444,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -487,14 +488,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -531,14 +532,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -575,14 +576,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -619,14 +620,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -663,14 +664,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -707,14 +708,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -751,14 +752,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
@@ -795,14 +796,14 @@ describe('BingoReport', function () {
             }
         })
         after(function () {
-            ReportsPage.clickFinish()
+            ReportsPage.closeModal()
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
-            ReportsPage.clickNextPageBtn()
         })
         it(`${action2} - should be correct`, function () {
+            ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })

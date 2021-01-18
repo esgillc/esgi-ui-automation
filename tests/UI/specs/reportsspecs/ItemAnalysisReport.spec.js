@@ -38,7 +38,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-LeastKnown_DisplayNotTestedAsIncorrect', () => {
@@ -58,7 +58,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-MostKnown', () => {
@@ -78,7 +78,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-MostKnown_DisplayNotTestedAsIncorrect', () => {
@@ -98,7 +98,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-QuestionOrder', () => {
@@ -118,7 +118,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-QuestionOrder_DisplayNotTestedAsIncorrect', () => {
@@ -138,7 +138,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-Alphabetical', () => {
@@ -158,7 +158,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('ItemAnalysisReport-Alphabetical_DisplayNotTestedAsIncorrect', () => {
@@ -178,7 +178,7 @@ describe('ItemAnalysisReport', function () {
             ReportsPage.verifyItemAnalysisReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
 })

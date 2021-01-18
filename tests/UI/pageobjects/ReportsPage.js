@@ -17,6 +17,7 @@ class ReportsPage extends Page {
         this.reportBackBtnCss = '.modal-dialog.animate .btn-back'
         this.runReportBtnCss = 'span=Run Report'
         this.reportSettingsEditBtnCss = '.settings-cell a'
+        this.modalContentCss = '.modal-content'
 
         // Parent Letter
 
@@ -195,6 +196,8 @@ class ReportsPage extends Page {
     get reportEditModalGS () { return $$('.modal-dialog')[2] }
     get reportModalGS () { return $$('.modal-dialog')[3] }
     get reportFirstModal () { return $('.modal-dialog') }
+    get firstModalContent () { return $(this.modalContentCss) }
+    get secondModalContent () { return $$(this.modalContentCss)[1] }
     get sharedRangeConfigContainer () { return $(this.sharedRangeConfigContainerCss) }
     get percentageConfigContainer () { return $(this.percentageConfigContainerCss) }
     get runReportBtn () { return $(this.runReportBtnCss) }

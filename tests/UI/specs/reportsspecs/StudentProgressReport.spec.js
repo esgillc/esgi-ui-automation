@@ -42,7 +42,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Score_Zero_CarryForward', () => {
@@ -64,7 +64,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Score_NT', () => {
@@ -86,7 +86,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Score_NT_CarryForward', () => {
@@ -108,7 +108,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Percent_Zero', () => {
@@ -130,7 +130,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Percent_Zero_CarryForward', () => {
@@ -152,7 +152,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Percent_NT', () => {
@@ -174,7 +174,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Percent_NT_CarryForward', () => {
@@ -196,7 +196,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_Zero', () => {
@@ -218,7 +218,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_Zero_CarryForward', () => {
@@ -240,7 +240,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_Zero_CarryForward_ShowGradeColors', () => {
@@ -262,7 +262,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_Zero_ShowGradeColors', () => {
@@ -284,7 +284,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_NT', () => {
@@ -306,7 +306,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_NT_CarryForward', () => {
@@ -328,7 +328,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_NT_CarryForward_ShowGradeColors', () => {
@@ -350,7 +350,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentProgressReport-Grade_NT_ShowGradeColors', () => {
@@ -372,7 +372,7 @@ describe('StudentProgressReport', function () {
             ReportsPage.verifyStudentProgressReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
 })

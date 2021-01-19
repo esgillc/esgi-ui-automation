@@ -51,16 +51,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_PrintPerPage_Easy_InClassroom', () => {
@@ -95,16 +95,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_Print1_Medium_InClassroom', () => {
@@ -139,16 +139,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_PrintPerPage_Medium_InClassroom', () => {
@@ -183,16 +183,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_Print1_Hard_InClassroom', () => {
@@ -227,16 +227,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_PrintPerPage_Hard_InClassroom', () => {
@@ -271,16 +271,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize5x5_Easy_InClassroom', () => {
@@ -315,17 +315,17 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             // ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize5x5_Medium_InClassroom', () => {
@@ -360,16 +360,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize5x5_Hard_InClassroom', () => {
@@ -404,16 +404,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_Print1_Easy_AtStudentHome', () => {
@@ -448,16 +448,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_PrintPerPage_Easy_AtStudentHome', () => {
@@ -492,16 +492,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_Print1_Medium_AtStudentHome', () => {
@@ -536,16 +536,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_PrintPerPage_Medium_AtStudentHome', () => {
@@ -580,16 +580,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_Print1_Hard_AtStudentHome', () => {
@@ -624,16 +624,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize3x3_PrintPerPage_Hard_AtStudentHome', () => {
@@ -668,16 +668,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize5x5_Easy_AtStudentHome', () => {
@@ -712,16 +712,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize5x5_Medium_AtStudentHome', () => {
@@ -756,16 +756,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-CardSize5x5_Hard_AtStudentHome', () => {
@@ -800,16 +800,16 @@ describe('BingoReport', function () {
         })
         it(`${action1} - should be correct`, function () {
             ReportsPage.verifyBingoCardSizeAndDifficulty(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {
             ReportsPage.clickNextPageBtn()
             ReportsPage.verifyBingoPlay(payload)
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action3} - should be correct`, function () {
             ReportsPage.verifyBingoPreviewQuestions()
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('BingoReport-BingoGame', () => {

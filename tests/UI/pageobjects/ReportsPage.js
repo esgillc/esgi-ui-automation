@@ -875,6 +875,7 @@ class ReportsPage extends Page {
 
     clickDownloadGame () {
         this.downloadGameBtn.click()
+        this.waitForLoadingToComplete()
     }
 
     clickPreviewQuestions () {

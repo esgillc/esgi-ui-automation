@@ -168,7 +168,7 @@ function Helper () {
     }
 
     this.waitForLoadingToComplete = function (css, timeout) {
-        css = css || '.loadmask-msg .animated-loading,.preloader,.loadmask'
+        css = css || '.loadmask-msg .animated-loading,.preloader'
         timeout = timeout || 10000
         browser.pause(250)
         browser.waitUntil(

@@ -363,7 +363,7 @@ exports.config = {
         if (error) {
             browser.saveScreenshot(`./errorshots/${commandName}${new Date().getTime()}.png`)
         }
-    },
+    }
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
     //  payload: { error, result, duration, passed, retries }

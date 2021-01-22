@@ -313,7 +313,7 @@ exports.config = {
             return $(css).selectByVisibleText(value)
         })
         console.log(`Test run baseUrl is: ${browser.options.baseUrl} \n`)
-    }
+    },
     // after: function (failures, pid) {
     // },
     // onComplete: function () {
@@ -359,11 +359,11 @@ exports.config = {
     // },
     //
     // Runs after a WebdriverIO command gets executed
-    // afterCommand: function (commandName, args, result, error) {
-    //     if (error) {
-    //         browser.saveScreenshot(`./errorshots/${commandName}${new Date().getTime()}.png`)
-    //     }
-    // },
+    afterCommand: function (commandName, args, result, error) {
+        if (error) {
+            browser.saveScreenshot(`./errorshots/${commandName}${new Date().getTime()}.png`)
+        }
+    }
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
     //  payload: { error, result, duration, passed, retries }

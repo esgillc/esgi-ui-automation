@@ -182,7 +182,7 @@ function Helper () {
     }
 
     this.waitForJQuery = function (timeout) {
-        timeout = timeout || 10000
+        timeout = timeout || 20000
         browser.pause(250)
         let _this = this
         browser.waitUntil(function () {

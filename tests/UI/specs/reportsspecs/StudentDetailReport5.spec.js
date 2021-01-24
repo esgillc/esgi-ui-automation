@@ -43,7 +43,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_AllMarking_ShowColorsChecked', () => {
@@ -63,7 +63,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_CurrentMarking_ShowColorsChecked', () => {
@@ -83,7 +83,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_AllMarking_ShowColorsChecked', () => {
@@ -103,7 +103,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_CurrentMarking_QuestionNotestChecked', () => {
@@ -123,7 +123,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_AllMarking_QuestionNotestChecked', () => {
@@ -143,7 +143,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_CurrentMarking_QuestionNotestChecked', () => {
@@ -163,7 +163,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_AllMarking_QuestionNotestChecked', () => {
@@ -183,7 +183,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_CurrentMarking_AllUnchecked', () => {
@@ -203,7 +203,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_AllMarking_AllUnchecked', () => {
@@ -223,7 +223,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_CurrentMarking_AllUnchecked', () => {
@@ -243,7 +243,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_AllMarking_AllUnchecked', () => {
@@ -263,7 +263,7 @@ describe('StudentDetailReport5', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
 })

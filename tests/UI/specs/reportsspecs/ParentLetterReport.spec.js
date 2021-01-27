@@ -4,6 +4,7 @@ import ReportsPage from '../../pageobjects/ReportsPage'
 import {Users} from '../../fixtures/data'
 
 describe('ParentLetterReport', function () {
+    const reportName = 'Parent_Letter'
     let info
     before(function () {
         info = {
@@ -116,6 +117,13 @@ describe('ParentLetterReport', function () {
         it(`${action}_legend-should be correct`, function () {
             expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('Include In Parent Teacher', () => {
         let payload
@@ -163,6 +171,13 @@ describe('ParentLetterReport', function () {
         })
         it(`${action}_legend-should be correct`, function () {
             expect($('.grade-scale-legend').isExisting()).toBe(false)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -212,6 +227,13 @@ describe('ParentLetterReport', function () {
         it(`${action}_legend-should be correct`, function () {
             expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('Include In Parent Teacher', () => {
         let payload
@@ -259,6 +281,13 @@ describe('ParentLetterReport', function () {
         })
         it(`${action}_legend-should be correct`, function () {
             expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('Include In Parent Teacher', () => {
@@ -308,6 +337,13 @@ describe('ParentLetterReport', function () {
         it(`${action}_legend-should be correct`, function () {
             expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('Include In Parent Teacher', () => {
         let payload
@@ -355,6 +391,13 @@ describe('ParentLetterReport', function () {
         })
         it(`${action}_legend-should be correct`, function () {
             expect($('.grade-scale-legend').isExisting()).toBe(false)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
 })

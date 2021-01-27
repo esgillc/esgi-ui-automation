@@ -13,3 +13,4 @@ reports/
 allure-results/
 videos/
 .env
+tests/UI/specs/pdfs/data/actual

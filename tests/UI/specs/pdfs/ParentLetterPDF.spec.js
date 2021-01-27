@@ -8,7 +8,7 @@ describe('ParentLetterReport', function () {
     it('Should be able to verify same PDFs', async () => {
         let config = require('./config')
         let comparisonResults = await new ComparePdf(config)
-            .actualPdfFile('Parent_Letter_2021-1-5.pdf')
+            .actualPdfFile('Parent_Letter_2021-1-27.pdf')
             .baselinePdfFile('Parent_Letter_2021-1-5.pdf')
             .compare('byBase64')
         console.log('Compare:::: ', comparisonResults)

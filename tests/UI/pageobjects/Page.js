@@ -70,4 +70,8 @@ export default class Page {
     isPageLoaded () {
         return this.isOnPage() && (this.jqueryLoaded() === 0) && this.isLoaderVisible()
     }
+
+    renameFile (from, to) {
+        Helper.renameFile(from, to)
+    }
 }

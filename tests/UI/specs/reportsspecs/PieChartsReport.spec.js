@@ -32,7 +32,7 @@ describe('PieChartsReport', function () {
             ReportsPage.verifyPieChartsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('PieChartsReport-PrintInColorChecked', () => {
@@ -46,7 +46,7 @@ describe('PieChartsReport', function () {
             ReportsPage.verifyPieChartsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     // describe('PieChartsReport-ShowEachStudentChecked', () => {
@@ -63,7 +63,7 @@ describe('PieChartsReport', function () {
     //         ReportsPage.verifyPieChartsReport(payload)
     //     })
     //     it(`${action} - should be correct`, function () {
-    //         expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+    //         expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
     //     })
     // })
     // describe('PieChartsReport-AllChecked', () => {
@@ -80,7 +80,7 @@ describe('PieChartsReport', function () {
     //         ReportsPage.verifyPieChartsReport(payload)
     //     })
     //     it(`${action} - should be correct`, function () {
-    //         expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+    //         expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
     //     })
     // })
 })

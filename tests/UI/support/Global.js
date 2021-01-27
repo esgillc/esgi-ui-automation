@@ -68,6 +68,7 @@ class Global {
         browser.pause(250)
         // $('span=OK').click()
         Helper.waitForLoadingToComplete()
+        browser.pause(2000)
     }
 
     clickHamburgerMenu () {

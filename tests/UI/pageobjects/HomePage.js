@@ -78,6 +78,7 @@ class HomePage extends Page {
         this.modalCancelButtonCss = '.modal-footer .btn-bonnie.btn-close'
         this.modalSaveButtonCss = '.btn-edit'
         this.retakeCss = '.btn-retest'
+        this.dublicateStudentModalCss = '.duplicate-modal-body'
 
         // Right Panel
         this.rightPanelCss = '.main .center'
@@ -151,8 +152,14 @@ class HomePage extends Page {
     get allTeachers () { return $(this.allTeachersCss) }
     get allSchools () { return $(this.allSchoolsCss) }
 
+    get dublicateStudentModal () { return $(this.dublicateStudentModalCss) }
+
     subjectTabs () {
         return browser.getText(this.subjectTabCss)
+    }
+
+    isDublicateStudent () {
+        return this.dublicateStudentModal.isDisplayed()
     }
 
     isSubjectTabDisplayed (name) {
@@ -379,12 +386,14 @@ class HomePage extends Page {
 
     clickSchoolGradesReport () {
         this.getSchoolGradesReport().click()
-        this.waitForLoadingToComplete()
+        browser.pause(2000)
+        // this.waitForLoadingToComplete()
     }
 
     clickDistrictGradesReport () {
         this.getDistrictGradesReport().click()
-        this.waitForLoadingToComplete()
+        browser.pause(2000)
+        // this.waitForLoadingToComplete()
     }
 
     clickPieCharts () {
@@ -539,6 +548,18 @@ class HomePage extends Page {
         this.clickAddStudentButton()
         this.setStudentInfo(payload)
         this.clickModalSaveButton()
+        if (this.isDublicateStudent()) {
+            $('span=VIEW STUDENT(S)').click()
+            this.waitForLoadingToComplete()
+            $('.ace.select-students-input').click()
+            browser.pause(1000)
+            $('div=Delete').click()
+            browser.pause(1000)
+            $('button=Confirm').click()
+            browser.pause(1000)
+            this.navigate()
+            this.addStudent(payload)
+        }
     }
 
     setStudentInfo (payload) {

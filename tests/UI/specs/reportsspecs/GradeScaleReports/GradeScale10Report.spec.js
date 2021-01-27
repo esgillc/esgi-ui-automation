@@ -29,6 +29,7 @@ describe('GradeScale10Report', function () {
             ReportsPage.clickNextPageGSBtn()
         })
         it(`${action} - should be correct`, function () {
+            browser.pause(20000)
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
         it(`${action2} - should be correct`, function () {

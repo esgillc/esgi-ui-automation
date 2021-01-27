@@ -43,7 +43,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_AllMarking_GradesShowUnchecked_CarryForwardUnchecked', () => {
@@ -63,7 +63,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_CurrentMarking_ShowColorsUnchecked_QuestionNotesUnchecked', () => {
@@ -83,7 +83,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_CurrentMarking_CarryForwardUnchecked_QuestionNotesUnchecked', () => {
@@ -103,7 +103,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_CurrentMarking_CarryForwardUnchecked_ShowColorsUnchecked', () => {
@@ -123,7 +123,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_AllMarking_ShowColorsUnchecked_QuestionNotesUnchecked', () => {
@@ -143,7 +143,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_AllMarking_CarryForwardUnchecked_QuestionNotesUnchecked', () => {
@@ -163,7 +163,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-Zero_AllMarking_CarryForwardUnchecked_ShowColorsUnchecked', () => {
@@ -183,7 +183,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_CurrentMarking_ShowColorsUnchecked_QuestionNotesUnchecked', () => {
@@ -203,7 +203,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('StudentDetailReport-NT_CurrentMarking_CarryForwardUnchecked_QuestionNotesUnchecked', () => {
@@ -223,7 +223,7 @@ describe('StudentDetailReport3', function () {
             ReportsPage.verifyStudentDetailReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
 })

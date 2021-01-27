@@ -34,7 +34,7 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Settings', () => {
@@ -49,7 +49,7 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Settings', () => {
@@ -64,7 +64,7 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Settings', () => {
@@ -80,7 +80,7 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Settings', () => {
@@ -95,7 +95,7 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
     })
     describe('Settings', () => {
@@ -110,14 +110,14 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         describe('ScrollToMiddle', function () {
             before(function () {
                 ReportsPage.scrollToQuestionI()
             })
             it(`${action}_ScrollToMiddle - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
         describe('ScrollToEnd', function () {
@@ -125,7 +125,7 @@ describe('FlashReport', function () {
                 ReportsPage.scrollToQuestionZ()
             })
             it(`${action}_ScrollToEnd - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
     })
@@ -141,14 +141,14 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         describe('ScrollToMiddle', function () {
             before(function () {
                 ReportsPage.scrollToQuestionI()
             })
             it(`${action}_ScrollToMiddle - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
         describe('ScrollToEnd', function () {
@@ -156,7 +156,7 @@ describe('FlashReport', function () {
                 ReportsPage.scrollToQuestionZ()
             })
             it(`${action}_ScrollToEnd - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
     })
@@ -172,14 +172,14 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         describe('ScrollToMiddle', function () {
             before(function () {
                 ReportsPage.scrollToQuestionI()
             })
             it(`${action}_ScrollToMiddle - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
         describe('ScrollToEnd', function () {
@@ -187,7 +187,7 @@ describe('FlashReport', function () {
                 ReportsPage.scrollToQuestionZ()
             })
             it(`${action}_ScrollToEnd - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
     })
@@ -203,14 +203,14 @@ describe('FlashReport', function () {
             ReportsPage.goBack()
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         describe('ScrollToMiddle', function () {
             before(function () {
                 ReportsPage.scrollToQuestionI()
             })
             it(`${action}_ScrollToMiddle - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
         describe('ScrollToEnd', function () {
@@ -218,7 +218,7 @@ describe('FlashReport', function () {
                 ReportsPage.scrollToQuestionZ()
             })
             it(`${action}_ScrollToEnd - should be correct`, function () {
-                expect(browser.checkElement(ReportsPage.reportModal, this.test.title)).toBeLessThanOrEqual(1)
+                expect(browser.checkElement(ReportsPage.secondModalContent, this.test.title)).toBeLessThanOrEqual(1)
             })
         })
     })

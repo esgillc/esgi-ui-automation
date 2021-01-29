@@ -8,7 +8,7 @@
     },
     "main": "lib/index.js",
     "scripts": {
-        "prepublish": "npm run compile",
+        "prepare": "npm run compile",
         "compile": "babel --presets @babel/env -d lib/ src/",
         "xxx": "babel --presets @babel/env -d lib/ gulpfile.babel.js",
         "eslint": "eslint gulp/ src/ tests/ *.js",

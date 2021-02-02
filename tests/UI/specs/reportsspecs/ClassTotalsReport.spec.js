@@ -34,7 +34,7 @@ describe('ClassTotalsReport', function () {
             }
             ReportsPage.verifyClassTotalsReport(payload)
         })
-        it.only(`${action} - should be correct`, function () {
+        it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
     })

@@ -105,8 +105,8 @@ class HomePage extends Page {
     }
 
     getComponentCss (name) {
-        const suffix = this.isProd() ? 'all-box-item_' : 'all-box-item_All-'
-        return `#${suffix}${name}` // '.box.${name} .all'
+        const suffix = 'all-box-item_All-'
+        return `#${suffix}${name}`
     }
     isProd () { return (browser.config.env === 'PROD') }
     get trackName () { return $(this.trackNameCss) }

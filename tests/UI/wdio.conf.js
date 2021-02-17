@@ -5,6 +5,15 @@ const { join } = require('path')
 const {EyesService} = require('../../Services/EyeService/index')
 const { TimelineService } = require('wdio-timeline-reporter/timeline-service')
 
+// Load the libraries we need for path/filesystem manipulation
+const path = require('path')
+// const fs = require('fs')
+
+// Store the directory path in a global, which allows us to access this path inside our tests
+global.downloadDir = path.join(__dirname, '/pdfs/data/actual')
+// eslint-disable-next-line no-undef
+console.log('Downloads Directory is : ', downloadDir)
+
 exports.config = {
     runner: 'local',
     credentials: {
@@ -92,6 +101,9 @@ exports.config = {
         ],
         warmup: [
             `${dir}/warmup/warmupMenus.spec.js`
+        ],
+        pdf: [
+            `${dir}/pdfs/ParentLetterPDF.spec.js`
         ]
     },
     /**
@@ -126,7 +138,13 @@ exports.config = {
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1920,1080'
-                ]
+                ],
+                prefs: {
+                    'directory_upgrade': true,
+                    'prompt_for_download': false,
+                    // eslint-disable-next-line no-undef
+                    'download.default_directory': downloadDir
+                }
             }
         }
     ],

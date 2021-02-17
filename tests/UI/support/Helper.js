@@ -1,6 +1,8 @@
 
 'use strict'
 import keys from 'lodash/keys'
+const moment = require('moment')
+
 function Helper () {
     this.scrollToTopLinkCss = 'a.scrollToTop'
     this.checkboxCheckedCss = 'input:checked'
@@ -250,7 +252,7 @@ function Helper () {
         const rp = require('request-promise')
         const url = `https://privatix-temp-mail-v1.p.rapidapi.com/request/${payload.endpoint}/id/${payload.hash}/`
         const key = '7be698f73bmsh248d31c025a66f8p166934jsnfc3bf39d4417'
-        var options = {
+        let options = {
             method: 'GET',
             url: url,
             headers: {
@@ -374,6 +376,43 @@ function Helper () {
     this.isModalVisible = () => {
         return $('.modal-dialog').isDisplayed()
         // return browser.isVisible('.modal-dialog')
+    }
+
+    this.renameFile = (from, to) => {
+        from = `${from}_${moment().format('YYYY-M-D')}.pdf`
+        const fs = require('fs')
+        fs.rename(from, to, function (err) {
+            if (err) console.log('ERROR: ' + err)
+        })
+    }
+
+    this.waitForFileExists = (filePath, timeout) => {
+        const path = require('path')
+        const fs = require('fs')
+        return new Promise(function (resolve, reject) {
+            let timer = setTimeout(function () {
+                watcher.close()
+                reject(new Error('File did not exists and was not created during the timeout.'))
+            }, timeout)
+
+            fs.access(filePath, fs.constants.R_OK, function (err) {
+                if (!err) {
+                    clearTimeout(timer)
+                    watcher.close()
+                    resolve()
+                }
+            })
+
+            let dir = path.dirname(filePath)
+            let basename = path.basename(filePath)
+            let watcher = fs.watch(dir, function (eventType, filename) {
+                if (eventType === 'rename' && filename === basename) {
+                    clearTimeout(timer)
+                    watcher.close()
+                    resolve()
+                }
+            })
+        })
     }
 
     // this.hideElements = (css) => {

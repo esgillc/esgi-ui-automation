@@ -9,3 +9,5 @@ services:
     command: ["-limit", "${MAXINSTANCES}", "-mem", "1g", "-cpu", "1g", "-session-delete-timeout", "3m", "-timeout", "2m"]
     ports:
       - "4444:4444"
+    volumes:
+    - ${PWD}/tests/UI/pdfs/data/actual/:${PWD}/tests/UI/pdfs/data/actual/

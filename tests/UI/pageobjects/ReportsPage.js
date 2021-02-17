@@ -1102,6 +1102,17 @@ class ReportsPage extends Page {
             $(`.gs-details-row-${gradeLevelRow} .row-caption .drag-handle .fa-arrow-${direction}`).click()
         }, gradeLevelRow, direction)
     }
+
+    downloadPDF (reportName, action) {
+        browser.pause(2000)
+        $('.print-download-buttons').click()
+        browser.pause(2000)
+        $$('.print-download-buttons .dropdown-menu')[0].$('li').click()
+        Helper.waitForLoadingToComplete()
+        browser.pause(3000)
+        // eslint-disable-next-line no-undef
+        this.renameFile(`${downloadDir}/${reportName}`, `${downloadDir}/${action}.pdf`)
+    }
 }
 
 export default new ReportsPage()

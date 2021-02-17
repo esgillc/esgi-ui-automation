@@ -137,6 +137,10 @@ export default options => {
         return runTest(['warmup'])
     }))
 
+    gulp.task('pdf', gulp.series(async function test () {
+        return runTest(['pdf'])
+    }))
+
     function runTest (suiteName, conf) {
         conf = conf || configFile
         return new Promise(async function (resolve, reject) {
@@ -153,12 +157,19 @@ export default options => {
     }
 
     function deletedirs (cb) {
-        shell.rm('-rf', 'screenshots/diff', 'screenshots/actual', 'errorshots', 'reports', 'allure-report')
+        shell.rm('-rf',
+        'screenshots/diff',
+        'screenshots/actual',
+        'errorshots',
+        'reports',
+        'allure-report',
+        'tests/UI/pdfs/data/actual',
+        'tests/UI/pdfs/data/diffPngs')
         cb()
     }
 
     function createdirs (cb) {
-        shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report')
+        shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report', 'tests/UI/pdfs/data/actual')
         cb()
     }
 

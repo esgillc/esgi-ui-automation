@@ -10,9 +10,9 @@ const path = require('path')
 // const fs = require('fs')
 
 // Store the directory path in a global, which allows us to access this path inside our tests
-global.downloadDir = path.join(__dirname, '/specs/pdfs/data/actual')
+global.downloadDir = path.join(__dirname, '/pdfs/data/actual')
 // eslint-disable-next-line no-undef
-console.log('Downloads : ', downloadDir)
+console.log('Downloads Directory is : ', downloadDir)
 
 exports.config = {
     runner: 'local',
@@ -103,7 +103,7 @@ exports.config = {
             `${dir}/warmup/warmupMenus.spec.js`
         ],
         pdf: [
-            `${dir}/specs/pdfs/ParentLetterPDF.spec.js`
+            `${dir}/pdfs/ParentLetterPDF.spec.js`
         ]
     },
     /**
@@ -126,15 +126,15 @@ exports.config = {
     capabilities: [
         {
             browserName: 'chrome',
-            // 'selenoid:options': {
-            //     version: 'chrome_83.0',
-            //     screenResolution: '1920x1080x24'
-            // },
+            'selenoid:options': {
+                version: 'chrome_83.0',
+                screenResolution: '1920x1080x24'
+            },
             'goog:chromeOptions': {
                 args: [
                     '--no-sandbox',
                     '--test-type',
-                    // '--headless', // Windows server doesn't like headless mode
+                    '--headless', // Windows server doesn't like headless mode
                     '--disable-infobars',
                     '--disable-gpu',
                     '--window-size=1920,1080'
@@ -248,8 +248,8 @@ exports.config = {
         stitchMode: 'CSS'
     },
     hostname: 'localhost',
-    // port: 4444,
-    path: '/wd/hub',
+    port: 4444,
+    // path: '/wd/hub',
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

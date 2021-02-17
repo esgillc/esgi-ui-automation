@@ -13,4 +13,9 @@ reports/
 allure-results/
 videos/
 .env
-tests/UI/specs/pdfs/data/actual
+tests/UI/pdfs/data/actual
+tests/UI/pdfs/data/diffPngs
+tests/UI/pdfs/data/actualPngs
+tests/UI/pdfs/data/baselinePngs
+
+

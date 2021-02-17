@@ -379,7 +379,7 @@ function Helper () {
     }
 
     this.renameFile = (from, to) => {
-        from = `${from}_${moment().format('YYYY-M-DD')}.pdf`
+        from = `${from}_${moment().format('YYYY-M-D')}.pdf`
         const fs = require('fs')
         fs.rename(from, to, function (err) {
             if (err) console.log('ERROR: ' + err)

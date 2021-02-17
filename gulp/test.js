@@ -157,12 +157,19 @@ export default options => {
     }
 
     function deletedirs (cb) {
-        shell.rm('-rf', 'screenshots/diff', 'screenshots/actual', 'errorshots', 'reports', 'allure-report')
+        shell.rm('-rf',
+        'screenshots/diff',
+        'screenshots/actual',
+        'errorshots',
+        'reports',
+        'allure-report',
+        'tests/UI/pdfs/data/actual',
+        'tests/UI/pdfs/data/diffPngs')
         cb()
     }
 
     function createdirs (cb) {
-        shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report')
+        shell.mkdir('-p', 'screenshots', 'errorshots', 'reports/custom-report', 'tests/UI/pdfs/data/actual')
         cb()
     }
 

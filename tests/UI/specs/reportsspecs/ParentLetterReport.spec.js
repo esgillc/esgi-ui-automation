@@ -69,6 +69,13 @@ describe('ParentLetterReport', function () {
         it(`${action}_legend-should be correct`, function () {
             expect(browser.checkElement($('.grade-scale-legend'), this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('Include In Parent Teacher', () => {
         let payload

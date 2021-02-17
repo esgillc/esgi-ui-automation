@@ -4,6 +4,7 @@ import ReportsPage from '../../pageobjects/ReportsPage'
 import {Users} from '../../fixtures/data'
 
 describe('ClassTotalsReport', function () {
+    const reportName = 'Total_Report'
     before(function () {
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
@@ -37,6 +38,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Score_Zero_CarryForward_CurrentMarking', () => {
         let action = 'ClassTotalsReport-Score_Zero_CarryForward_CurrentMarking'
@@ -55,6 +63,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Score_Zero_All', () => {
@@ -75,6 +90,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Score_Zero_CarryForward_All', () => {
         let action = 'ClassTotalsReport-Score_Zero_CarryForward_All'
@@ -93,6 +115,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Score_NT_CurrentMarking', () => {
@@ -113,6 +142,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Score_NT_CarryForward_CurrentMarking', () => {
         let action = 'ClassTotalsReport-Score_NT_CarryForward_CurrentMarking'
@@ -131,6 +167,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Score_NT_All', () => {
@@ -151,6 +194,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Score_NT_CarryForward_All', () => {
         let action = 'ClassTotalsReport-Score_NT_CarryForward_All'
@@ -169,6 +219,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Percent_Zero_CurrentMarking', () => {
@@ -189,6 +246,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Percent_Zero_CarryForward_CurrentMarking', () => {
         let action = 'ClassTotalsReport-Percent_Zero_CarryForward_CurrentMarking'
@@ -207,6 +271,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Percent_Zero_All', () => {
@@ -227,6 +298,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Percent_Zero_CarryForward_All', () => {
         let action = 'ClassTotalsReport-Percent_Zero_CarryForward_All'
@@ -245,6 +323,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Percent_NT_CurrentMarking', () => {
@@ -265,6 +350,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Percent_NT_CarryForward_CurrentMarking', () => {
         let action = 'ClassTotalsReport-Percent_NT_CarryForward_CurrentMarking'
@@ -283,6 +375,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
     describe('ClassTotalsReport-Percent_NT_All', () => {
@@ -303,6 +402,13 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
         })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
+        })
     })
     describe('ClassTotalsReport-Percent_NT_CarryForward_All', () => {
         let action = 'ClassTotalsReport-Percent_NT_CarryForward_All'
@@ -321,6 +427,13 @@ describe('ClassTotalsReport', function () {
         })
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        describe(`DownloadPDF_${action}`, function () {
+            before(function () {
+                ReportsPage.downloadPDF(reportName, action)
+            })
+            it(`${action}-should be correct`, function () {
+            })
         })
     })
 })

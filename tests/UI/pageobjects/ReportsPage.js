@@ -1105,9 +1105,9 @@ class ReportsPage extends Page {
 
     downloadPDF (reportName, action) {
         browser.pause(2000)
-        $('.download').click()
+        $('.print-download-buttons').click()
         browser.pause(2000)
-        $$('.download .dropdown-menu')[0].$('li').click()
+        $$('.print-download-buttons .dropdown-menu')[0].$('li').click()
         Helper.waitForLoadingToComplete()
         browser.pause(3000)
         // eslint-disable-next-line no-undef

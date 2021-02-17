@@ -65,6 +65,24 @@ const WarmUpBuilder = function () {
             }
             return this
         },
+        doBingo: function (timeout) {
+            try {
+                HomePage.clickBingo()
+                ReportsPage.clickLetsBegin()
+                ReportsPage.clickNextPageBtn()
+                browser.pause(2000)
+                ReportsPage.clickNextPageBtn()
+                browser.pause(2000)
+                ReportsPage.clickNextPageBtn()
+                browser.pause(2000)
+                ReportsPage.clickNextPageBtn()
+                browser.pause(2000)
+                ReportsPage.clickDownloadGame()
+            } catch (e) {
+                browser.emit('warmuperror', e)
+            }
+            return this
+        },
         chill: function (timeout) {
             timeout = timeout || 5000
             browser.pause(timeout)

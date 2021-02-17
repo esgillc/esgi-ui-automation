@@ -103,7 +103,7 @@ exports.config = {
             `${dir}/warmup/warmupMenus.spec.js`
         ],
         pdf: [
-            `${dir}/pdfs/ParentLetterPDF.spec.js`
+            `${dir}/pdfs/RunPDFReports.spec.js`
         ]
     },
     /**

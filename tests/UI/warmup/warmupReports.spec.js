@@ -16,7 +16,6 @@ describe('EnvironmentPrep - WarmupReports', function () {
                             .goToLoginPage(timeout)
                             .login(browser.config.credentials)
                             .runReports(timeout)
-                            .logOut()
                         browser.reloadSession()
                     }
                 })

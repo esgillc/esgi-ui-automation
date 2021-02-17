@@ -100,7 +100,7 @@ exports.config = {
             `${dir}/specs/StudentManager.spec.js`
         ],
         warmup: [
-            `${dir}/warmup/warmupMenus.spec.js`
+            `${dir}/warmup/*.spec.js`
         ],
         pdf: [
             `${dir}/pdfs/RunPDFReports.spec.js`

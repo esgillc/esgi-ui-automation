@@ -1,5 +1,5 @@
 const NavigationBuilder = require('../support/NavigationBuilder')
-describe('EnvironmentPrep - WarmupMenus', function () {
+describe('EnvironmentPrep - WarmupReports1', function () {
     const timeout = 3000
     let warmUp = NavigationBuilder.call()
     warmUp.onWarmupError()
@@ -14,11 +14,8 @@ describe('EnvironmentPrep - WarmupMenus', function () {
                     for (i = 0; i < 3; i++) {
                         warmUp
                             .goToLoginPage(timeout)
-                            .login(browser.config.credentials)
-                            .navigateToTestExplorer(timeout)
-                            .navigateToStudentManager(timeout)
-                            .navigateToParentConferencer(timeout)
-                            .navigateToHome(timeout)
+                            .login({username: 'dan504', password: 'Wentiirim'})
+                            .doBingo(timeout)
                         browser.reloadSession()
                     }
                 })

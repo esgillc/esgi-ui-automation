@@ -84,6 +84,7 @@ exports.config = {
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
+            `${dir}/specs/Navigations.spec.js`,
             `${dir}/prod/*.spec.js`
         ],
         signup: [
@@ -331,7 +332,7 @@ exports.config = {
             return $(css).selectByVisibleText(value)
         })
         console.log(`Test run baseUrl is: ${browser.options.baseUrl} \n`)
-    }
+    },
     // after: function (failures, pid) {
     // },
     // onComplete: function () {
@@ -385,12 +386,12 @@ exports.config = {
     //
     // Function to be executed after a UI (in Mocha/Jasmine) or a step (in Cucumber) starts.
     //  payload: { error, result, duration, passed, retries }
-    // afterTest: (test, context, payload) => {
-    //     if (payload.error !== undefined) {
-    //         const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
-    //         browser.saveScreenshot(screenshotPath)
-    //     }
-    // }
+    afterTest: (test, context, payload) => {
+        if (payload.error !== undefined) {
+            const screenshotPath = `./errorshots/${test.parent.split(' ').join('_')}--${test.title.split(' ').join('_')}${new Date().getTime()}.png`
+            browser.saveScreenshot(screenshotPath)
+        }
+    }
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function (suite) {

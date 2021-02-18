@@ -4,18 +4,19 @@ import Global from '../support/Global'
 import {Users} from '../fixtures/data'
 
 describe('Navigation', function () {
+    const credentials = (browser.config.env === 'PROD') ? browser.config.credentials : Users.teacher.user4.credentials
     before(function () {
         LoginPage.navigate()
     })
     after(function () {
-        Global.logout()
+        // Global.logout()
     })
     it('should be on login page', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
         before(function () {
-            LoginPage.login(Users.teacher.user4.credentials)
+            LoginPage.login(credentials)
             HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {

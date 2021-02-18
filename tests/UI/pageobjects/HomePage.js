@@ -108,7 +108,7 @@ class HomePage extends Page {
         const suffix = 'all-box-item_All-'
         return `#${suffix}${name}`
     }
-    isProd () { return (browser.config.env === 'PROD') }
+
     get trackName () { return $(this.trackNameCss) }
     get trackNameLink () { return this.trackName.$('a') }
     get schoolYear () { return $(this.schoolYearCss) }
@@ -531,7 +531,7 @@ class HomePage extends Page {
     addClass (payload) {
         this.clickAddClassButton()
         this.setAndSaveComponent(payload)
-        if (this.isProd()) {
+        if (Helper.isProd()) {
             // browser.refresh()
             Helper.waitForLoadingToComplete()
         }
@@ -816,7 +816,7 @@ class HomePage extends Page {
         this.clickSubjectTab(payload.tab)
         this.clickStudentByName(payload.studentname)
         this.clickDetailsButton(payload.testname)
-        if ($('select.form-control option').getText() !== 'None') {
+        if ($('select.form-control option').getText() !== 'None' && $('button.btn-edit').isDisplayed()) {
             $('button.btn-edit').click()
             browser.pause(1000)
             $('.edit-buttons a').click()

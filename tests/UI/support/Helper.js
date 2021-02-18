@@ -414,7 +414,7 @@ function Helper () {
             })
         })
     }
-
+    this.isProd = () => { return (browser.config.env === 'PROD') }
     // this.hideElements = (css) => {
     //     css = css || '.card-header span[data-bind*="report"]'
     //     this.executeScript(document.querySelectorAll(css).forEach(function (ele) { ele.style.display = 'none' }), css)

@@ -18,6 +18,7 @@ describe('Login page', function () {
         let payload
         before(function () {
             payload = {
+                classname: 'Class001',
                 studentname: 'Samuel Dennick',
                 tab: 'SubjectTabTest001',
                 testname: 'Write Uppercase Letters'

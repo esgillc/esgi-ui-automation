@@ -221,48 +221,5 @@ describe('Prod-HomePage', function () {
                 })
             })
         })
-        describe('TopMenus', function () {
-            describe('Student Manager', function () {
-                before(function () {
-                    Global.navigateToStudentManager()
-                })
-                it('should be able to navigate', function () {
-                    expect(Global.headerTxt()).toBe(Global.menu.studentmanager)
-                })
-                it('url is correct', function () {
-                    expect(browser.getUrl()).toBe(Global.studentManagerUrl())
-                })
-            })
-            describe('ParentConferencer', function () {
-                before(function () {
-                    Global.navigateToParentConferencer()
-                })
-                it('should be able to navigate', function () {
-                    expect(browser.getUrl()).toBe(Global.parentConferencerUrl())
-                })
-            })
-            describe('Test Explorer', function () {
-                before(function () {
-                    Global.navigateToTestExplorer()
-                })
-                it('should be able to navigate', function () {
-                    expect(Global.headerTxt()).toBe(Global.menu.testexplorer)
-                })
-                it('url is correct', function () {
-                    expect(browser.getUrl()).toBe(Global.testExplorerUrl())
-                })
-            })
-            describe('Home', function () {
-                before(function () {
-                    Global.navigateToHome()
-                })
-                it('should be able to navigate', function () {
-                    expect(HomePage.getTitle()).toBe(HomePage.title)
-                })
-                it('url is correct', function () {
-                    expect(browser.getUrl()).toBe(HomePage.absoluteUrl())
-                })
-            })
-        })
     })
 })

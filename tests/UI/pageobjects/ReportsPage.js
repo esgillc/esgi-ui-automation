@@ -779,7 +779,7 @@ class ReportsPage extends Page {
 
     verifyBingoPreviewQuestions () {
         this.clickPreviewQuestions()
-        this.clickDownloadGame()
+        // this.clickDownloadGame()
     }
 
     verifyBingoDownloadTitle () {

@@ -144,7 +144,7 @@ exports.config = {
                     'directory_upgrade': true,
                     'prompt_for_download': false,
                     // eslint-disable-next-line no-undef
-                    'download.default_directory': downloadDir
+                    'download.default_directory': '/var/lib/actual/'
                 }
             }
         }

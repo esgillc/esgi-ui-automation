@@ -10,4 +10,4 @@ services:
     ports:
       - "4444:4444"
     volumes:
-    - ${PWD}/tests/UI/pdfs/data/actual/:${PWD}/tests/UI/pdfs/data/actual/
+    - ${PWD}/tests/UI/pdfs/data/actual/:/var/lib/actual/

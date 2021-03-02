@@ -45,7 +45,7 @@ describe('Login page', function () {
             })
             describe('Hompage', function () {
                 before(function () {
-                    $('.btn-close').click()
+                    $('.topCloseContainer svg').click()
                     HomePage.waitForLoadingToComplete()
                 })
                 it('should be present', function () {

@@ -2,9 +2,6 @@
 import Helper from '../support/Helper'
 
 export default class Page {
-    constructor () {
-        this.waitForLoadingToComplete()
-    }
     absoluteUrl (url) {
         url = url || this.url
         return `${browser.options.baseUrl}${url}`

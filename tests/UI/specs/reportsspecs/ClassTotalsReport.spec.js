@@ -36,7 +36,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -62,7 +65,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -88,7 +94,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -114,7 +123,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -140,7 +152,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -166,7 +181,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -192,7 +210,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -218,7 +239,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -244,7 +268,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -270,7 +297,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -296,7 +326,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -322,7 +355,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -348,7 +384,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -374,7 +413,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -400,7 +442,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {
@@ -426,7 +471,10 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.reportFirstModal, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+        })
+        it(`${action}_fullPage - should be correct`, function () {
+            expect(browser.checkFullPageScreen(this.test.title)).toEqual(0)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {

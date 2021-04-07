@@ -234,7 +234,12 @@ exports.config = {
                 savePerInstance: true,
                 autoSaveBaseline: true,
                 blockOutStatusBar: true,
-                blockOutToolBar: true
+                blockOutToolBar: true,
+                ignoreTransparentPixel: true,
+                scaleImagesToSameSize: true,
+                ignoreAlpha: true,
+                ignoreAntialiasing: true,
+                disableCSSAnimation: true
             }
         ]
     ],

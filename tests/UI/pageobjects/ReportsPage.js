@@ -586,6 +586,7 @@ class ReportsPage extends Page {
     checkUnCarryScoresForward (bool) {
         this.checkUncheckIncludeParentLetter(this.carryScoresForwardCss, bool)
     }
+
     verifyClassTotalsReport (payload) {
         this.setDisplayResultsAsScore(payload.score)
         this.setDisplayResultsAsPercent(payload.percent)
@@ -595,6 +596,7 @@ class ReportsPage extends Page {
         this.setCurrentMarking(payload.currentmarking)
         this.setAllMarkingPeriod(payload.allmarking)
         Helper.waitForLoadingToComplete()
+        browser.pause(4000)
     }
 
     // Student Details Report

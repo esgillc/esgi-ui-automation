@@ -71,7 +71,7 @@ class HomePage extends Page {
         this.modalBodyCss = `${this.modal} .modal-body`
         this.removeLinkCss = `${this.modal} .remove-link`
         this.modalClassNameLabelCss = `${this.modalBodyCss} .top-label`
-        this.modalNameInputCss = '[id$="-edit-form"] .large'// `${this.modalBodyCss} input.form-control`
+        this.modalNameInputCss = '[id$="-edit-form"] .large, .edit-group-name-input'// `${this.modalBodyCss} input.form-control`
         this.modalMoveCss = `button.move-button`
         this.modalAvailableStudentsCss = '.checkbox-list-box.no-padding-right .checkbox-list'
         this.modalNewClassCss = '.checkbox-list-box.no-padding-left .checkbox-list'

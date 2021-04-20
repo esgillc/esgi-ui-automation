@@ -350,6 +350,12 @@ function Helper () {
         }
     }
 
+    this.dismissNewSchoolYearAlert = () => {
+        if ($('.rollover-modal').isDisplayed()) {
+            $('.btn-dismiss').click()
+        }
+    }
+
     this.waitForPreLoaderToDisappear = () => {
         let retries = 0
         let preloaderWait = () => {

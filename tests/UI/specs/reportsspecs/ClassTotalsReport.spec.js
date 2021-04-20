@@ -36,9 +36,9 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+            // expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -64,7 +64,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -90,7 +90,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -116,7 +116,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -142,7 +142,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -168,7 +168,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -194,7 +194,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -220,7 +220,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -246,7 +246,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -272,7 +272,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -298,7 +298,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -324,7 +324,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -350,7 +350,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -376,7 +376,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -402,7 +402,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })
@@ -428,7 +428,7 @@ describe('ClassTotalsReport', function () {
         it(`${action} - should be correct`, function () {
             expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
-        describe.skip(`DownloadPDF_${action}`, function () {
+        describe(`DownloadPDF_${action}`, function () {
             before(function () {
                 ReportsPage.downloadPDF(reportName, action)
             })

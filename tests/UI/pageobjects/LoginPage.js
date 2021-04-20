@@ -29,6 +29,7 @@ class LoginPage extends Page {
 
     login (credentials) {
         this.waitForPageToLoad()
+        Helper.acceptCookie()
         this.username.setValue(credentials.username)
         this.password.setValue(credentials.password)
         this.submitButton.click()
@@ -38,7 +39,7 @@ class LoginPage extends Page {
         browser.switchToWindow(assessmentWindow)
         this.waitForLoadingToComplete(null, 20000)
         Helper.handleInitialModals()
-        Helper.acceptCookie()
+        Helper.dismissNewSchoolYearAlert()
     }
 
     isModalVisible () {

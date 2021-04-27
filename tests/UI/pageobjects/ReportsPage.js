@@ -29,7 +29,7 @@ class ReportsPage extends Page {
         this.dateCss = 'input#_showSessionDate'
         this.messageCss = 'input#_letterMessage'
         this.numberOfIncorrectItemsToPrintCss = 'td.max-items-cell.table-block'
-        this.showForStudentBtnCss = '.btn-blue'
+        this.showForStudentBtnCss = '[data-bind *="click: runReport"]'
         this.dropdowns = {
             parentletter: {
                 class: 0,

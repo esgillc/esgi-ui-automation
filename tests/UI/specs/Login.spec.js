@@ -55,6 +55,16 @@ describe('Login page', function () {
                         expect(body).toContain(resetPasswordInfo.lastlogindate)
                     })
                 })
+                describe('Reset Password Text', function () {
+                    it('should be present', function () {
+                        expect(body).toContain(resetPasswordInfo.resetpassword)
+                    })
+                })
+                describe('Reset not requested', function () {
+                    it('should be present', function () {
+                        expect(body).toContain(resetPasswordInfo.resetnotrequested)
+                    })
+                })
                 describe('Username', function () {
                     it('should be present', function () {
                         expect(body).toContain(resetPasswordInfo.username)
@@ -82,6 +92,16 @@ describe('Login page', function () {
                 describe('Contact', function () {
                     it('should be present', function () {
                         expect(body).toContain(resetPasswordInfo.contact)
+                    })
+                })
+                describe('Team', function () {
+                    it('should be present', function () {
+                        expect(body).toContain(resetPasswordInfo.team)
+                    })
+                })
+                describe('All rights reserved', function () {
+                    it('should be present', function () {
+                        expect(body).toContain(resetPasswordInfo.allrightsreserved)
                     })
                 })
             })

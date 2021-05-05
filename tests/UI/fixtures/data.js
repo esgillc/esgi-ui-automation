@@ -726,6 +726,7 @@ const Login = {
             subject: 'Reset password',
             useremail: 'test001@mailkept.com',
             lastlogindate: 'Last Login:',
+            forgotyourpassword: 'FORGOT YOUR PASSWORD?',
             resetpassword: 'RESET PASSWORD',
             username: 'Username: ',
             verifyemaillink: '/reset-password?key=',

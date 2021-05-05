@@ -85,7 +85,7 @@ exports.config = {
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,
             `${dir}/specs/Navigations.spec.js`,
-            `${dir}/prod/*.spec.js`
+            `${dir}/prod/Home.spec.js`
         ],
         signup: [
             `${dir}/specs/Signup_Rules.spec.js`,

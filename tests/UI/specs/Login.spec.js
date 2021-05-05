@@ -60,6 +60,11 @@ describe('Login page', function () {
                         expect(body).toContain(resetPasswordInfo.resetpassword)
                     })
                 })
+                describe('Forgot your password?', function () {
+                    it('should be present', function () {
+                        expect(body).toContain(resetPasswordInfo.forgotyourpassword)
+                    })
+                })
                 describe('Reset not requested', function () {
                     it('should be present', function () {
                         expect(body).toContain(resetPasswordInfo.resetnotrequested)

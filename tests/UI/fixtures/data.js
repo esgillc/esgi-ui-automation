@@ -805,7 +805,7 @@ const Signup = {
                 {
                     test: 'Existing Username',
                     username: 'danadmin',
-                    msg: 'User name is used. Please choose another one'
+                    msg: 'This user name is already taken. Please enter another one.'
                 }
             ],
             valid: [
@@ -836,12 +836,12 @@ const Signup = {
                 {
                     test: '1Character',
                     password: 'a',
-                    msg: 'Password must be at least 8 characters in length'
+                    msg: 'Please enter a valid password. Passwords must contain a minimum of 8 characters.'
                 },
                 {
                     test: '7Characters',
                     password: 'xxxxxxx',
-                    msg: 'Password must be at least 8 characters in length'
+                    msg: 'Please enter a valid password. Passwords must contain a minimum of 8 characters.'
                 }
                 // {
                 //     test: 'VeryLargeNumberOfCharacters',

@@ -871,7 +871,7 @@ const Signup = {
             valid: '1006',
             invalid: {
                 test: 'x',
-                msg: 'Invalid promo code'
+                msg: 'This promo code is invalid. Please enter a valid code.'
             },
             expired: {
                 test: '1003',

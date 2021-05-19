@@ -496,7 +496,7 @@ class ReportsPage extends Page {
         this.checkUnCheckSkippedQuestions(payload.skippedquestions)
         this.checkUnCheckDate(payload.date)
         this.checkUnCheckMessage(payload.message)
-        this.clickShowForStudentBtn()
+        $('.view-parent-letter-button').click()
         this.waitForLoadingToComplete()
     }
 
@@ -617,7 +617,7 @@ class ReportsPage extends Page {
         this.setDisplayNotTestedAsZero(payload.zero)
         this.setDisplayNotTestedAsNT(payload.nt)
         this.checkUnCarryScoresForwardSP(payload.carryforward)
-        if (payload.grade) this.checkUnCheckShowGradeColors(payload.showgradecolors)
+        // if (payload.grade) this.checkUnCheckShowGradeColors(payload.showgradecolors)
     }
 
     checkUnCheckShowGradeColors (bool) {

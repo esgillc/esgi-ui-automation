@@ -22,8 +22,6 @@ class Global {
         this.rightNavbarCss = '.navbar-right'
         this.rightNavImgCss = `${this.rightNavbarCss} #btnProfileDropDown .material-icons`
         this.logoutCss = `${this.rightNavbarCss} #btnLogout_Sign_out_0`
-        this.accountRenewalUrl = `${browser.options.baseUrl}/Renewal`
-
         this.menu = {
             home: 'Home',
             testexplorer: 'Test Explorer',

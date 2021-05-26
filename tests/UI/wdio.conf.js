@@ -93,6 +93,12 @@ exports.config = {
             `${dir}/specs/Navigations.spec.js`,
             `${dir}/prod/Home.spec.js`
         ],
+        secondloginsmoke: [
+            `${dir}/specs/Navigations.spec.js`,
+            `${dir}/specs/teacheraccount/Home.spec.js`,
+            `${dir}/specs/reportsspecs/PieCharts*.spec.js`,
+            `${dir}/specs/LoadPieCharts.spec.js`
+        ],
         signup: [
             `${dir}/specs/Signup_Rules.spec.js`,
             `${dir}/specs/WebFront.spec.js`

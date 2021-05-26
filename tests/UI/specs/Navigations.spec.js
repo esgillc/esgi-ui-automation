@@ -4,7 +4,12 @@ import Global from '../support/Global'
 import {Users} from '../fixtures/data'
 
 describe('Navigation', function () {
-    const credentials = (browser.config.env === 'PROD') ? browser.config.credentials : Users.teacher.user4.credentials
+    let credentials
+    if ((browser.config.env === 'PROD')) {
+        credentials = browser.config.credentials
+    } else {
+        credentials = !process.env.SECONDLOGIN ? Users.teacher.user4.credentials : Users.teacher.user4.secondary.credentials
+    }
     before(function () {
         LoginPage.navigate()
     })
@@ -152,7 +157,7 @@ describe('Navigation', function () {
                     })
                     describe('RenewalPage', function () {
                         before(function () {
-                            Global.clcikRenewAccountBtn()
+                            Global.clickRenewAccountBtn()
                         })
                         it('header should be correct', function () {
                             expect(Global.accoutRenewalHeader.getText()).toBe('Account Management')

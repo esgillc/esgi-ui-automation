@@ -13,8 +13,11 @@ describe('HomePage', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
+        let credentials
         before(function () {
-            LoginPage.login(Users.teacher.credentials)
+            credentials = !process.env.SECONDLOGIN ? Users.teacher.credentials : Users.teacher.secondary.credentials
+            console.log(credentials)
+            LoginPage.login(credentials)
             HomePage.selectSchoolYear('2019-2020')
         })
         it('should be logged in', function () {

@@ -28,7 +28,7 @@ describe('Signup page - Signup_FieldValidation', function () {
                         })
                         describe('Error Message', function () {
                             it('should be correct', function () {
-                                expect(fieldProperties.errormessage).toBe('Please enter a valid email.')
+                                expect(fieldProperties.errormessage).toBe('Email format is invalid. Please try again.')
                             })
                         })
                         describe('x Mark', function () {

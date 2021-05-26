@@ -37,8 +37,7 @@ exports.config = {
             `./tests/ELK/verifyelasticsearchdata.spec.js`
         ],
         login: [
-            `${dir}/specs/Navigations.spec.js`
-            // `${dir}/specs/Login.spec.js`
+            `${dir}/specs/Login.spec.js`
         ],
         bingo: [
             `${dir}/specs/reportsspecs/Bingo*.spec.js`

@@ -836,12 +836,12 @@ const Signup = {
                 {
                     test: '1Character',
                     password: 'a',
-                    msg: 'Please enter a valid password. Passwords must contain a minimum of 8 characters.'
+                    msg: '&lt;div&gt;Please enter a valid password. Passwords&lt;/div&gt;&lt;div&gt;must contain a minimum of 8 characters.&lt;/div&gt;'
                 },
                 {
                     test: '7Characters',
                     password: 'xxxxxxx',
-                    msg: 'Please enter a valid password. Passwords must contain a minimum of 8 characters.'
+                    msg: '&lt;div&gt;Please enter a valid password. Passwords&lt;/div&gt;&lt;div&gt;must contain a minimum of 8 characters.&lt;/div&gt;'
                 }
                 // {
                 //     test: 'VeryLargeNumberOfCharacters',

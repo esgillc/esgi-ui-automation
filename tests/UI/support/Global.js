@@ -44,6 +44,8 @@ class Global {
     get accoutRenewalHeader () { return $(this.accoutRenewalHeaderCss) }
     get renewalPageExistBtn () { return $(this.renewalPageExistBtnCss) }
 
+    get accountRenewalUrl () { return `${browser.config.baseUrl}/Renewal` }
+
     // Student Manager
     get studentManagerSearchbox () { return $(this.studentManagerSearchboxCss) }
 
@@ -85,7 +87,7 @@ class Global {
         Helper.waitForLoadingToComplete()
     }
 
-    clcikRenewAccountBtn () {
+    clickRenewAccountBtn () {
         this.renewAccountBtn.click()
         Helper.waitForLoadingToComplete()
     }

@@ -27,6 +27,7 @@
         "elastic": "gulp elastic",
         "loginload": "gulp loginload",
         "prodsmoke": "gulp prodsmoke",
+        "secondloginsmoke": "gulp secondloginsmoke",
         "signup": "gulp signup",
         "criticalpath": "gulp criticalpath",
         "allure-report": "node_modules/.bin/allure generate --clean ./reports/allure-results",

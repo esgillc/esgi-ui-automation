@@ -4,6 +4,12 @@ const Users = {
             username: 'sbuckhoff',
             password: 'automation01!'
         },
+        secondary: {
+            credentials: {
+                username: 'sbuckhoffAssistant',
+                password: 'automation01!'
+            }
+        },
         user0: {
             credentials: {
                 username: 'automation000',
@@ -14,6 +20,12 @@ const Users = {
             credentials: {
                 username: 'automation001',
                 password: 'automation01!'
+            },
+            secondary: {
+                credentials: {
+                    username: 'automation001Assistant',
+                    password: 'automation01!'
+                }
             }
         },
         user2: {
@@ -32,6 +44,12 @@ const Users = {
             credentials: {
                 username: 'automation0004',
                 password: 'automation01!'
+            },
+            secondary: {
+                credentials: {
+                    username: 'automation0004Assistant',
+                    password: 'automation01!'
+                }
             }
         },
         user5: {

@@ -11,8 +11,10 @@ describe('LoadPieCharts', function () {
         expect(LoginPage.title).toBe(LoginPage.getTitle())
     })
     describe('LogIn', function () {
+        let credentials
         before(function () {
-            LoginPage.login(Users.teacher.user1.credentials)
+            credentials = !process.env.SECONDLOGIN ? Users.teacher.user1.credentials : Users.teacher.user1.secondary.credentials
+            LoginPage.login(credentials)
             HomePage.selectSchoolYear('2020-2021')
         })
         it('should be logged in', function () {

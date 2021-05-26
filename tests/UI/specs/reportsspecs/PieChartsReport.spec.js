@@ -4,9 +4,11 @@ import ReportsPage from '../../pageobjects/ReportsPage'
 import {Users} from '../../fixtures/data'
 
 describe('PieChartsReport', function () {
+    let credentials
     before(function () {
+        credentials = !process.env.SECONDLOGIN ? Users.teacher.credentials : Users.teacher.secondary.credentials
         LoginPage.open()
-        LoginPage.login(Users.teacher.credentials)
+        LoginPage.login(credentials)
 
         // Set the teacher dropdowns
         const teacherInfo = {

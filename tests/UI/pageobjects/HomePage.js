@@ -76,7 +76,7 @@ class HomePage extends Page {
         this.modalAvailableStudentsCss = '.checkbox-list-box.no-padding-right .checkbox-list'
         this.modalNewClassCss = '.checkbox-list-box.no-padding-left .checkbox-list'
         this.modalCancelButtonCss = '.modal-footer .btn-bonnie.btn-close'
-        this.modalSaveButtonCss = '.btn-edit'
+        this.modalSaveButtonCss = '.save-button'
         this.retakeCss = '.btn-retest'
         this.dublicateStudentModalCss = '.duplicate-modal-body'
 
@@ -571,8 +571,8 @@ class HomePage extends Page {
     }
 
     setAndSaveComponent (payload) {
-        // this.setName(payload.name)
-        Helper.setValue(this.modalNameInputCss, payload.name)
+        this.setName(payload.name)
+        // Helper.setValue(this.modalNameInputCss, payload.name)
         this.checkStudents(payload.students)
         this.clickMoveButton()
         browser.pause(500)
@@ -649,8 +649,8 @@ class HomePage extends Page {
         this.expandAllClasses()
         this.classObjs(payload.name).edit.click()
         Helper.waitForLoadingToComplete()
-        Helper.setValue(this.modalNameInputCss, payload.newname)
-        // this.setName(payload.newname)
+        // Helper.setValue(this.modalNameInputCss, payload.newname)
+        this.setName(payload.newname)
         this.checkStudents(payload.students)
         this.clickModalSaveButton()
     }
@@ -660,10 +660,9 @@ class HomePage extends Page {
         this.expandAllGroups()
         this.groupObjs(payload.name).edit.click()
         browser.pause(1000)
-        Helper.setValue(this.modalNameInputCss, payload.newname)
-        // this.setName(payload.newname)
+        // Helper.setValue(this.modalNameInputCss, payload.newname)
+        this.setName(payload.newname)
         this.checkStudents(payload.students)
-        console.log('Payload: XXX', payload.students)
         this.clickMoveButton()
         this.clickModalSaveButton()
     }
@@ -816,8 +815,8 @@ class HomePage extends Page {
         this.clickSubjectTab(payload.tab)
         this.clickStudentByName(payload.studentname)
         this.clickDetailsButton(payload.testname)
-        if ($('select.form-control option').getText() !== 'None' && $('button.btn-edit').isDisplayed()) {
-            $('button.btn-edit').click()
+        if ($('select.form-control option').getText() !== 'None' && $(this.modalSaveButtonCss).isDisplayed()) {
+            $(this.modalSaveButtonCss).click()
             browser.pause(1000)
             $('.edit-buttons a').click()
             browser.pause(1000)

@@ -279,7 +279,7 @@ const Users = {
         teacheradmin: {
             credentials: {
                 username: 'dan504',
-                password: 'Wentiirim'
+                password: 'passwordsuper9846'
             }
         }
     }

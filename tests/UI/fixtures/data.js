@@ -799,31 +799,32 @@ const Signup = {
                 {
                     test: 'OneCharacter',
                     username: 'a',
-                    msg: 'User name must be at least 3 characters long'
+                    msg: '&lt;div&gt;User name must be at least 3 characters long&lt;/div&gt;'
                 },
                 {
                     test: 'TwoCharacters',
                     username: 'ab',
-                    msg: 'User name must be at least 3 characters long'},
+                    msg: '&lt;div&gt;User name must be at least 3 characters long&lt;/div&gt;'
+                },
                 {
                     test: 'MoreThan40Characters (41)',
                     username: '41characters41characters41characters41cha',
-                    msg: 'Sorry. Please create a username that is 40 characters or less'
+                    msg: '&lt;div&gt;Sorry. Please create a username that is 40 characters or less&lt;/div&gt;'
                 },
                 {
                     test: 'VeryLargeNumberOfCharacters',
                     username: 'VeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharactersVeryLargeNumberOfCharacters',
-                    msg: 'Sorry. Please create a username that is 40 characters or less'
+                    msg: '&lt;div&gt;Sorry. Please create a username that is 40 characters or less&lt;/div&gt;'
                 },
                 {
                     test: 'Invalid Characters #',
                     username: 'invalid#',
-                    msg: 'A username can only contain letters A-Z, numbers 0-9, @ signs, periods and underscores'
+                    msg: '&lt;div&gt;A username can only contain letters A-Z, numbers 0-9,&lt;/div&gt;&lt;div&gt;@ signs, periods and underscores&lt;/div&gt;'
                 },
                 {
                     test: 'Existing Username',
                     username: 'danadmin',
-                    msg: 'This user name is already taken. Please enter another one.'
+                    msg: '&lt;div&gt;This user name is already taken.&lt;/div&gt;&lt;div&gt;Please enter another one.&lt;/div&gt;'
                 }
             ],
             valid: [
@@ -889,11 +890,11 @@ const Signup = {
             valid: '1006',
             invalid: {
                 test: 'x',
-                msg: 'This promo code is invalid. Please enter a valid code.'
+                msg: '&lt;div&gt;This promo code is invalid.&lt;/div&gt;&lt;div&gt;Please enter a valid code.&lt;/div&gt;'
             },
             expired: {
                 test: '1003',
-                msg: 'This promo code already has expired'
+                msg: '&lt;div&gt;This promo code already has expired&lt;/div&gt;'
             },
             activationcode: {
                 test: '29D1BC7B',

@@ -18,7 +18,7 @@ const Users = {
         },
         user1: {
             credentials: {
-                username: 'automation001',
+                username: 'wasko',
                 password: 'automation01!'
             },
             secondary: {
@@ -30,7 +30,7 @@ const Users = {
         },
         user2: {
             credentials: {
-                username: 'automation0002',
+                username: 'mattTeacher995',
                 password: 'automation01!'
             }
         },
@@ -42,7 +42,7 @@ const Users = {
         },
         user4: {
             credentials: {
-                username: 'automation0004',
+                username: 'sshields1',
                 password: 'automation01!'
             },
             secondary: {
@@ -279,7 +279,7 @@ const Users = {
         teacheradmin: {
             credentials: {
                 username: 'dan504',
-                password: 'passwordsuper9846'
+                password: 'Wentiirim'
             }
         }
     }

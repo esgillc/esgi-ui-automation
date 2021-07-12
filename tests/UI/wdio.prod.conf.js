@@ -4,7 +4,7 @@ let wdioConf = require('./wdio.conf')
 exports.config = merge(wdioConf.config, {
     credentials: {
         username: 'dan504',
-        password: 'passwordsuper9846'
+        password: 'Wentiirim'
     },
     baseUrl: 'https://www.esgisoftware.com',
     env: 'PROD'

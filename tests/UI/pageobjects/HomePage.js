@@ -716,6 +716,7 @@ class HomePage extends Page {
         payload.classname && this.clickClass(payload.classname)
         this.getStudentByName(payload.studentname).click()
         browser.pause(1000)
+        if (process.env.DONTRUNTEST) { return }
         this.clickTestButton(payload.testname)
         browser.pause(1000)
         // Click Retake all tests if it's displayed
@@ -805,7 +806,7 @@ class HomePage extends Page {
         this.handleSubjectTabSchoolYearPrompt()
     }
     clickSubjectTab (name) {
-        $(`a.text=${name}`).click()
+        $(`[data-name="${name}"]`).click()
         this.waitForLoadingToComplete()
     }
 

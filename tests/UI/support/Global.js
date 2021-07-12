@@ -28,6 +28,12 @@ class Global {
             studentmanager: 'Student Manager',
             parentconferencer: 'Parent Conferencer'
         }
+        // Settings
+        this.customYesAndNoCss = '.variants-input input'
+        this.testButtonCustomizeRadioCss = '#customizeEnabled'
+        this.showPieChartCheckboxCss = '[data-name="Show pie chart results"] input'
+        this.testResultsCustomRadioCss = '#testResultsVerbiages_custom'
+        this.testResultsVerbiageCss = '.custom_verbiage input'
 
         // Student Manager
         this.studentManagerSearchboxCss = '#text_input_student_filter'
@@ -48,6 +54,17 @@ class Global {
 
     // Student Manager
     get studentManagerSearchbox () { return $(this.studentManagerSearchboxCss) }
+
+    // Settings
+    get testButtonCustomizeRadio () { return $(this.testButtonCustomizeRadioCss) }
+    get customYesAndNo () { return $$(this.customYesAndNoCss) }
+    get customYes () { return this.customYesAndNo[0] }
+    get customNo () { return this.customYesAndNo[1] }
+    get showPieChartCheckbox () { return $(this.showPieChartCheckboxCss) }
+    get testResultsCustomRadio () { return $(this.testResultsCustomRadioCss) }
+    get testResultsVerbiage () { return $$(this.testResultsVerbiageCss) }
+    get customMastered () { return this.testResultsVerbiage[0] }
+    get customNotMastered () { return this.testResultsVerbiage[1] }
 
     getContactUsModalInputs () {
         // Helper.switchToFrame()
@@ -108,6 +125,50 @@ class Global {
         this.isLeftMenuOpened() && this.clickHamburger()
     }
 
+    configureTestCompletedDisplay (payload) {
+        payload = payload || {
+            y: 'Y',
+            n: 'N',
+            showpiechart: true
+        }
+        this.clickSettingsMenu()
+        this.testButtonCustomizeRadio.click()
+        browser.pause(1000)
+        this.customYes.setValue(payload.y)
+        this.customNo.setValue(payload.n)
+
+        this.testResultsCustomRadio.click()
+        this.customMastered.setValue('correct')
+        this.customNotMastered.setValue('incorrect')
+
+        payload.showpiechart ? this.checkShowPieChartCheckbox() : this.unCheckShowPieChartCheckbox()
+        $('.modal-footer .btn-primary').click()
+        Helper.waitForLoadingToComplete()
+    }
+
+    isShowPieChartCheckboxChecked () {
+        let isChecked = true
+        try {
+            expect(this.showPieChartCheckbox).toBeChecked()
+        } catch (error) {
+            isChecked = false
+        }
+        return isChecked
+    }
+
+    checkShowPieChartCheckbox () {
+        if (!this.isShowPieChartCheckboxChecked()) {
+            Helper.clickElement(this.showPieChartCheckboxCss)
+            browser.pause(250)
+        }
+    }
+
+    unCheckShowPieChartCheckbox () {
+        if (this.isShowPieChartCheckboxChecked()) {
+            Helper.clickElement(this.showPieChartCheckboxCss)
+            browser.pause(250)
+        }
+    }
     get header () { return $(this.headerCss) }
 
     logout () {

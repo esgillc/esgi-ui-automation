@@ -10,6 +10,8 @@ class TestResultsPage extends Page {
         this.url = '/esgi#'
         this.modalCss = '.modal'
         this.closeModalCss = '.modal-header .close,.fa-close'
+
+        this.successlabelCss = '.success-label'
         // @TODO: extract into a graph component
         this.graphObjCss = {
             correctpiecss: `${this.modalCss} .highcharts-series-group path[fill="#00BF96"]`,
@@ -18,6 +20,7 @@ class TestResultsPage extends Page {
             resultlabelcss: '.main .data'
         }
     }
+    get successlabel () { return $(this.successlabelCss) }
 
     closeModal () {
         browser.click(this.closeModalCss)
@@ -40,6 +43,10 @@ class TestResultsPage extends Page {
             incorrectpercentage: Helper.getText(obj.incorrectpercentage),
             resultlabel: obj.resultlabel.getText()
         }
+    }
+
+    isSuccessModalPresent () {
+        return this.successlabel.isDisplayed()
     }
 }
 

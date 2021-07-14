@@ -483,8 +483,8 @@ class ReportsPage extends Page {
     }
 
     setClassTotalsReportInfo (payload) {
-        this.selectClass(null, payload.class)
-        this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
+        // this.selectClass(null, payload.class)
+        // this.selectSubject(this.dropdowns.classtotals.subject, payload.subject)
     }
 
     verifyReport (payload) {

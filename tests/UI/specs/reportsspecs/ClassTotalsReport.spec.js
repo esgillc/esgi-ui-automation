@@ -8,7 +8,7 @@ describe('ClassTotalsReport', function () {
     before(function () {
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
         // Set the teacher dropdowns
         const teacherInfo = {
             subject: 'SubjectTabTest001',
@@ -36,7 +36,7 @@ describe('ClassTotalsReport', function () {
             ReportsPage.verifyClassTotalsReport(payload)
         })
         it(`${action} - should be correct`, function () {
-            // expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
+            expect(browser.checkElement(ReportsPage.firstModalContent, this.test.title)).toBeLessThanOrEqual(1)
         })
         describe(`DownloadPDF_${action}`, function () {
             before(function () {

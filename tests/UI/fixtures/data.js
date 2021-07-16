@@ -30,7 +30,7 @@ const Users = {
         },
         user2: {
             credentials: {
-                username: 'mattTeacher995',
+                username: 'mattTeacher228',
                 password: 'automation01!'
             }
         },

@@ -8,7 +8,7 @@ describe('Login page', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.teacher.user0.credentials)
-        HomePage.selectSchoolYear('2020-2021')
+        HomePage.selectSchoolYear('2021-2022')
     })
     it('should be on Home page', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())
@@ -19,7 +19,7 @@ describe('Login page', function () {
         before(function () {
             payload = {
                 classname: 'Class001',
-                studentname: 'Samuel Dennick',
+                studentname: 'Student001 Student001',
                 tab: 'SubjectTabTest001',
                 testname: 'Write Uppercase Letters'
             }

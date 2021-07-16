@@ -17,7 +17,7 @@ describe('Add Test', function () {
         before(function () {
             payload = {
                 tab: 'AddTestTab001',
-                testname: 'Numbers'
+                testname: 'Automation'
             }
             // Clean up before test run. Delete the test if it already exists
             HomePage.deleteTest(payload)

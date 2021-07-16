@@ -3,6 +3,7 @@ import HomePage from '../pageobjects/HomePage'
 import {Users} from '../fixtures/data'
 
 describe('LoadPieCharts', function () {
+    const suiteName = 'LoadPieCharts'
     let threshold = 2
     before(function () {
         LoginPage.navigate()
@@ -15,16 +16,16 @@ describe('LoadPieCharts', function () {
         before(function () {
             credentials = !process.env.SECONDLOGIN ? Users.teacher.user1.credentials : Users.teacher.user1.secondary.credentials
             LoginPage.login(credentials)
-            HomePage.selectSchoolYear('2020-2021')
+            HomePage.selectSchoolYear('2021-2022')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())
         })
         describe('Switch Between SubjectTabs', function () {
-            describe('Language Arts', function () {
+            describe('Reading', function () {
                 describe('Gragh', function () {
                     let payload = {
-                        subjecttabname: 'Language Arts',
+                        subjecttabname: 'Reading',
                         testname1: 'Uppercase Letters',
                         testname2: 'Lowercase Letters'
                     }
@@ -33,12 +34,12 @@ describe('LoadPieCharts', function () {
                         HomePage.clickSubjectTab(payload.subjecttabname)
                     })
                     describe(`${payload.testname1}`, function () {
-                        it(`${payload.subjecttabname}_${payload.testname1}Graph-should be correct`, function () {
+                        it(`${suiteName}_${payload.subjecttabname}_${payload.testname1}Graph-should be correct`, function () {
                             expect(browser.checkElement(HomePage.getTestCardByName(payload.testname1), this.test.title)).toBeLessThanOrEqual(threshold)
                         })
                     })
                     describe(`${payload.testname2}`, function () {
-                        it(`${payload.subjecttabname}_${payload.testname2}Graph-should be correct`, function () {
+                        it(`${suiteName}_${payload.subjecttabname}_${payload.testname2}Graph-should be correct`, function () {
                             expect(browser.checkElement(HomePage.getTestCardByName(payload.testname2), this.test.title)).toBeLessThanOrEqual(threshold)
                         })
                     })
@@ -55,12 +56,12 @@ describe('LoadPieCharts', function () {
                             HomePage.clickSubjectTab(payload.subjecttabname)
                         })
                         describe(`${payload.testname1}`, function () {
-                            it(`${payload.subjecttabname}_${payload.testname1}Graph-should be correct`, function () {
+                            it(`${suiteName}_${payload.subjecttabname}_${payload.testname1}Graph-should be correct`, function () {
                                 expect(browser.checkElement(HomePage.getTestCardByName(payload.testname1), this.test.title)).toBeLessThanOrEqual(threshold)
                             })
                         })
                         describe(`${payload.testname2}`, function () {
-                            it(`${payload.subjecttabname}_${payload.testname2}Graph-should be correct`, function () {
+                            it(`${suiteName}_${payload.subjecttabname}_${payload.testname2}Graph-should be correct`, function () {
                                 expect(browser.checkElement(HomePage.getTestCardByName(payload.testname2), this.test.title)).toBeLessThanOrEqual(threshold)
                             })
                         })
@@ -69,13 +70,13 @@ describe('LoadPieCharts', function () {
             })
         })
         describe('Switch Between Students', function () {
-            describe('Language Arts', function () {
+            describe('Math', function () {
                 describe('Gragh', function () {
                     let payload = {
                         classname: 'Class001',
-                        subjecttabname: 'Language Arts',
-                        testname1: 'Uppercase Letters',
-                        testname2: 'Lowercase Letters',
+                        subjecttabname: 'Math',
+                        testname1: 'Patterning',
+                        testname2: 'Shapes',
                         students: ['student001 student001', 'student002 student002', 'student003 student003']
                     }
                     before(function () {
@@ -87,7 +88,7 @@ describe('LoadPieCharts', function () {
                             before(function () {
                                 HomePage.clickStudentByName(student)
                             })
-                            it(`${student}${payload.subjecttabname}_${payload.testname1}Graph-should be correct`, function () {
+                            it(`${suiteName}_${student}${payload.subjecttabname}_${payload.testname1}Graph-should be correct`, function () {
                                 expect(browser.checkElement(HomePage.getTestCardByName(payload.testname1), this.test.title)).toBeLessThanOrEqual(threshold)
                             })
                         })
@@ -97,7 +98,7 @@ describe('LoadPieCharts', function () {
                             before(function () {
                                 HomePage.clickStudentByName(student)
                             })
-                            it(`${student}${payload.subjecttabname}_${payload.testname2}Graph-should be correct`, function () {
+                            it(`${suiteName}_${student}${payload.subjecttabname}_${payload.testname2}Graph-should be correct`, function () {
                                 expect(browser.checkElement(HomePage.getTestCardByName(payload.testname2), this.test.title)).toBeLessThanOrEqual(threshold)
                             })
                         })

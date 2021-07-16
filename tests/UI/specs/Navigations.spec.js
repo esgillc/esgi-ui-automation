@@ -101,16 +101,6 @@ describe('Navigation', function () {
                                 expect(Global.menuModalHeader.getText()).toBe('Settings')
                             })
                         })
-                        describe('GET CODE', function () {
-                            describe('Click', function () {
-                                before(function () {
-                                    $('.code-button').isDisplayed() && $('.code-button').click()
-                                })
-                                it('should generate code', function () {
-                                    expect($('.code').isDisplayed()).toBe(true)
-                                })
-                            })
-                        })
                         after(function () {
                             Global.closeModal()
                         })

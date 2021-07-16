@@ -477,9 +477,9 @@ class ReportsPage extends Page {
     }
 
     setItemAnalysisInfo (payload) {
-        this.selectClass(null, payload.class)
-        this.selectSubject(this.dropdowns.itemanalysis.subject, payload.subject)
-        this.selectTest(this.dropdowns.itemanalysis.test, payload.test)
+        // this.selectClass(null, payload.class)
+        // this.selectSubject(this.dropdowns.itemanalysis.subject, payload.subject)
+        // this.selectTest(this.dropdowns.itemanalysis.test, payload.test)
     }
 
     setClassTotalsReportInfo (payload) {

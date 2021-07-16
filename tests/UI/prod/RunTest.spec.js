@@ -8,7 +8,7 @@ describe('Login page', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.legacy.teacheradmin.credentials)
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
     })
     it('should be on Home page', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())

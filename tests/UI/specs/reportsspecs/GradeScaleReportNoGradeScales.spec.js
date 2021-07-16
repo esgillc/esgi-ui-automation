@@ -7,7 +7,7 @@ describe('GradeScaleReport_NoGradeScales', function () {
     before(function () {
         LoginPage.open()
         LoginPage.login(Users.teacher.user9.credentials)
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
     })
     describe('GradeScaleReport-Wizard', () => {
         let action = 'GradeScale_no_gradescale'

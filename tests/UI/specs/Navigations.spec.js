@@ -22,7 +22,7 @@ describe('Navigation', function () {
     describe('LogIn', function () {
         before(function () {
             LoginPage.login(credentials)
-            HomePage.selectSchoolYear('2019-2020')
+            HomePage.selectSchoolYear('2021-2022')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())

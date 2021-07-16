@@ -18,7 +18,7 @@ describe('HomePage', function () {
             credentials = !process.env.SECONDLOGIN ? Users.teacher.credentials : Users.teacher.secondary.credentials
             console.log(credentials)
             LoginPage.login(credentials)
-            HomePage.selectSchoolYear('2019-2020')
+            HomePage.selectSchoolYear('2021-2022')
         })
         it('should be logged in', function () {
             expect(HomePage.title).toBe(HomePage.getTitle())

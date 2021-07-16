@@ -7,7 +7,7 @@ describe('Add Test', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.teacher.user6.credentials)
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
     })
     it('should be on Home page', function () {
         expect(HomePage.title).toBe(HomePage.getTitle())

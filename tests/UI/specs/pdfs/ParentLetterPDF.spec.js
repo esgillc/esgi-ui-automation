@@ -23,7 +23,7 @@ describe('ParentLetterReport', function () {
     //     }
     //     LoginPage.open()
     //     LoginPage.login(Users.teacher.credentials)
-    //     HomePage.selectSchoolYear('2019-2020')
+    //     HomePage.selectSchoolYear('2021-2022')
     //     HomePage.setReportInfo(info)
     //     HomePage.clickParentLetterReport()
     // })

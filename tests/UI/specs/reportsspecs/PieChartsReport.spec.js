@@ -16,7 +16,7 @@ describe('PieChartsReport', function () {
             subject: 'SubjectTabTest001',
             class: 'Buckhoff\'s Class'
         }
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
         HomePage.clickPieCharts()
         ReportsPage.setPieChartsReportInfo(teacherInfo)
     })

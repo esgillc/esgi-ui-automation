@@ -7,13 +7,13 @@ describe('FlashReport', function () {
     let info
     before(function () {
         info = {
-            student: 'Ella Ayvazian',
+            student: 'Student001 Student001',
             subject: 'SubjectTabTest001',
             class: 'Buckhoff\'s Class'
         }
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
         HomePage.setReportInfo(info)
         HomePage.clickFlashcardsReport()
         // ReportsPage.setReportInfo(info)

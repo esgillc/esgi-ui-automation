@@ -17,7 +17,7 @@ describe('BingoReport', function () {
             group: 'All Students',
             test: 'Write Uppercase Letters'
         }
-        HomePage.selectSchoolYear('2019-2020')
+        HomePage.selectSchoolYear('2021-2022')
     })
     describe('BingoReport-CardSize3x3_Print1_Easy_InClassroom', () => {
         let action1 = 'BingoReport-CardSize3x3_Print1_Easy'

@@ -8,14 +8,14 @@ describe('ParentLetterReport', function () {
     let info
     before(function () {
         info = {
-            student: 'Ella Ayvazian',
+            student: 'Student001 Student001',
             subject: 'SubjectTabTest001',
             class: 'Buckhoff\'s Class'
         }
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
         HomePage.selectSchoolYear('2021-2022')
-        HomePage.setReportInfo(info)
+        // HomePage.setReportInfo(info)
         HomePage.clickParentLetterReport()
     })
     after(function () {
@@ -26,7 +26,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_Check-All'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: true,
@@ -82,7 +82,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_UncheckQuestionNotes'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: false,
@@ -137,7 +137,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_UncheckGrades'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: true,
@@ -192,7 +192,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_UnCheckSkippedQuestions'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: true,
@@ -247,7 +247,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_UncheckDate'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: true,
@@ -302,7 +302,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_UncheckMessage'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: true,
@@ -357,7 +357,7 @@ describe('ParentLetterReport', function () {
         let action = 'ParentLetterReport_UncheckAll'
         before(function () {
             payload = {
-                student: 'Ella Ayvazian',
+                student: 'Student001 Student001',
                 subject: 'SubjectTabTest001',
                 class: 'Buckhoff\'s Class',
                 questionnotes: false,

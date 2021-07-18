@@ -488,9 +488,9 @@ class ReportsPage extends Page {
     }
 
     verifyReport (payload) {
-        this.selectClass(null, payload.class)
-        this.selectStudent(null, payload.student)
-        this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
+        // this.selectClass(null, payload.class)
+        // this.selectStudent(null, payload.student)
+        // this.selectSubject(this.dropdowns.parentletter.subject, payload.subject)
         this.checkUnCheckQuestionNotes(payload.questionnotes)
         this.checkUnCheckGrades(payload.grades)
         this.checkUnCheckSkippedQuestions(payload.skippedquestions)

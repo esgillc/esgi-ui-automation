@@ -149,6 +149,9 @@ describe('Navigation', function () {
                         before(function () {
                             Global.clickRenewAccountBtn()
                         })
+                        after(function () {
+                            Global.closeModal()
+                        })
                         it('header should be correct', function () {
                             expect(Global.accoutRenewalHeader.getText()).toBe('Account Management')
                         })

@@ -12,7 +12,7 @@ describe('PieChartsReport', function () {
 
         // Set the teacher dropdowns
         const teacherInfo = {
-            student: 'Ella Ayvazian',
+            student: 'Student001 Student001',
             subject: 'SubjectTabTest001',
             class: 'Buckhoff\'s Class'
         }

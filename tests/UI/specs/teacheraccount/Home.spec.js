@@ -100,7 +100,7 @@ describe('HomePage', function () {
                 before(function () {
                     payload = {
                         name: 'Testing123',
-                        students: ['Ella Ayvazian', 'Emily Charkhchyan']
+                        students: ['Student001 Student001', 'Student002 Student002']
                     }
                     HomePage.addClass(payload)
                 })
@@ -113,7 +113,7 @@ describe('HomePage', function () {
                         payload = {
                             name: 'Testing123',
                             newname: 'NewClass123',
-                            students: ['Emily Charkhchyan']
+                            students: ['Student001 Student001']
                         }
                         HomePage.editClass(payload)
                     })
@@ -140,7 +140,7 @@ describe('HomePage', function () {
                     payload = {
                         classname: 'Buckhoff\'s Class',
                         name: 'Group123',
-                        students: ['Sofia Boghozian', 'Janet Dermenjyan']
+                        students: ['Student001 Student001', 'Student002 Student002']
                     }
                     HomePage.addGroup(payload)
                 })
@@ -155,7 +155,7 @@ describe('HomePage', function () {
                         classname: 'Buckhoff\'s Class',
                         name: 'Group123',
                         newname: 'NewGroup123',
-                        students: ['Sofia Boghozian', 'Janet Dermenjyan']
+                        students: ['Student003 Student003']
                     }
                     HomePage.editGroup(payload)
                 })

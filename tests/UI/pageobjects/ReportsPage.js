@@ -530,9 +530,9 @@ class ReportsPage extends Page {
     }
 
     setPieChartsReportInfo (payload) {
-        this.selectClass(null, payload.class)
-        this.selectStudent(null, payload.student)
-        this.selectSubject(this.dropdowns.piecharts.subject, payload.subject)
+        // this.selectClass(null, payload.class)
+        // this.selectStudent(null, payload.student)
+        // this.selectSubject(this.dropdowns.piecharts.subject, payload.subject)
     }
 
     setStudentDetailReportInfo (payload) {

@@ -42,7 +42,7 @@ describe('TeacherAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle(report.name)
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).toBe(report.title)
+                                    expect(reportTitle).toStrictEqual(report.title)
                                 })
                             })
                         })

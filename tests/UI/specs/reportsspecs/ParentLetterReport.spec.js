@@ -5,13 +5,13 @@ import {Users} from '../../fixtures/data'
 
 describe('ParentLetterReport', function () {
     const reportName = 'Parent_Letter'
-    let info
+    // let info
     before(function () {
-        info = {
-            student: 'Student001 Student001',
-            subject: 'SubjectTabTest001',
-            class: 'Buckhoff\'s Class'
-        }
+        // info = {
+        //     student: 'Student001 Student001',
+        //     subject: 'SubjectTabTest001',
+        //     class: 'Buckhoff\'s Class'
+        // }
         LoginPage.open()
         LoginPage.login(Users.teacher.credentials)
         HomePage.selectSchoolYear('2021-2022')

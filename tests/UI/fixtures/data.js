@@ -897,8 +897,8 @@ const Signup = {
                 msg: '&lt;div&gt;This promo code already has expired&lt;/div&gt;'
             },
             activationcode: {
-                test: '29D1BC7B',
-                msg: 'It looks like you entered an Activation Code.'
+                test: '2C2H738A',
+                msg: 'It looks like you entered an Activation Code. Go to the Activation Code form'
             }
         }
     },

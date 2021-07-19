@@ -65,7 +65,7 @@ describe('Signup page - Signup_FieldValidation', function () {
                 })
             })
         })
-        describe.skip('Create Username', function () {
+        describe('Create Username', function () {
             before(function () {
                 SignupPage.navigate()
             })

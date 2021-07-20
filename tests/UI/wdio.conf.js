@@ -135,7 +135,8 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         `${dir}/specs/**/CreateSubjectTabTest.spec.js`,
-        `${dir}/specs/databasesplit/*.spec.js`
+        `${dir}/specs/databasesplit/*.spec.js`,
+        `${dir}/specs/reportsspecs/GradeScaleReports/GradeScale*.spec.js`
     ],
     capabilities: [
         {

@@ -2,13 +2,13 @@ import LoginPage from '../pageobjects/LoginPage'
 import HomePage from '../pageobjects/HomePage'
 import Global from '../support/Global'
 import {Users} from '../fixtures/data'
-
+const secondaryLogin = process.env.SECONDLOGIN
 describe('Navigation', function () {
     let credentials
     if ((browser.config.env === 'PROD')) {
         credentials = browser.config.credentials
     } else {
-        credentials = !process.env.SECONDLOGIN ? Users.teacher.user4.credentials : Users.teacher.user4.secondary.credentials
+        credentials = !secondaryLogin ? Users.teacher.user4.credentials : Users.teacher.user4.secondary.credentials
     }
     before(function () {
         LoginPage.navigate()
@@ -132,43 +132,23 @@ describe('Navigation', function () {
                 })
                 describe('RenewAccount', function () {
                     let renewAccountBtn
+                    const isSecondaryLogin = !!secondaryLogin
+                    const expected = !isSecondaryLogin
                     before(function () {
                         Global.clickMyAccountMenu()
                         renewAccountBtn = Global.renewAccountBtn
                     })
+                    after(function () {
+                        Global.closeModal()
+                    })
                     it('should be correct', function () {
-                        expect(renewAccountBtn.getText()).toBe('RENEW')
+                        !isSecondaryLogin && expect(renewAccountBtn.getText()).toBe('RENEW')
                     })
                     it('should be visible', function () {
-                        expect(renewAccountBtn.isDisplayed()).toBe(true)
+                        expect(renewAccountBtn.isExisting()).toBe(expected)
                     })
                     it('should be enabled', function () {
-                        expect(renewAccountBtn.isEnabled()).toBe(true)
-                    })
-                    describe('RenewalPage', function () {
-                        before(function () {
-                            Global.clickRenewAccountBtn()
-                        })
-                        after(function () {
-                            Global.closeModal()
-                        })
-                        it('header should be correct', function () {
-                            expect(Global.accoutRenewalHeader.getText()).toBe('Account Management')
-                        })
-                        it('url should be correct', function () {
-                            expect(browser.getUrl()).toBe(Global.accountRenewalUrl)
-                        })
-                        describe('ExitRenewalPage', function () {
-                            before(function () {
-                                Global.clickRenewalPageExistBtn()
-                            })
-                            it('should be back on Home Page', function () {
-                                expect(HomePage.title).toBe(HomePage.getTitle())
-                            })
-                            it('url should be correct', function () {
-                                expect(browser.getUrl()).toBe(HomePage.absoluteUrl())
-                            })
-                        })
+                        expect(renewAccountBtn.isExisting()).toBe(expected)
                     })
                 })
             })

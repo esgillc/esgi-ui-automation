@@ -1,7 +1,7 @@
-import LoginPage from '../../pageobjects/LoginPage'
-import HomePage from '../../pageobjects/HomePage'
-import ReportsPage from '../../pageobjects/ReportsPage'
-import {Users} from '../../fixtures/data'
+import LoginPage from '../../../pageobjects/LoginPage'
+import HomePage from '../../../pageobjects/HomePage'
+import ReportsPage from '../../../pageobjects/ReportsPage'
+import {Users} from '../../../fixtures/data'
 
 describe('GradeScaleReport', function () {
     before(function () {

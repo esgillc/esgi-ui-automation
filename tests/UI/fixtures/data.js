@@ -768,7 +768,7 @@ const Signup = {
             promocode: ''
         },
         user2: {
-            activationcode: '29D1BC7B',
+            activationcode: '2C2H738A',
             email: 'TDB',
             username: 'user',
             password: 'automation01!',

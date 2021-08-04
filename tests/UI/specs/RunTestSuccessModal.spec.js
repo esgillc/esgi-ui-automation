@@ -10,7 +10,7 @@ describe('RunTestSuccessModal', function () {
     before(function () {
         LoginPage.navigate()
         LoginPage.login(Users.legacy.teacheradmin.credentials)
-        HomePage.selectSchoolYear('2020-2021')
+        HomePage.selectSchoolYear('2021-2022')
 
         // Global.configureTestCompletedDisplay()
     })
@@ -23,7 +23,7 @@ describe('RunTestSuccessModal', function () {
         before(function () {
             payload = {
                 classname: 'Class001',
-                studentname: 'test test123',
+                studentname: 'Student001 Student001',
                 tab: '1st - ELA',
                 testname: 'Segmenting'
             }
@@ -47,7 +47,7 @@ describe('RunTestSuccessModal', function () {
                 expected = {
                     correctpercentage: '20%',
                     incorrectpercentage: '80%',
-                    resultlabel: `correct answers: ${results.correct}/${totalQuestions}`
+                    resultlabel: `Correct answers: ${results.correct}/${totalQuestions}`
                 }
                 if (!process.env.DONTRUNTEST) {
                     resultsPageOutput = TestResultsPage.graphTextObj()
@@ -67,8 +67,8 @@ describe('RunTestSuccessModal', function () {
                     }
                 })
                 it('should be present', function () {
-                    const homeResultLabel = expected.resultlabel.split(':')
-                    expected.resultlabel = `correct Answers\n${homeResultLabel[1].trim()}`
+                    // const homeResultLabel = expected.resultlabel.split(':')
+                    // expected.resultlabel = `correct Answers\n${homeResultLabel[1].trim()}`
                     const homepageOutput = HomePage.graphTextObj(payload)
                     console.log('HomepageOutput: ', homepageOutput)
                     expect(homepageOutput).toStrictEqual(expected)

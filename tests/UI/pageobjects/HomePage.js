@@ -98,6 +98,8 @@ class HomePage extends Page {
         // Tests
         this.testsCss = '.pie-charts .card'
 
+        this.createTestLinkCss = '.create-test-link'
+
         // Subject Tab Scroll arrors
         this.doubleRightarrowsCss = '.fa-angle-double-right'
 
@@ -112,11 +114,17 @@ class HomePage extends Page {
     get trackName () { return $(this.trackNameCss) }
     get trackNameLink () { return this.trackName.$('a') }
     get schoolYear () { return $(this.schoolYearCss) }
+    get createTestLink () { return $(this.createTestLinkCss) }
 
     get header () { return $(this.headerCss) }
     get createSubjectTab () {
         this.scrollSubjectTabToEnd()
         return $(this.createSubjectTabCss)
+    }
+
+    clickCreateTestLink () {
+        this.createTestLink.click()
+        browser.pause(500)
     }
 
     selectSchoolYear (year) {

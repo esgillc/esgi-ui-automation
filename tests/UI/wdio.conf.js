@@ -80,12 +80,16 @@ exports.config = {
         ],
         reports: [
             `${dir}/specs/reportsspecs/ParentLetter*.spec.js`,
-            // `${dir}/specs/reportsspecs/Flashcards*.spec.js`,
             `${dir}/specs/reportsspecs/ClassTotals*.spec.js`,
+            `${dir}/specs/teacheraccount/Reports*.spec.js`
+            // `${dir}/specs/reportsspecs/Flashcards*.spec.js`,
             // `${dir}/specs/reportsspecs/PieCharts*.spec.js`,
             // `${dir}/specs/LoadPieCharts.spec.js`,
             // `${dir}/specs/reportsspecs/ItemAnalysis*.spec.js`,
-            `${dir}/specs/**/*Report*.spec.js`
+            // `${dir}/specs/teacheraccount/Reports*.spec.js`,
+            // `${dir}/specs/schooladminaccount/Reports*.spec.js`,
+            // `${dir}/specs/districtadminaccount/Reports*.spec.js`
+            // `${dir}/specs/**/*Report*.spec.js`
         ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,

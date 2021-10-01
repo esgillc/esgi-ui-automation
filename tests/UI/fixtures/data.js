@@ -911,9 +911,73 @@ const Signup = {
         }
     }
 }
+
+const AutoTestCreation = {
+    testtopics: [
+        'Computation',
+        'Letters',
+        'Numbers',
+        'Observation',
+        'Sight Words',
+        'Sounds',
+        'Vocabulary'
+    ],
+    meta: {
+        computation: {
+            testtopic: 'Computation',
+            testname: 'Computation',
+            description: 'Solve computation problems',
+            contentarea: 'Language Arts',
+            directions: 'Have the student solve the problem'
+        },
+        letters: {
+            testtopic: 'Letters',
+            testname: 'Letters',
+            description: 'Identifying Letters',
+            contentarea: 'Language Arts',
+            directions: 'What letter is this?'
+        },
+        numbers: {
+            testtopic: 'Numbers',
+            testname: 'Numbers',
+            description: 'Count numbers',
+            contentarea: 'Mathematics',
+            directions: 'What number is this?'
+        },
+        observation: {
+            testtopic: 'Observation',
+            testname: 'Observation',
+            description: 'Observe student completing task',
+            contentarea: 'Other',
+            directions: 'Observe the student doing the task'
+        },
+        sightwords: {
+            testtopic: 'Sight Words',
+            testname: 'Sight Words',
+            description: 'Read sight words',
+            contentarea: 'Language Arts',
+            directions: 'What word is this?'
+        },
+        sounds: {
+            testtopic: 'Sounds',
+            testname: 'Sounds',
+            description: 'Identify or produce sounds',
+            contentarea: 'Language Arts',
+            directions: 'What sound is this?'
+        },
+        vocabulary: {
+            testtopic: 'Vocabulary',
+            testname: 'Vocabulary',
+            description: 'Read or define vocabulary words',
+            contentarea: 'Language Arts',
+            directions: 'Have the student define the word'
+        }
+    }
+}
 export {
     Users,
     Reports,
     Login,
-    Signup
+    Signup,
+    AutoTestCreation
 }

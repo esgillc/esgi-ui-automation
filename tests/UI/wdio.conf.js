@@ -37,7 +37,7 @@ exports.config = {
             `./tests/ELK/verifyelasticsearchdata.spec.js`
         ],
         login: [
-            `${dir}/specs/testeditor/ImageGalleryModal.spec.js`
+            `${dir}/specs/autotestcreation/SaveAndCloseToCreateTest.spec.js`
             // `${dir}/specs/Login.spec.js`
         ],
         bingo: [

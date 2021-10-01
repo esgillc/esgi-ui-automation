@@ -100,6 +100,8 @@ class HomePage extends Page {
 
         this.createTestLinkCss = '.create-test-link'
 
+        this.autoTestCreatorCinkCss = '.auto-test-creator-link'
+
         // Subject Tab Scroll arrors
         this.doubleRightarrowsCss = '.fa-angle-double-right'
 
@@ -115,6 +117,7 @@ class HomePage extends Page {
     get trackNameLink () { return this.trackName.$('a') }
     get schoolYear () { return $(this.schoolYearCss) }
     get createTestLink () { return $(this.createTestLinkCss) }
+    get autoTestCreatorLink () { return $(this.autoTestCreatorCinkCss) }
 
     get header () { return $(this.headerCss) }
     get createSubjectTab () {
@@ -124,6 +127,11 @@ class HomePage extends Page {
 
     clickCreateTestLink () {
         this.createTestLink.click()
+        browser.pause(500)
+    }
+
+    clickAutoTestCreatorLink () {
+        this.autoTestCreatorLink.click()
         browser.pause(500)
     }
 

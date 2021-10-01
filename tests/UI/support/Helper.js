@@ -126,6 +126,13 @@ function Helper () {
         browser.keys(' ') // Necessary else the value is lost after we lose focus
     }
 
+    this.clickElementAtIndex = function (css, index) {
+        return browser.execute(function (css, index) {
+            // eslint-disable-next-line no-undef
+            return document.querySelectorAll(css)[index].click()
+        }, css, index)
+    }
+
     // this.getValues = function (css) {
     //     return browser.execute(function (css) {
     //             // eslint-disable-next-line no-undef

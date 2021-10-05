@@ -19,6 +19,9 @@ function Helper () {
     this.generateRandomSSNs = function () {
         return Math.random().toString().slice(2, 11)
     }
+    this.getRandomNumber = function (max) {
+        return Math.floor(Math.random() * max)
+    }
 
     this.switchToFrame = () => {
         // browser.switchToFrame(null)

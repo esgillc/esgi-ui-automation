@@ -7,7 +7,7 @@ import AutoTestCreationModal from '../../Components/AutoTestCreationModal'
 describe('SaveAndCloseToCreateTest', function () {
     before(function () {
         LoginPage.navigate()
-        LoginPage.login(Users.teacher.user6.credentials)
+        LoginPage.login(Users.teacher.user5.credentials)
         Global.navigateToTestExplorer()
         HomePage.clickAutoTestCreatorLink()
     })
@@ -15,7 +15,7 @@ describe('SaveAndCloseToCreateTest', function () {
         expect(AutoTestCreationModal.pageTitle).toBe(AutoTestCreationModal.getPageTitle())
     })
     describe('Given I am on the auto test creator modal', function () {
-        describe('When I enter a question and click the save and close button', function () {
+        describe('When I enter a question', function () {
             const question = 'What letter is this?'
             let testName
             before(async function () {

@@ -10,7 +10,7 @@ import QuestionEditorModal from '../../Components/QuestionEditorModal'
 describe('QuestionEditorModalShapesTool - Question Editor Modal Tests', function () {
     before(function () {
         LoginPage.navigate()
-        LoginPage.login(Users.teacher.user6.credentials)
+        LoginPage.login(Users.teacher.user5.credentials)
         Global.navigateToTestExplorer()
     })
     it('should be on Test Explorer page', function () {

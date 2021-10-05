@@ -7,7 +7,7 @@ import AutoTestCreationModal from '../../Components/AutoTestCreationModal'
 describe('AutoTestCreationModal', function () {
     before(function () {
         LoginPage.navigate()
-        LoginPage.login(Users.teacher.user6.credentials)
+        LoginPage.login(Users.teacher.user7.credentials)
         Global.navigateToTestExplorer()
     })
     it('should be on Test Explorer page', function () {
@@ -22,27 +22,23 @@ describe('AutoTestCreationModal', function () {
             it('Then the Auto Test Creation Modal should open', function () {
                 expect(AutoTestCreationModal.isAutoTestCreationModalOpen()).toBe(true)
             })
-            describe('Then Save Button...', function () {
-                it('should be displayed', function () {
-                    expect(AutoTestCreationModal.saveBtn).toBeDisplayed()
-                })
-                it('should be clickable', function () {
-                    expect(AutoTestCreationModal.saveBtn).toBeClickable()
-                })
-                it('should be enabled', function () {
-                    expect(AutoTestCreationModal.saveBtn).toBeEnabled()
-                })
+            it('And Save Button should be displayed', function () {
+                expect(AutoTestCreationModal.saveBtn).toBeDisplayed()
             })
-            describe('Then Cancel Button...', function () {
-                it('should be displayed', function () {
-                    expect(AutoTestCreationModal.cancelBtn).toBeDisplayed()
-                })
-                it('should be clickable', function () {
-                    expect(AutoTestCreationModal.cancelBtn).toBeClickable()
-                })
-                it('should be enabled', function () {
-                    expect(AutoTestCreationModal.cancelBtn).toBeEnabled()
-                })
+            it('And Save Button should be clickable', function () {
+                expect(AutoTestCreationModal.saveBtn).toBeClickable()
+            })
+            it('And Save Button should be enabled', function () {
+                expect(AutoTestCreationModal.saveBtn).toBeEnabled()
+            })
+            it('Then Cancel Button should be displayed', function () {
+                expect(AutoTestCreationModal.cancelBtn).toBeDisplayed()
+            })
+            it('And Cancel Button should be clickable', function () {
+                expect(AutoTestCreationModal.cancelBtn).toBeClickable()
+            })
+            it('And Cancel Button should be enabled', function () {
+                expect(AutoTestCreationModal.cancelBtn).toBeEnabled()
             })
             describe('Given I am on the Auto Test Creation Modal', function () {
                 describe(`When I expand the topics dropdown`, function () {
@@ -150,6 +146,59 @@ describe('AutoTestCreationModal', function () {
                         })
                         it('And the thumbnail view button is enabled', function () {
                             expect(AutoTestCreationModal.thumbnailViewBtn).toBeEnabled()
+                        })
+                        describe(`Given I click the Randomize Link`, function () {
+                            let beforeRandomize
+                            let afterRandomize
+                            before(function () {
+                                beforeRandomize = AutoTestCreationModal.getAddedQuestions()
+                                AutoTestCreationModal.randomizeQuestions()
+                                afterRandomize = AutoTestCreationModal.getAddedQuestions()
+                            })
+                            it('Then the questions are reordered', function () {
+                                expect(AutoTestCreationModal.verifyQuestionsHasBeenReOrdered(beforeRandomize, afterRandomize, true)).toBe(true)
+                            })
+                        })
+                        describe(`Given I drag and drap the questions to reorder`, function () {
+                            let beforeRandomize
+                            let afterRandomize
+                            before(function () {
+                                beforeRandomize = AutoTestCreationModal.getAddedQuestions()
+                                AutoTestCreationModal.manuallyReOrderQuestions()
+                                afterRandomize = AutoTestCreationModal.getAddedQuestions()
+                            })
+                            it('Then the questions are reordered', function () {
+                                expect(AutoTestCreationModal.verifyQuestionsHasBeenReOrdered(beforeRandomize, afterRandomize)).toBe(true)
+                            })
+                        })
+                        describe(`Given I cancel the Randomize action`, function () {
+                            let beforeRandomize
+                            let afterRandomize
+                            before(function () {
+                                beforeRandomize = AutoTestCreationModal.getAddedQuestions()
+                                AutoTestCreationModal.cancelRandomizeQuestions()
+                                browser.pause(500)
+                                afterRandomize = AutoTestCreationModal.getAddedQuestions()
+                            })
+                            describe(`When I click the Clear Button`, function () {
+                                it('Then the questions are not reordered', function () {
+                                    expect(AutoTestCreationModal.verifyQuestionsHasBeenReOrdered(beforeRandomize, afterRandomize)).toBe(false)
+                                })
+                            })
+                            describe(`Given I click the Clear All Link`, function () {
+                                before(function () {
+                                    AutoTestCreationModal.clearAllQuestions()
+                                })
+                                it('Then the first question is cleared', function () {
+                                    expect(AutoTestCreationModal.createdQuestion('Question1')).not.toBeDisplayed()
+                                })
+                                it('And the second question is cleared', function () {
+                                    expect(AutoTestCreationModal.createdQuestion('Question2')).not.toBeDisplayed()
+                                })
+                                it('And the third question is cleared', function () {
+                                    expect(AutoTestCreationModal.createdQuestion('Question3')).not.toBeDisplayed()
+                                })
+                            })
                         })
                     })
                 })

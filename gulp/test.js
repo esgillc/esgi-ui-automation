@@ -137,6 +137,10 @@ export default options => {
         return runTest(['signup'])
     }))
 
+    gulp.task('testcreation', gulp.series(async function test () {
+        return runTest(['testcreation'])
+    }))
+
     gulp.task('warmup', gulp.series(async function test () {
         return runTest(['warmup'])
     }))

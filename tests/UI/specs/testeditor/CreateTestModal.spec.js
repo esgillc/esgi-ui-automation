@@ -3,12 +3,13 @@ import HomePage from '../../pageobjects/HomePage'
 import Global from '../../support/Global'
 import {Users} from '../../fixtures/data'
 import CreateTestModal from '../../Components/CreateTestModal'
+import QuestionEditorModal from '../../Components/QuestionEditorModal'
 // import {Login} from '../fixtures/data'
 
-describe('Create Test Modal Tests', function () {
+describe('CreateTestModal Tests', function () {
     before(function () {
         LoginPage.navigate()
-        LoginPage.login(Users.teacher.user6.credentials)
+        LoginPage.login(Users.teacher.user7.credentials)
         Global.navigateToTestExplorer()
     })
     it('should be on Test Explorer page', function () {
@@ -30,13 +31,13 @@ describe('Create Test Modal Tests', function () {
             })
             describe('Then Question Button...', function () {
                 it('should be displayed', function () {
-                    expect(CreateTestModal.questionButton).toBeDisplayed()
+                    expect(CreateTestModal.addQuestionButton).toBeDisplayed()
                 })
                 it('should be clickable', function () {
-                    expect(CreateTestModal.questionButton).toBeClickable()
+                    expect(CreateTestModal.addQuestionButton).toBeClickable()
                 })
                 it('should be enabled', function () {
-                    expect(CreateTestModal.questionButton).toBeEnabled()
+                    expect(CreateTestModal.addQuestionButton).toBeEnabled()
                 })
             })
             describe('When I CLICK the ADD QUESTION', function () {
@@ -44,8 +45,14 @@ describe('Create Test Modal Tests', function () {
                     CreateTestModal.clickAddQuestion()
                 })
                 describe('Then the Question Editor modal...', function () {
-                    it('should be displayed', function () {
-                        expect(CreateTestModal.questionButton).toBeDisplayed()
+                    it('Then the question editor modal should be displayed', function () {
+                        expect(QuestionEditorModal.modal).toBeDisplayed()
+                    })
+                    it('And the question editor modal should be enabled', function () {
+                        expect(QuestionEditorModal.modal).toBeEnabled()
+                    })
+                    it('And the question editor modal header should be correct', function () {
+                        expect(QuestionEditorModal.modal.$('.title-container')).toHaveText('Add Question')
                     })
                 })
             })

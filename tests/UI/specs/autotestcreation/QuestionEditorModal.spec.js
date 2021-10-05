@@ -11,7 +11,7 @@ describe('QuestionEditorModal - Edit Question Thumbnail', function () {
         let list = `Question1\nQuestion2\nQuestion3\n`
         before(function () {
             LoginPage.navigate()
-            LoginPage.login(Users.teacher.user6.credentials)
+            LoginPage.login(Users.teacher.user8.credentials)
             Global.navigateToTestExplorer()
             HomePage.clickAutoTestCreatorLink()
             browser.pause(2000)

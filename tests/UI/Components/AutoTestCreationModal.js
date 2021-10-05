@@ -1,6 +1,7 @@
 'use strict'
 import Modal from './Modal'
 import Helper from '../support/Helper'
+import _ from 'lodash'
 
 class AutoTestCreationModal extends Modal {
     constructor () {
@@ -9,9 +10,12 @@ class AutoTestCreationModal extends Modal {
         this.pageTitle = 'Test Explorer'
         this.testTopicsDropdownCss = '.topic .dropdown-container .text'
         this.testNameCss = '#text_input_form-control'
+        this.addedQuestionsCss = '#text_input_question-name-input'
         this.descriptionCss = '.description #text_area_'
         this.questionTextFieldCss = '.question-name .form-control'
         this.addQuestionBtnCss = '.question-adder .btn-link'
+        this.questionLinksCss = '.question-container .btn-link'
+        this.questionsDragHandlesCss = '.question-row .drag'
         this.directionsCss = '.directions #text_area_'
         this.contentAreaDropdownCss = '.content-area-dropdown-container .text'
         this.colorPickerCss = '.react-color-picker'
@@ -84,7 +88,12 @@ class AutoTestCreationModal extends Modal {
     get description () { return $(this.descriptionCss) }
     get directions () { return $(this.directionsCss) }
     get addQuestionBtn () { return $(this.addQuestionBtnCss) }
+    get addedQuestions () { return $$(this.addedQuestionsCss) }
     get questionTextField () { return $(this.questionTextFieldCss) }
+    get questionLinks () { return $$(this.questionLinksCss) }
+    get questionsDragHandles () { return $$(this.questionsDragHandlesCss) }
+    get randomizeLink () { return this.questionLinks[0] }
+    get clearAllLink () { return this.questionLinks[1] }
     get contentAreaDropdown () { return $(this.contentAreaDropdownCss) }
     get font () { return $$('.dropdown-container')[2] }
     get saveBtn () { return $(this.saveCss) }
@@ -156,6 +165,28 @@ class AutoTestCreationModal extends Modal {
     createdQuestion (question) {
         return $(`input[value="${question}"]`)
     }
+    randomizeQuestions () {
+        this.randomizeLink.click()
+        browser.pause(250)
+        $(`span=Yes, Randomize`).click()
+        browser.pause(1000)
+    }
+    clearAllQuestions () {
+        this.clearAllLink.click()
+        browser.pause(250)
+        $(`span=Yes, Clear All`).click()
+        browser.pause(250)
+    }
+    cancelRandomizeQuestions () {
+        this.randomizeLink.click()
+        browser.pause(250)
+        $(`span=Cancel`).click()
+        browser.pause(250)
+    }
+    clickCancelRandomizeBtn () {
+        $(`span=Cancel`).click()
+        browser.pause(250)
+    }
     clickThumbnailViewBtn () {
         this.thumbnailViewBtn.click()
         browser.pause(1000)
@@ -185,6 +216,30 @@ class AutoTestCreationModal extends Modal {
     }
     getSubjectTabModalHeaderText (testName) {
         return `Add ${testName} to a Subject Tab`
+    }
+    getAddedQuestions () {
+        const addedQuestions = []
+        this.addedQuestions.forEach(function (question) {
+            addedQuestions.push(question.getValue())
+        })
+        return addedQuestions
+    }
+    verifyQuestionsHasBeenReOrdered (beforeRandomized, afterRandomized, retry) {
+        if (retry) {
+            let isEqual = _.isEqual(beforeRandomized, afterRandomized)
+            if (isEqual) {
+                this.randomizeQuestions()
+                afterRandomized = this.getAddedQuestions()
+            }
+        }
+        return !_.isEqual(beforeRandomized, afterRandomized)
+    }
+    manuallyReOrderQuestions () {
+        let randomNum = Helper.getRandomNumber(3)
+        // eslint-disable-next-line no-const-assign
+        if (randomNum === 0) { randomNum = 1 }
+        this.questionsDragHandles[0].dragAndDrop(this.questionsDragHandles[randomNum])
+        browser.pause(500)
     }
 }
 

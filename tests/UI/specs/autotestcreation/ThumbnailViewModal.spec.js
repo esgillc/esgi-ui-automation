@@ -9,7 +9,7 @@ describe('ThumbnailViewModal', function () {
     describe('Given I click the ThumbnailView button', function () {
         before(function () {
             LoginPage.navigate()
-            LoginPage.login(Users.teacher.user6.credentials)
+            LoginPage.login(Users.teacher.user9.credentials)
             Global.navigateToTestExplorer()
             HomePage.clickAutoTestCreatorLink()
             browser.pause(2000)

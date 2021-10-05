@@ -27,6 +27,7 @@
         "elastic": "gulp elastic",
         "loginload": "gulp loginload",
         "prodsmoke": "gulp prodsmoke",
+        "testcreation": "gulp testcreation",
         "secondloginsmoke": "gulp secondloginsmoke",
         "signup": "gulp signup",
         "criticalpath": "gulp criticalpath",

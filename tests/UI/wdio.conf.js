@@ -36,6 +36,10 @@ exports.config = {
         elastic: [
             `./tests/ELK/verifyelasticsearchdata.spec.js`
         ],
+        testcreation: [
+            `${dir}/specs/autotestcreation/*.spec.js`,
+            `${dir}/specs/testeditor/*.spec.js`
+        ],
         login: [
             `${dir}/specs/Login.spec.js`
         ],

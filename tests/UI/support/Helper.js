@@ -19,6 +19,9 @@ function Helper () {
     this.generateRandomSSNs = function () {
         return Math.random().toString().slice(2, 11)
     }
+    this.getRandomNumber = function (max) {
+        return Math.floor(Math.random() * max)
+    }
 
     this.switchToFrame = () => {
         // browser.switchToFrame(null)
@@ -124,6 +127,13 @@ function Helper () {
         }, css, input)
         browser.pause(500)
         browser.keys(' ') // Necessary else the value is lost after we lose focus
+    }
+
+    this.clickElementAtIndex = function (css, index) {
+        return browser.execute(function (css, index) {
+            // eslint-disable-next-line no-undef
+            return document.querySelectorAll(css)[index].click()
+        }, css, index)
     }
 
     // this.getValues = function (css) {

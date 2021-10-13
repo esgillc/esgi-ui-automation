@@ -272,7 +272,7 @@ exports.config = {
     },
     hostname: 'localhost',
     port: 4444,
-    path: '/wd/hub',
+    // path: '/wd/hub',
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

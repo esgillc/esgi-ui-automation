@@ -130,7 +130,7 @@ describe('Navigation', function () {
                         })
                     })
                 })
-                describe('RenewAccount', function () {
+                describe.only('RenewAccount', function () {
                     let renewAccountBtn
                     const isSecondaryLogin = !!secondaryLogin
                     const expected = !isSecondaryLogin
@@ -148,7 +148,7 @@ describe('Navigation', function () {
                         expect(renewAccountBtn.isExisting()).toBe(expected)
                     })
                     it('should be enabled', function () {
-                        expect(renewAccountBtn.isExisting()).toBe(expected)
+                        expect(renewAccountBtn.isEnabled()).toBe(expected)
                     })
                 })
             })

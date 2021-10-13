@@ -29,7 +29,8 @@ class AutoTestCreationModal extends Modal {
         this.thumbnailViewBtnCss = '.btn-thumbnail-view'
 
         this.addLaterBtnCss = 'footer .btn-primary'
-        this.confirmSubjectTabBtnCss = 'footer . btn-secondary'
+        this.addToSubjectTabDropdownCss = '.add-test-to-subject select'
+        this.confirmSubjectTabBtnCss = '.btn-primary=Confirm Subject Tab'
 
         // Test Explorer
         this.myTestsCss = '[data-name="My Tests"]'
@@ -104,6 +105,7 @@ class AutoTestCreationModal extends Modal {
     // Add Subject Modal
     get addLaterBtn () { return $(this.addLaterBtnCss) }
     get confirmSubjectTabBtn () { return $(this.confirmSubjectTabBtnCss) }
+    get addToSubjectTabDropdown () { return $(this.addToSubjectTabDropdownCss) }
 
     // Test Explorer
     get myTests () { return $(this.myTestsCss) }
@@ -240,6 +242,15 @@ class AutoTestCreationModal extends Modal {
         if (randomNum === 0) { randomNum = 1 }
         this.questionsDragHandles[0].dragAndDrop(this.questionsDragHandles[randomNum])
         browser.pause(500)
+    }
+    selectSubjectTab (subjectTab) {
+        this.addToSubjectTabDropdown.selectByVisibleText(subjectTab)
+        browser.pause(500)
+    }
+    addTestToSubjectTab (subjectTab) {
+        this.selectSubjectTab(subjectTab)
+        this.confirmSubjectTabBtn.click()
+        Helper.waitForLoadingToComplete()
     }
 }
 

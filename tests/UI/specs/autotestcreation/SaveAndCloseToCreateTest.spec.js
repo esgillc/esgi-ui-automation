@@ -75,6 +75,34 @@ describe('SaveAndCloseToCreateTest', function () {
                         })
                     })
                 })
+                describe(`When I add test to a subject tab`, function () {
+                    let payload = {
+                        tab: 'AddTestToSubjectTab',
+                        testname: testName
+                    }
+                    before(function () {
+                        HomePage.clickAutoTestCreatorLink()
+                        AutoTestCreationModal.selectTestTopic()
+                        testName = AutoTestCreationModal.modifyTestName()
+                        AutoTestCreationModal.addAQuestion(question)
+                        AutoTestCreationModal.saveBtn.click()
+                        browser.pause(500)
+                        AutoTestCreationModal.addTestToSubjectTab(payload.tab)
+                    })
+                    after(function () {
+                        HomePage.deleteTest(payload)
+                    })
+                    describe(`Then the test is added`, function () {
+                        before(function () {
+                            $('.menu-item-home-link').click() // Temp change later
+                            HomePage.waitForLoadingToComplete()
+                            HomePage.clickSubjectTab(payload.tab)
+                        })
+                        it('And the test is shown in the subject tab card', function () {
+                            expect(HomePage.isTestCardPresent(testName)).toBe(true)
+                        })
+                    })
+                })
             })
         })
     })

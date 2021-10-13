@@ -145,11 +145,6 @@ describe('Navigation', function () {
                         !isSecondaryLogin && expect(renewAccountBtn.getText()).toBe('RENEW')
                     })
                     it('should be visible', function () {
-                        console.log('secondaryLogin: ', secondaryLogin)
-                        console.log('expected: ', expected)
-                        console.log('expecisSecondaryLoginted: ', isSecondaryLogin)
-                        console.log('expected: ', expected)
-                        console.log('renewAccountBtn.isExisting(): ', renewAccountBtn.isExisting())
                         expect(renewAccountBtn.isExisting()).toBe(expected)
                     })
                     it('should be enabled', function () {

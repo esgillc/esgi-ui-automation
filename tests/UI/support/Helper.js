@@ -353,6 +353,12 @@ function Helper () {
         this.isModalVisible() && browser.click('.close-popup, .close')
     }
 
+    this.inplayerPopover = () => {
+        // this.waitForPreLoaderToDisappear()
+        $('div.inmplayer-popover-wrapper').isDisplayed() && browser.click('div.inmplayer-popover-close-button')
+        browser.pause(500)
+    }
+
     this.acceptCookie = () => {
         const css = '.btn-primary=ACCEPT'
         if ($(css).isDisplayed()) {

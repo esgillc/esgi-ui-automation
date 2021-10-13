@@ -57,11 +57,10 @@ class HomePage extends Page {
             titlecss: '.title',
             ellipsiscss: '.edit-icon',
             piecss: '.highcharts-series-group',
-            testcss: '.btn-test',
-            detailcss: '.details-btn-holder',
-            resultlabelcss: '.info .correct',
-            correctpercentagecss: '.legend .correct .percents',
-            incorrectpercentagecss: '.legend .incorrect .percents',
+            testcss: '.student-test-button',
+            detailcss: '[class*="dent-test-details"]',
+            resultlabelcss: '[class*="info"] [class*="correct"]',
+            percentagescss: '[class*="percents"]',
             historycss: '.history-btn-holder'
         }
 
@@ -775,6 +774,7 @@ class HomePage extends Page {
     getTestCardObj (name) {
         const objCss = this.testcardObjCss
         const card = this.getTestCardByName(name)
+        const percentages = card.$$(objCss.percentagescss)
         return {
             title: card.$(objCss.titlecss),
             ellipsis: card.$(objCss.ellipsiscss),
@@ -782,8 +782,8 @@ class HomePage extends Page {
             test: card.$(objCss.testcss),
             detail: card.$(objCss.detailcss),
             resultlabel: card.$(objCss.resultlabelcss),
-            correctpercentage: card.$(objCss.correctpercentagecss),
-            incorrectpercentage: card.$(objCss.incorrectpercentagecss),
+            correctpercentage: percentages[0],
+            incorrectpercentage: percentages[1],
             history: card.$(objCss.historycss)
         }
     }
@@ -832,16 +832,13 @@ class HomePage extends Page {
         this.clickSubjectTab(payload.tab)
         this.clickStudentByName(payload.studentname)
         this.clickDetailsButton(payload.testname)
-        if ($('select.form-control option').getText() !== 'None' && $(this.modalSaveButtonCss).isDisplayed()) {
-            $(this.modalSaveButtonCss).click()
-            browser.pause(1000)
-            $('.edit-buttons a').click()
-            browser.pause(1000)
-            // $$('select.form-control option').forEach(() => {
-            //     $('.edit-buttons a').click()
-            //     browser.pause(1000)
-            // })
-           //  $('button.btn-edit').click() // Click Save button.
+        if ($('select.form-control option').getText() !== 'None') {
+            $$('select.form-control option').forEach(function (option) {
+                $('.edit-button').click()
+                browser.pause(1000)
+                $('.delete-test-session-link').click()
+                browser.pause(1000)
+            })
         }
         $('button.btn-close').click()
         this.waitForLoadingToComplete()

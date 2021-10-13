@@ -740,7 +740,7 @@ class HomePage extends Page {
     }
 
     getTestCardByName (name) {
-        return $(`.card[data-name="${name}"]`)
+        return $(`[data-name="${name}"]`)
         // return this.getTestCardTitleByName(name).$('..').$('..')
     }
 

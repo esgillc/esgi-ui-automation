@@ -55,7 +55,7 @@ class HomePage extends Page {
 
         this.testcardObjCss = {
             titlecss: '.title',
-            ellipsiscss: '.edit-icon',
+            ellipsiscss: '.fa-ellipsis-v',
             piecss: '.highcharts-series-group',
             testcss: '.student-test-button',
             detailcss: '[class*="dent-test-details"]',
@@ -86,8 +86,8 @@ class HomePage extends Page {
         this.subjectsAndTestsPanelCss = `${this.rightPanelCss} .right-panel-box.manage-controls`
 
         // Reports
-        this.reportsPanelCss = `${this.rightPanelCss} .report-btn-panel`
-        this.reportsCss = `${this.reportsPanelCss} .report-btn`
+        this.reportsPanelCss = `[class*="panelBody"]`
+        this.reportsCss = `${this.reportsPanelCss} a`
 
         // Close Modal
         this.modalHeaderSectionCss = `${this.modal} .modal-header`

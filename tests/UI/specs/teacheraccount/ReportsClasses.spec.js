@@ -16,7 +16,7 @@ describe('TeacherAccount - Reports', function () {
     })
     describe('LogIn', function () {
         before(function () {
-            LoginPage.login(Users.teacher.user2.credentials)
+            LoginPage.login(Users.teacher.user6.credentials)
             HomePage.selectSchoolYear('2021-2022')
         })
         it('should be logged in', function () {

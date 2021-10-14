@@ -42,7 +42,7 @@ const Users = {
         },
         user4: {
             credentials: {
-                username: 'sshields1',
+                username: 'automation0004',
                 password: 'automation01!'
             },
             secondary: {
@@ -410,11 +410,11 @@ const Reports = {
                 },
                 {
                     name: 'Student Detail',
-                    title: [] // 'Student Detail Report'
+                    title: 'Student Detail Report'
                 },
                 {
                     name: 'Student Progress',
-                    title: [] // 'Student Progress Report'
+                    title: 'Student Progress Report'
                 },
                 {
                     name: 'Untested Students',
@@ -422,7 +422,7 @@ const Reports = {
                 },
                 {
                     name: 'Group Totals',
-                    title: [] // 'Group Totals Report'
+                    title: 'Group Totals Report'
                 },
                 {
                     name: 'Group Grades',

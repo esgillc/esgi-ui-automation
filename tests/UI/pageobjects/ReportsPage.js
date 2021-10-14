@@ -292,7 +292,12 @@ class ReportsPage extends Page {
             this.closeModal()
             browser.pause(2000)
         } catch (error) {
-            browser.refresh()
+            const cancelBtn = $('span=CANCEL')
+            if ($('.alert').isDisplayed()) {
+                cancelBtn.isDisplayed() && cancelBtn.click()
+            } else {
+                browser.refresh()
+            }
             this.waitForLoadingToComplete(null, timeout)
             browser.pause(2000)
         }

@@ -422,7 +422,7 @@ const Reports = {
                 },
                 {
                     name: 'Group Totals',
-                    title: 'Group Totals Report'
+                    title: 'Group Total Report'
                 },
                 {
                     name: 'Group Grades',

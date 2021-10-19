@@ -13,7 +13,20 @@ const path = require('path')
 global.downloadDir = path.join(__dirname, '/pdfs/data/actual')
 // eslint-disable-next-line no-undef
 console.log('Downloads Directory is : ', downloadDir)
-
+let chromeArgs = [
+    '--no-sandbox',
+    '--test-type',
+    '--disable-infobars',
+    '--disable-gpu',
+    '--window-size=1920,1080'
+]
+const headed = process.env.HEADEDMODE
+let webdriverPath = '/'
+if (headed) {
+    webdriverPath = '/wd/hub'
+} else {
+    chromeArgs.push('--headless')
+}
 exports.config = {
     runner: 'local',
     credentials: {
@@ -154,14 +167,7 @@ exports.config = {
                 screenResolution: '1920x1080x24'
             },
             'goog:chromeOptions': {
-                args: [
-                    '--no-sandbox',
-                    '--test-type',
-                    '--headless', // Windows server doesn't like headless mode
-                    '--disable-infobars',
-                    '--disable-gpu',
-                    '--window-size=1920,1080'
-                ],
+                args: chromeArgs,
                 prefs: {
                     'directory_upgrade': true,
                     'prompt_for_download': false,
@@ -272,7 +278,7 @@ exports.config = {
     },
     hostname: 'localhost',
     port: 4444,
-    // path: '/wd/hub',
+    path: webdriverPath,
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

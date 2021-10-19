@@ -145,7 +145,7 @@ describe('Navigation', function () {
                         !isSecondaryLogin && expect(renewAccountBtn.getText()).toBe('RENEW')
                     })
                     it('should be visible', function () {
-                        // expect(renewAccountBtn.isExisting()).toBe(expected)
+                        expect(renewAccountBtn.isExisting()).toBe(expected)
                     })
                     it('should be enabled', function () {
                         !isSecondaryLogin && expect(renewAccountBtn.isEnabled()).toBe(expected)

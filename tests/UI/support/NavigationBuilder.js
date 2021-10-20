@@ -17,7 +17,7 @@ const WarmUpBuilder = function () {
         login: function (credentials) {
             try {
                 LoginPage.login(credentials)
-                HomePage.selectSchoolYear('2020-2021')
+                HomePage.selectSchoolYear('2021-2022')
             } catch (e) {
                 browser.emit('warmuperror', e)
             }

@@ -1,8 +1,11 @@
 const NavigationBuilder = require('../support/NavigationBuilder')
 describe('EnvironmentPrep - WarmupReports1', function () {
     const timeout = 3000
-    let warmUp = NavigationBuilder.call()
-    warmUp.onWarmupError()
+    let warmUp
+    before(function () {
+        warmUp = NavigationBuilder.call()
+        warmUp.onWarmupError()
+    })
     after(function () {
     })
     describe('WarmUp', function () {

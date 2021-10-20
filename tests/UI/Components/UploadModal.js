@@ -17,7 +17,6 @@ class UploadModal extends Modal {
     async uploadImage () {
         // find selectors
         const input = $('#file-upload')
-        const submitBtn = $('#file-submit')
 
     // store test file path
         const filePath = '/Users/dan/development/esgi-ui-automation/tests/UI/resources/images/correct-file-type-01.gif' // path.join(__dirname, '../data/chrome.png')

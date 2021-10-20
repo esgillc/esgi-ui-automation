@@ -199,7 +199,7 @@ class Global {
     }
     getTopMenu (name) {
         let cssPre = '.navigation a[href="/esgi'
-        if (name.toLowerCase() === 'home') { return $(`${cssPre}"]`) }
+        if (name.toLowerCase() === 'home') { return $(`${cssPre}/"]`) }
         return $(`${cssPre}/${name
             .toLowerCase()
             .split(' ')

@@ -128,7 +128,7 @@ describe('Signup page - Signup_Rules_ActivationCode', function () {
         describe('When I enter a linked Activation Code', function () {
             let activationCode
             before(function () {
-                activationCode = '3DHF8236'
+                activationCode = '4D8B79A3'
                 SignupPage.setActivationCode(activationCode)
             })
             it('Then school drowpdown should be displayed', function () {
@@ -146,7 +146,7 @@ describe('Signup page - Signup_Rules_ActivationCode', function () {
         describe('When I enter an unlinked Activation Code', function () {
             let activationCode
             before(function () {
-                activationCode = '29D1BC7B'
+                activationCode = '8F1662H3'
                 SignupPage.setActivationCode(activationCode)
                 SignupPage.loseFocus()
             })

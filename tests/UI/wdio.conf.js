@@ -121,7 +121,7 @@ exports.config = {
             `${dir}/specs/LoadPieCharts.spec.js`
         ],
         signup: [
-            `${dir}/specs/Signup_Rules.spec.js`,
+            `${dir}/specs/Signup_*.spec.js`,
             `${dir}/specs/WebFront.spec.js`
         ],
         criticalpath: [

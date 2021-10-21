@@ -184,7 +184,7 @@ describe('HomePage', function () {
                     firstname: '00firstTemp',
                     lastname: '00lastTemp'
                 }
-                HomePage.deleteStudent(payload)
+                // HomePage.deleteStudent(payload)
             })
             describe('AddStudent', function () {
                 before(function () {
@@ -206,20 +206,20 @@ describe('HomePage', function () {
                     it('should edit a student', function () {
                         expect(HomePage.isStudentPresent(`${payload.firstname} ${payload.lastname}`)).toBe(true)
                     })
-                    describe('DeleteStudent', function () {
-                        let payload
-                        before(function () {
-                            payload = {
-                                classname: 'Buckhoff\'s Class',
-                                firstname: '00NewFirst',
-                                lastname: '00Newlast'
-                            }
-                            HomePage.deleteStudent(payload)
-                        })
-                        it('should delete a student', function () {
-                            browser.pause(1000)
-                        })
-                    })
+                    // describe('DeleteStudent', function () {
+                    //     let payload
+                    //     before(function () {
+                    //         payload = {
+                    //             classname: 'Buckhoff\'s Class',
+                    //             firstname: '00NewFirst',
+                    //             lastname: '00Newlast'
+                    //         }
+                    //         // HomePage.deleteStudent(payload)
+                    //     })
+                    //     it('should delete a student', function () {
+                    //         browser.pause(1000)
+                    //     })
+                    // })
                 })
             })
         })

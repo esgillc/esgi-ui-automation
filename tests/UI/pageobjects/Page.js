@@ -21,6 +21,7 @@ export default class Page {
         browser.url(this.url)
         this.waitForPageToLoad()
         this.waitForLoadingToComplete()
+        Helper.acceptCookie()
     }
 
     getTitle () {

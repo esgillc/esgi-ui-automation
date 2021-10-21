@@ -20,7 +20,7 @@ class HomePage extends Page {
         // Subject Tabs
         this.subjectTabComponentCss = '.subject-tabs'
 
-        this.subjectTabCss = `${this.subjectTabComponentCss} .subject-tab`
+        this.subjectTabCss = `${this.subjectTabComponentCss} [data-name]`
 
         this.leftMenuCss = '.main .left'
         this.leftMenuCollaspeButtonCss = `${this.leftMenuCss} .collapse-button`

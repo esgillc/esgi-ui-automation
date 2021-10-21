@@ -40,8 +40,7 @@ describe('Signup page - Signup_Registration', function () {
                             subjecttabs: [
                                 'K - ELA',
                                 'K - Math',
-                                'K - Sight Words',
-                                'Add Subject Tab'
+                                'K - Sight Words'
                             ]
                         }
                     }
@@ -96,8 +95,7 @@ describe('Signup page - Signup_Registration', function () {
                             subjecttabs: [
                                 'K - ELA',
                                 'K - Math',
-                                'K - Sight Words',
-                                'Add Subject Tab'
+                                'K - Sight Words'
                             ]
                         }
                     }

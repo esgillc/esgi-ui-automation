@@ -22,9 +22,12 @@ let chromeArgs = [
 ]
 const headed = process.env.HEADEDMODE
 let webdriverPath = '/'
+let specRetries
 if (headed) {
+    specRetries = 0
     webdriverPath = '/wd/hub'
 } else {
+    specRetries = 1
     chromeArgs.push('--headless')
 }
 exports.config = {
@@ -143,7 +146,7 @@ exports.config = {
     /**
      * The number of times to retry the entire specfile when it fails as a whole
      */
-    specFileRetries: 1,
+    specFileRetries: specRetries,
     /**
      * Delay in seconds between the spec file retry attempts
      */
@@ -219,7 +222,7 @@ exports.config = {
 
     waitforInterval: 2000,
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 15000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response

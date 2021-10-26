@@ -701,14 +701,6 @@ class HomePage extends Page {
         this.deleteItem()
     }
 
-    deleteStudent (payload) {
-        const studentname = `${payload.firstname} ${payload.lastname}`
-        if (!this.isStudentPresent(studentname)) return
-        this.clickClass(payload.classname)
-        this.studentObjs(studentname).edit.click()
-        this.deleteItemStudent()
-    }
-
     deleteItem () {
         browser.pause(1000)
         browser.click(this.removeLinkCss)

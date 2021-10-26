@@ -1,5 +1,6 @@
 import LoginPage from '../pageobjects/LoginPage'
 import HomePage from '../pageobjects/HomePage'
+import StudentManager from '../pageobjects/StudentManager'
 import Global from '../support/Global'
 import {Users} from '../fixtures/data'
 
@@ -178,11 +179,14 @@ describe('Prod-HomePage', function () {
             let payload
             before(function () {
                 payload = {
+                    teacher: 'Daniel Annankra',
                     classname: 'Class001',
                     firstname: '01firstTemp',
                     lastname: '01lastTemp'
                 }
-                HomePage.deleteStudent(payload)
+                if (HomePage.isStudentPresent(`${payload.firstname} ${payload.lastname}`)) {
+                    StudentManager.deleteStudent(payload)
+                }
             })
             describe('AddStudent', function () {
                 before(function () {
@@ -208,11 +212,14 @@ describe('Prod-HomePage', function () {
                         let payload
                         before(function () {
                             payload = {
+                                teacher: 'Daniel Annankra',
                                 classname: 'Class001',
                                 firstname: '00NewFirst',
                                 lastname: '00Newlast'
                             }
-                            HomePage.deleteStudent(payload)
+                            StudentManager.navigate()
+                            StudentManager.deleteStudent(payload)
+                            HomePage.open()
                         })
                         it('should delete a student', function () {
                             expect(HomePage.isStudentPresent(`${payload.firstname} ${payload.lastname}`)).toBe(false)

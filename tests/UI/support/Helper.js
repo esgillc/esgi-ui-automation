@@ -153,7 +153,7 @@ function Helper () {
     this.hideElements = function () {
         browser.execute(() => {
             // eslint-disable-next-line no-undef
-            return document.querySelectorAll('.card-header span[data-bind*="report"]').forEach(function (ele) { ele.style.display = 'none' })
+            return document.querySelectorAll('.card-header div:nth-child(2) span').forEach(function (ele) { ele.style.display = 'none' })
         })
         this.waitForLoadingToComplete()
     }

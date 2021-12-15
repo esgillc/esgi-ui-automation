@@ -107,8 +107,8 @@ class HomePage extends Page {
         this.createSubjectTabCss = '.subject-tab.create'
     }
 
-    getComponentCss (name) {
-        const suffix = 'all-box-item_All-'
+    getComponentCss (name, suffix) {
+        suffix = suffix || 'all-box-item_All-'
         return `#${suffix}${name}`
     }
 

@@ -61,7 +61,9 @@ export default options => {
     gulp.task('test', gulp.series(async function test () {
         return runTest('test')
     }))
-
+    gulp.task('specialist', gulp.series(async function test () {
+        return runTest(['specialist'])
+    }))
     gulp.task('teacher', gulp.series(async function test () {
         return runTest(['teacheracct'])
     }))

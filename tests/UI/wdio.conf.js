@@ -111,6 +111,10 @@ exports.config = {
             // `${dir}/specs/districtadminaccount/Reports*.spec.js`
             // `${dir}/specs/**/*Report*.spec.js`
         ],
+        specialist: [
+            // `${dir}/specs/specialistaccount/DistrictAdminHomePage_Add.spec.js`,
+            `${dir}/specs/specialistaccount/ReportsDistrictSpecialistSchool.spec.js`
+        ],
         prodsmoke: [
             `${dir}/specs/Login.spec.js`,
             `${dir}/specs/WebFront.spec.js`,

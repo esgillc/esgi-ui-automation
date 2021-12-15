@@ -289,7 +289,14 @@ class ReportsPage extends Page {
             this.openReport(name)
             browser.pause(2000)
             title = browser.getText(this.reportTitleCss)
-            this.closeModal()
+            const x = $('.modal-footer button.btn-primary')
+            if (x.isDisplayed()) {
+                x.click()
+                this.waitForLoadingToComplete()
+                $$('.close')[1].click()
+            } else {
+                this.closeModal()
+            }
             browser.pause(2000)
         } catch (error) {
             const cancelBtn = $('span=CANCEL')

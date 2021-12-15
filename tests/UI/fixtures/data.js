@@ -1,4 +1,24 @@
 const Users = {
+    speacialist: {
+        user0: {
+            credentials: {
+                username: 'kshumboldt',
+                password: 'automation01!'
+            }
+        },
+        district: {
+            credentials: {
+                username: 'isd4me',
+                password: 'automation01!'
+            }
+        },
+        school: {
+            credentials: {
+                username: 'ISSGustafson',
+                password: 'automation01!'
+            }
+        }
+    },
     teacher: {
         credentials: {
             username: 'sbuckhoff',
@@ -333,6 +353,124 @@ const TeacherReportsObj = [
 ]
 
 const Reports = {
+    specialists: {
+        initial: {
+            types: [
+                'District Growth',
+                'Pie Charts',
+                'Item Analysis',
+                'Teacher Activity'
+            ],
+            props: [
+                {
+                    name: 'District Growth',
+                    title: 'District Growth'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Teacher Activity',
+                    title: 'Teacher Activity'
+                }
+            ]
+        },
+        schoolspecialists: {
+            types: [
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        },
+        specificschoolspecialist: {
+            types: [
+                'Parent Letter',
+                'Flashcards',
+                'Bingo',
+                'Student Detail',
+                'Student Progress',
+                'Untested Students',
+                'Group Totals',
+                'Group Grades',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Parent Letter',
+                    title: 'Parent Letter Settings'
+                },
+                {
+                    name: 'Flashcards',
+                    title: 'Flashcards Settings'
+                },
+                {
+                    name: 'Student Detail',
+                    title: 'Student Detail Report'
+                },
+                {
+                    name: 'Student Progress',
+                    title: 'Student Progress Report'
+                },
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Group Totals',
+                    title: 'Group Total Report'
+                },
+                {
+                    name: 'Group Grades',
+                    title: 'Group Grade Report'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        },
+        specialistgroups: {
+            types: [
+                'Untested Students',
+                'Bingo',
+                'Item Analysis',
+                'Pie Charts'
+            ],
+            props: [
+                {
+                    name: 'Untested Students',
+                    title: 'Untested Students'
+                },
+                {
+                    name: 'Item Analysis',
+                    title: 'Item Analysis'
+                },
+                {
+                    name: 'Pie Charts',
+                    title: 'Pie Charts'
+                }
+            ]
+        }
+    },
     teacher: {
         initial: {
             types: [

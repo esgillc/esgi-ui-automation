@@ -42,6 +42,7 @@
         "warmup": "gulp warmup",
         "bingo": "gulp bingo",
         "classtotals": "gulp classtotals",
+        "specialist": "gulp specialist",
         "flashcards": "gulp flashcards",
         "parentletter": "gulp parentletter",
         "studentdetail": "gulp studentdetail",

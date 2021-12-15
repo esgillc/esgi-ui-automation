@@ -6,7 +6,7 @@ class StudentManager extends Page {
     constructor () {
         super()
         this.title = 'ESGI'
-        this.url = '/esgi/student-manager#'
+        this.url = '/esgi/student-manager'
         this.headerCss = '.header h1'
 
         this.searchBoxCss = 'input.form-control'

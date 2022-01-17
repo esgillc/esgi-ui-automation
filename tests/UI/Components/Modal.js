@@ -11,6 +11,8 @@ export default class Modal {
 
         this.modalHeaderSectionCss = `${this.modalCss} .modal-header`
         this.modalHeaderCss = `${this.modalHeaderSectionCss} h3`
+        this.cancelCss = '.modal-footer :not(.btn-primary)'
+        this.saveCss = '.modal-footer .btn-primary'
 
         this.modalContentCss = '.modal-content'
         this.closeModalCss = '.modal-header .close,.fa-close,.close-popup,.close:first-child'
@@ -23,6 +25,19 @@ export default class Modal {
     get firstModalContent () { return $(this.modalContentCss) }
     get secondModalContent () { return this.modalContents[1] }
     get thirdModalContent () { return this.modalContents[2] }
+
+    get cancelBtn () { return $(this.cancelCss) }
+    get saveBtn () { return $(this.saveCss) }
+
+    cancel () {
+        this.cancelBtn.click()
+        // this.waitForLoadingToComplete()
+    }
+
+    save () {
+        this.saveBtn.click()
+        this.waitForLoadingToComplete()
+    }
 
     closeModal () {
         browser.click(this.closeModalCss)

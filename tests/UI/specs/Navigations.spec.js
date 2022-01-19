@@ -130,7 +130,7 @@ describe('Navigation', function () {
                         })
                     })
                 })
-                describe.only('RenewAccount', function () {
+                describe('RenewAccount', function () {
                     let renewAccountBtn
                     const isSecondaryLogin = !!secondaryLogin
                     const expected = !isSecondaryLogin

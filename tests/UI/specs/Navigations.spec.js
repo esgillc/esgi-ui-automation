@@ -192,7 +192,7 @@ describe('Navigation', function () {
                     expect(HomePage.getTitle()).toBe(HomePage.title)
                 })
                 it('url is correct', function () {
-                    expect(browser.getUrl()).toBe(HomePage.absoluteUrl())
+                    expect(browser.getUrl()).toBe(`${HomePage.absoluteUrl()}/`)
                 })
             })
         })

@@ -17,11 +17,9 @@ describe('MyAccountModal', function () {
     })
     describe('Given I open My Accounts Modal', function () {
         let info
-        let select
         before(function () {
             Global.clickMyAccountMenu()
             info = $$('.input-label.info.value')
-            select = $$('select')
         })
         after(function () {
             MyAccountModal.cancel()

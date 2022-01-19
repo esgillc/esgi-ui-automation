@@ -8,7 +8,6 @@ export default class Modal {
         this.modalCss = '.modal-dialog'
 
         this.modalBodyCss = `${this.modalCss} .modal-body`
-
         this.modalHeaderSectionCss = `${this.modalCss} .modal-header`
         this.modalHeaderCss = `${this.modalHeaderSectionCss} h3`
         this.cancelCss = '.modal-footer :not(.btn-primary)'
@@ -31,12 +30,10 @@ export default class Modal {
 
     cancel () {
         this.cancelBtn.click()
-        // this.waitForLoadingToComplete()
     }
 
     save () {
         this.saveBtn.click()
-        this.waitForLoadingToComplete()
     }
 
     closeModal () {

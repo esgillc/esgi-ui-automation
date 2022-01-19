@@ -108,6 +108,12 @@ const Users = {
                 password: 'automation01!'
             }
         },
+        user11: {
+            credentials: {
+                username: 'MyProfileTest1',
+                password: 'automation01!'
+            }
+        },
         gsteach1: {
             credentials: {
                 username: 'gsteach1',

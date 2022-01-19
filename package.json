@@ -108,6 +108,7 @@
         "supertest": "^3.0.0",
         "supertest-as-promised": "^4.0.2",
         "through2": "^3.0.1",
+        "underscore": "^1.13.2",
         "wdio-image-comparison-service": "^1.13.6",
         "wdio-json-reporter": "^2.0.0",
         "wdio-screenshot": "^0.6.0",

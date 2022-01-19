@@ -1,7 +1,7 @@
 version: '3'
 services:
-  chrome83:
-    image: selenoid/vnc:chrome_83.0
+  chrome97:
+    image: selenoid/vnc_chrome:97.0
     container_name: chrome
     privileged: true
     shm_size: '2g'

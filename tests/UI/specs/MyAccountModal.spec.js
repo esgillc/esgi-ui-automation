@@ -17,11 +17,9 @@ describe('MyAccountModal', function () {
     })
     describe('Given I open My Accounts Modal', function () {
         let info
-        let select
         before(function () {
             Global.clickMyAccountMenu()
             info = $$('.input-label.info.value')
-            select = $$('select')
         })
         after(function () {
             MyAccountModal.cancel()
@@ -45,34 +43,34 @@ describe('MyAccountModal', function () {
             expect($('.expiration-info span').getText()).toBe('Expiration Date 01/01/2075RENEW')
         })
         it('And the First Name is My', function () {
-            expect($('#text_input_First_Name').getValue()).toBe('My')
+            expect(MyAccountModal.firstname.getValue()).toBe('My')
         })
         it('And the Last Name is Profile', function () {
-            expect($('#text_input_Last_Name').getValue()).toBe('Profile')
+            expect(MyAccountModal.lastname.getValue()).toBe('Profile')
         })
         it('And the Email is Profile', function () {
-            expect($('#text_input_Email').getValue()).toBe('test@esgisoftware.com')
+            expect(MyAccountModal.email.getValue()).toBe('test@esgisoftware.com')
         })
         it('And the Track Type is Quarter', function () {
-            expect($('#text_input_Track_Type').getValue()).toBe('Quarter')
+            expect(MyAccountModal.trackType.getValue()).toBe('Quarter')
         })
         it('And the User name is Quater', function () {
-            expect($('#text_input_User_Name').getValue()).toBe('MyProfileTest')
+            expect(MyAccountModal.username.getValue()).toBe('MyProfileTest')
         })
         it('And the Title is Ms.', function () {
-            expect(select[0].$(`option[value="${select[0].getValue()}"]`).getText()).toBe('Ms.')
+            expect(MyAccountModal.getTitle()).toBe('Ms.')
         })
         it('And the State is California.', function () {
-            expect(select[1].$(`option[value="${select[1].getValue()}"]`).getText()).toBe('California')
+            expect(MyAccountModal.getState()).toBe('California')
         })
         it('And the Country is United States', function () {
-            expect(select[2].$(`option[value="${select[2].getValue()}"]`).getText()).toBe('United States')
+            expect(MyAccountModal.getCountry()).toBe('United States')
         })
         it('And the Track Name is ESGI Test', function () {
-            expect(select[3].$(`option[value="${select[3].getValue()}"]`).getText()).toBe('ESGI Test')
+            expect(MyAccountModal.getTrackName()).toBe('ESGI Test')
         })
         it('And the the Password is dotted out', function () {
-            const password = $('#text_input_Password').getValue()
+            const password = MyAccountModal.password.getValue()
             expect(password).toBe('!!!!!!!!')
             expect(password.length).toEqual(8)
         })

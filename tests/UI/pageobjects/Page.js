@@ -4,7 +4,7 @@ import Helper from '../support/Helper'
 export default class Page {
     absoluteUrl (url) {
         url = url || this.url
-        return `${browser.options.baseUrl}${url}/`
+        return `${browser.options.baseUrl}${url}`
     }
 
     open (path) {

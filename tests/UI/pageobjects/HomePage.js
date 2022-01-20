@@ -104,7 +104,7 @@ class HomePage extends Page {
         // Subject Tab Scroll arrors
         this.doubleRightarrowsCss = '.fa-angle-double-right'
 
-        this.createSubjectTabCss = '.subject-tab.create'
+        this.createSubjectTabCss = '.subject-create-link'
     }
 
     getComponentCss (name, suffix) {

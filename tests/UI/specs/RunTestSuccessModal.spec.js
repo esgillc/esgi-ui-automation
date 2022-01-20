@@ -78,11 +78,11 @@ describe('RunTestSuccessModal', function () {
                 let flashcardsResults
                 before(function () {
                     HomePage.clickFlashcardsReport()
-                    let testType = $$('[data-name="Segmenting"]')[1]
+                    let results = $('td.test-name-cell').$('..').$$('.results-cell')
                     flashcardsResults = {
-                        correct: parseInt(testType.$('[data-bind="text: correct"]').getText()),
-                        incorrect: parseInt(testType.$('[data-bind="text: incorrect"]').getText()),
-                        untested: parseInt(testType.$('[data-bind="text: untested"]').getText())
+                        correct: parseInt(results[0].getText()),
+                        incorrect: parseInt(results[1].getText()),
+                        untested: parseInt(results[2].getText())
                     }
                     HomePage.waitForLoadingToComplete()
                 })

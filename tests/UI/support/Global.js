@@ -36,7 +36,7 @@ class Global {
         this.testResultsVerbiageCss = '.custom_verbiage input'
 
         // Student Manager
-        this.studentManagerSearchboxCss = '#text_input_student_filter'
+        this.studentManagerSearchboxCss = '#text_input_student-by-name-filter'
     }
 
     get hamburgerMenu () { return $(this.hamburgerMenuCss) }
@@ -265,7 +265,7 @@ class Global {
     }
 
     searchResults () {
-        return $$('tbody [data-name]')
+        return $$('tr [data-name]')
     }
 
     searchResultsCount () {

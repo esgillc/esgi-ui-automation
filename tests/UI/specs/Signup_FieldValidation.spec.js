@@ -271,7 +271,7 @@ describe('Signup page - Signup_FieldValidation', function () {
                     })
                 })
             })
-            describe.only('Activation Code', function () {
+            describe('Activation Code', function () {
                 let promoCode
                 let fieldProperties
                 before(function () {

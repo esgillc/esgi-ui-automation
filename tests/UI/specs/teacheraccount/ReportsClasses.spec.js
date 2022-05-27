@@ -79,7 +79,7 @@ describe('TeacherAccount - Reports', function () {
                                     reportTitle = ReportsPage.getReportTitle('Class Grades')
                                 })
                                 it('should be correct', function () {
-                                    expect(reportTitle).toBe('Setup Grade Scales')
+                                    expect(reportTitle).toBe('Grade Scale')
                                 })
                             })
                             describe('Bingo', function () {

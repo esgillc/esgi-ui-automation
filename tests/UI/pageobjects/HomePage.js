@@ -86,8 +86,8 @@ class HomePage extends Page {
         this.subjectsAndTestsPanelCss = `${this.rightPanelCss} .right-panel-box.manage-controls`
 
         // Reports
-        this.reportsPanelCss = `[class*="panelBody"]`
-        this.reportsCss = `${this.reportsPanelCss} a`
+        this.reportsPanelCss = `[class*="rightPanelBox"]`
+        this.reportsCss = `${this.reportsPanelCss} [class*="reportTitle"]`
 
         // Close Modal
         this.modalHeaderSectionCss = `${this.modal} .modal-header`
@@ -155,8 +155,8 @@ class HomePage extends Page {
     get subjectTab () { return $(this.subjectTabCss) }
 
     get subjectsAndTestsPanel () { return $(this.subjectsAndTestsPanelCss) }
-    get addTestLink () { return this.subjectsAndTestsPanel.$('.home-add-test-link') }
-    get organizeEditCreateNewSubjectLink () { return this.subjectsAndTestsPanel.$('.home-manage-subjects-link') }
+    get addTestLink () { return $('.home-add-test-link') }
+    get organizeEditCreateNewSubjectLink () { return $$('.home-manage-subjects-link')[0] }
     get doubleRightarrows () { return $(this.doubleRightarrowsCss) }
 
     get leftMenu () { return $(this.leftMenuCss) }
@@ -806,6 +806,7 @@ class HomePage extends Page {
         this.addTestLink.click()
         browser.pause(1000)
         this.handleSubjectTabSchoolYearPrompt()
+        this.handleCurrentSchoolYearPrompt()
         this.waitForLoadingToComplete()
     }
     // Organize, edit, and create new subjects and tests Reports
@@ -839,6 +840,13 @@ class HomePage extends Page {
         const css = 'span*=PLEASE NOTE: If you are making changes to your Subject Tabs'
         if ($(css).isDisplayed()) {
             $('button=OK').click()
+        }
+        this.waitForLoadingToComplete()
+    }
+    handleCurrentSchoolYearPrompt () {
+        const css = '.alert-button-dismiss'
+        if ($(css).isDisplayed()) {
+            $(css).click()
         }
         this.waitForLoadingToComplete()
     }

@@ -24,14 +24,15 @@ class StudentManager extends Page {
     }
     deleteStudent (payload) {
         const studentname = `${payload.firstname} ${payload.lastname}`
-        $('#text_input_student_filter').setValue(studentname)
-        $('select.teacher-dropdown').click()
+        $('#text_input_student-by-name-filter').setValue(studentname)
+        $('[class*="dropdownField"]').click()
         browser.pause(1000)
-        $(`option=${payload.teacher}`).click()
+        // $(`span=${payload.teacher}`).click()
+        $$('[class*="listItem"]')[1].click()
         browser.pause(1000)
-        $('.ace.select-students-input').click()
+        $('.select_students').click()
         browser.pause(1000)
-        $$('.student_operations a')[2].click() // Click Delete Button
+        $$('.student_operations .btn-link')[2].click() // Click Delete Button
         $('.footer_buttons .btn-primary').click()
         this.waitForLoadingToComplete()
     }

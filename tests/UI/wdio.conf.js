@@ -137,7 +137,9 @@ exports.config = {
             `${dir}/specs/AddTest.spec.js`,
             `${dir}/specs/Navigations.spec.js`,
             `${dir}/specs/TestExplorer.spec.js`,
-            `${dir}/specs/StudentManager.spec.js`
+            `${dir}/specs/StudentManager.spec.js`,
+            `${dir}/specs/Signup_*.spec.js`,
+            `${dir}/specs/WebFront.spec.js`
         ],
         warmup: [
             `${dir}/warmup/*.spec.js`

@@ -352,7 +352,7 @@ const TeacherReportsObj = [
     },
     {
         name: 'Class Totals',
-        title: 'Class Totals Report'
+        title: 'Class Total Report'
     },
     {
         name: 'Item Analysis',
@@ -486,16 +486,16 @@ const Reports = {
     teacher: {
         initial: {
             types: [
-                'Parent Letter',
-                'Flashcards',
                 'Bingo',
+                'Flashcards',
+                'Parent Letter',
                 'Student Detail',
                 'Student Progress',
-                'Untested Students',
-                'Class Totals',
                 'Class Grades',
+                'Class Totals',
                 'Item Analysis',
-                'Pie Charts'
+                'Pie Charts',
+                'Untested Students'
             ],
             props: [
                 {
@@ -520,11 +520,11 @@ const Reports = {
                 },
                 {
                     name: 'Class Totals',
-                    title: 'Class Totals Report'
+                    title: 'Class Total Report'
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Grade Scale'
                 },
                 {
                     name: 'Item Analysis',
@@ -538,16 +538,16 @@ const Reports = {
         },
         group: {
             types: [
-                'Parent Letter',
-                'Flashcards',
                 'Bingo',
+                'Flashcards',
+                'Parent Letter',
                 'Student Detail',
                 'Student Progress',
-                'Untested Students',
-                'Group Totals',
                 'Group Grades',
+                'Group Totals',
                 'Item Analysis',
-                'Pie Charts'
+                'Pie Charts',
+                'Untested Students'
             ],
             props: [
                 {
@@ -576,7 +576,7 @@ const Reports = {
                 },
                 {
                     name: 'Group Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Group Grade Report'
                 },
                 {
                     name: 'Item Analysis',
@@ -638,7 +638,7 @@ const Reports = {
                 },
                 {
                     name: 'District Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Grade Scale'
                 },
                 // {
                 //     name: 'District Growth',
@@ -677,7 +677,7 @@ const Reports = {
                 // },
                 {
                     name: 'School Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Grade Scale'
                 },
                 {
                     name: 'Item Analysis',
@@ -725,11 +725,11 @@ const Reports = {
                 },
                 {
                     name: 'Class Totals',
-                    title: 'Class Totals Report'
+                    title: 'Class Total Report'
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Grade Scale'
                 },
                 {
                     name: 'Item Analysis',
@@ -798,7 +798,7 @@ const Reports = {
                 },
                 {
                     name: 'School Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Grade Scale'
                 },
                 {
                     name: 'Item Analysis',
@@ -846,11 +846,11 @@ const Reports = {
                 },
                 {
                     name: 'Class Totals',
-                    title: 'Class Totals Report'
+                    title: 'Class Total Report'
                 },
                 {
                     name: 'Class Grades',
-                    title: 'Setup Grade Scales'
+                    title: 'Grade Scale'
                 },
                 {
                     name: 'Item Analysis',

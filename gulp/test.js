@@ -188,12 +188,10 @@ export default options => {
     gulp.task('slacksummaryreport', gulp.series(async function () {
         const axios = require('axios')
         const summary = require('../allure-report/widgets/summary.json').statistic
-        const executors = require('../allure-report/widgets/executors.json')
-        let executor, reportName, reportURL
-        if (executors.length > 0) {
-            executor = executors[0]
-            reportName = executor.buildName.split(' ')[0].trim()
-            reportURL = executor.reportUrl
+        let reportURL
+        const reportName = (process.env.JOB_NAME)
+        if (reportName) {
+            reportURL = `${process.env.BUILD_URL}/allure`
         } else {
             reportName = 'Maybe a local run'
             reportURL = 'Local Link'
